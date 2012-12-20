@@ -1,0 +1,4 @@
+pintoresco
+==========
+
+Sistema para pinturerías

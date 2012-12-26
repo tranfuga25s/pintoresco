@@ -1,10 +1,7 @@
 <?php $this->set( 'title_for_layout', "Listado de usuarios" ); ?>
 <div id="acciones">
 	<?php echo $this->Html->link( 'Nuevo Usuario', array('action' => 'add'));
-	      echo $this->Html->link( 'Lista de Obras Sociales', array('controller' => 'obras_sociales', 'action' => 'index'));
-	      echo $this->Html->link( 'Lista de Grupos', array('controller' => 'grupos', 'action' => 'index'));
-	      echo $this->Html->link( 'Lista de Medicos', array( 'controller' => 'medicos', 'action' => 'index' ) );
-	      echo $this->Html->link( 'Lista de Secretarias', array( 'controller' => 'secretarias', 'action' => 'index' ) ); ?>
+	      echo $this->Html->link( 'Lista de Grupos', array('controller' => 'grupos', 'action' => 'index')); ?>
 </div>
 <br />
 <h2>Lista de Usuarios</h2>
@@ -33,14 +30,14 @@ foreach ($usuarios as $usuario): ?>
 <p>
 <?php
 echo $this->Paginator->counter(array(
-'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+'format' => __('Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total, empezando desde {:start}, terminando en	 {:end}')
 ));
 ?>	</p>
 
 <div class="paging">
 <?php
-	echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+	echo $this->Paginator->prev('< previa', array(), null, array('class' => 'prev disabled'));
 	echo $this->Paginator->numbers(array('separator' => ''));
-	echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	echo $this->Paginator->next( 'siguiente >', array(), null, array('class' => 'next disabled'));
 ?>
 </div>

@@ -10,6 +10,10 @@ class ContactoController extends AppController {
 		parent::beforeFilter();
     }
 	
+	public function isAuthorized( $usuario ) {
+		return true;
+	}
+	
 	public function formulario() {}
 
 	public function enviar() {

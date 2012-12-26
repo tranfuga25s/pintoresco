@@ -10,7 +10,7 @@ class MarcasController extends AppController {
 	/**
 	 * Muestra el listado de acciones permitidas
 	 */
-	public function isAuthorized() {
+	public function isAuthorized( $usuario ) {
 		switch( $usuario['grupo_id'] ) {
 			case 1: // SuperAdministradores
 			case 2: // Administradores

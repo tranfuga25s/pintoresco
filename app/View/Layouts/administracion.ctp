@@ -57,23 +57,23 @@
                     <ul class="nav">
                         <li><?php echo $this->Html->link( 'Inicio', array( 'controller' => 'usuarios', 'action' => 'cpanel', 'plugin' => false ) ); ?></li>
                         <li><?php echo $this->Html->link( 'Usuarios', array( 'controller' => 'usuarios', 'action' => 'index', 'plugin' => false ) ); ?></li>
-                        <li><?php echo $this->Html->link( 'Medicos', array( 'controller' => 'medicos', 'action' => 'index', 'plugin' => false ) ); ?></li>
-                        <li><?php echo $this->Html->link( 'Secretarias', array( 'controller' => 'secretarias', 'action' => 'index', 'plugin' => false ) ); ?></li>
-                        <li><?php echo $this->Html->link( 'Turnos', array( 'controller' => 'turnos', 'action' => 'index', 'plugin' => false ) ); ?></li>
+                        <li><?php echo $this->Html->link( 'Pintores', array( 'controller' => 'pintores', 'action' => 'index', 'plugin' => false ) ); ?></li>
+                        <li><?php echo $this->Html->link( 'Obras', array( 'controller' => 'obras', 'action' => 'index', 'plugin' => false ) ); ?></li>
+                        <!-- <li><?php echo $this->Html->link( 'Turnos', array( 'controller' => 'turnos', 'action' => 'index', 'plugin' => false ) ); ?></li> -->
                         <li><a href="#">Mas</a>
                             <ul>
-                            	<li><?php echo $this->Html->link( 'Clinicas', array( 'controller' => 'clinicas', 'action' => 'index', 'plugin' => false  ) ); ?></li>
-                                <li><?php echo $this->Html->link( 'Especialidades', array( 'controller' => 'especialidades', 'action' => 'index', 'plugin' => false  ) ); ?></li>
+                            	<li><?php echo $this->Html->link( 'Especialidades', array( 'controller' => 'especialidades', 'action' => 'index', 'plugin' => false  ) ); ?></li>
+                        <!--        <li><?php echo $this->Html->link( 'Especialidades', array( 'controller' => 'especialidades', 'action' => 'index', 'plugin' => false  ) ); ?></li>
                                 <li><?php echo $this->Html->link( 'Consultorios', array( 'controller' => 'consultorios', 'action' => 'index', 'plugin' => false ) ); ?></li>
-                                <li><?php echo $this->Html->link( 'Obras Sociales', array( 'controller' => 'obras_sociales', 'action' => 'index', 'plugin' => false ) ); ?></li>
+                                <li><?php echo $this->Html->link( 'Obras Sociales', array( 'controller' => 'obras_sociales', 'action' => 'index', 'plugin' => false ) ); ?></li> -->
                                 <li><a href="#">Sistema</a>
                                     <ul>
                                         <li><?php echo $this->Html->link( 'Grupos', array( 'controller' => 'grupos', 'action' => 'index', 'plugin' => false ) ); ?></li>
-                                        <li><a href="#">Permisos</a></li>
-                                        <li><?php echo $this->Html->link( 'Auditoria', array( 'plugin' => 'audit_log', 'controller' => 'audit_log', 'action' => 'index' ) ); ?></li>
+                                        <!-- <li><a href="#">Permisos</a></li> 
+                                        <li><?php echo $this->Html->link( 'Auditoria', array( 'plugin' => 'audit_log', 'controller' => 'audit_log', 'action' => 'index' ) ); ?></li> -->
                                     </ul>
                                 </li>
-                                <li><a href="#">Notificaciones</a></li>
+                                <!-- <li><a href="#">Notificaciones</a></li> -->
                                 <li><?php echo $this->Html->link( 'Configuracion', array( 'controller' => 'configuracion', 'action' => 'ver', 'plugin' => false ) ); ?></li>
                             </ul>
                         </li>

@@ -63,9 +63,9 @@
                         <li><a href="#">Mas</a>
                             <ul>
                             	<li><?php echo $this->Html->link( 'Especialidades', array( 'controller' => 'especialidades', 'action' => 'index', 'plugin' => false  ) ); ?></li>
-                        <!--        <li><?php echo $this->Html->link( 'Especialidades', array( 'controller' => 'especialidades', 'action' => 'index', 'plugin' => false  ) ); ?></li>
-                                <li><?php echo $this->Html->link( 'Consultorios', array( 'controller' => 'consultorios', 'action' => 'index', 'plugin' => false ) ); ?></li>
-                                <li><?php echo $this->Html->link( 'Obras Sociales', array( 'controller' => 'obras_sociales', 'action' => 'index', 'plugin' => false ) ); ?></li> -->
+                                <li><?php echo $this->Html->link( 'Convenios', array( 'controller' => 'convenios', 'action' => 'index', 'plugin' => false  ) ); ?></li>
+                                <li><?php echo $this->Html->link( 'Organismos', array( 'controller' => 'organismos', 'action' => 'index', 'plugin' => false ) ); ?></li>
+                                <!--<li><?php echo $this->Html->link( 'Obras Sociales', array( 'controller' => 'obras_sociales', 'action' => 'index', 'plugin' => false ) ); ?></li> -->
                                 <li><a href="#">Sistema</a>
                                     <ul>
                                         <li><?php echo $this->Html->link( 'Grupos', array( 'controller' => 'grupos', 'action' => 'index', 'plugin' => false ) ); ?></li>

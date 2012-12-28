@@ -23,15 +23,28 @@
 <h2>Pintores</h2>
 <ul class="dash">                
    <li><?php echo $this->Html->link(
-                $this->Html->image( 'assets/marca-icono.jpg' ) 
+                $this->Html->image( 'assets/pintor-icono.jpeg' ) 
                 .'<span>Pintores</span>',
                 array( 'controller' => 'pintores', 'action' => 'index', 'plugin' => false ),
                 array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de pintores' ) ); ?></li>           
    <li><?php echo $this->Html->link(
-                $this->Html->image( 'assets/marca-icono.jpg' ) 
+                $this->Html->image( 'assets/obra-icono.jpeg' ) 
                 .'<span>Obras</span>',
                 array( 'controller' => 'obras', 'action' => 'index', 'plugin' => false ),
                 array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de pintores' ) ); ?></li>                       
+</ul>
+<h2>Convenios</h2>
+<ul class="dash">
+   <li><?php echo $this->Html->link(
+                $this->Html->image( 'assets/institucion-icono.jpeg' ) 
+                .'<span>Organismos</span>',
+                array( 'controller' => 'organismos', 'action' => 'index', 'plugin' => false ),
+                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de organismos' ) ); ?></li>
+   <li><?php echo $this->Html->link(
+                $this->Html->image( 'assets/convenios-icono.png' ) 
+                .'<span>Convenios</span>',
+                array( 'controller' => 'convenios', 'action' => 'index', 'plugin' => false ),
+                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de convenios' ) ); ?></li>	
 </ul>
 <h2>Sistema</h2>
 <ul class="dash">

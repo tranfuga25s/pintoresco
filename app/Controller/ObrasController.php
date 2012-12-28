@@ -49,4 +49,20 @@ class ObrasController extends AppController {
 		return false;
 	}
 
+	/**
+	 * Listado de pintores registrados en el sistema para la administración
+	 */
+	public function administracion_index() {
+		$this->set( 'obras', $this->paginate() );
+	}
+	
+	/**
+	 * Agregar nuevo pintor directamente
+	 */
+	 public function administracion_add() {
+	 	if( $this->request->isPost() ) {
+	 		
+	 	}
+		$this->set( 'pintores', $this->Obra->Pintor->find('list') );
+	 }
 }

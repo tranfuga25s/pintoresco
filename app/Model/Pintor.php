@@ -85,12 +85,21 @@ class Pintor extends AppModel {
 			'className' => 'Obra',
 			'foreignKey' => 'pintor_id',
 			'dependent' => false
-		),
-		'Especialidad' => array(
-			'className' => 'Especialidad',
-			'foreignKey' => 'especialidad_id',
-			'dependent' => false
 		)
 	);
-
+	
+	/**
+	 * hasAndBelongsToMany associations
+	 *
+	 * @var array
+	 */
+	public $hasAndBelongsToMany = array(
+        'Especialidad' =>
+            array(
+                'className'              => 'Especialidad',
+                'joinTable'              => 'pintor_especialidad',
+                'foreignKey'             => 'pintor_id',
+                'associationForeignKey'  => 'especialidad_id'
+            )
+		);
 }

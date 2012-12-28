@@ -1,0 +1,40 @@
+<?php $this->set( 'title_for_layout', "Lista de obras" ); ?>
+<div id="acciones">
+	<?php echo $this->Html->link( 'Nueva Obra', array( 'action' => 'add' ) );
+		  echo $this->Html->link( 'Lista de Pintores', array( 'controller' => 'pintores', 'action' => 'index' ) );
+		  echo $this->Html->link( 'Nuevo Pintor', array( 'controller' => 'pintores', 'action' => 'add' ) ); ?>
+</div>
+<h2>Obras</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+		<th><?php echo $this->Paginator->sort('id_obra', '#'); ?></th>
+		<th><?php echo $this->Paginator->sort('fecha'); ?></th>
+		<th><?php echo $this->Paginator->sort('pintor_id'); ?></th>
+		<th class="actions">Acciones</th>
+</tr>
+<?php
+foreach ($obras as $obra): ?>
+<tr>
+	<td><?php echo h($obra['Obra']['id_obra']); ?>&nbsp;</td>
+	<td><?php echo h($obra['Obra']['fecha']); ?>&nbsp;</td>
+	<td>
+		<?php echo $this->Html->link($obra['Pintor']['id_pintor'], array('controller' => 'pintors', 'action' => 'view', $obra['Pintor']['id_pintor'])); ?>
+	</td>
+	<td class="actions">
+		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $obra['Obra']['id_obra'])); ?>
+		<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $obra['Obra']['id_obra'])); ?>
+		<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $obra['Obra']['id_obra']), null, 'Esta seguro que deseo eliminar la obra?'); ?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+<p>
+<?php echo $this->Paginator->counter(array('format' => 'Pagina {:page} de {:pages}, {:current} de {:count} en total, desde {:start} al {:end}' ) ); ?>	</p>
+
+<div class="paging">
+<?php
+	echo $this->Paginator->prev('< Anterior', array(), null, array('class' => 'prev disabled'));
+	echo $this->Paginator->numbers(array('separator' => ''));
+	echo $this->Paginator->next( 'Siguiente >', array(), null, array('class' => 'next disabled'));
+?>
+</div>

@@ -89,7 +89,7 @@ class ConveniosController extends AppController {
 	public function administracion_view($id = null) {
 		$this->Convenio->id = $id;
 		if (!$this->Convenio->exists()) {
-			throw new NotFoundException(__('Invalid convenio'));
+			throw new NotFoundException( 'Convenio no encontrado' );
 		}
 		$this->set('convenio', $this->Convenio->read(null, $id));
 	}
@@ -103,10 +103,10 @@ class ConveniosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Convenio->create();
 			if ($this->Convenio->save($this->request->data)) {
-				$this->Session->setFlash(__('The convenio has been saved'));
+				$this->Session->setFlash( 'Convenio agregado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The convenio could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'El convenio no pudo ser guardado correctamente', 'default', array( 'class' => 'error' ) );
 			}
 		}
 	}
@@ -121,14 +121,14 @@ class ConveniosController extends AppController {
 	public function administracion_edit($id = null) {
 		$this->Convenio->id = $id;
 		if (!$this->Convenio->exists()) {
-			throw new NotFoundException(__('Invalid convenio'));
+			throw new NotFoundException( 'Convenio no encontrado' );
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Convenio->save($this->request->data)) {
-				$this->Session->setFlash(__('The convenio has been saved'));
+				$this->Session->setFlash( 'El convenio fue guardado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The convenio could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'El convenio no pudo ser guardado', 'default', array( 'class' => 'error' ) );
 			}
 		} else {
 			$this->request->data = $this->Convenio->read(null, $id);
@@ -149,13 +149,13 @@ class ConveniosController extends AppController {
 		}
 		$this->Convenio->id = $id;
 		if (!$this->Convenio->exists()) {
-			throw new NotFoundException(__('Invalid convenio'));
+			throw new NotFoundException( 'El convenio buscado no se encontro' );
 		}
 		if ($this->Convenio->delete()) {
-			$this->Session->setFlash(__('Convenio deleted'));
+			$this->Session->setFlash( 'Convenio eliminado', 'default', array( 'class' => 'success' ) );
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Convenio was not deleted'));
+		$this->Session->setFlash( 'El convenio no pudo ser eliminado', , 'default', array( 'class' => 'error' ) );
 		$this->redirect(array('action' => 'index'));
 	}
 }

@@ -63,7 +63,7 @@ class OrganismosController extends AppController {
 	public function view($id = null) {
 		$this->Organismo->id = $id;
 		if (!$this->Organismo->exists()) {
-			throw new NotFoundException(__('Invalid organismo'));
+			throw new NotFoundException( 'Organismo iválido');
 		}
 		$this->set('organismo', $this->Organismo->read(null, $id));
 	}
@@ -89,7 +89,7 @@ class OrganismosController extends AppController {
 	public function administracion_view($id = null) {
 		$this->Organismo->id = $id;
 		if (!$this->Organismo->exists()) {
-			throw new NotFoundException(__('Invalid organismo'));
+			throw new NotFoundException( 'Organismo no encontrado' );
 		}
 		$this->set('organismo', $this->Organismo->read(null, $id));
 	}
@@ -103,10 +103,10 @@ class OrganismosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Organismo->create();
 			if ($this->Organismo->save($this->request->data)) {
-				$this->Session->setFlash(__('The organismo has been saved'));
+				$this->Session->setFlash( 'Organismo agregado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The organismo could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'No se pudo guardar correctamente el organismo.', 'default', array( 'class' => 'error' ) );
 			}
 		}
 	}
@@ -125,10 +125,10 @@ class OrganismosController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Organismo->save($this->request->data)) {
-				$this->Session->setFlash(__('The organismo has been saved'));
+				$this->Session->setFlash( 'El organismo se guardó correctamente', 'default', array( 'class' => 'success' ));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The organismo could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'No se pudo guardar correctamente el organismo', 'default', array( 'class' => 'error' ));
 			}
 		} else {
 			$this->request->data = $this->Organismo->read(null, $id);
@@ -149,13 +149,13 @@ class OrganismosController extends AppController {
 		}
 		$this->Organismo->id = $id;
 		if (!$this->Organismo->exists()) {
-			throw new NotFoundException(__('Invalid organismo'));
+			throw new NotFoundException( 'No se encontró el organismo buscado' );
 		}
 		if ($this->Organismo->delete()) {
-			$this->Session->setFlash(__('Organismo deleted'));
+			$this->Session->setFlash( 'Se ha eliminado correctamente el organismo' , 'default', array( 'class' => 'success' ) );
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Organismo was not deleted'));
+		$this->Session->setFlash( 'El organismo no pudo ser eliminado', 'default', array( 'class' => 'error' ) );
 		$this->redirect(array('action' => 'index'));
 	}
 }

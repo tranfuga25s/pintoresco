@@ -1,44 +1,42 @@
+<?php $this->set( 'title_for_layout', "Ver convenio" ); ?>
+<div id="acciones">
+  <?php echo $this->Html->link( 'Editar Convenio', array( 'action' => 'edit', $convenio['Convenio']['id_convenio'] ) );
+		echo $this->Form->postLink( 'Eliminar Convenio', array('action' => 'delete', $convenio['Convenio']['id_convenio']), null, __('Are you sure you want to delete # %s?', $convenio['Convenio']['id_convenio']));
+		echo $this->Html->link( 'Lista de Convenios', array( 'action' => 'index' ) );
+		echo $this->Html->link( 'Nuevo Convenio', array( 'action' => 'add' ) ); ?>	
+</div>
 <div class="convenios view">
-<h2><?php  echo __('Convenio'); ?></h2>
+	<h2>Convenio</h2>
 	<dl>
-		<dt><?php echo __('Id Convenio'); ?></dt>
+		<dt>#Convenio</dt>
 		<dd>
 			<?php echo h($convenio['Convenio']['id_convenio']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Fecha Inicio'); ?></dt>
+		<dt>Fecha de Inicio</dt>
 		<dd>
-			<?php echo h($convenio['Convenio']['fecha_inicio']); ?>
+			<?php echo date( 'd/m/Y', strtorime( $convenio['Convenio']['fecha_inicio'] ) ); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Fecha Fin'); ?></dt>
+		<dt>Fecha de Fin</dt>
 		<dd>
-			<?php echo h($convenio['Convenio']['fecha_fin']); ?>
+			<?php echo date( 'd/m/Y', strtorime( $convenio['Convenio']['fecha_fin']) ); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Documentacion'); ?></dt>
+		<dt>Documentacion</dt>
 		<dd>
 			<?php echo h($convenio['Convenio']['documentacion']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Forma Pago'); ?></dt>
+		<dt>Forma de Pago</dt>
 		<dd>
 			<?php echo h($convenio['Convenio']['forma_pago']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Descuento'); ?></dt>
+		<dt>Descuento</dt>
 		<dd>
-			<?php echo h($convenio['Convenio']['descuento']); ?>
+			<?php echo h($convenio['Convenio']['descuento']); ?>%
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Convenio'), array('action' => 'edit', $convenio['Convenio']['id_convenio'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Convenio'), array('action' => 'delete', $convenio['Convenio']['id_convenio']), null, __('Are you sure you want to delete # %s?', $convenio['Convenio']['id_convenio'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Convenios'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Convenio'), array('action' => 'add')); ?> </li>
-	</ul>
 </div>

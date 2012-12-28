@@ -155,7 +155,7 @@ class ConveniosController extends AppController {
 			$this->Session->setFlash( 'Convenio eliminado', 'default', array( 'class' => 'success' ) );
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash( 'El convenio no pudo ser eliminado', , 'default', array( 'class' => 'error' ) );
+		$this->Session->setFlash( 'El convenio no pudo ser eliminado', 'default', array( 'class' => 'error' ) );
 		$this->redirect(array('action' => 'index'));
 	}
 }

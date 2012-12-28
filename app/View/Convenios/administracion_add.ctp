@@ -1,21 +1,19 @@
+<?php $this->set( 'title_for_layout', "Agregar nuevo convenio" ); ?>
+<div id="acciones">
+	<?php echo $this->Html->link( 'Lista de Convenios', array( 'action' => 'index' ) ); ?>
+</div>
+<br />
 <div class="convenios form">
 <?php echo $this->Form->create('Convenio'); ?>
 	<fieldset>
-		<legend><?php echo __('Administracion Add Convenio'); ?></legend>
+		<legend><h2>Agregar nuevo convenio</h2></legend>
 	<?php
-		echo $this->Form->input('fecha_inicio');
-		echo $this->Form->input('fecha_fin');
-		echo $this->Form->input('documentacion');
-		echo $this->Form->input('forma_pago');
-		echo $this->Form->input('descuento');
+		echo $this->Form->input( 'fecha_inicio', array( 'dateFormat' => 'DMY', 'type' => 'date' ) );
+		echo $this->Form->input( 'fecha_fin', array( 'dateFormat' => 'DMY', 'type' => 'date' ) );
+		echo $this->Form->input( 'documentacion');
+		echo $this->Form->input( 'forma_pago'   );
+		echo $this->Form->input( 'descuento', array( 'after' => '%' ) );
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Convenios'), array('action' => 'index')); ?></li>
-	</ul>
+	<?php echo $this->Form->end( '  Agregar  ' ); ?>
 </div>

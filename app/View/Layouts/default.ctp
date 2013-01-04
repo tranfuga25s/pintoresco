@@ -1,29 +1,10 @@
 <?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       Cake.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
@@ -39,20 +20,35 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<h1>Sistema de Pinturería</h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><?php echo $this->Html->link( 'Inicio', '/' ); ?></li>
+				<li><?php echo $this->Html->link( '¿Con que pinto?', array( 'controller' => '', 'action' => 'index' ) ); ?></li>
+				<li><?php echo $this->Html->link( '¿Con quien pinto?', array( 'controller' => 'pintores', 'action' => 'index' ) ); ?></li>
+				<li><?php echo $this->Html->link( 'Ideas decoracion', array( 'controller' => '', 'action' => 'index' ) ); ?></li>
+				<li><?php echo $this->Html->link( 'Convenios', array( 'controller' => 'convenios', 'action' => 'index' ) ); ?></li>
+				<li><?php echo $this->Html->link( 'Contacto', array( 'controller' => 'contacto', 'action' => 'formulario' ) ); ?></li>
+				<li><?php echo $this->Html->link( 'La empresa', array( 'controller' => 'pages', 'empresa' ) ); ?></li>				
+			</ul>
 		</div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+					$this->Html->image('cake.power.gif', array('border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false)
 				);
+				  echo $this->Html->link(
+                    $this->Html->image( 'tr.logo.png', array( 'alt' => "TR Sistemas Informaticos Integrados", 'border' => '0' ) ),
+                    'http://www.bscomputacion.org/',
+                    array( 'target' => '_blank', 'escape' => false )
+                );
 			?>
 		</div>
 	</div>

@@ -14,11 +14,7 @@
                 .'<span>Marcas</span>',
                 array( 'controller' => 'marcas', 'action' => 'index', 'plugin' => false ),
                 array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de marcas declaradas' ) ); ?></li>
-   <li><?php echo $this->Html->link(
-                $this->Html->image( 'assets/marca-icono.jpg' ) 
-                .'<span>Especialidades</span>',
-                array( 'controller' => 'especialidades', 'action' => 'index', 'plugin' => false ),
-                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de marcas declaradas' ) ); ?></li>
+
 </ul>
 <h2>Pintores</h2>
 <ul class="dash">                
@@ -31,7 +27,12 @@
                 $this->Html->image( 'assets/obra-icono.jpeg' ) 
                 .'<span>Obras</span>',
                 array( 'controller' => 'obras', 'action' => 'index', 'plugin' => false ),
-                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de pintores' ) ); ?></li>                       
+                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de pintores' ) ); ?></li>
+   <li><?php echo $this->Html->link(
+                $this->Html->image( 'assets/marca-icono.jpg' ) 
+                .'<span>Especialidades</span>',
+                array( 'controller' => 'especialidades', 'action' => 'index', 'plugin' => false ),
+                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de marcas declaradas' ) ); ?></li>                                       
 </ul>
 <h2>Convenios</h2>
 <ul class="dash">

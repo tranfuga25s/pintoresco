@@ -8,6 +8,7 @@
 <table cellpadding="0" cellspacing="0">
 <tr>
 		<th><?php echo $this->Paginator->sort('nombre'); ?></th>
+		<th><?php echo $this->Paginator->sort('publicado'); ?></th>
 		<th><?php echo $this->Paginator->sort('url', 'Direccion' ); ?></th>
 		<th class="actions">Acciones</th>
 </tr>
@@ -15,6 +16,16 @@
 foreach ($marcas as $marca): ?>
 <tr>
 	<td><?php echo h($marca['Marca']['nombre']); ?>&nbsp;</td>
+	<td><?php if( $marca['Marca']['publicado'] ) {
+			echo $this->Html->link( $this->Html->image( 'test-pass-icon.png', array( 'border' => 0 ) ),
+									array( 'action' => 'despublicar', $marca['Marca']['id_marca'] ),
+									array( 'escape' => false ) );
+		  } else {
+			echo $this->Html->link( $this->Html->image( 'test-fail-icon.png', array( 'border' => 0 ) ),
+									array( 'action' => 'publicar', $marca['Marca']['id_marca'] ),
+									array( 'escape' => false ) );			 
+		  } 
+	?></td>
 	<td><?php echo $this->Html->link( h($marca['Marca']['url']), $marca['Marca']['url'] ); ?>&nbsp;</td>
 	<td class="actions">
 		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $marca['Marca']['id_marca'])); ?>

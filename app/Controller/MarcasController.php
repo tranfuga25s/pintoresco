@@ -7,6 +7,14 @@ App::uses('AppController', 'Controller');
  */
 class MarcasController extends AppController {
 
+   /**
+    * Authorización de métodos públicos
+    */
+	public function beforeFilter() {
+		$this->Auth->allow( array( 'index', 'view' ) );
+		parent::beforeFilter();
+	}
+
 	/**
 	 * Muestra el listado de acciones permitidas
 	 */
@@ -50,7 +58,7 @@ class MarcasController extends AppController {
 	 */
 	public function index() {
 		$this->Marca->recursive = 0;
-		$this->set( 'marcas', $this->paginate() );
+		return $this->Marca->find( 'all', array( 'conditions' => array( 'publicado' => true ) ) );
 	}
 
 	/**
@@ -85,7 +93,7 @@ class MarcasController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function administracion_view($id = null) {
+	public function administracion_view( $id = null ) {
 		$this->Marca->id = $id;
 		if (!$this->Marca->exists()) {
 			throw new NotFoundException( 'Marca invalida' );
@@ -117,7 +125,7 @@ class MarcasController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function administracion_edit($id = null) {
+	public function administracion_edit( $id = null ) {
 		$this->Marca->id = $id;
 		if (!$this->Marca->exists()) {
 			throw new NotFoundException( 'Marca invalida' );
@@ -142,7 +150,7 @@ class MarcasController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function administracion_delete($id = null) {
+	public function administracion_delete( $id = null ) {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
@@ -156,5 +164,47 @@ class MarcasController extends AppController {
 		}
 		$this->Session->setFlash( 'La marca no se pudo eliminar', 'default', array( 'class' => 'error' ) );
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	/**
+	 * administracion_publicar method
+	 *
+	 * @throws MethodNotAllowedException
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function administracion_publicar( $id = null ) {
+		$this->Marca->id = $id;
+		if (!$this->Marca->exists()) {
+			throw new NotFoundException( 'Marca invalida' );
+		}
+		if ($this->Marca->saveField( 'publicado', true ) ) {
+			$this->Session->setFlash( 'La marca ha sido publicada correctamente', 'default', array( 'class' => 'success' ) );
+			$this->redirect( array( 'action' => 'index' ) );
+		}
+		$this->Session->setFlash( 'La marca no se pudo publicar', 'default', array( 'class' => 'error' ) );
+		$this->redirect( array( 'action' => 'index' ) );
+	}
+	
+	/**
+	 * administracion_despublicar method
+	 *
+	 * @throws MethodNotAllowedException
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function administracion_despublicar( $id = null ) {
+		$this->Marca->id = $id;
+		if (!$this->Marca->exists()) {
+			throw new NotFoundException( 'Marca invalida' );
+		}
+		if ($this->Marca->saveField( 'publicado', false ) ) {
+			$this->Session->setFlash( 'La marca ha sido despublicada correctamente', 'default', array( 'class' => 'success' ) );
+			$this->redirect( array( 'action' => 'index' ) );
+		}
+		$this->Session->setFlash( 'La marca no se pudo despublicar', 'default', array( 'class' => 'error' ) );
+		$this->redirect( array( 'action' => 'index' ) );
 	}
 }

@@ -24,7 +24,7 @@
 		<div id="menu">
 			<ul>
 				<li><?php echo $this->Html->link( 'Inicio', '/' ); ?></li>
-				<li><?php echo $this->Html->link( '¿Con que pinto?', array( 'controller' => 'productos', 'action' => 'index' ) ); ?></li>
+				<li><?php echo $this->Html->link( '¿Con que pinto?', array( 'controller' => 'materiales', 'action' => 'index' ) ); ?></li>
 				<li><?php echo $this->Html->link( '¿Con quien pinto?', array( 'controller' => 'pintores', 'action' => 'index' ) ); ?></li>
 				<li><?php echo $this->Html->link( 'Ideas de decoración', array( 'controller' => '', 'action' => 'index' ) ); ?></li>
 				<li><?php echo $this->Html->link( 'Convenios', array( 'controller' => 'convenios', 'action' => 'index' ) ); ?></li>

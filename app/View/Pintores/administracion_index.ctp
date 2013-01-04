@@ -8,6 +8,7 @@
 <table cellpadding="0" cellspacing="0">
 <tr>
 		<th><?php echo $this->Paginator->sort('orden', 'Orden' ); ?></th>
+		<th><?php echo $this->Paginator->sort('puntos' ); ?></th>
 		<th><?php echo $this->Paginator->sort('habilitado' ); ?></th>
 		<th><?php echo $this->Paginator->sort('razonsocial', 'Razon Social' );?></th>
 		<th><?php echo $this->Paginator->sort('email', 'Email' ); ?></th>		
@@ -17,6 +18,7 @@
 foreach ($pintores as $pintor ): ?>
 <tr>
 	<td><?php echo h( $pintor['Pintor']['orden'] ); ?></td>
+	<td><?php echo h( $pintor['Pintor']['puntos'] ); ?></td>
 	<td><?php
 		if( $pintor['Pintor']['habilitado'] ) {
 			echo $this->Html->link( $this->Html->image( 'test-pass-icon.png', array( 'alt' => 'Deshabilitar' ) ),

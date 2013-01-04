@@ -57,12 +57,18 @@ class ObrasController extends AppController {
 	}
 	
 	/**
-	 * Agregar nuevo pintor directamente
+	 * Agregar una nueva obra a un pintor
 	 */
 	 public function administracion_add() {
 	 	if( $this->request->isPost() ) {
-	 		
+	 		$this->request->data['Obra']['fecha']['day'] = 01;
+	 		if( $this->Obra->save( $this->request->data ) ) {
+	 			$this->Session->setFlash( 'La obra fue agregada correctamente', null, 'default', array( 'class' => 'success' ) );
+				$this->redirect( array( 'action' => 'index' ) );
+	 		} else {
+	 			$this->Session->setFlash( 'La obra no se pudo guardar', null, 'defualt', array( 'class' => 'error' ) );
+	 		}
 	 	}
-		$this->set( 'pintores', $this->Obra->Pintor->find('list') );
+		$this->set( 'pintors', $this->Obra->Pintor->lista() );
 	 }
 }

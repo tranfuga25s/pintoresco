@@ -7,32 +7,32 @@ App::uses('AppModel', 'Model');
  */
 class Obra extends AppModel {
 
-/**
- * Use table
- *
- * @var mixed False or table name
- */
+	/**
+	 * Use table
+	 *
+	 * @var mixed False or table name
+	 */
 	public $useTable = 'obra';
 
-/**
- * Primary key field
- *
- * @var string
- */
+	/**
+	 * Primary key field
+	 *
+	 * @var string
+	 */
 	public $primaryKey = 'id_obra';
 
-/**
- * Display field
- *
- * @var string
- */
+	/**
+	 * Display field
+	 *
+	 * @var string
+	 */
 	public $displayField = 'fecha';
 
-/**
- * Validation rules
- *
- * @var array
- */
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'id_obra' => array(
 			'numeric' => array(
@@ -46,7 +46,7 @@ class Obra extends AppModel {
 		),
 		'fecha' => array(
 			'datetime' => array(
-				'rule' => array('datetime'),
+				'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -98,11 +98,11 @@ class Obra extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * belongsTo associations
- *
- * @var array
- */
+	/**
+	 * belongsTo associations
+	 *
+	 * @var array belongsTo
+	 */
 	public $belongsTo = array(
 		'Pintor' => array(
 			'className' => 'Pintor',
@@ -112,4 +112,15 @@ class Obra extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	/**
+	 * hasMany association
+	 * 
+	 * @var array hasMany
+	 */
+	 /*public $hasMany = array(
+	 	'Foto' => array(
+	 		'classname' => 'Foto'
+		) 
+	 );*/
 }

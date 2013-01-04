@@ -16,7 +16,7 @@
 foreach ($obras as $obra): ?>
 <tr>
 	<td><?php echo h($obra['Obra']['id_obra']); ?>&nbsp;</td>
-	<td><?php echo h($obra['Obra']['fecha']); ?>&nbsp;</td>
+	<td><?php echo date( 'F Y', strtotime( $obra['Obra']['fecha'] ) ); ?>&nbsp;</td>
 	<td>
 		<?php echo $this->Html->link($obra['Pintor']['id_pintor'], array('controller' => 'pintors', 'action' => 'view', $obra['Pintor']['id_pintor'])); ?>
 	</td>

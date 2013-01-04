@@ -11,7 +11,10 @@ class PintoresController extends AppController {
 	 *
 	 * @var mixed
 	 */
-	public $scaffold;
+	public function beforeFilter() {
+		$this->Auth->allow( array( 'index', 'view' ) );
+		parent::beforeFilter();
+	}
 	
 	public $uses = 'Pintor';
 	
@@ -50,6 +53,29 @@ class PintoresController extends AppController {
 		}
 		return false;
 	}
+	
+    /**
+	 * Muestra la lista de pintores para los visitantes
+	 * 
+	 * @author Esteban Zeller 
+	 */
+	 public function index() {
+	 	//$this->Pintor->recursive = -1;
+		$this->set( 'pintores', $this->paginate() );
+	 }	
+
+    /**
+	 * Muestra el perfil de un pintor
+	 * 
+	 * @author Esteban Zeller 
+	 */
+	 public function view( $id_pintor = null ) {
+	 	$this->Pintor->id = $id_pintor;
+		if( !$this->Pintor->exists() ) {
+			throw new NotFoundException( 'El pintor no existe' );
+		}
+		$this->set( 'pintor', $this->Pintor->read( null, $id_pintor ) );
+	 }		
 	
 	/**
 	 * Listado de pintores registrados en el sistema para la administración

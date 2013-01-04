@@ -99,7 +99,23 @@ class Pintor extends AppModel {
                 'className'              => 'Especialidad',
                 'joinTable'              => 'pintor_especialidad',
                 'foreignKey'             => 'pintor_id',
-                'associationForeignKey'  => 'especialidad_id'
+                'associationForeignKey'  => 'especialidad_id',
+                'fields'                 => array(  'Especialidad.id_especialidad', 'Especialidad.nombre' )
             )
 		);
+		
+   /**
+    * Listado de pintores con ID
+    * Es utilizado así ya que es necesario mappear Pintor.id con Usuario.razonSocial
+    * @return array Listado de IDPintor/RazonSocial
+    * @author Esteban Zeller
+    */		
+	public function lista() {
+		$data = $this->find( 'all', array( 'conditions' => array( 'Pintor.habilitado' => true ), 'recursive' => 1 ) );
+		$ret = array();
+		foreach( $data as $d ) {
+			$ret[$d['Pintor']['id_pintor']] = $d['Usuario']['razonsocial'];
+		}
+		return $ret;
+	}
 }

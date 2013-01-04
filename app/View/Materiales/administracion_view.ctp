@@ -1,44 +1,44 @@
-<div class="materiales view">
-<h2><?php  echo __('Materiale'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id Material'); ?></dt>
-		<dd>
-			<?php echo h($materiale['Materiale']['id_material']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Nombre'); ?></dt>
-		<dd>
-			<?php echo h($materiale['Materiale']['nombre']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Introduccion'); ?></dt>
-		<dd>
-			<?php echo h($materiale['Materiale']['introduccion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($materiale['Materiale']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($materiale['Materiale']['modified']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Publicado'); ?></dt>
-		<dd>
-			<?php echo h($materiale['Materiale']['publicado']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<?php $this->set( 'title_for_layout', "Ver material" ); ?>
+<div id="acciones">
+	<?php echo $this->Html->link( 'Editar Material', array( 'action' => 'edit', $material['Material']['id_material'] ) );
+		  echo $this->Form->postLink( 'Eliminar Material', array( 'action' => 'delete', $material['Material']['id_material']), null, 'Esta seguro que desea eliminar este material?' );
+		  echo $this->Html->link( 'Lista de Materiales', array( 'action' => 'index' ) );
+		  echo $this->Html->link( 'Nuevo Material', array( 'action' => 'add' ) ); ?>	
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Materiale'), array('action' => 'edit', $materiale['Materiale']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Materiale'), array('action' => 'delete', $materiale['Materiale']['id']), null, __('Are you sure you want to delete # %s?', $materiale['Materiale']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Materiales'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Materiale'), array('action' => 'add')); ?> </li>
-	</ul>
-</div>
+<h2>Material</h2>
+<dl>
+	<dt>Numero de material</dt>
+	<dd>
+		#<?php echo h($material['Material']['id_material']); ?>
+		&nbsp;
+	</dd>
+	<dt>Nombre</dt>
+	<dd>
+		<?php echo h($material['Material']['nombre']); ?>
+		&nbsp;
+	</dd>
+	<dt>Introduccion</dt>
+	<dd>
+		<?php echo h($material['Material']['introduccion']); ?>
+		&nbsp;
+	</dd>
+	<dt>Creado</dt>
+	<dd>
+		<?php echo h($material['Material']['created']); ?>
+		&nbsp;
+	</dd>
+	<dt>Modificado</dt>
+	<dd>
+		<?php echo h($material['Material']['modified']); ?>
+		&nbsp;
+	</dd>
+	<dt>Publicado</dt>
+	<dd>
+		<?php if( $material['Material']['publicado'] ) {
+			echo "Si";
+		} else {
+			echo "No";
+		} ?>
+		&nbsp;
+	</dd>
+</dl>

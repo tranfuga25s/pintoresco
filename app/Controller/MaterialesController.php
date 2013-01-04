@@ -7,6 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class MaterialesController extends AppController {
 
+	public $uses = 'Material';
+
    /**
     * Authorización de métodos públicos
     */

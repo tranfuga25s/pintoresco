@@ -1,20 +1,14 @@
-<div class="materiales form">
-<?php echo $this->Form->create('Materiale'); ?>
+<div id="acciones">
+	<?php echo $this->Html->link( 'Lista de Materiales', array( 'action' => 'index' ) ); ?>
+</div>	
+<br />
+<?php echo $this->Form->create('Material'); ?>
 	<fieldset>
-		<legend><?php echo __('Administracion Add Materiale'); ?></legend>
+		<legend><h2>Agregar Material</h2></legend>
 	<?php
-		echo $this->Form->input('id_material');
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('introduccion');
 		echo $this->Form->input('publicado');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Materiales'), array('action' => 'index')); ?></li>
-	</ul>
-</div>
+<?php echo $this->Form->end( 'Agregar' ); ?>

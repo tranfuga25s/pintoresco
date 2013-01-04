@@ -18,10 +18,10 @@
 foreach ($convenios as $convenio): ?>
 <tr>
 	<td><?php echo h($convenio['Convenio']['id_convenio'] ); ?>&nbsp;</td>
-	<td><?php echo $this->Html->link( h($convenio['Organismo']['nombre'], array( 'controller' => 'organismos', 'action' => 'view', $convenio['Organismo']['id_organismo'] ) ) ); ?>&nbsp;</td>
+	<td><?php echo $this->Html->link( h($convenio['Organismo']['nombre']), array( 'controller' => 'organismos', 'action' => 'view', $convenio['Organismo']['id_organismo'] ) ); ?>&nbsp;</td>
 	<td><?php echo h($convenio['Convenio']['fecha_inicio']); ?>&nbsp;</td>
 	<td><?php echo h($convenio['Convenio']['fecha_fin']); ?>&nbsp;</td>
-	<td><?php echo h($convenio['Convenio']['descuento']); ?>&nbsp;</td>
+	<td><?php echo h($convenio['Convenio']['descuento']); ?>%&nbsp;</td>
 	<td class="actions">
 		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $convenio['Convenio']['id_convenio'])); ?>
 		<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $convenio['Convenio']['id_convenio'])); ?>

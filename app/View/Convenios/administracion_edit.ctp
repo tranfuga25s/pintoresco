@@ -9,6 +9,7 @@
 		<legend><h2>Editar convenio</h2></legend>
 	<?php
 		echo $this->Form->input('id_convenio');
+		echo $this->Form->input( 'organismo_id');
 		echo $this->Form->input( 'fecha_inicio', array( 'dateFormat' => 'DMY', 'type' => 'date' ) );
 		echo $this->Form->input( 'fecha_fin', array( 'dateFormat' => 'DMY', 'type' => 'date' ) );
 		echo $this->Form->input( 'documentacion');

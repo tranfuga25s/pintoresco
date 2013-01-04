@@ -15,12 +15,12 @@
 		</dd>
 		<dt>Fecha de Inicio</dt>
 		<dd>
-			<?php echo date( 'd/m/Y', strtorime( $convenio['Convenio']['fecha_inicio'] ) ); ?>
+			<?php echo date( 'd/m/Y', strtotime( $convenio['Convenio']['fecha_inicio'] ) ); ?>
 			&nbsp;
 		</dd>
 		<dt>Fecha de Fin</dt>
 		<dd>
-			<?php echo date( 'd/m/Y', strtorime( $convenio['Convenio']['fecha_fin']) ); ?>
+			<?php echo date( 'd/m/Y', strtotime( $convenio['Convenio']['fecha_fin']) ); ?>
 			&nbsp;
 		</dd>
 		<dt>Documentacion</dt>
@@ -36,6 +36,11 @@
 		<dt>Descuento</dt>
 		<dd>
 			<?php echo h($convenio['Convenio']['descuento']); ?>%
+			&nbsp;
+		</dd>
+		<dt>Organismo</dt>
+		<dd>
+			<?php echo $this->Html->link( h($convenio['Organismo']['nombre']), array( 'controller' => 'organismo', 'action' => 'view', $convenio['Organismo']['id_organismo'] ) ); ?>
 			&nbsp;
 		</dd>
 	</dl>

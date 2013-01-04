@@ -43,5 +43,13 @@
 			<?php echo h($marca['Marca']['modified']); ?>
 			&nbsp;
 		</dd>
+		<dt>Logotipo</dt>
+		<dd>
+			<?php
+			if( !is_null( $marca['Marca']['logo'] ) ) { 
+				echo $this->Html->image( $marca['Marca']['logo'] , array( 'border' => 0 ) );
+			} ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>

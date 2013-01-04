@@ -109,6 +109,7 @@ class ConveniosController extends AppController {
 				$this->Session->setFlash( 'El convenio no pudo ser guardado correctamente', 'default', array( 'class' => 'error' ) );
 			}
 		}
+		$this->set( 'organismos', $this->Convenio->Organismo->find('list' ) );
 	}
 
 	/**
@@ -133,6 +134,7 @@ class ConveniosController extends AppController {
 		} else {
 			$this->request->data = $this->Convenio->read(null, $id);
 		}
+		$this->set( 'organismos', $this->Convenio->Organismo->find('list' ) );
 	}
 
 	/**

@@ -23,6 +23,7 @@ foreach ($obras as $obra): ?>
 	<td class="actions">
 		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $obra['Obra']['id_obra'])); ?>
 		<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $obra['Obra']['id_obra'])); ?>
+		<?php echo $this->Html->link( 'Fotos', array( 'controller' => 'fotos_obras', 'action' => 'index', $obra['Obra']['id_obra'] ) ); ?>
 		<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $obra['Obra']['id_obra']), null, 'Esta seguro que deseo eliminar la obra?'); ?>
 	</td>
 </tr>

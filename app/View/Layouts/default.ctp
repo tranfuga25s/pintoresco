@@ -8,7 +8,7 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		//echo $this->Html->css('cake.generic');
 		echo $this->Html->css('pinturesco');
 
 		echo $this->fetch('meta');
@@ -26,7 +26,7 @@
 				<li><?php echo $this->Html->link( 'Inicio', '/' ); ?></li>
 				<li><?php echo $this->Html->link( '¿Con que pinto?', array( 'controller' => 'productos', 'action' => 'index' ) ); ?></li>
 				<li><?php echo $this->Html->link( '¿Con quien pinto?', array( 'controller' => 'pintores', 'action' => 'index' ) ); ?></li>
-				<li><?php echo $this->Html->link( 'Ideas decoración', array( 'controller' => '', 'action' => 'index' ) ); ?></li>
+				<li><?php echo $this->Html->link( 'Ideas de decoración', array( 'controller' => '', 'action' => 'index' ) ); ?></li>
 				<li><?php echo $this->Html->link( 'Convenios', array( 'controller' => 'convenios', 'action' => 'index' ) ); ?></li>
 				<li><?php echo $this->Html->link( 'Contacto', array( 'controller' => 'contacto', 'action' => 'formulario' ) ); ?></li>
 				<li><?php echo $this->Html->link( 'La empresa', array( 'controller' => 'pages', 'empresa' ) ); ?></li>				

@@ -74,6 +74,7 @@ class PintoresController extends AppController {
 		if( !$this->Pintor->exists() ) {
 			throw new NotFoundException( 'El pintor no existe' );
 		}
+		$this->Pintor->recursive = 2;
 		$this->set( 'pintor', $this->Pintor->read( null, $id_pintor ) );
 	 }		
 	

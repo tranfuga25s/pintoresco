@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class FotosObrasController extends AppController {
 
-
    /**
     * Authorización de métodos públicos
     */
@@ -155,9 +154,12 @@ class FotosObrasController extends AppController {
 	 *
 	 * @return void
 	 */
-	public function administracion_index() {
+	public function administracion_index( $id_obra = null ) {
+		if( $id_obra == null ) {
+			throw new NotFoundException( 'Debe especificar la obra sobre la cual ver las imagenes' );
+		}
 		$this->FotosObra->recursive = 0;
-		$this->set('fotosObras', $this->paginate());
+		$this->set('fotosObras', $this->paginate( array( 'obra_id' => $id_obra ) ) );
 	}
 
 	/**

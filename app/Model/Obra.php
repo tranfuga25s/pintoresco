@@ -79,7 +79,7 @@ class Obra extends AppModel {
 	 * @var array hasMany
 	 */
 	 public $hasMany = array(
-	 	'Fotos' => array(
+	 	'FotosObra' => array(
 	 		'classname' => 'FotosObra'
 		) 
 	 );

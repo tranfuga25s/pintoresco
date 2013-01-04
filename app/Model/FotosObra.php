@@ -28,7 +28,14 @@ class FotosObra extends AppModel {
 	 */
 	public $displayField = 'titulo';
 
-
+	/*public $actAs = array(
+		'Uploader.Attachment' => array(
+			'dbColumn' => 'path',
+			'defaultPath' => WWW_ROOT . 'img' . DS . 'obras',
+			'overwrite' => false,
+			'allowEmpty' => false 
+		)
+	);*/
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	/**

@@ -5,6 +5,7 @@
 		echo $this->Html->link( 'Lista de Convenios', array( 'action' => 'index' ) );
 		echo $this->Html->link( 'Nuevo Convenio', array( 'action' => 'add' ) ); ?>	
 </div>
+<br />
 <div class="convenios view">
 	<h2>Convenio</h2>
 	<dl>

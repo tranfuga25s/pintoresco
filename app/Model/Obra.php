@@ -29,69 +29,29 @@ class Obra extends AppModel {
 	public $displayField = 'fecha';
 
 	/**
-	 * Validation rules
+	 * Reglas de validación
 	 *
 	 * @var array
 	 */
 	public $validate = array(
-		'id_obra' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+		'id_obra' => array( 'numeric' => array( 'rule' => array('numeric') ) ),
 		'fecha' => array(
 			'datetime' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => array('date')
 			),
 		),
 		'descripcion' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'created' => array(
-			'datetime' => array(
-				'rule' => array('datetime'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'modified' => array(
-			'datetime' => array(
-				'rule' => array('datetime'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Por favor, ingrese una minima descripción'
 			),
 		),
 		'pintor_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Por favor, seleccione un pintor para la obra',
+				'allowEmpty' => false,
+				'required' => true
 			),
 		),
 	);
@@ -118,9 +78,9 @@ class Obra extends AppModel {
 	 * 
 	 * @var array hasMany
 	 */
-	 /*public $hasMany = array(
-	 	'Foto' => array(
-	 		'classname' => 'Foto'
+	 public $hasMany = array(
+	 	'Fotos' => array(
+	 		'classname' => 'FotosObra'
 		) 
-	 );*/
+	 );
 }

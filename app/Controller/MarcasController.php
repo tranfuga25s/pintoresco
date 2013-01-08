@@ -81,7 +81,7 @@ class MarcasController extends AppController {
      * 
      * @return array lista de cmarcas y direccion de simuladores
      **/
-    public function listado_simuladores() {
+    public function lista_simuladores() {
     $this->autoRender = false;
 	return $this->Marca->listaSimuladores();
     }

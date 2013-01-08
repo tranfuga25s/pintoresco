@@ -69,5 +69,6 @@ class Marca extends AppModel {
 	    return $this->find( 'all', array( 'conditions' => array( 'publicado' => true, 'NOT' => array( 'simulador' => null ) ),
 						'recursive' => -1,
 						'fields' => array( 'nombre', 'simulador' ) ) );
+	}
 
 }

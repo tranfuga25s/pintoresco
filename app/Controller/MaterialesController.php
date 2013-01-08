@@ -60,7 +60,7 @@ class MaterialesController extends AppController {
 	 */
 	public function index() {
 		$this->Material->recursive = 0;
-		return $this->Material->find( 'all', array( 'conditions' => array( 'publicado' => true ) ) );
+		$this->set( 'materiales', $this->paginate( array( 'publicado' => true ) ) );
 	}
 
 	/**

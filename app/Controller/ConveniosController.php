@@ -7,6 +7,13 @@ App::uses('AppController', 'Controller');
  */
 class ConveniosController extends AppController {
 
+	/**
+	 * Funciones publicas
+	 */
+	public function beforeFilter() {
+	    $this->Auth->allow( array( 'index', 'view' ) );
+	    parent::beforeFilter();
+	}
 
 	/**
 	 * Muestra el listado de acciones permitidas

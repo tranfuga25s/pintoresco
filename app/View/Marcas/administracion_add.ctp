@@ -9,6 +9,7 @@
 	<?php
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('url');
+		echo $this->Form->input('simulador', array( 'label' => 'Simulador', 'after' => 'Ingrese la dirección de el simulador para esta marca' ) );
 		echo $this->Form->input('publicado');
 	?>
 	</fieldset>

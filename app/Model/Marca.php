@@ -56,5 +56,18 @@ class Marca extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'simulador' => array(
+		    'url' => array(
+			'rule' => array( 'url' ),
+			'message' => 'Por favor, ingrese una dirección válida'
+		    )
+		)
 	);
+
+
+	public function listaSimuladores() {
+	    return $this->find( 'all', array( 'conditions' => array( 'publicado' => true, 'NOT' => array( 'simulador' => null ) ),
+						'recursive' => -1,
+						'fields' => array( 'nombre', 'simulador' ) ) );
+
 }

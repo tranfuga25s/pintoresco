@@ -11,7 +11,7 @@ class MarcasController extends AppController {
     * Authorización de métodos públicos
     */
 	public function beforeFilter() {
-		$this->Auth->allow( array( 'index', 'view' ) );
+		$this->Auth->allow( array( 'index', 'view', 'lista_simuladores' ) );
 		parent::beforeFilter();
 	}
 
@@ -76,6 +76,15 @@ class MarcasController extends AppController {
 		$this->set('marca', $this->Marca->read(null, $id));
 	}
 
+    /**
+     * Metodo para listar los simuladores de cada marca
+     * 
+     * @return array lista de cmarcas y direccion de simuladores
+     **/
+    public function listado_simuladores() {
+    $this->autoRender = false;
+	return $this->Marca->listaSimuladores();
+    }
 	/**
 	 * administracion_index method
 	 *

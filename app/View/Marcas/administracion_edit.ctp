@@ -12,6 +12,7 @@
 		echo $this->Form->input('id_marca');
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('url');
+		echo $this->Form->input('simulador', array( 'after' => 'Por favor, ingrese la dirección de la pagina donde se encuentra el simulador de la marca' ) );
 		echo $this->Form->input('publicado');
 	?>
 	</fieldset>

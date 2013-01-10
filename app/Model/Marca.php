@@ -4,27 +4,50 @@ App::uses('AppModel', 'Model');
  * Marca Model
  *
  */
+// Directorio para los logotipos 
+ define( 'LOGOSDIR', /*WWW_ROOT . */'img' . DS . 'logos' . DS );
+ 
 class Marca extends AppModel {
 
-/**
- * Primary key field
- *
- * @var string
- */
+	/**
+	 * Primary key field
+	 *
+	 * @var string
+	 */
 	public $primaryKey = 'id_marca';
 
-/**
- * Display field
- *
- * @var string
- */
+	/**
+	 * Display field
+	 *
+	 * @var string
+	 */
 	public $displayField = 'nombre';
 
-/**
- * Validation rules
- *
- * @var array
- */
+   /**
+    * Comportamiento para subir archivos
+    * 
+    * @var array
+    */
+	public $actsAs = array(
+		'Uploader.Attachment' => array(
+			'logo' => array(
+				'tempDir' => TMP,
+				'uploadDir' => LOGOSDIR,
+				'finalPath' => '',
+				'dbColumn' => 'logo',
+				'overwrite' => false,
+				'stopSave' => true,
+				'allowEmpty' => true
+			)
+		)
+	);
+
+
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'id_marca' => array(
 			'numeric' => array(
@@ -58,8 +81,10 @@ class Marca extends AppModel {
 		),
 		'simulador' => array(
 		    'url' => array(
-			'rule' => array( 'url' ),
-			'message' => 'Por favor, ingrese una dirección válida'
+				'rule' => array( 'url' ),
+				'message' => 'Por favor, ingrese una dirección válida',
+				'requeried' => false,
+				'allowEmpty' => true
 		    )
 		)
 	);

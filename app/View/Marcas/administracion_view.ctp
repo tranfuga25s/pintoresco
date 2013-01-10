@@ -26,7 +26,7 @@
 		</dd>
 		<dt>Direcci&oacute;n web del simulador</dt>
 		<dd>
-		    <?php echo $this->Html->link( h($marca['Marca]['simulador']), $marca['Marca']['simulador'] ); ?>
+		    <?php echo $this->Html->link( h($marca['Marca']['simulador']), $marca['Marca']['simulador'] ); ?>
 		    &nbsp;
 		</dd>
 		<dt>Publicado</dt>

@@ -7,6 +7,7 @@
 <h1>Marcas</h1>
 <table cellpadding="0" cellspacing="0">
 <tr>
+		<th><?php echo $this->Paginator->sort('logotipo'); ?></th>
 		<th><?php echo $this->Paginator->sort('nombre'); ?></th>
 		<th><?php echo $this->Paginator->sort('publicado'); ?></th>
 		<th><?php echo $this->Paginator->sort('url', 'Direccion' ); ?></th>
@@ -15,6 +16,15 @@
 <?php
 foreach ($marcas as $marca): ?>
 <tr>
+	<td>
+	<?php
+		if( !is_null( $marca['Marca']['logo'] ) ) {
+			echo $this->Html->image( $marca['Marca']['logo'], array( 'width' => 100 ) ) . "&nbsp;";
+		} else {
+			echo "&nbsp;";
+		}
+	?> 
+	</td>
 	<td><?php echo h($marca['Marca']['nombre']); ?>&nbsp;</td>
 	<td><?php if( $marca['Marca']['publicado'] ) {
 			echo $this->Html->link( $this->Html->image( 'test-pass-icon.png', array( 'border' => 0 ) ),

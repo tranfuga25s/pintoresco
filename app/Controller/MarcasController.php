@@ -118,7 +118,7 @@ class MarcasController extends AppController {
 	public function administracion_add() {
 		if ($this->request->is('post')) {
 			$this->Marca->create();
-			if ($this->Marca->save($this->request->data)) {
+			if ($this->Marca->save( $this->request->data, true ) ) {
 				$this->Session->setFlash( 'La marca ha sido agregada correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {

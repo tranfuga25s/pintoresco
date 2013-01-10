@@ -5,15 +5,20 @@
 </div>
 <br />
 <div class="marcas form">
-<?php echo $this->Form->create('Marca'); ?>
+<?php echo $this->Form->create('Marca', array( 'type' => 'file' ) ); ?>
 	<fieldset>
 		<legend><h2>Editar Marca</h2></legend>
 	<?php
 		echo $this->Form->input('id_marca');
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('url');
-		echo $this->Form->input('simulador', array( 'after' => 'Por favor, ingrese la dirección de la pagina donde se encuentra el simulador de la marca' ) );
+		echo $this->Form->input('simulador', array( 'type' => 'text', 'after' => 'Por favor, ingrese la dirección de la pagina donde se encuentra el simulador de la marca' ) );
 		echo $this->Form->input('publicado');
+		if( !is_null( $this->data['Marca']['logo'] ) ) {
+			echo $this->Form->input('logo', array( 'type' => 'file', 'before' => $this->Html->image( $this->data['Marca']['logo'], array( 'width' => 150 ) ) ) );
+		} else {
+			echo $this->Form->input('logo', array( 'type' => 'file' ) );
+		}
 	?>
 	</fieldset>
 <?php echo $this->Form->end( 'Guardar' ); ?>

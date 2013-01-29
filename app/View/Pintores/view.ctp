@@ -15,7 +15,9 @@
 foreach( $pintor['Especialidad'] as $esp ) :
 	echo $esp['nombre'].'<br />';
 endforeach; ?>	
-
+<h3>Referencias</h3>
+<br />
+<?php echo h( $pintor['Pintor']['referencias'] ); ?>
 <h2>Obras realizadas</h2>
 <?php foreach( $pintor['Obra'] as $obra ) : ?>
 	<div class="obra">

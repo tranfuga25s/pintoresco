@@ -87,6 +87,16 @@ class PintoresController extends AppController {
 		$this->set( 'pintores', $this->paginate() );
 	}
 	
+	/*
+	public function administracion_view( $id_pintor = null ) {
+		$this->Pintor->id = $id_pintor;
+		if( !$this->Pintor->exists() ) 
+			throw new NotFoundException( 'El pintor no existe' );
+		
+		$this->set( 'pintor', $this->Pintor->read() );
+	}
+	 * */
+	
 	/**
 	 * Agregar nuevo pintor directamente
 	 * 

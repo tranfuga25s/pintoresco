@@ -8,25 +8,25 @@ App::uses('AppModel', 'Model');
  */
 class Pintor extends AppModel {
 
-/**
- * Use table
- *
- * @var mixed False or table name
- */
+	/**
+	 * Use table
+	 *
+	 * @var mixed False or table name
+	 */
 	public $useTable = 'pintor';
 
-/**
- * Primary key field
- *
- * @var string
- */
+	/**
+	 * Primary key field
+	 *
+	 * @var string
+	 */
 	public $primaryKey = 'id_pintor';
 
-/**
- * Validation rules
- *
- * @var array
- */
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'id_pintor' => array(
 			'numeric' => array(
@@ -58,6 +58,27 @@ class Pintor extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'tipo_doc' => array(
+			'notempty' => array(
+				'rule' => array( 'notempty' ),
+				'message' => 'Por favor, seleccione algún tipo de número de documento',
+				'required' => false
+			)
+		),
+		'num_doc' => array(
+			'numeric' => array(
+				'rule'        => array( 'numeric' ),
+				'message'    => 'Por favor, ingrese solo números para el número de documento',
+				'allowEmpty' => true,
+				'required'   => false
+			),
+			'length' => array(
+				'rule'       => array( 'minLength', 8 ),
+				'message'    => 'Por favor, ingrese 8 digitos para el numero de DNI',
+				'allowEmpty' => true,
+				'required'   => false
+			) 
+		)
 	);
 
 	/**

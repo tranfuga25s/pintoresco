@@ -6,6 +6,7 @@
 			echo $this->Html->link( 'Nueva Categoria', array( 'action' => 'add' ) );
 			echo $this->Html->link( 'Lista de Productos', array( 'controller' => 'productos', 'action' => 'index' ) ); ?>
 </div>
+<br />
 <div class="categorias view">
 <h1>Categoria</h1>
 	<dl>
@@ -111,7 +112,7 @@
 		<tr>
 			<td><?php echo '#'.$productos['id_producto']; ?></td>
 			<td><?php echo h( $productos['nombre'] ); ?></td>
-			<td><?php echo $this->Html->link( h( $productos['marca_id'] ), array( 'controller' => 'marcas', 'action' => 'view', $productos['marca_id'] ) ); ?></td>
+			<td><?php echo $this->Html->link( h( 'ver' ), array( 'controller' => 'marcas', 'action' => 'view', $productos['marca_id'] ) ); ?></td>
 			<td><?php
 				if( $productos['publicado'] ) {
 					echo $this->Html->link( $this->Html->image( 'test-pass-icon.png', array( 'alt' => 'Deshabilitar' ) ),

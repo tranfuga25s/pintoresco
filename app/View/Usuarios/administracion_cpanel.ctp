@@ -6,6 +6,11 @@
 <ul class="dash">
    <li><?php echo $this->Html->link(
                 $this->Html->image( 'assets/productos-icono.png' ) 
+                .'<span>Categorias</span>',
+                array( 'controller' => 'categorias', 'action' => 'index', 'plugin' => false ),
+                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de categorias' ) ); ?></li>
+   <li><?php echo $this->Html->link(
+                $this->Html->image( 'assets/productos-icono.png' ) 
                 .'<span>Productos</span>',
                 array( 'controller' => 'productos', 'action' => 'index', 'plugin' => false ),
                 array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de productos' ) ); ?></li>

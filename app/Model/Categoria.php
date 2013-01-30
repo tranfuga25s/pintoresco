@@ -151,8 +151,8 @@ class Categoria extends AppModel {
 	}
 	
 	public function tieneCategorias( $id_categoria = null ) {
-		$cant_prod = $this->find( 'count', array( 'conditions' => array( 'parent_id' => $id ) ) );
-		if( $cant_prod == 0 ) {
+		$cant_prod = $this->find( 'count', array( 'conditions' => array( 'Categoria.parent_id' => $id_categoria ) ) );
+		if( $cant_prod != 0 ) {
 			return true;
 		} else {
 			return false;
@@ -160,8 +160,8 @@ class Categoria extends AppModel {
 	}
 	
 	public function tieneProductos( $id_categoria = null ) {
-		$cant_hijos = $this->Productos->find( 'count', array( 'conditions' => array( 'categoria_id' => $id ) ) );
-		if( $cant_hijos == 0 ) {
+		$cant_hijos = $this->Productos->find( 'count', array( 'conditions' => array( 'categoria_id' => $id_categoria ) ) );
+		if( $cant_hijos != 0 ) {
 			return true;
 		} else {
 			return false;

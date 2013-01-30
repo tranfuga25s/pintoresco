@@ -77,75 +77,6 @@ class ProductosController extends AppController {
 	}
 
 	/**
-	 * add method
-	 *
-	 * @return void
-	 */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Producto->create();
-			if ($this->Producto->save($this->request->data)) {
-				$this->Session->setFlash(__('The producto has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The producto could not be saved. Please, try again.'));
-			}
-		}
-		$marcas = $this->Producto->Marca->find('list');
-		$this->set(compact('marcas'));
-	}
-
-	/**
-	 * edit method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function edit($id = null) {
-		$this->Producto->id = $id;
-		if (!$this->Producto->exists()) {
-			throw new NotFoundException(__('Invalid producto'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Producto->save($this->request->data)) {
-				$this->Session->setFlash(__('The producto has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The producto could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Producto->read(null, $id);
-		}
-		$marcas = $this->Producto->Marca->find('list');
-		$this->set(compact('marcas'));
-	}
-
-	/**
-	 * delete method
-	 *
-	 * @throws MethodNotAllowedException
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Producto->id = $id;
-		if (!$this->Producto->exists()) {
-			throw new NotFoundException(__('Invalid producto'));
-		}
-		if ($this->Producto->delete()) {
-			$this->Session->setFlash(__('Producto deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Producto was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
-
-	/**
 	 * administracion_index method
 	 *
 	 * @return void
@@ -165,7 +96,7 @@ class ProductosController extends AppController {
 	public function administracion_view($id = null) {
 		$this->Producto->id = $id;
 		if (!$this->Producto->exists()) {
-			throw new NotFoundException(__('Invalid producto'));
+			throw new NotFoundException( 'El producto especificado es invalido' );
 		}
 		$this->set('producto', $this->Producto->read(null, $id));
 	}
@@ -179,14 +110,15 @@ class ProductosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Producto->create();
 			if ($this->Producto->save($this->request->data)) {
-				$this->Session->setFlash(__('The producto has been saved'));
+				$this->Session->setFlash( 'El producto ha sido agregado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The producto could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'El producto no pudo ser agregado. Intente nuevamente', 'default', array( 'class' => 'error' ) );
 			}
 		}
 		$marcas = $this->Producto->Marca->find('list');
-		$this->set(compact('marcas'));
+		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
+		$this->set( compact( 'marcas', 'categorias' ) );
 	}
 
 	/**
@@ -199,20 +131,21 @@ class ProductosController extends AppController {
 	public function administracion_edit($id = null) {
 		$this->Producto->id = $id;
 		if (!$this->Producto->exists()) {
-			throw new NotFoundException(__('Invalid producto'));
+			throw new NotFoundException( 'Producto especificado invalido' );
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Producto->save($this->request->data)) {
-				$this->Session->setFlash(__('The producto has been saved'));
+				$this->Session->setFlash( 'El producto ha sido guardado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The producto could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'El producto no pudo ser guardado correctamente. Intente nuevamente.', 'default', array( 'class' => 'error' ) );
 			}
 		} else {
 			$this->request->data = $this->Producto->read(null, $id);
 		}
-		$marcas = $this->Producto->Marca->find('list');
-		$this->set(compact('marcas'));
+		$marcas = $this->Producto->Marca->find( 'list' );
+		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
+		$this->set( compact( 'marcas', 'categorias' ) );
 	}
 
 	/**
@@ -229,13 +162,13 @@ class ProductosController extends AppController {
 		}
 		$this->Producto->id = $id;
 		if (!$this->Producto->exists()) {
-			throw new NotFoundException(__('Invalid producto'));
+			throw new NotFoundException( 'Producto especificado invalido' );
 		}
 		if ($this->Producto->delete()) {
-			$this->Session->setFlash(__('Producto deleted'));
+			$this->Session->setFlash( 'Producto eliminado correctamente', 'default', array( 'class' => 'success' ) );
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Producto was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash( 'El producto no pudo ser eliminado', 'default', array( 'class' => 'error' ) );
+		$this->redirect( array( 'action' => 'index' ) );
 	}
 }

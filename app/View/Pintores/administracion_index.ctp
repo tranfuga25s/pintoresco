@@ -22,12 +22,12 @@ foreach ($pintores as $pintor ): ?>
 	<td><?php
 		if( $pintor['Pintor']['habilitado'] ) {
 			echo $this->Html->link( $this->Html->image( 'test-pass-icon.png', array( 'alt' => 'Deshabilitar' ) ),
-									array( 'action' => 'deshabilitar' ),
+									array( 'action' => 'deshabilitar', $pintor['Pintor']['id_pintor'] ),
 									array( 'escape' => false ) );
 		} else {
 			echo $this->Html->link( $this->Html->image( 'test-fail-icon.png', array( 'alt' => 'Habilitar' ) ),
-									array( 'action' => 'habilitar' ),
-									array( 'escape' => true ) );
+									array( 'action' => 'habilitar', $pintor['Pintor']['id_pintor'] ),
+									array( 'escape' => false ) );
 		}
 		?>
 	</td>

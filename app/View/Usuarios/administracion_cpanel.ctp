@@ -21,9 +21,9 @@
                 array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de marcas declaradas' ) ); ?></li>
    <li><?php echo $this->Html->link(
                 $this->Html->image( 'assets/marca-icono.jpg' ) 
-                .'<span>Materiales</span>',
+                .'<span>Materiales/Superficies</span>',
                 array( 'controller' => 'materiales', 'action' => 'index', 'plugin' => false ),
-                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de marcas declaradas' ) ); ?></li>
+                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de materiales/superficies declaradas' ) ); ?></li>
 </ul>
 <h2>Pintores</h2>
 <ul class="dash">                

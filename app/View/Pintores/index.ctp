@@ -26,3 +26,7 @@ Ordenar por:
 	echo $this->Paginator->next( 'siguiente >', array(), null, array('class' => 'next disabled'));
 ?>
 </div>
+<div>
+	<h3>Ya estoy inscripto. ¿Como cambio mis datos?</h3>
+	<?php echo $this->Html->link( 'Haga click aquí para cambiar sus datos', array( 'controller' => 'pintores', 'action' => 'verPintor' ) ); ?>
+</div>

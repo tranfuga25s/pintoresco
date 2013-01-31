@@ -2,7 +2,8 @@
 <div id="acciones">
 	<?php echo $this->Html->link( 'Nuevo Material', array( 'action' => 'add' ) ); ?>
 </div>
-<h2>Materiales</h2>
+<br />
+<h2>Materiales/Superficies</h2>
 <table cellpadding="0" cellspacing="0">
 <tr>
 		<th><?php echo $this->Paginator->sort('id_material'); ?></th>
@@ -34,7 +35,7 @@ foreach ($materiales as $material): ?>
 </tr>
 <?php endforeach; ?>
 </table>
-<p><?php echo $this->Paginator->counter(array( 'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} en total, desde {:start} al {:end}')));?></p>
+<p><?php echo $this->Paginator->counter(array( 'format' => 'Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} en total, desde {:start} al {:end}'));?></p>
 <div class="paging">
 <?php
 	echo $this->Paginator->prev('< Anterior', array(), null, array('class' => 'prev disabled'));

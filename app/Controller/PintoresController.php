@@ -5,20 +5,22 @@ App::uses('AppController', 'Controller');
  *
  */
 class PintoresController extends AppController {
+	
+   /**
+    * Modelo que se utliliza
+    */	
+	public $uses = 'Pintor';
 
 	/**
-	 * Scaffold
-	 *
-	 * @var mixed
+	 * Función que habilita las funciónes públicas
 	 */
 	public function beforeFilter() {
 		$this->Auth->allow( array( 'index', 'view' ) );
 		parent::beforeFilter();
 	}
+
 	
-	public $uses = 'Pintor';
-	
-		/**
+	/**
 	 * Muestra el listado de acciones permitidas
 	 */
 	public function isAuthorized( $usuario ) {
@@ -76,7 +78,39 @@ class PintoresController extends AppController {
 		}
 		$this->Pintor->recursive = 2;
 		$this->set( 'pintor', $this->Pintor->read( null, $id_pintor ) );
-	 }		
+	 }
+	 
+    /**
+	 * Funcion para cambiar los datos del pintor o agregar obras
+	 * 
+	 * @author Esteban Zeller
+	 */	 
+	 public function verPintor( $id_pintor = null ) {
+	 	$this->Pintor->id = $id_pintor;
+		if( ! $this->Pintor->exists() ) {
+			throw new NotFoundException( 'El pintor seleccionado no existe' );
+		}
+		$this->set( 'pintor', $this->Pintor->read( null, $id_pintor ) );
+	 }
+	 
+	/**
+	 * Funcion por la cual los pintores pueden editar sus datos y cargar obras
+	 */ 
+	public function edit( $id_pintor = null ) {
+		$this->Pintor->id = $id_pintor;
+		if( ! $this->Pintor->exists() ) {
+			throw new NotFoundException( 'El pintor no existe!' );
+		}
+		if( $this->request->isPost() ) {
+			if( $this->Pintor->saveAssociated( $this->data ) ) {
+				$this->Session->setFlash( 'Sus datos han sido actualizados correctamente', 'default', null, array( 'class' => 'sucess' ) );
+			} else {
+				$this->Session->setFlash( 'No se pudieron actualizar sus datos. Verifique los errores y corrigalos.', 'default', null, array( 'class' => 'error' ) );
+			}
+		}
+		$this->set( 'especialidades', $this->Pintor->Especialidad->find('list') );
+		$this->set( 'pintor', $this->Pintor->read( null, $id_pintor ) );
+	}
 	
 	/**
 	 * Listado de pintores registrados en el sistema para la administración
@@ -86,16 +120,6 @@ class PintoresController extends AppController {
 	public function administracion_index() {
 		$this->set( 'pintores', $this->paginate() );
 	}
-	
-	/*
-	public function administracion_view( $id_pintor = null ) {
-		$this->Pintor->id = $id_pintor;
-		if( !$this->Pintor->exists() ) 
-			throw new NotFoundException( 'El pintor no existe' );
-		
-		$this->set( 'pintor', $this->Pintor->read() );
-	}
-	 * */
 	
 	/**
 	 * Agregar nuevo pintor directamente

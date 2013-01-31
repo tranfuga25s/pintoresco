@@ -1,56 +1,53 @@
-<div class="fotosObras index">
-	<h2><?php echo __('Fotos Obras'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id_foto_obra'); ?></th>
-			<th><?php echo $this->Paginator->sort('obra_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('titulo'); ?></th>
-			<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
-			<th><?php echo $this->Paginator->sort('path'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php
-	foreach ($fotosObras as $fotosObra): ?>
-	<tr>
-		<td><?php echo h($fotosObra['FotosObra']['id_foto_obra']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($fotosObra['Obra']['fecha'], array('controller' => 'obras', 'action' => 'view', $fotosObra['Obra']['id_obra'])); ?>
-		</td>
-		<td><?php echo h($fotosObra['FotosObra']['titulo']); ?>&nbsp;</td>
-		<td><?php echo h($fotosObra['FotosObra']['descripcion']); ?>&nbsp;</td>
-		<td><?php echo h($fotosObra['FotosObra']['path']); ?>&nbsp;</td>
-		<td><?php echo h($fotosObra['FotosObra']['created']); ?>&nbsp;</td>
-		<td><?php echo h($fotosObra['FotosObra']['modified']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $fotosObra['FotosObra']['id_foto_obra'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $fotosObra['FotosObra']['id_foto_obra'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $fotosObra['FotosObra']['id_foto_obra']), null, __('Are you sure you want to delete # %s?', $fotosObra['FotosObra']['id_foto_obra'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
+<?php $this->set( 'title_for_layout', "Fotos para una obra" ); ?>
+<div id="acciones">
+	<?php echo $this->Html->link( 'Lista de Obras', array( 'controller' => 'obras', 'action' => 'index' ) );  ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Fotos Obra'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Obras'), array('controller' => 'obras', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Obra'), array('controller' => 'obras', 'action' => 'add')); ?> </li>
-	</ul>
+<script>
+$(function() { 
+	$( "a", "#acciones2" ).button();
+	$( "a", ".contenedor" ).button();
+} );
+</script>
+<style>
+.contenedor {
+	border: 1px solid gray;
+	padding: 3px 3px 8px 8px;
+	background-color: lightgrey;
+	float: left;
+	margin: 2px 2px 2px 2px;
+}
+</style>
+<br />
+<div>
+	<h2>Fotos para la obra #<?php echo $obra['Obra']['id_obra'].' - '.$obra['Pintor']['Usuario']['razonsocial']; ?></h2>
+	<?php //debug( $fotosObras ); ?>
+	<?php foreach( $fotosObras as $foto ) { ?>
+		<div class="contenedor">
+			<?php echo $this->Html->image( $foto['FotosObra']['path'], array( 'width' => 300 ) ); ?>
+			<br />
+			<?php echo h( $foto['FotosObra']['titulo'] ); ?><br />
+			<?php echo h( $foto['FotosObra']['descripcion'] ); ?><br />
+			<?php echo $this->Html->link( 'Eliminar', array( 'action' => 'delete', $foto['FotosObra']['id_foto_obra'] ) ); ?>
+			<?php echo $this->Html->link( 'Cambiar datos', array( 'action' => 'edit', $foto['FotosObra']['id_foto_obra'] ) ); ?>
+		</div>
+	<?php } ?>
+</div>
+<div id="acciones2" style="clear: both;">
+	<?php echo $this->Html->link( 'Agregar nueva imagen', '#', array( 'onclick' => '$("#agregar").slideDown()' ) ); ?>
+</div>
+<br />
+<div id="agregar" style="display: none;">
+	<h2>Agregar nueva imagen</h2>
+	<?php echo $this->Form->create( 'FotosObra', array( 'type' => 'file', 'action' => 'add' ) ); ?>
+	<fieldset>
+		<legend><h3>Añadir nueva imagen</h3></legend>
+	<?php
+		echo $this->Form->input('obra_id', array( 'type' => 'hidden', 'value' => $obra['Obra']['id_obra'] ) );
+		echo $this->Form->input('titulo');
+		echo $this->Form->input('descripcion');
+		echo $this->Form->input('path', array( 'type' => 'file', 'label' => 'Subir archivo:' ) );
+		echo $this->Form->end( 'Subir' );
+	?>
+	</fieldset>
+	
 </div>

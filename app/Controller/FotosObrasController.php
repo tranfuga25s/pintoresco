@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('File', 'Utility');
 /**
  * FotosObras Controller
  *
@@ -85,7 +86,7 @@ class FotosObrasController extends AppController {
 	 *
 	 * @return void
 	 */
-	public function add() {
+/*	public function add() {
 		if ($this->request->is('post')) {
 			$this->FotosObra->create();
 			if ($this->FotosObra->save($this->request->data)) {
@@ -97,7 +98,7 @@ class FotosObrasController extends AppController {
 		}
 		$obras = $this->FotosObra->Obra->find('list');
 		$this->set(compact('obras'));
-	}
+	} */
 
 	/**
 	 * edit method
@@ -106,7 +107,7 @@ class FotosObrasController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function edit($id = null) {
+	/*public function edit($id = null) {
 		$this->FotosObra->id = $id;
 		if (!$this->FotosObra->exists()) {
 			throw new NotFoundException(__('Invalid fotos obra'));
@@ -123,7 +124,7 @@ class FotosObrasController extends AppController {
 		}
 		$obras = $this->FotosObra->Obra->find('list');
 		$this->set(compact('obras'));
-	}
+	} */
 
 	/**
 	 * delete method
@@ -133,7 +134,7 @@ class FotosObrasController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function delete($id = null) {
+	/*public function delete($id = null) {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
@@ -147,8 +148,8 @@ class FotosObrasController extends AppController {
 		}
 		$this->Session->setFlash(__('Fotos obra was not deleted'));
 		$this->redirect(array('action' => 'index'));
-	}
-
+	}*/
+	
 	/**
 	 * administracion_index method
 	 *
@@ -160,21 +161,8 @@ class FotosObrasController extends AppController {
 		}
 		$this->FotosObra->recursive = 0;
 		$this->set('fotosObras', $this->paginate( array( 'obra_id' => $id_obra ) ) );
-	}
-
-	/**
-	 * administracion_view method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function administracion_view($id = null) {
-		$this->FotosObra->id = $id;
-		if (!$this->FotosObra->exists()) {
-			throw new NotFoundException(__('Invalid fotos obra'));
-		}
-		$this->set('fotosObra', $this->FotosObra->read(null, $id));
+		$this->FotosObra->Obra->recursive = 2;
+		$this->set( 'obra', $this->FotosObra->Obra->read( null, $id_obra ) );
 	}
 
 	/**
@@ -184,16 +172,35 @@ class FotosObrasController extends AppController {
 	 */
 	public function administracion_add() {
 		if ($this->request->is('post')) {
-			$this->FotosObra->create();
-			if ($this->FotosObra->save($this->request->data)) {
-				$this->Session->setFlash(__('The fotos obra has been saved'));
-				$this->redirect(array('action' => 'index'));
+			debug( $this->data );
+			if( $this->data['FotosObra']['path']['error'] != 0 ) {
+				$this->Session->setFlash( 'No se pudo subir la imagen correctamente. Error #'.$this->data['FotosObra']['path']['error'], 'default', null, array( 'class' => 'error' ) );
 			} else {
-				$this->Session->setFlash(__('The fotos obra could not be saved. Please, try again.'));
+				// Muevo la imagen a su lugar
+				$archivo = new File( $this->data['FotosObra']['path']['tmp_name'] );
+				// Verifico que exista la carpeta
+				$dir = new Folder( WWW_ROOT.'img/obras/' );
+				$destinod = WWW_ROOT.'img/obras/'.$this->data['FotosObra']['obra_id'];
+				$dir->create( $destinod );
+				debug( 'Destino:'.$destinod.DS.$this->data['FotosObra']['path']['name'] );
+				if( $archivo->copy( $destinod.DS.$this->data['FotosObra']['path']['name'] ) ) {
+					$datos_nuevos = $this->data;
+					$datos_nuevos['FotosObra']['path'] = 'obras'.DS.$this->data['FotosObra']['obra_id'].DS.$this->data['FotosObra']['path']['name'];
+					$this->FotosObra->create();
+					if ( $this->FotosObra->save( $datos_nuevos ) ) {
+						 $this->Session->setFlash( 'La imagen ha sido agregada correctamente', 'default', null, array( 'class' => 'sucess' ) );
+					} else {
+						$this->Session->setFlash( 'La imagen no pudo ser enviada correctamente. Intente nuevamente.', 'default', null, array( 'class' => 'error' ) );
+					}
+				} else {
+					$this->Session->setFlash( 'No se pudo subir la imagen correctamente. Error de copia', 'default', null, array( 'class' => 'error' ) );
+				}
 			}
+			$this->redirect( array( 'action' => 'index', $this->data['FotosObra']['obra_id'] ) );
+		} else {
+			// Si no pasó el ID lo mando a las obras
+			$this->redirect( array( 'controller' => 'obras', 'action' => 'index' ) );
 		}
-		$obras = $this->FotosObra->Obra->find('list');
-		$this->set(compact('obras'));
 	}
 
 	/**

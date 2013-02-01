@@ -28,16 +28,6 @@ class FotosObra extends AppModel {
 	 */
 	public $displayField = 'titulo';
 
-	/*public $actAs = array(
-		'Uploader.Attachment' => array(
-			'dbColumn' => 'path',
-			'defaultPath' => WWW_ROOT . 'img' . DS . 'obras',
-			'overwrite' => false,
-			'allowEmpty' => false 
-		)
-	);*/
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
 	/**
 	 * belongsTo associations
 	 *
@@ -46,10 +36,17 @@ class FotosObra extends AppModel {
 	public $belongsTo = array(
 		'Obra' => array(
 			'className' => 'Obra',
-			'foreignKey' => 'obra_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+			'foreignKey' => 'obra_id'
 		)
 	);
+	
+	public function beforeDelete( $cascade = null ) {
+		$ruta = $this->field( 'path' );
+		$arch = new File( WWW_ROOT.'img'.DS.$ruta );
+		if( $arch->delete() ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

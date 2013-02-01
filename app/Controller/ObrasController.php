@@ -6,14 +6,8 @@ App::uses('AppController', 'Controller');
  */
 class ObrasController extends AppController {
 
+	public $paginate = array();	
 	/**
-	 * Scaffold
-	 *
-	 * @var mixed
-	 */
-	public $scaffold;
-	
-		/**
 	 * Muestra el listado de acciones permitidas
 	 */
 	public function isAuthorized( $usuario ) {
@@ -53,6 +47,7 @@ class ObrasController extends AppController {
 	 * Listado de pintores registrados en el sistema para la administración
 	 */
 	public function administracion_index() {
+		$this->paginate['recursive'] = 2;
 		$this->set( 'obras', $this->paginate() );
 	}
 	

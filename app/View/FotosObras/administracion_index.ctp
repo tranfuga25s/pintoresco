@@ -27,7 +27,7 @@ $(function() {
 			<br />
 			<?php echo h( $foto['FotosObra']['titulo'] ); ?><br />
 			<?php echo h( $foto['FotosObra']['descripcion'] ); ?><br />
-			<?php echo $this->Html->link( 'Eliminar', array( 'action' => 'delete', $foto['FotosObra']['id_foto_obra'] ) ); ?>
+			<?php echo $this->Html->link( 'Eliminar', array( 'action' => 'delete', $foto['FotosObra']['id_foto_obra'], $foto['FotosObra']['obra_id']	 ) ); ?>
 			<?php echo $this->Html->link( 'Cambiar datos', array( 'action' => 'edit', $foto['FotosObra']['id_foto_obra'] ) ); ?>
 		</div>
 	<?php } ?>

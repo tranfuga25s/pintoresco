@@ -237,19 +237,19 @@ class FotosObrasController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function administracion_delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
+	public function administracion_delete( $id = null, $id_obra = null ) {
+		if ( $id_obra == null ) {
+			throw new NotFoundException( 'Falta parametro' );
 		}
 		$this->FotosObra->id = $id;
-		if (!$this->FotosObra->exists()) {
-			throw new NotFoundException(__('Invalid fotos obra'));
+		if ( !$this->FotosObra->exists() ) {
+			 throw new NotFoundException( 'La fotografia indicada es inválida' );
 		}
-		if ($this->FotosObra->delete()) {
-			$this->Session->setFlash(__('Fotos obra deleted'));
-			$this->redirect(array('action' => 'index'));
+		if ( $this->FotosObra->delete() ) {
+			 $this->Session->setFlash( 'La foto pudo ser eliminada correctamente', 'default', null, array( 'class' => 'sucess' ) );
+			 $this->redirect( array( 'action' => 'index', $id_obra ) );
 		}
-		$this->Session->setFlash(__('Fotos obra was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash( 'La fotografía no pudo ser eliminada', 'default', null, array( 'class' => 'error' ) );
+		$this->redirect( array( 'action' => 'index', $id_obra ) );
 	}
 }

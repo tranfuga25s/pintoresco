@@ -144,6 +144,11 @@ class PintoresController extends AppController {
 			throw new NotFoundException( 'No se encontró el pintor' );
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			if( $this->request->data['Usuario']['nueva_contra'] != '' ) {
+				// Genero la contraseña nueva -> el modelo la convierte en el código correspondiente
+				$this->request->data['Usuario']['contra'] = $this->request->data['Usuario']['nueva_contra'];
+				/// @TODO Avisar al pintor sobre el cambio de contraseña?
+			}
 			if ($this->Pintor->saveAssociated($this->request->data)) {
 				$this->Session->setFlash( 'El pintor ha sido guardado correctamente.', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));

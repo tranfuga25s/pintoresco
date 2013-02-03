@@ -15,6 +15,7 @@
 			echo $this->Form->input( 'Usuario.apellido' );
 			echo $this->Form->input( 'Usuario.telefono' );
 			echo $this->Form->input( 'Usuario.celular' );
+			echo $this->Form->input( 'Usuario.nueva_contra', array( 'label' => 'Nueva clave de acceso', 'type' => 'password', 'after' => 'Ingresar la nueva contraseña si desea cambiarla. Para conservar la contraseña actual, deje este campo en blanco.' ) );
 		?>
 	</fieldset>
 	<fieldset>

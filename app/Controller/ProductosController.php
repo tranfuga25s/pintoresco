@@ -109,7 +109,7 @@ class ProductosController extends AppController {
 	public function administracion_add() {
 		if ($this->request->is('post')) {
 			$this->Producto->create();
-			if ($this->Producto->save($this->request->data)) {
+			if ($this->Producto->saveAssociated($this->request->data)) {
 				$this->Session->setFlash( 'El producto ha sido agregado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -117,8 +117,9 @@ class ProductosController extends AppController {
 			}
 		}
 		$marcas = $this->Producto->Marca->find('list');
+		$materiales = $this->Producto->Material->find( 'list' );
 		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
-		$this->set( compact( 'marcas', 'categorias' ) );
+		$this->set( compact( 'marcas', 'categorias', 'materiales' ) );
 	}
 
 	/**
@@ -134,7 +135,7 @@ class ProductosController extends AppController {
 			throw new NotFoundException( 'Producto especificado invalido' );
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Producto->save($this->request->data)) {
+			if ($this->Producto->saveAssociated( $this->request->data ) ) {
 				$this->Session->setFlash( 'El producto ha sido guardado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -144,8 +145,9 @@ class ProductosController extends AppController {
 			$this->request->data = $this->Producto->read(null, $id);
 		}
 		$marcas = $this->Producto->Marca->find( 'list' );
+		$materiales = $this->Producto->Material->find( 'list' );
 		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
-		$this->set( compact( 'marcas', 'categorias' ) );
+		$this->set( compact( 'marcas', 'categorias', 'materiales' ) );
 	}
 
 	/**
@@ -171,4 +173,31 @@ class ProductosController extends AppController {
 		$this->Session->setFlash( 'El producto no pudo ser eliminado', 'default', array( 'class' => 'error' ) );
 		$this->redirect( array( 'action' => 'index' ) );
 	}
+	
+   /**
+    * administracion_desvincular
+    * Accion llamada para sacar la vinculación entre un producto y un material
+    */
+    public function administracion_desvincular() {
+    	debug( $this->request->params['named'] );
+		$id_material = $this->request->params['named']['material'];
+		$id_producto = $this->request->params['named']['producto'];
+		$this->Producto->id = $id_producto;
+		if( !$this->Producto->exists() ) {
+			throw new NotFoundException( 'El producto elegido no existe' );
+		}
+		$this->Producto->Material->id = $id_material;
+		if( !$this->Producto->Material->exists() ) {
+			throw new NotFoundException( 'El material no existe' );
+		}
+		
+		$ret = $this->Producto->query( "DELETE FROM `productos_materiales` WHERE `producto_id` =  ".$id_producto." AND `material_id` = ".$id_material.";" );
+		if( count( $ret ) == 0 ) {
+			$this->Session->setFlash( 'La asociación pudo ser eliminada correctamente', 'default', array( 'class' => 'success' ) );
+		} else {
+			$this->Session->setFlash( 'No se pudo eliminar la asociación', 'default', array( 'class' => 'error' ) );
+		}
+		$this->redirect( array( 'action' => 'view', $id_producto ) );
+    } 
+
 }

@@ -21,11 +21,8 @@ class Producto extends AppModel {
 	 */
 	public $displayField = 'nombre';
 
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
 	/**
-	 * belongsTo associations
+	 * Asociación entre los productos y su marca y categoría
 	 *
 	 * @var array
 	 */
@@ -39,4 +36,20 @@ class Producto extends AppModel {
 			'foreignKey' => 'categoria_id'
 		)
 	);
+	
+   /**
+    * Asociación entre los productos y los materiales que se pueden pintar con el.
+    * 
+    * @var array
+    */	
+	
+	public $hasAndBelongsToMany = array(
+        'Material' =>
+            array(
+                'className'              => 'Material',
+                'joinTable'              => 'productos_materiales',
+                'foreignKey'             => 'producto_id',
+                'associationForeignKey'  => 'material_id'
+            )
+		);
 }

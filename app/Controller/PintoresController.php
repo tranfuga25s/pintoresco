@@ -103,7 +103,7 @@ class PintoresController extends AppController {
 		}
 		if( $this->request->isPost() ) {
 			if( $this->Pintor->saveAssociated( $this->data ) ) {
-				$this->Session->setFlash( 'Sus datos han sido actualizados correctamente', 'default', null, array( 'class' => 'sucess' ) );
+				$this->Session->setFlash( 'Sus datos han sido actualizados correctamente', 'default', array( 'class' => 'sucess' ) );
 			} else {
 				$this->Session->setFlash( 'No se pudieron actualizar sus datos. Verifique los errores y corrigalos.', 'default', null, array( 'class' => 'error' ) );
 			}
@@ -129,10 +129,10 @@ class PintoresController extends AppController {
 	 public function administracion_add() {
 	 	if( $this->request->isPost() ) {
 	 		if( $this->Pintor->saveAssociated( $this->data ) ) {
-	 			$this->Session->setFlash( 'El pintor se agregó correctamente', 'default', array(), array( 'class' => 'sucess' ) );
+	 			$this->Session->setFlash( 'El pintor se agregó correctamente', 'default', array( 'class' => 'sucess' ) );
 				$this->redirect( array( 'action' => 'index' ) );
 	 		} else {
-	 			$this->Session->setFlash( 'No se pudo agregar el pintor', 'default', array(), array( 'class' => 'error' ) );
+	 			$this->Session->setFlash( 'No se pudo agregar el pintor', 'default', array( 'class' => 'error' ) );
 	 		}
 	 	}
 		$this->set( 'especialidades', $this->Pintor->Especialidad->find('list') );

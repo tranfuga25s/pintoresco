@@ -36,6 +36,10 @@
 			<?php echo h($producto['Producto']['publicado']); ?>
 			&nbsp;
 		</dd>
+		<dt>Materiales:</dt>
+		<dd>
+			<?php debug( $producto['Material'] ); ?> &nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

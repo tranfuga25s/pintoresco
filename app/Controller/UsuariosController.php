@@ -114,7 +114,7 @@ class UsuariosController extends AppController {
 		if( $this->request->isPost() ) {
 			if( !empty( $this->data['Recuperar']['email'] ) ) {
 				if( !$this->Usuario->verificarSiExiste( $this->data['Recuperar']['email'] ) ) {
-					$this->Session->setFlash( 'La casilla de email ingresada no existe en nuestro sistema. Por favor, registrese en nuestro sitio.');
+					$this->Session->setFlash( 'La casilla de email ingresada no existe en nuestro sistema. Por favor, registrese en nuestro sitio.', 'default', array( 'class' => 'error' ) );
 				} else {
 					$nueva_contra = $this->Usuario->generarNuevaContraseña( $this->data['Recuperar']['email'] );
 					if( $nueva_contra != false ) {
@@ -130,18 +130,18 @@ class UsuariosController extends AppController {
 						$email->from( $de );
 						$email->send();
 						if( $this->Auth->loggedIn() ) {
-							$this->Session->setFlash( 'Se envió una nueva contraseña de ingreso al usuario', 'default', null, array( 'class' => 'sucess' )  );
+							$this->Session->setFlash( 'Se envió una nueva contraseña de ingreso al usuario', 'default', array( 'class' => 'sucess' )  );
 							$this->redirect( array( 'action' => 'index' ) );	
 						} else {
-							$this->Session->setFlash( 'Se ha enviado un mensaje con su nueva contraseña.<br />Por favor, revise su casilla de correo para obtener los datos y así poder ingresar al sistema.' );
+							$this->Session->setFlash( 'Se ha enviado un mensaje con su nueva contraseña.<br />Por favor, revise su casilla de correo para obtener los datos y así poder ingresar al sistema.', 'default', array( 'class' => 'sucess' ) );
 							$this->redirect( array( 'action' => 'ingresar' ) );
 						}
 					} else {
-						$this->Session->setFlash( 'No se pudo generar una nueva contraseña.');
+						$this->Session->setFlash( 'No se pudo generar una nueva contraseña.', 'default', array( 'class' => 'error' ) );
 					}
 				}
 			} else {
-				$this->Session->setFlash( 'Por favor, ingrese una dirección de correo electronico para solicitar su nueva contraseña.');
+				$this->Session->setFlash( 'Por favor, ingrese una dirección de correo electronico para solicitar su nueva contraseña.', 'default', array( 'class' => 'error' ) );
 			}
 		}
 		$this->set( 'dominio', $_SERVER['SERVER_NAME'] ); 
@@ -158,11 +158,11 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash( 'Por favor, ingrese una contraseña' );
 			} else {
 				if( $this->request->data['Usuario']['contra'] != $this->request->data['Usuario']['contrarep'] ) {
-					$this->Session->setFlash( 'Las contraseñas no coinciden' );
+					$this->Session->setFlash( 'Las contraseñas no coinciden' , 'default', array( 'class' => 'error' ) );
 				} else {
 					// Busco si el email no existe ya
 					if( $this->Usuario->verificarSiExiste( $this->request->data['Usuario']['email'] ) ) {
-						$this->Session->setFlash( "Ya existe una cuenta con este usuario y contraseña.<br \> Recupere su contraseña para usarla" );
+						$this->Session->setFlash( "Ya existe una cuenta con este usuario y contraseña.<br \> Recupere su contraseña para usarla" , 'default', array( 'class' => 'error' ) );
 						$this->redirect( array( 'action' => 'recuperarContra' ) );
 					}
 					$this->Usuario->create();
@@ -171,7 +171,7 @@ class UsuariosController extends AppController {
 						$this->request->data['Usuario'] = array_merge( $this->request->data['Usuario'], array( 'id' => $id ) );
 						if( $this->Auth->login() ) {
 							$this->borrarCacheUsuarios();
-							$this->Session->setFlash( "Bienvenido! - Su usuario ha sido creado correctamente." );
+							$this->Session->setFlash( "Bienvenido! - Su usuario ha sido creado correctamente.", 'default', array( 'class' => 'sucess' ) );
 							$de = Configure::read( 'Turnera.email_notificaciones' );
 							if( empty( $de )  ) { $de = 'info@alejandrotalin.com.ar'; }
 							// Crear email de bienvenida!
@@ -186,11 +186,11 @@ class UsuariosController extends AppController {
 							// Hago que el usuario se logee directamente
 							$this->redirect( array( 'controller' => 'turnos', 'action' => 'nuevo' ) );
 						} else {
-							$this->Session->setFlash( "Bienvenido! - Su usuario ha sido creado correctamente.<br />Por favor, ingrese con sus datos recien creados para utilizar el sistema." );
+							$this->Session->setFlash( "Bienvenido! - Su usuario ha sido creado correctamente.<br />Por favor, ingrese con sus datos recien creados para utilizar el sistema." , 'default', array( 'class' => 'sucess' ) );
 							$this->redirect( '/' );
 						}
 					} else {
-						$this->Session->setFlash( 'El Usuario no pude ser guardado. Por favor, intente nuevamente.' );
+						$this->Session->setFlash( 'El Usuario no pude ser guardado. Por favor, intente nuevamente.', 'default', array( 'class' => 'error' ) );
 					}
 				}
 			}
@@ -209,16 +209,16 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash( 'El correo electronico no puede estar vacío' );
 			} else {
 				if( ! $this->Usuario->verificarSiExiste( $this->data['Usuario']['email'] ) ) {
-					$this->Session->setFlash( 'El correo electronico ingresado no pertenece a ningún usuario registrado' );
+					$this->Session->setFlash( 'El correo electronico ingresado no pertenece a ningún usuario registrado' , 'default', array( 'class' => 'error' ) );
 				} else {
 					// Elimino los turnos que tenga asociados
 					if( $this->Usuario->delete( $id ) ) {
 						$this->log( 'Usuario de id='.$id.' fue dado de baja' );
 						$this->log( 'Razon de baja:'.$this->data['Usuario']['razon'] );
-						$this->Session->setFlash( 'El usuario fue dado de baja correctamente.<br />Gracias por haber utilizado nuestros servicios!' );
+						$this->Session->setFlash( 'El usuario fue dado de baja correctamente.<br />Gracias por haber utilizado nuestros servicios!', 'default', array( 'class' => 'sucess' ) );
 						$this->redirect( '/' );
 					} else {
-						$this->Session->setFlash( 'Existió un error al dar de baja el usuario' );
+						$this->Session->setFlash( 'Existió un error al dar de baja el usuario', 'default', array( 'class' => 'error' ) );
 					}
 				}
 			}
@@ -256,10 +256,10 @@ class UsuariosController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Usuario->save($this->request->data)) {
-				$this->Session->setFlash( 'Sus datos fueron modificados correctamente' );
+				$this->Session->setFlash( 'Sus datos fueron modificados correctamente' , 'default', array( 'class' => 'sucess' ) );
 				$this->redirect( array( 'action' => 'view' ) );
 			} else {
-				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'Los datos no pudieron ser guardados. Intente nuevamente', 'default', array( 'class' => 'error' ) );
 			}
 		} else {
 			$this->request->data = $this->Usuario->read (null, $id );
@@ -282,6 +282,8 @@ class UsuariosController extends AppController {
 		if (!$this->Usuario->exists()) {
 			throw new NotFoundException( 'El usuario no es valido' );
 		}
+		throw new NotFoundException( 'La eliminación de usuarios todavía no está terminada' );
+		/*
 		// Veo si si es un medico
 		$this->loadModel( 'Medico' );
 		if( $this->Medico->find( 'count', array( 'conditions' => array( 'usuario_id' => $id ) ) ) > 0 ) {
@@ -299,13 +301,13 @@ class UsuariosController extends AppController {
 		if( $this->Turno->find( 'count', array( 'conditions' => array( 'paciente_id' => $id ) ) ) > 0 ) {
 			$this->Session->setFlash( "No se pudo eliminar el usuario solicitado. <br /><b>Razon:</b> El usuario tiene turnos asociados todavía." );
 			$this->redirect( array( 'action' => 'index'  ) );
-		}
+		} */
 		if( $this->Usuario->delete() ) {
 			$this->borrarCacheUsuarios();
-			$this->Session->setFlash( 'El Usuario ha sido eliminado correctamente' );
+			$this->Session->setFlash( 'El Usuario ha sido eliminado correctamente', 'default', array( 'class' => 'sucess' ) );
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash( __('Usuario was not deleted') );
+		$this->Session->setFlash( 'El Usuario no fue eliminado', 'default', array( 'class' => 'error' ) );
 		$this->redirect(array('action' => 'index'));
 	}
 
@@ -348,10 +350,10 @@ class UsuariosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->request->data)) {
-				$this->Session->setFlash( 'El usuario se agregó correctamente', 'default', null, array( 'class' => 'sucess' ) );
+				$this->Session->setFlash( 'El usuario se agregó correctamente', 'default', array( 'class' => 'sucess' ) );
 				$this->redirect( array( 'action' => 'index' ) );
 			} else {
-				$this->Session->setFlash( 'Los datos del usuario no se pudieron guardar. Por favor, intentelo nuevamente.', 'default', null, array( 'class' => 'error' ) );
+				$this->Session->setFlash( 'Los datos del usuario no se pudieron guardar. Por favor, intentelo nuevamente.', 'default', array( 'class' => 'error' ) );
 
 			}
 		}
@@ -371,10 +373,10 @@ class UsuariosController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Usuario->save($this->request->data)) {
-				$this->Session->setFlash( 'Los datos del usuario se modificaron correctamente', 'default', null, array( 'class' => 'sucess' ) );
-				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash( 'Los datos del usuario se modificaron correctamente', 'default', array( 'class' => 'sucess' ) );
+				$this->redirect( array( 'action' => 'index' ) );
 			} else {
-				$this->Session->setFlash( 'Los datos del usuario no pudieron ser guardados correctamente. Por favor intente nuevamente.' , 'default', null, array( 'class' => 'error' ) );
+				$this->Session->setFlash( 'Los datos del usuario no pudieron ser guardados correctamente. Por favor intente nuevamente.' , 'default', array( 'class' => 'error' ) );
 			}
 		} else {
 			$this->request->data = $this->Usuario->read(null, $id);
@@ -413,10 +415,10 @@ class UsuariosController extends AppController {
 			$this->redirect( array( 'action' => 'index' ) );
 		}*/
 		if( $this->Usuario->delete() ) {
-			$this->Session->setFlash( 'El Usuario ha sido eliminado correctamente', 'default', null, array( 'class' => 'sucess' ) );
+			$this->Session->setFlash( 'El Usuario ha sido eliminado correctamente', 'default',  array( 'class' => 'sucess' ) );
 			$this->redirect( array( 'action'=>'index' ) );
 		}
-		$this->Session->setFlash( 'El Usuario no fue eliminado.', 'default', null, array( 'class' => 'error' ) );
+		$this->Session->setFlash( 'El Usuario no fue eliminado.', 'default', array( 'class' => 'error' ) );
 		$this->redirect( array( 'action' => 'index' ) );
 	}
 
@@ -427,17 +429,17 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash( "Las contraseñas no coinciden." );
 			} else {
 				if( $this->Usuario->save( $this->data, false ) ) {
-					$this->Session->setFlash( "Contraseña cambiada correctamente", 'default', null, array( 'class' => 'sucess' ) );
+					$this->Session->setFlash( "Contraseña cambiada correctamente", 'default', array( 'class' => 'sucess' ) );
 					$this->redirect( array( 'action' => 'index' ) );
 				} else {
-					$this->Session->setFlash( "No se pudo cambiar la contraseña", 'default', null, array( 'class' => 'error' ) );
+					$this->Session->setFlash( "No se pudo cambiar la contraseña", 'default',  array( 'class' => 'error' ) );
 					pr( $this->Usuario->invalidFields() );
 				}
 			}
 		}
 		$this->Usuario->id = $id_usuario;
 		if (!$this->Usuario->exists()) {
-			throw new NotFoundException( 'El usuario no es valido', 'default', null, array( 'class' => 'error' ) );
+			throw new NotFoundException( 'El usuario no es valido', 'default', array( 'class' => 'error' ) );
 		}
 		$this->set( 'data', $this->Usuario->read() );
 	}

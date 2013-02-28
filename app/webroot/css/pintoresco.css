@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+#cssmenu {
+	width: 100%;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	background: #000000 url('/pintoresco/img/bg-bubplastic.gif') top left repeat-x;
+}
+#cssmenu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#cssmenu ul li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	background: transparent url('/pintoresco/img/bg-bubplastic-button.gif') top left no-repeat;
+}
+
+#cssmenu li a:hover,.current {
+color: #ea7e2d;
+text-decoration:none;
+}
+
+#cssmenu ul li a {
+	display: block;
+	height: 32px;
+	padding-left: 20px;
+	float: left;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: 75%;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#cssmenu ul li a span {
+	display: block;
+	float: left;
+	height: 32px;
+	padding-top: 8px;
+	padding-right: 20px;
+	background: transparent url('/pintoresco/img/bg-bubplastic-button.gif') top right no-repeat;
+	cursor: pointer;
+}
+
+

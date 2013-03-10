@@ -350,10 +350,10 @@ class UsuariosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->request->data)) {
-				$this->Session->setFlash( 'El usuario se agregó correctamente', 'default', array( 'class' => 'sucess' ) );
+				$this->Session->setFlash( 'El usuario se agregó correctamente', 'default', null, array( 'class' => 'sucess' ) );
 				$this->redirect( array( 'action' => 'index' ) );
 			} else {
-				$this->Session->setFlash( 'Los datos del usuario no se pudieron guardar. Por favor, intentelo nuevamente.', 'default', array( 'class' => 'error' ) );
+				$this->Session->setFlash( 'Los datos del usuario no se pudieron guardar. Por favor, intentelo nuevamente.', 'default', null, array( 'class' => 'error' ) );
 
 			}
 		}

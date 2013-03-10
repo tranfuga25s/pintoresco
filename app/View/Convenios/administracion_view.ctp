@@ -14,6 +14,11 @@
 			<?php echo h($convenio['Convenio']['id_convenio']); ?>
 			&nbsp;
 		</dd>
+		<dt>Titulo:</dt>
+		<dd>
+			<?php echo h( $convenio['Convenio']['titulo'] ); ?>
+			&nsbp;
+		</dd>
 		<dt>Fecha de Inicio</dt>
 		<dd>
 			<?php echo date( 'd/m/Y', strtotime( $convenio['Convenio']['fecha_inicio'] ) ); ?>
@@ -36,7 +41,12 @@
 		</dd>
 		<dt>Descuento</dt>
 		<dd>
-			<?php echo h($convenio['Convenio']['descuento']); ?>%
+			<?php echo h($convenio['Convenio']['descuento']); ?>% en <?php echo h( $convenio['Convenio']['destino'] ); ?>
+			&nbsp;
+		</dd>
+		<dt>Publicado:</dt>
+		<dd>
+			<?php echo h( $convenio['Convenio']['publicado'] ); ?>
 			&nbsp;
 		</dd>
 		<dt>Organismo</dt>

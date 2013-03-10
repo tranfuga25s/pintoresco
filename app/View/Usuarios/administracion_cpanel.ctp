@@ -24,6 +24,11 @@
                 .'<span>Materiales/Superficies</span>',
                 array( 'controller' => 'materiales', 'action' => 'index', 'plugin' => false ),
                 array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de materiales/superficies declaradas' ) ); ?></li>
+   <li><?php echo $this->Html->link(
+                $this->Html->image( 'assets/promocion-icono.jpg' ) 
+                .'<span>Promociones</span>',
+                array( 'controller' => 'promociones', 'action' => 'index', 'plugin' => false ),
+                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de promociones' ) ); ?></li>
 </ul>
 <h2>Pintores</h2>
 <ul class="dash">                

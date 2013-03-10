@@ -11,7 +11,7 @@ class ConveniosController extends AppController {
 	 * Funciones publicas
 	 */
 	public function beforeFilter() {
-	    $this->Auth->allow( array( 'index', 'view' ) );
+	    $this->Auth->allow( array( 'index', 'view', 'frontend' ) );
 	    parent::beforeFilter();
 	}
 
@@ -50,6 +50,17 @@ class ConveniosController extends AppController {
 		}
 		return false;
 	}
+	
+	/**
+	 * frontend method
+	 * 
+	 * @return list of the nº primeros convenios
+	 */
+	public function frontend() {
+		$this->autoRender = false;
+		return $this->Convenio->mostrarFrontend();
+	}
+	
 	/**
 	 * index method
 	 *

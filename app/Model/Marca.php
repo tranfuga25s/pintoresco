@@ -23,26 +23,6 @@ class Marca extends AppModel {
 	 */
 	public $displayField = 'nombre';
 
-   /**
-    * Comportamiento para subir archivos
-    * 
-    * @var array
-    */
-	public $actsAs = array(
-		'Uploader.Attachment' => array(
-			'logo' => array(
-				'tempDir' => TMP,
-				'uploadDir' => LOGOSDIR,
-				'finalPath' => '',
-				'dbColumn' => 'logo',
-				'overwrite' => false,
-				'stopSave' => true,
-				'allowEmpty' => true
-			)
-		)
-	);
-
-
 	/**
 	 * Validation rules
 	 *

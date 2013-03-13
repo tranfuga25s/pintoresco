@@ -1,60 +1,65 @@
 <?php $this->set( 'title_for_layout', "Ver una promoción" ); ?>
+<div id="acciones">
+	<?php echo $this->Html->link( 'Editar Promocion', array('action' => 'edit', $promocion['Promocion']['id_promocion']));
+		  echo $this->Form->postLink( 'Eliminar promocion', array('action' => 'delete', $promocion['Promocion']['id_promocion']), null, __('Are you sure you want to delete # %s?', $promocion['Promocion']['id_promocion']));
+		  echo $this->Html->link( 'Lista de Promociones', array( 'action' => 'index' ) );
+		  echo $this->Html->link( 'Nueva Promocion', array( 'action' => 'add' ) ); ?> 	
+</div>
+<br />
 <div class="promociones view">
-<h2><?php  echo __('Promocione'); ?></h2>
+	<h2>Promocion</h2>
 	<dl>
-		<dt><?php echo __('Id Promocion'); ?></dt>
-		<dd>
-			<?php echo h($promocion['Promocion']['id_promocion']); ?>
+		<dt># Promocion:</dt>
+		<dd> #<?php echo h($promocion['Promocion']['id_promocion']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Titulo'); ?></dt>
+		<dt>Titulo:</dt>
 		<dd>
 			<?php echo h($promocion['Promocion']['titulo']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Descripcion'); ?></dt>
+		<dt>Descripcion:</dt>
 		<dd>
 			<?php echo h($promocion['Promocion']['descripcion']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Imagen'); ?></dt>
+		<dt>Imagen:</dt>
 		<dd>
-			<?php echo h($promocion['Promocion']['imagen']); ?>
+			<?php
+			if( $promocion['Promocion']['imagen'] == null ) {
+				$promocion['Promocion']['imagen'] = 'imagen_ejemplo.png';
+			}  
+			echo $this->Html->image( $promocion['Promocion']['imagen'], array( 'width' => 49, 'heigth' => 49 ) ); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt>Creada:</dt>
 		<dd>
 			<?php echo h($promocion['Promocion']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
+		<dt>Ultima modificacion:</dt>
 		<dd>
 			<?php echo h($promocion['Promocion']['modified']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Valido Desde'); ?></dt>
+		<dt>Valido desde:</dt>
 		<dd>
 			<?php echo h($promocion['Promocion']['valido_desde']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Valido Hasta'); ?></dt>
+		<dt>Valido hasta:</dt>
 		<dd>
 			<?php echo h($promocion['Promocion']['valido_hasta']); ?>
 			&nbsp;
 		</dd>
 		<dt>Publicado</dt>
 		<dd>
-			<?php echo h($promocion['Promocion']['publicado']); ?>
+			<?php if( $promocion['Promocion']['publicado'] ) {
+				echo $this->Html->link( $this->Html->image( 'test-pass-icon.png' ), array( 'action' => 'despublicar', $promocion['Promocion']['id_promocion'] ), array( 'escape' => false ) );
+			} else {
+				echo $this->Html->link( $this->Html->image( 'test-fail-icon.png' ), array( 'action' => 'publicar', $promocion['Promocion']['id_promocion'] ), array( 'escape' => false ) );
+			} ?>
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Promocione'), array('action' => 'edit', $promocion['Promocion']['id_promocion'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Promocione'), array('action' => 'delete', $promocion['Promocion']['id_promocion']), null, __('Are you sure you want to delete # %s?', $promocion['Promocion']['id_promocion'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Promociones'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Promocione'), array('action' => 'add')); ?> </li>
-	</ul>
 </div>

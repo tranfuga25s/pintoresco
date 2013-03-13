@@ -57,8 +57,14 @@ class ProductosController extends AppController {
 	 * @return void
 	 */
 	public function index() {
+		if( $this->request->isPost() ) {
+			debug( $this->request->params );
+		}
+		$this->set( 'marcas', $this->Producto->Marca->find('list') ); 
+		$this->set( 'tipos', $this->Producto->Tipo->find('list') );
+		//$this->set( 'superficies', $this->Producto->Superficie->find('list') );
 		$this->Producto->recursive = 0;
-		$this->set('productos', $this->paginate());
+		$this->set( 'productos', $this->paginate() );
 	}
 
 	/**
@@ -117,9 +123,11 @@ class ProductosController extends AppController {
 			}
 		}
 		$marcas = $this->Producto->Marca->find('list');
+		$tipos = $this->Producto->Tipo->find('list');
+		//$superficies = $this->Producto->Superficie->find('list');
 		$materiales = $this->Producto->Material->find( 'list' );
 		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
-		$this->set( compact( 'marcas', 'categorias', 'materiales' ) );
+		$this->set( compact( 'marcas', 'categorias', 'materiales', 'tipos' ) );
 	}
 
 	/**
@@ -146,8 +154,10 @@ class ProductosController extends AppController {
 		}
 		$marcas = $this->Producto->Marca->find( 'list' );
 		$materiales = $this->Producto->Material->find( 'list' );
+		$tipos = $this->Producto->Tipo->find('list');
+		//$superficies = $this->Producto->Superficie->find('list');
 		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
-		$this->set( compact( 'marcas', 'categorias', 'materiales' ) );
+		$this->set( compact( 'marcas', 'categorias', 'materiales', 'tipos' ) );
 	}
 
 	/**

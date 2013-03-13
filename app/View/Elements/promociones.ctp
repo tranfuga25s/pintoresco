@@ -19,20 +19,24 @@
   		<?php echo $this->Html->image( "nada.png", array( "width" => 14, "height" => 49 ) ); ?>
   	</td>
 <?php
-	$datos = array( 0 => 1, 1 => 1, 2 => 1 ); 
-	//$datos = $this->requestAction( array( 'controller' => 'promociones', 'action' => 'home' ) );
+	$datos = $this->requestAction( array( 'controller' => 'promociones', 'action' => 'home' ) );
 
 	if( count( $datos ) != 0 ) {
-		foreach( $datos as $promocion ) { ?>
+		foreach( $datos as $promocion ) {
+			// Introduce la imagen predeterminada
+			if( $promocion['Promocion']['imagen'] == null ) {
+				$promocion['Promocion']['imagen'] = 'imagen_ejemplo.png';
+			} 
+		?>
 		<td width="49" valign="top" >
-			<?php echo $this->Html->image( "imagen_ejemplo.png", array( "width" => 49, "height" => 49 ) ); ?>
+			<?php echo $this->Html->image( $promocion['Promocion']['imagen'], array( "width" => 49, "height" => 49 ) ); ?>
 		</td>
     	<td width="204" valign="top" bgcolor="#201584" class="promociones">
     		<span class="tit_promociones">
-    			<?php echo h( 'Título Promoción' ); ?>
+    			<?php echo h( $promocion['Promocion']['titulo'] ); ?>
     		</span>
     		<br />
-			<?php echo h( 'Texto descriptivo de la promocion' ); ?>
+			<?php echo $promocion['Promocion']['descripcion']; ?>
 			<br />
 		</td>
 	<?php } } ?>	

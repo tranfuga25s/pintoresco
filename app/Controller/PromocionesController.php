@@ -13,7 +13,7 @@ class PromocionesController extends AppController {
     * Authorización de métodos públicos
     */
 	public function beforeFilter() {
-		$this->Auth->allow( array( 'index', 'view' ) );
+		$this->Auth->allow( array( 'index', 'view', 'home' ) );
 		parent::beforeFilter();
 	}
 
@@ -52,6 +52,15 @@ class PromocionesController extends AppController {
 		}
 		return false;
 	}
+	
+	/**
+	 * home method
+	 * 
+	 * @return Array 
+	 */
+	 public function home() {
+	 	return $this->Promocion->homePage();
+	 }
 
 	/**
 	 * index method
@@ -100,7 +109,7 @@ class PromocionesController extends AppController {
 		if (!$this->Promocion->exists()) {
 			throw new NotFoundException( 'La promoción no existe ' );
 		}
-		$this->set('promocion', $this->Promocion->read(null, $id));
+		$this->set( 'promocion', $this->Promocion->read( null, $id ) );
 	}
 
 	/**
@@ -112,10 +121,10 @@ class PromocionesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Promocion->create();
 			if ($this->Promocion->save($this->request->data)) {
-				$this->Session->setFlash(__('The promocion has been saved'));
+				$this->Session->setFlash( 'La promoción ha sido guardada correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect( array( 'action' => 'index' ) );
 			} else {
-				$this->Session->setFlash(__('The promocion could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'No se pudo agregar la promocion', 'default', array( 'class' => 'error' ) );
 			}
 		}
 	}
@@ -134,10 +143,10 @@ class PromocionesController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Promocion->save($this->request->data)) {
-				$this->Session->setFlash(__('The promocion has been saved'));
+				$this->Session->setFlash( 'La promoción ha sido guardada correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect( array( 'action' => 'index' ) );
 			} else {
-				$this->Session->setFlash(__('The promocion could not be saved. Please, try again.'));
+				$this->Session->setFlash( 'No se pudo guardar la promocion', 'default', array( 'class' => 'error' ) );
 			}
 		} else {
 			$this->request->data = $this->Promocion->read(null, $id);
@@ -161,10 +170,10 @@ class PromocionesController extends AppController {
 			throw new NotFoundException(__('Invalid promocion'));
 		}
 		if ($this->Promocion->delete()) {
-			$this->Session->setFlash(__('Promocion deleted'));
+			$this->Session->setFlash( 'La promoción ha sido eliminada correctamente', 'default', array( 'class' => 'sucess' ) );
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Promocion was not deleted'));
+		$this->Session->setFlash( 'La promoción no pudo ser eliminada', 'default', array( 'class' => 'error' ) );
 		$this->redirect( array( 'action' => 'index' ) );
 	}
 }

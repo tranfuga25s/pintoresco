@@ -11,9 +11,10 @@
 		echo $this->Form->input('titulo');
 		echo $this->Form->input('descripcion');
 		//echo $this->Form->input('imagen');
-		echo $this->Form->input('valido_desde');
-		echo $this->Form->input('valido_hasta', array( 'format' => 'DMY' ) );
 		echo $this->Form->input('publicado', array( 'label' => 'Publicada' ) );
+		echo $this->Form->input('valido_desde', array( 'format' => 'DMY' ) );
+		echo $this->Form->input('valido_hasta', array( 'format' => 'DMY' ) );
+
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

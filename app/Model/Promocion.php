@@ -2,7 +2,7 @@
 App::uses('AppModel', 'Model');
 /**
  * Promocion Model
- *
+ * @author Esteban Zeller
  */
 class Promocion extends AppModel {
 
@@ -30,48 +30,34 @@ class Promocion extends AppModel {
 	/**
 	 * Validation rules
 	 *
-	 * @var array
+	 * @var array $validate Reglas de validacion
 	 */
 	public $validate = array(
 		'titulo' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+				'message' => 'El titulo no puede estar vacío'
+			)
 		),
 		'descripcion' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'valido_desde' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'valido_hasta' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+				'message' => 'La descripción no puede estar vacía'
+			)
+		)
 	);
+	
+   /**
+    * Función que busca las promociones disponibles con el limite para que se vean en la pagina inicial
+    * @author Esteban Zeller
+    * @return array Promociones disponibles
+    */	
+	public function homePage() {
+		return $this->find( 'all', array( 'conditions' => array( 'publicado' => true, 
+																 'valido_hasta > NOW()',
+																 'valido_desde <= NOW()' ),
+										  'limit' => 4,
+										  'recursive' => -1,
+										  'fields' => array( 'titulo', 'descripcion', 'imagen' ) ) );
+	}
 }

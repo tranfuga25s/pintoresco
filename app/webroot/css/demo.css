@@ -8,6 +8,7 @@ body{
 }
 .container{
 	position:relative;
+	background-color: #FFFFFF;
 }
 a{
 	color: #fff;

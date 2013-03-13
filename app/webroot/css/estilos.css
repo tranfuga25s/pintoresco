@@ -18,6 +18,7 @@
 background:url(img/borde_tabla.png) center repeat-x;
 } 
 
+
 .tit_convenios {
 font-family:Arial, Helvetica, sans-serif;
 color:#FFFFFF;
@@ -53,6 +54,61 @@ color: #FFFFFF;
 font-weight:bold;
 font-size:12px;
 
+}
+
+.pie { font-family: Arial, Helvetica, sans-serif;
+font-size:10px;
+color:#FFFFFF;
+line-height:14px;
+padding-top:10px;
+}
+
+.pie_seguinos { font-family: Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#FFFFFF;
+font-weight:bold;
+line-height:14px;
+padding-top:10px;
+}
+
+.tit_ideas {font-family:Arial, Helvetica, sans-serif;
+font-size:15px;
+font-weight:bold;
+color:#201584;
+}
+
+.sub_tit_producto {font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight:bold;
+color:#201584;
+}
+
+.sub_tit_producto_light {font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#201584;
+}
+
+.tit_form {font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight:bold;
+color:#201584;
+}
+
+.txt_ideas {font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+color:#727272;
+}
+
+.paginador {font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#201584;
+font-weight:bold;
+}
+
+.paginador_over {font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#201584;
+text-decoration:underline;
 }
 
 .promociones {

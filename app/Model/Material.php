@@ -27,8 +27,4 @@ class Material extends AppModel {
 	 */
 	public $displayField = 'nombre';
 
-
-	/**
-	 * Relación con los productos
-	 */
 }

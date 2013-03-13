@@ -33,6 +33,6 @@
         <td height="26">&nbsp;</td>
       </tr>
       <tr>
-        <td height="12" valign="top"><img src="img/nada_blanco.png" width="211" height="12" /></td>
+        <td height="12" valign="top"><img src="img/nada_blanco.png" width="211" height="12" alt="" /></td>
       </tr>
 </table>

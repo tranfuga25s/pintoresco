@@ -16,9 +16,15 @@
 foreach ($promociones as $promocion): ?>
 <tr>
 	<td><?php echo h($promocion['Promocion']['titulo']); ?>&nbsp;</td>
-	<td><?php echo h($promocion['Promocion']['publicado']); ?>&nbsp;</td>
-	<td><?php echo h($promocion['Promocion']['valido_desde']); ?>&nbsp;</td>
-	<td><?php echo h($promocion['Promocion']['valido_hasta']); ?>&nbsp;</td>
+	<td>
+		<?php if( $promocion['Promocion']['publicado'] ) {
+			echo $this->Html->link( $this->Html->image( 'test-pass-icon.png' ), array( 'action' => 'despublicar', $promocion['Promocion']['id_promocion'] ), array( 'escape' => false ) );
+		} else {
+			echo $this->Html->link( $this->Html->image( 'test-fail-icon.png' ), array( 'action' => 'publicar', $promocion['Promocion']['id_promocion'] ), array( 'escape' => false ) );
+		} ?>
+	</td>
+	<td><?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_desde'])); ?>&nbsp;</td>
+	<td><?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_hasta'])); ?>&nbsp;</td>
 	<td class="actions">
 		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $promocion['Promocion']['id_promocion'])); ?>
 		<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $promocion['Promocion']['id_promocion'])); ?>

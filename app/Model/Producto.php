@@ -34,6 +34,10 @@ class Producto extends AppModel {
 		'Categoria' => array(
 			'className' => 'Categoria',
 			'foreignKey' => 'categoria_id'
+		),
+		'Tipo' => array(
+			'className' => 'Tipo',
+			'foreignKey' => 'tipo_id'
 		)
 	);
 	

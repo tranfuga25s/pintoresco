@@ -31,6 +31,11 @@
 			<?php echo $this->Html->link($producto['Categoria']['nombre'], array( 'controller' => 'categorias', 'action' => 'view', $producto['Categoria']['id_categoria'] ) ); ?>
 			&nbsp;
 		</dd>
+		<dt>Tipo:</dt>
+		<dd>
+			<?php echo $this->Html->link($producto['Tipo']['nombre'], array( 'controller' => 'tipo', 'action' => 'view', $producto['Tipo']['id_tipo'] ) ); ?>
+			&nbsp;
+		</dd>
 		<dt>Fecha de creacion:</dt>
 		<dd>
 			<?php echo h($producto['Producto']['created']); ?>

@@ -28,7 +28,7 @@
 			echo $this->Form->input( 'Especialidad', array( 'options' => $especialidades, 'multiple' => true, 'label' => 'Especialidades aplicables:' ) );
 			echo $this->Form->input( 'Pintor.habilitado', array( 'label' => 'Habilitado' ) );
 			echo $this->Form->input( 'Pintor.puntos' );
-			echo $this->Form->input( 'Pintor.referencias', array( 'label' => 'Referencias:' ) );
+			echo $this->Form->input( 'Pintor.referencias', array( 'label' => 'Referencias:', 'class' => 'ckeditor' ) );
 		?>
 	</fieldset>
     <?php echo $this->Form->end( 'Guardar' ); ?>

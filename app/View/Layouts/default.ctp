@@ -78,8 +78,8 @@
 				    			<li><?php echo $this->Html->link( '<span>¿Con qué pinto?</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>¿Con quién pinto?</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Servicios</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?></li>
-				    			<li><?php echo $this->Html->link( '<span>Ideas SIPP</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?></li>
-				    			<li><?php echo $this->Html->link( '<span>Promociones</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?></li>
+				    			<li><?php echo $this->Html->link( '<span>Ideas SIPP</span>', array( 'controller' => 'ideas', 'action' => 'index' ), array( 'escape' => false )  ); ?></li>
+				    			<li><?php echo $this->Html->link( '<span>Promociones</span>', array( 'controller' => 'promociones', 'action' => 'index' ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Contacto</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?></li>
 				    		</ul>		
 				    	</div>

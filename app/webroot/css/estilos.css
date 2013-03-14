@@ -6,7 +6,7 @@
 	height: 32px;
 	margin: 0;
 	padding: 0;
-	background: #000000 url(bg-bubplastic.gif) top left repeat-x;
+	background: #000000 url('/pintoresco/img/bg-bubplastic.gif') top left repeat-x;
 }
 #cssmenu ul {
 	list-style: none;
@@ -15,7 +15,7 @@
 }
 
 .borde_tabla {
-background:url(img/borde_tabla.png) center repeat-x;
+	background: url('/pintoresco/img/borde_tabla.png') center repeat-x;
 } 
 
 
@@ -124,7 +124,7 @@ padding-left:10px;
 	float: left;
 	margin: 0;
 	padding: 0;
-	background: transparent url(bg-bubplastic-button.gif) top left no-repeat;
+	background: transparent url('/pintoresco/img/bg-bubplastic-button.gif') top left no-repeat;
 }
 
 #cssmenu li a:hover,.current {
@@ -151,7 +151,7 @@ text-decoration:none;
 	height: 32px;
 	padding-top: 8px;
 	padding-right: 20px;
-	background: transparent url(bg-bubplastic-button.gif) top right no-repeat;
+	background: transparent url('/pintoresco/img/bg-bubplastic-button.gif') top right no-repeat;
 	cursor: pointer;
 }
 

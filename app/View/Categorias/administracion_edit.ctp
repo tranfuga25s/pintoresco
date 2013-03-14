@@ -14,7 +14,7 @@
 		echo $this->Form->input('parent_id', array( 'label' => 'Categoría Padre', 'options' => $padres, 'empty' => 'Ninguna' ) );
 		echo $this->Form->input('nombre', array( 'type' => 'text' ) );
 		echo $this->Form->input('publicado');
-		echo $this->Form->input('descripcion');
+		echo $this->Form->input('descripcion', array( 'class' => 'ckeditor' ) );
 		
 	?>
 	</fieldset>

@@ -7,7 +7,7 @@
 		<legend><h2>Agregar Material</h2></legend>
 	<?php
 		echo $this->Form->input('nombre');
-		echo $this->Form->input('introduccion');
+		echo $this->Form->input('introduccion', array( 'class' => 'ckeditor' ) );
 		echo $this->Form->input('publicado');
 	?>
 	</fieldset>

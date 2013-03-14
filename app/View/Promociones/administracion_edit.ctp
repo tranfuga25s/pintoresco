@@ -4,10 +4,9 @@
 		  echo $this->Html->link( 'Lista de Promociones', array('action' => 'index')); ?>
 </div>
 <br />
-<div class="promociones form">
 <?php echo $this->Form->create('Promocion'); ?>
 	<fieldset>
-		<legend><?php echo __('Administracion Edit Promocione'); ?></legend>
+		<legend><h2>Editar una promocion</h2></legend>
 	<?php
 		echo $this->Form->input('id_promocion');
 		echo $this->Form->input('titulo');
@@ -19,4 +18,3 @@
 	?>
 	</fieldset>
 <?php echo $this->Form->end( 'Guardar' ); ?>
-</div>

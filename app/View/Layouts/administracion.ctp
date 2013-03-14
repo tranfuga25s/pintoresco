@@ -15,6 +15,7 @@
         echo $this->Html->script( 'hoverIntent' );
         echo $this->Html->script( 'superfish' );
         echo $this->Html->script( 'custom' );
+		echo $this->Html->script( 'ckeditor/ckeditor' );
 		echo $this->Html->css( 'admin' );
 		echo $scripts_for_layout;
 	?>

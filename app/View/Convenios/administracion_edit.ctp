@@ -13,8 +13,8 @@
 		echo $this->Form->input( 'titulo', array( 'type' => 'text' ) );
 		echo $this->Form->input( 'fecha_inicio', array( 'dateFormat' => 'DMY', 'type' => 'date' ) );
 		echo $this->Form->input( 'fecha_fin', array( 'dateFormat' => 'DMY', 'type' => 'date' ) );
-		echo $this->Form->input( 'documentacion');
-		echo $this->Form->input( 'forma_pago'   );
+		echo $this->Form->input( 'documentacion', array( 'class' => 'ckeditor' ) );
+		echo $this->Form->input( 'forma_pago', array( 'class' => 'ckeditor' )    );
 		echo $this->Form->input( 'descuento', array( 'after' => '%' ) );
 		echo $this->Form->input( 'destino', array( 'type' => 'text' ) );
 		echo $this->Form->input( 'publicado' );

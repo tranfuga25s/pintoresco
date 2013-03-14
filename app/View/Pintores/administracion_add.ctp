@@ -27,7 +27,7 @@
 			echo $this->Form->input( 'Pintor.horario', array( 'label' => 'Horario de atención:', 'after' => '<small>Ingrese algo como 12:00 a 15:00 hs</small>' ) );
 			echo $this->Form->input( 'Pintor.especialidad_id', array( 'options' => $especialidades, 'multiple' => true, 'label' => 'Especialidades aplicables:' ) );
 			echo $this->Form->input( 'Pintor.habilitado', array( 'label' => 'Habilitado:' ) );
-			echo $this->Form->input( 'Pintor.referencias', array( 'label' => 'Referencias:' ) );
+			echo $this->Form->input( 'Pintor.referencias', array( 'label' => 'Referencias:', 'class' => 'ckeditor' ) );
 		?>
 	</fieldset>
     <?php echo $this->Form->end( 'Agregar' ); ?>

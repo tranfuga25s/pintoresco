@@ -12,7 +12,7 @@
 		echo $this->Form->input('parent_id', array( 'label' => 'Categoría Padre:', 'empty' => 'Ninguna', 'options' => $padres ) );
 		echo $this->Form->input('nombre', array( 'type' => 'text' ) );
 		echo $this->Form->input('publicado');
-		echo $this->Form->input('descripcion');
+		echo $this->Form->input('descripcion', array( 'class' => 'ckeditor' ) );
 		
 		echo "<br />";
 	echo $this->Form->end( 'Agregar'); ?>

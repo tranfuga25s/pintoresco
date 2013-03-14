@@ -9,7 +9,7 @@
 	<?php
 		echo $this->Form->input('id_material');
 		echo $this->Form->input('nombre');
-		echo $this->Form->input('introduccion');
+		echo $this->Form->input('introduccion', array( 'class' => 'ckeditor' ) );
 		echo $this->Form->input('publicado');
 	?>
 	</fieldset>

@@ -12,10 +12,12 @@
 		<legend><h2>Editar Producto</h2></legend>
 	<?php
 		echo $this->Form->input( 'id_producto' );
+		echo $this->Form->input( 'codigo' );
 		echo $this->Form->input( 'nombre' );
+		echo $this->Form->input( 'descripcion', array( 'class' => 'ckeditor' ) );
 		echo $this->Form->input( 'categoria_id' );
 		echo $this->Form->input( 'marca_id' );
-		echo $this->Form->input('tipo_id');
+		echo $this->Form->input( 'tipo_id');
 		echo $this->Form->input( 'publicado' );
 		echo $this->Form->input( 'presentacion', array( 'type' => 'text', 'after' => 'Ej: 1, 4, 10 lts' ) );
 		echo $this->Form->input( 'rendimiento', array( 'type' => 'text', 'after' => 'Ej: 10 mts2/lts/mano' ) );

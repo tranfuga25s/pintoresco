@@ -19,7 +19,7 @@
   		<?php echo $this->Html->image( "nada.png", array( "width" => 14, "height" => 49 ) ); ?>
   	</td>
 <?php
-	$datos = $this->requestAction( array( 'controller' => 'promociones', 'action' => 'home' ) );
+	$datos = $this->requestAction( array( 'administracion' => false, 'controller' => 'promociones', 'action' => 'home' ) );
 
 	if( count( $datos ) != 0 ) {
 		foreach( $datos as $promocion ) {

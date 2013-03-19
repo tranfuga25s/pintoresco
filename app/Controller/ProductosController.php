@@ -57,14 +57,41 @@ class ProductosController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		if( $this->request->isPost() ) {
-			debug( $this->request->params );
-		}
+		$this->Producto->recursive = 0;
+		if( $this->request->isGet() && isset( $this->request->query['nombre'] ) ) {
+			$cond = array();
+			if( $this->request->query['nombre'] != '' ) {
+				$cond["OR"] = array(
+					"`Producto`.`nombre` LIKE '%".$this->request->query['nombre']."%'",
+					"`Producto`.`descripcion` LIKE '%".$this->request->query['nombre']."%'",
+					"`Producto`.`colores` LIKE '%".$this->request->query['nombre']."%'"
+				); 
+			}
+			if( $this->request->query['marca_id'] != '' ) {
+				$cond['`Producto`.`marca_id`'] = $this->request->query['marca_id'];
+			}
+			if( $this->request->query['tipo_id'] != '' ) {
+				$cond['`Producto`.`tipo_id`'] = $this->request->query['tipo_id'];
+			}
+			if( $this->request->query['superficie_id'] != '' ) {
+//				$cond["`Producto`.`material_id`"] = $this->request->query['superficie_id'];
+			}
+			$this->pagination = array( 'conditions' => $cond );
+			$this->set( 'productos', $this->paginate( $cond ) );
+			$this->set( 'nombre', $this->request->query['nombre'] );
+			$this->set( 'marca_id', $this->request->query['marca_id'] );
+			$this->set( 'tipo_id', $this->request->query['tipo_id'] );
+			$this->set( 'superficie_id', $this->request->query['superficie_id'] );
+		} else {
+			$this->set( 'productos', $this->paginate() );
+			$this->set( 'nombre', '' );
+			$this->set( 'marca_id', '' );
+			$this->set( 'tipo_id', '' );
+			$this->set( 'superficie_id', '' );	
+		}		
 		$this->set( 'marcas', $this->Producto->Marca->find('list') ); 
 		$this->set( 'tipos', $this->Producto->Tipo->find('list') );
-		//$this->set( 'superficies', $this->Producto->Superficie->find('list') );
-		$this->Producto->recursive = 0;
-		$this->set( 'productos', $this->paginate() );
+		$this->set( 'superficies', $this->Producto->Material->find('list') );
 	}
 
 	/**

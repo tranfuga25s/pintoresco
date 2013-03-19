@@ -13,12 +13,17 @@
 	<dl>
 		<dt>#Codigo del producto:</dt>
 		<dd>
-			<?php echo h($producto['Producto']['id_producto']); ?>
+			<?php echo h($producto['Producto']['codigo']); ?>
 			&nbsp;
 		</dd>
 		<dt>Nombre:</dt>
 		<dd>
 			<?php echo h($producto['Producto']['nombre']); ?>
+			&nbsp;
+		</dd>
+		<dt>Descripcion:</dt>
+		<dd>
+			<?php echo h($producto['Producto']['descripcion']); ?>
 			&nbsp;
 		</dd>
 		<dt>Marca:</dt>

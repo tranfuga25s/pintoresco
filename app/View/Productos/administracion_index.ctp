@@ -19,7 +19,7 @@
 <?php
 foreach ($productos as $producto): ?>
 <tr>
-	<td><?php echo h('#'.$producto['Producto']['id_producto']); ?>&nbsp;</td>
+	<td><?php echo h('#'.$producto['Producto']['codigo']); ?>&nbsp;</td>
 	<td>
 		<?php echo $this->Html->link( h($producto['Categoria']['nombre']), array( 'controller' => 'categoria', 'action' => 'index' ) ); ?>&nbsp;
 	</td>

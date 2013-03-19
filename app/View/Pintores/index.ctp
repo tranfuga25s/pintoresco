@@ -1,5 +1,5 @@
 <?php $this->set( 'title_for_layout', "¿Con quien pinto?" ); ?>
-<h2>¿Con quien pinto?</h2>
+<h1>¿Con quien pinto?</h1>
 Ordenar por: 
 <?php echo $this->Paginator->sort('razonsocial', 'Razon Social' ). "&nbsp;" .
  	  	   $this->Paginator->sort('email', 'Email' ). "&nbsp;" .
@@ -27,6 +27,7 @@ Ordenar por:
 ?>
 </div>
 <div>
-	<h3>Ya estoy inscripto. ¿Como cambio mis datos?</h3>
+	<h1>Ya estoy inscripto. ¿Como cambio mis datos?</h1>
 	<?php echo $this->Html->link( 'Haga click aquí para cambiar sus datos', array( 'controller' => 'pintores', 'action' => 'verPintor' ) ); ?>
+	<br />
 </div>

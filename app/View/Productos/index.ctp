@@ -22,16 +22,16 @@
 		      </tr>
 		      <tr>
         		<td height="22" valign="top">
-        			<?php echo $this->Form->input( 'nombre', array( 'type' => 'text', 'label' => false, 'div' => false  ) ); ?>
+        			<?php echo $this->Form->input( 'nombre', array( 'type' => 'text', 'label' => false, 'div' => false, 'value' => $nombre  ) ); ?>
         		</td>
         		<td valign="middle">
-        			<?php echo $this->Form->input( 'marca_id', array( 'label' => false, 'div' => false ) ); ?>
+        			<?php echo $this->Form->input( 'marca_id', array( 'label' => false, 'div' => false, 'empty' => 'Elija una marca', 'value' => $marca_id ) ); ?>
         		</td>
         		<td valign="top">
-        			<?php echo $this->Form->input( 'tipo_id', array( 'label' => false, 'div' => false ) ); ?>
+        			<?php echo $this->Form->input( 'tipo_id', array( 'label' => false, 'div' => false, 'empty' => 'Elija un tipo ', 'value' => $tipo_id ) ); ?>
         		</td>
         		<td valign="top">
-        			<?php echo $this->Form->input( 'superficie_id', array( 'label' => false, 'div' => false ) ); ?>
+        			<?php echo $this->Form->input( 'superficie_id', array( 'label' => false, 'div' => false, 'empty' => 'Elija una superficie', 'value' => $superficie_id ) ); ?>
         		</td>
         		<td>
     				<?php echo $this->Form->submit( 'Buscar' ); ?>        			
@@ -52,7 +52,7 @@
       <td width="12" rowspan="2" valign="top">&nbsp;</td>
       <td height="83" colspan="4" valign="top" class="txt_ideas">
       	<span class="tit_ideas"><?php echo h( $producto['Producto']['nombre'] ); ?></span><br />
-      	<?php //echo $producto['Producto']['Descripcion']; ?>
+      	<?php echo $producto['Producto']['descripcion']; ?>
       </td>
   </tr>
   <tr>
@@ -76,7 +76,7 @@
     </td>
     <td width="169" valign="top">
     	<span class="sub_tit_producto">C&oacute;digo:</span>
-    		<span class="sub_tit_producto_light"><?php //echo $producto['Producto']['codigo']; ?></span>
+    		<span class="sub_tit_producto_light"><?php echo $producto['Producto']['codigo']; ?></span>
     </td>
   </tr>
   <tr>

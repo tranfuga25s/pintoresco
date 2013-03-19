@@ -116,12 +116,12 @@
 				   				$this->Html->image( 'cabecera.png' )
 				   				.'<span>Auditoria</span>',
 				   			     array( 'plugin' => 'audit_log', 'controller' => 'audit_log', 'action' => 'index' ),
-				   			     array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Acciones realizadas en el sistema' ) ); ?></li>                 
+				   			     array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Acciones realizadas en el sistema' ) ); ?></li>   -->              
 				   <li><?php echo $this->Html->link(
 				                $this->Html->image( 'assets/configuration-icon.png' ) 
-				                .'<span>Configuracion</span>',
-				                array( 'controller' => 'configuracion', 'action' => 'ver', 'plugin' => false ),
-				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Configuración' ) ); ?></li> -->
+				                .'<span>Páginas</span>',
+				                array( 'controller' => 'pages', 'action' => 'index', 'plugin' => false ),
+				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Editar páginas estaticas del sistema' ) ); ?></li> 
 				   <li><?php echo $this->Html->link(
 				                $this->Html->image( 'assets/icons/25_48x48.png' ) 
 				                .'<span>Ver sitio</span>',

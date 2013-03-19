@@ -7,7 +7,7 @@
 		echo $this->Html->meta('icon');
 		//echo $this->Html->css('cake.generic');
         echo $this->Html->css( 'layout' );
-		echo $this->Html->css( 'smoothness/jquery-ui');
+		echo $this->Html->css( 'custom-theme/jquery-ui.custom');
 		echo $this->Html->script( 'jquery-1.7.2.min' );
 		echo $this->Html->script( 'jquery-ui-1.8.20.custom.min' );
 		echo $this->Html->script( 'easyTooltip' );

@@ -1,3 +1,1 @@
-<h1>Datos de la empresa</h1>
-
-bla....
+<h1>Datos de la empresa</h1><p>bla....<strong>Testing</strong></p>

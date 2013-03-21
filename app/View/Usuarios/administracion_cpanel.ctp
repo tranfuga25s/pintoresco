@@ -75,6 +75,11 @@
 				                .'<span>Promociones</span>',
 				                array( 'controller' => 'promociones', 'action' => 'index', 'plugin' => false ),
 				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de promociones' ) ); ?></li>
+					<li><?php echo $this->Html->link(
+				                $this->Html->image( 'assets/icons/5_48x48.png' ) 
+				                .'<span>Ideas SIPP</span>',
+				                array( 'plugin' => false, 'controller' => 'ideas', 'action ' => 'index' ),
+				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Ideas SIPP' ) ); ?></li>				                
 				</ul>
 			</td>
 		</tr>

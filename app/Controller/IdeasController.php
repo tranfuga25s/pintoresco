@@ -80,7 +80,7 @@ class IdeasController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Idea->create();
 			if ($this->Idea->save($this->request->data)) {
-				$this->Session->setFlash( 'La idea ha sido agregada correctamente', 'default', array( 'class' => 'sucess' ) );
+				$this->Session->setFlash( 'La idea ha sido agregada correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash( 'No se pudo agregar la idea', 'default', array( 'class' => 'error' ) );
@@ -127,8 +127,8 @@ class IdeasController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Idea->delete()) {
-			$this->Session->setFlash(__('Idea deleted'));
-			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash( 'Idea eliminada correctamente', 'default', array( 'class' => 'success' ) );
+			$this->redirect( array( 'action' => 'index' ) );
 		}
 		$this->Session->setFlash( 'La idea no se pudo eliminar', 'default', array( 'class' => 'error' ) );
 		$this->redirect( array( 'action' => 'index' ) );

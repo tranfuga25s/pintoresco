@@ -29,7 +29,6 @@ $this->set( 'title_for_layout', "Administrar Ideas" );
 		?>&nbsp;
 	</td>
 	<td class="actions">
-		<?php echo $this->Html->link( 'Ver', array( 'action' => 'view', $idea['Idea']['id_idea'] ) ); ?>
 		<?php echo $this->Html->link( 'Editar', array( 'action' => 'edit', $idea['Idea']['id_idea'] ) ); ?>
 		<?php echo $this->Form->postLink( 'Eliminar', array( 'action' => 'delete', $idea['Idea']['id_idea'] ), null, 'Esta seguro que desea eliminar esta idea?' ); ?>
 	</td>

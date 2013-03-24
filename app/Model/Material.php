@@ -26,5 +26,15 @@ class Material extends AppModel {
 	 * @var string
 	 */
 	public $displayField = 'nombre';
+	
+	
+	public $hasAndBelongsToMany = array(
+		'Producto' => array(
+			'className' => 'Producto',
+			'joinTable' => 'productos_materiales',
+			'foreignKey' => 'material_id',
+			'associationForeignKey' => 'producto_id'
+		)
+	);
 
 }

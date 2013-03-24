@@ -1,3 +1,6 @@
 [submodule "app/Plugin/DebugKit"]
 	path = app/Plugin/DebugKit
 	url = git://github.com/cakephp/debug_kit.git
+[submodule "app/Plugin/Facebook"]
+	path = app/Plugin/Facebook
+	url = git://github.com/webtechnick/CakePHP-Facebook-Plugin.git

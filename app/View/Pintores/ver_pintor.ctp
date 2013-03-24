@@ -15,7 +15,7 @@ foreach( $pintor['Especialidad'] as $esp ) :
 	echo $esp['nombre'].'<br />';
 endforeach; ?>
 <?php echo $this->Html->link( 'Cambiar', array( 'controller' => 'pintores', 'action' => 'edit', $pintor['Pintor']['id_pintor'] ) ); ?>	
-<h3>Referencias</h3>
+<h3>Referencias:</h3>
 <br />
 <small>Usted no puede cambiar este dato</small>
 <?php echo h( $pintor['Pintor']['referencias'] ); ?>

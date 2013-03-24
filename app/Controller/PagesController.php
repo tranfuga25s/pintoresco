@@ -136,7 +136,7 @@ class PagesController extends AppController {
 		if( $archivo->exists() ) {
 			if( $archivo->open( 'r' ) ) {
 				$contenido = $archivo->read();
-				$this->layout = 'default';
+				//$this->layout = 'default';
 				$this->set( 'content', $contenido );
 				$this->set( 'nombre', $nombre );
 			} else {

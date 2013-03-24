@@ -51,6 +51,7 @@ class AppController extends Controller {
 		'DebugKit.Toolbar'
 	);
 
+	public $helpers = array( 'Facebook.Facebook' );
 
 	// Esto permite que cualquier pagina del controlador Pages sea vista por el publico.
 	public function beforeFilter() {

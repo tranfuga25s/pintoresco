@@ -33,7 +33,7 @@
 		</td>
     	<td width="204" valign="top" bgcolor="#201584" class="promociones">
     		<span class="tit_promociones">
-    			<?php echo h( $promocion['Promocion']['titulo'] ); ?>
+    			<?php echo $this->Html->link( h( $promocion['Promocion']['titulo'] ), array( 'controller' => 'promociones', 'action' => 'index' ) ); ?>
     		</span>
     		<br />
 			<?php echo $promocion['Promocion']['descripcion']; ?>

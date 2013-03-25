@@ -1,33 +1,37 @@
 <?php $this->set( 'title_for_layout', "¿Con quien pinto?" ); ?>
-<h1>¿Con quien pinto?</h1>
-Ordenar por: 
-<?php echo $this->Paginator->sort('razonsocial', 'Razon Social' ). "&nbsp;" .
- 	  	   $this->Paginator->sort('email', 'Email' ). "&nbsp;" .
-	       $this->Paginator->sort('disponibilidad' ). "&nbsp;" .
-		   $this->Paginator->sort('puntos' ); ?>
-
-<?php foreach ($pintores as $pintor ): ?>
-	<div class="pintor" style="border: 1px solid dotted;">
-		<h4><?php echo $this->Html->link( h($pintor['Usuario']['razonsocial'] ), array( 'action' => 'view', $pintor['Pintor']['id_pintor'] ) ); ?>&nbsp;</h4>
-		<b>Cantidad de obras visibles:</b>&nbsp;<?php echo h( count( $pintor['Obra'] ) ); ?><br />
-		<b>Disponibilidad:</b>&nbsp;<?php echo h( $pintor['Pintor']['horario'] ); ?>
-		<br />
-		<b>Especialidades:</b>&nbsp;
-		<?php $espc = array(); foreach( $pintor['Especialidad'] as $esp ): $espc[] = $esp['nombre']; endforeach; echo implode( ', ', $espc ); ?>
+<div class="pintores_index">
+	<div class="pintores_index_content">
+		<span class="tit_generales"><br />¿Con quien pinto?</span><br /><br />
+		<span class="orden">Ordenar por: 
+		<?php echo $this->Paginator->sort('razonsocial', 'Razon Social', array( 'class' => 'txt_ideas' ) ). "&nbsp; |&nbsp; " .
+		 	  	   $this->Paginator->sort('email', 'Email', array( 'class' => 'txt_ideas' ) ). "&nbsp; |&nbsp; " .
+			       $this->Paginator->sort('disponibilidad', 'Disponibilidad', array( 'class' => 'txt_ideas' ) ). "&nbsp; |&nbsp; " .
+				   $this->Paginator->sort('puntos', 'Puntaje', array( 'class' => 'txt_ideas' ) ); ?>
+		</span>
+		<?php foreach ($pintores as $pintor ): ?>
+			<div class="pintor">
+				<?php echo $this->Html->link( '&#8226; '.h( $pintor['Usuario']['razonsocial'] ), array( 'action' => 'view', $pintor['Pintor']['id_pintor'] ), array( 'class' => 'pintores', 'escape' => false ) ); ?>&nbsp;<br />
+				<span class="txt_pintores"><b>Cantidad de obras visibles:</b></span>&nbsp;<?php echo h( count( $pintor['Obra'] ) ); ?><br />
+				<span class="txt_pintores"><b>Disponibilidad:</b></span>&nbsp;<?php echo h( $pintor['Pintor']['horario'] ); ?>
+				<br />
+				<span class="txt_pintores"><b>Especialidades:</b></span>&nbsp;
+					<?php $espc = array(); foreach( $pintor['Especialidad'] as $esp ): $espc[] = $esp['nombre']; endforeach; echo implode( ', ', $espc ); ?>
+			</div>
+		<?php endforeach; ?>
 		
+		<div class="paging">
+		<?php
+			echo $this->Paginator->prev('< Anterior', array(), null, array('class' => 'prev disabled'));
+			echo $this->Paginator->numbers(array('separator' => ''));
+			echo $this->Paginator->next( 'Siguiente >', array(), null, array('class' => 'next disabled'));
+		?>
 	</div>
-<?php endforeach; ?>
-<p>
-<?php echo $this->Paginator->counter(array( 'format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total, empezando desde {:start}, terminando en	 {:end}' ) ); ?>	</p>
-<div class="paging">
-<?php
-	echo $this->Paginator->prev('< previa', array(), null, array('class' => 'prev disabled'));
-	echo $this->Paginator->numbers(array('separator' => ''));
-	echo $this->Paginator->next( 'siguiente >', array(), null, array('class' => 'next disabled'));
-?>
-</div>
-<div>
-	<h1>Ya estoy inscripto. ¿Como cambio mis datos?</h1>
-	<?php echo $this->Html->link( 'Haga click aquí para cambiar sus datos', array( 'controller' => 'pintores', 'action' => 'verPintor' ) ); ?>
-	<br />
+	</div>
+		<div class="destacado_pintores">
+			<br />
+			<span class="destacado_pintores">Ya estoy inscripto. ¿Como cambio mis datos?</span>
+			<?php echo $this->Html->link( 'Haga click aquí para cambiar sus datos', array( 'controller' => 'pintores', 'action' => 'verPintor' ), array( 'class' => 'tit_servicios' ) ); ?>
+			<br /><br />
+		</div>
+	</div>
 </div>

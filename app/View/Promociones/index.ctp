@@ -58,7 +58,6 @@ $this->set( 'title_for_layout', "Nuestras Promociones Disponibles" );
 		<br />
 	</div>
 <?php endforeach; ?>
-	<p><?php echo $this->Paginator->counter(array( 'format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count}, desde {:start} a {:end}' ) ); ?></p>
 	<div class="paging">
 	<?php
 		echo $this->Paginator->prev( '< Anterior', array(), null, array('class' => 'prev disabled'));

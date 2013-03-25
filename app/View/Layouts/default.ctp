@@ -7,7 +7,6 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css( 'pintoresco' );
 		echo $this->Html->css( 'estilos' );
 		echo $this->Html->css( 'demo' );
 		echo $this->Html->css( 'style_common' );
@@ -86,7 +85,7 @@
 				    </td>
 				  </tr>
 				  <tr>
-				  	<td colspan="2">
+				  	<td colspan="2" bgcolor="#FFF">
 				  		<?php echo $this->Session->flash(); ?>
 						<?php echo $this->fetch('content'); ?>
 				  	</td>

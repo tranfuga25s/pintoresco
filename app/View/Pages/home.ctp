@@ -1,4 +1,4 @@
-<table>
+<table class="inicio">
 	<tbody>
 		<tr>
 			<td><?php echo $this->element( 'sucursales' ); ?></td>

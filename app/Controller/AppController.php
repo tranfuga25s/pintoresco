@@ -47,8 +47,7 @@ class AppController extends Controller {
 			'loginRedirect'  => array( 'controller' => 'turnos'  , 'action' => 'index'    ),
 			'authorize'      => array( 'Controller' )
 		),
-		'Session',
-		'DebugKit.Toolbar'
+		'Session'
 	);
 
 	public $helpers = array( 'Facebook.Facebook' );

@@ -7,6 +7,7 @@
 <h1>Marcas</h1>
 <table cellpadding="0" cellspacing="0">
 <tr>
+		<th><?php echo $this->Paginator->sort('codigo'); ?></th>
 		<th><?php echo $this->Paginator->sort('logotipo'); ?></th>
 		<th><?php echo $this->Paginator->sort('nombre'); ?></th>
 		<th><?php echo $this->Paginator->sort('publicado'); ?></th>
@@ -16,10 +17,11 @@
 <?php
 foreach ($marcas as $marca): ?>
 <tr>
+	<td><?php echo $marca['Marca']['codigo']; ?></td>
 	<td>
 	<?php
 		if( !is_null( $marca['Marca']['logo'] ) ) {
-			echo $this->Html->image( $marca['Marca']['logo'], array( 'width' => 100 ) ) . "&nbsp;";
+			echo $this->Html->image( $marca['Marca']['logo'], array( 'width' => 50 ) ) . "&nbsp;";
 		} else {
 			echo "&nbsp;";
 		}

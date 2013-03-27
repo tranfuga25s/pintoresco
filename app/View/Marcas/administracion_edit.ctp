@@ -10,6 +10,7 @@
 		<legend><h2>Editar Marca</h2></legend>
 	<?php
 		echo $this->Form->input('id_marca');
+		echo $this->Form->input('codigo');
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('url');
 		echo $this->Form->input('simulador', array( 'type' => 'text', 'after' => 'Por favor, ingrese la dirección de la pagina donde se encuentra el simulador de la marca' ) );

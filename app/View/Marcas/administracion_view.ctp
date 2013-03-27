@@ -14,6 +14,11 @@
 			#<?php echo h($marca['Marca']['id_marca']); ?>
 			&nbsp;
 		</dd>
+		<dt>Codigo:</dt>
+		<dd>
+			<?php echo $marca['Marca']['codigo']; ?>
+			&nbsp;
+		</dd>
 		<dt>Nombre</dt>
 		<dd>
 			<?php echo h($marca['Marca']['nombre']); ?>

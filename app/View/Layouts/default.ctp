@@ -3,7 +3,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $title_for_layout; ?> :: SIPP Pinturerias
+		<?php echo $title_for_layout; ?> :: <?php echo h( Configure::read( 'Configuracion.nombre_sitio' ) ); ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -105,7 +105,7 @@
 			          
 			          Sucursal Salta 2974 - Tel.: (0341) 436 1389  |  Sucursal Buenos Aires esq San Luis - Tel.: (0341) 426 5068 / 426 6573<br />
 			          Sucursal Catamarca esq Santiago - Tel.: (0341) 156 753164<br />
-			          <strong>email:</strong> <a href="mailto:ventas@sipp-pinturerias.com.ar">ventas@sipp-pinturerias.com.ar</a></td>
+			          <strong>email:</strong><?php echo $this->Html->link( Configure::read( 'Configuracion.email_contacto' ), "mailto:".Configure::read( 'Configuracion.email_contacto' ) ); ?></td>
 			          <td width="87" align="center" valign="middle" class="pie_seguinos" rowspan="2">
 			          	Seguinos en <?php echo $this->Html->link( $this->Html->image( "logo_face.png", array( 'width' => 26, 'height' => 26 ) ), 'http://www.facebook.com/sipp.pinturerias', array( 'escape' => false ) ); ?></td>
 			        </tr>

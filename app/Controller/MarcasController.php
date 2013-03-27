@@ -167,6 +167,10 @@ class MarcasController extends AppController {
 		if (!$this->Marca->exists()) {
 			throw new NotFoundException( 'Marca invalida' );
 		}
+		if( $this->Marca->tieneRelaciones( $id ) ) {
+			$this->Session->setFlash( 'La marca tiene algún producto relacionado.', 'default', array( 'class' => 'error' ) );
+			$this->redirect( array( 'controller' => 'productos', 'action' => 'index' ) );
+		}
 		if ($this->Marca->delete()) {
 			$this->Session->setFlash( 'La marca ha sido eliminada correctamente', 'default', array( 'class' => 'success' ) );
 			$this->redirect(array('action' => 'index'));

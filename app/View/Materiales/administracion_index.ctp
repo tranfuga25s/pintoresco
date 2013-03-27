@@ -7,6 +7,7 @@
 <table cellpadding="0" cellspacing="0">
 <tr>
 		<th><?php echo $this->Paginator->sort('id_material'); ?></th>
+		<th><?php echo $this->Paginator->sort('codigo_g', 'Codigo G' ); ?></th>
 		<th><?php echo $this->Paginator->sort('nombre'); ?></th>
 		<th><?php echo $this->Paginator->sort('publicado'); ?></th>
 		<th class="actions">Acciones</th>
@@ -15,6 +16,7 @@
 foreach ($materiales as $material): ?>
 <tr>
 	<td>#<?php echo h($material['Material']['id_material']); ?>&nbsp;</td>
+	<td><?php echo $material['Material']['codigo_g']; ?>&nbsp;</td>
 	<td><?php echo h($material['Material']['nombre']); ?>&nbsp;</td>
 	<td>
 	<?php if( $material['Material']['publicado'] ) {

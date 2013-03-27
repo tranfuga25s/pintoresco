@@ -8,6 +8,7 @@
 		<legend><h2>Agregar Marca</h2></legend>
 	<?php
 		echo $this->Form->input('nombre');
+		echo $this->Form->input('codigo');
 		echo $this->Form->input('url');
 		echo $this->Form->input('simulador', array( 'type' => 'text', 'label' => 'Simulador', 'after' => 'Ingrese la dirección de el simulador para esta marca' ) );
 		echo $this->Form->input('publicado');

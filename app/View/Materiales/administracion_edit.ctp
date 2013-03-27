@@ -9,8 +9,10 @@
 	<?php
 		echo $this->Form->input('id_material');
 		echo $this->Form->input('nombre');
-		echo $this->Form->input('introduccion', array( 'class' => 'ckeditor' ) );
+		echo $this->Form->input('codigo_g');
 		echo $this->Form->input('publicado');
+		echo $this->Form->input('introduccion', array( 'class' => 'ckeditor' ) );
+		
 	?>
 	</fieldset>
 <?php echo $this->Form->end( 'Guardar' ); ?>

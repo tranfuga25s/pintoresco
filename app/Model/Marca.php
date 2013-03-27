@@ -29,35 +29,23 @@ class Marca extends AppModel {
 	 * @var array
 	 */
 	public $validate = array(
-		'id_marca' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+		'codigo' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Por favor, ingrese un código para la marca',
 			),
 		),
 		'nombre' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+				'message' => 'Por favor, ingrese un nombre para la marca'
+			)
 		),
 		'url' => array(
 			'url' => array(
 				'rule' => array('url'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+				'message' => 'Por favor, ingrese una URL correcta'
+			)
 		),
 		'simulador' => array(
 		    'url' => array(
@@ -69,11 +57,26 @@ class Marca extends AppModel {
 		)
 	);
 
+	public $hasMany = array(
+		'Producto' => array(
+			'className' => 'Producto',
+			'foreignKey' => 'marca_id'
+		)
+	);
 
 	public function listaSimuladores() {
 	    return $this->find( 'all', array( 'conditions' => array( 'publicado' => true, 'NOT' => array( 'simulador' => null ) ),
 						'recursive' => -1,
 						'fields' => array( 'nombre', 'simulador' ) ) );
+	}
+	
+	public function tieneRelaciones( $id ) {
+		$count = $this->Producto->find( 'count', array( 'conditions' => array( 'marca_id' => $id ) ) );
+		if( $count > 0 ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

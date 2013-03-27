@@ -17,6 +17,11 @@
 		<?php echo h($material['Material']['nombre']); ?>
 		&nbsp;
 	</dd>
+	<dt>Codigo G:</dt>
+	<dd>
+		<?php echo h($material['Material']['codigo_g'] ); ?>
+		&nbsp;
+	</dd>
 	<dt>Introduccion</dt>
 	<dd>
 		<?php echo h($material['Material']['introduccion']); ?>

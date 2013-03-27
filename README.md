@@ -1,5 +1,5 @@
 Sistema para pinturerías
-======= ==== ===========
+------------------------
 
 Este sistema permite mantener una pagina web para un sistema de cadenas de pinturerías.
 

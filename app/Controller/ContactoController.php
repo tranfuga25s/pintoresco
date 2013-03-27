@@ -5,8 +5,10 @@ App::uses('CakeEmail', 'Network/Email');
 
 class ContactoController extends AppController {
 	
+	public $components = array( 'Recaptcha.Recaptcha' => array( 'actions' => array( 'enviar' ) ) );
+	
 	public function beforeFilter() {
-    	$this->Auth->allow(array('formulario'));
+    	$this->Auth->allow( array( 'formulario', 'enviar' ) );
 		parent::beforeFilter();
     }
 	

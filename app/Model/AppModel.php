@@ -40,7 +40,9 @@ class AppModel extends Model {
 	 /**
 	 *  Permite al modulo de auditoría conocer que usuario está realizando el cambio
 	 */
-	 function currentUser() {
-	 	return array( 'id' => AuthComponent::user('id_usuario') );
+	 public function currentUser() {
+	 	$data = AuthComponent::user('id_usuario');
+		$data['id'] = $data['id_usuario'];
+ 		return $data;
 	 }
 }

@@ -31,4 +31,16 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+	
+	/*
+	 * Auditoría del sistema
+	 */
+	 public $actAs = array( 'AuditLog.Auditable' );
+	 
+	 /**
+	 *  Permite al modulo de auditoría conocer que usuario está realizando el cambio
+	 */
+	 function currentUser() {
+	 	return array( 'id' => AuthComponent::user('id_usuario') );
+	 }
 }

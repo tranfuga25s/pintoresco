@@ -11,6 +11,7 @@
 		<legend><h2>Agregar nuevo producto</h2></legend>
 	<?php
 		echo $this->Form->input( 'id_producto' );
+		echo $this->Form->input( 'imagen', array( 'type' => 'hidden', 'value' => null ) );
 		echo $this->Form->input( 'codigo' );
 		echo $this->Form->input( 'nombre');
 		echo $this->Form->input( 'descripcion', array( 'class' => 'ckeditor' ) );

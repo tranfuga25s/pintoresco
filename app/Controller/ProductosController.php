@@ -170,6 +170,9 @@ class ProductosController extends AppController {
 			throw new NotFoundException( 'Producto especificado invalido' );
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			if( is_array( $this->request->data['Producto']['nueva_imagen']  ) ) {
+				throw new NotFoundException( 'No se implementó la subida de imagenes' );
+			}
 			if ($this->Producto->saveAssociated( $this->request->data ) ) {
 				$this->Session->setFlash( 'El producto ha sido guardado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));
@@ -182,7 +185,6 @@ class ProductosController extends AppController {
 		$marcas = $this->Producto->Marca->find( 'list' );
 		$materiales = $this->Producto->Material->find( 'list' );
 		$tipos = $this->Producto->Tipo->find('list');
-		//$superficies = $this->Producto->Superficie->find('list');
 		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
 		$this->set( compact( 'marcas', 'categorias', 'materiales', 'tipos' ) );
 	}

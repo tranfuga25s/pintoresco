@@ -116,12 +116,12 @@
 				                $this->Html->image( 'assets/notification-icon.png' ) 
 				                .'<span>Notificaciones</span>',
 				                '#',
-				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Todavía no implementado' ) ); ?></li>
+				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Todavía no implementado' ) ); ?></li> -->
 				   <li>	<?php echo $this->Html->link( 
 				   				$this->Html->image( 'cabecera.png' )
 				   				.'<span>Auditoria</span>',
 				   			     array( 'plugin' => 'audit_log', 'controller' => 'audit_log', 'action' => 'index' ),
-				   			     array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Acciones realizadas en el sistema' ) ); ?></li>   -->              
+				   			     array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Acciones realizadas en el sistema' ) ); ?></li>               
 				   <li><?php echo $this->Html->link(
 				                $this->Html->image( 'assets/configuration-icon.png' ) 
 				                .'<span>Páginas</span>',

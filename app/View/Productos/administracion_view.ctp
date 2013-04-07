@@ -23,7 +23,7 @@
 		</dd>
 		<dt>Descripcion:</dt>
 		<dd>
-			<?php echo h($producto['Producto']['descripcion']); ?>
+			<?php echo $producto['Producto']['descripcion']; ?>
 			&nbsp;
 		</dd>
 		<dt>Marca:</dt>
@@ -39,6 +39,31 @@
 		<dt>Tipo:</dt>
 		<dd>
 			<?php echo $this->Html->link($producto['Tipo']['nombre'], array( 'controller' => 'tipo', 'action' => 'view', $producto['Tipo']['id_tipo'] ) ); ?>
+			&nbsp;
+		</dd>
+		<dt>Presentación:</dt>
+		<dd>
+			<?php echo $producto['Producto']['presentacion']; ?>
+			&nbsp;
+		</dd>
+		<dt>Rendimiento:</dt>
+		<dd>
+			<?php echo $producto['Producto']['rendimiento']; ?>
+			&nbsp;
+		</dd>
+		<dt>Colores:</dt>
+		<dd>
+			<?php echo $producto['Producto']['colores']; ?>
+			&nbsp;
+		</dd>
+		<dt>Imagen:</dt>
+		<dd>
+			<?php 
+			if( $producto['Producto']['imagen'] != null ) {
+				echo $this->Html->image( $producto['Producto']['imagen'], array( 'width' => 100 ) );
+			} else {
+				echo $this->Html->image( Configure::read( 'Configuracion.imagen_producto_predeterminada' ), array( 'width' => 100, 'border' => 1 ) );
+			} ?>
 			&nbsp;
 		</dd>
 		<dt>Fecha de creacion:</dt>
@@ -68,15 +93,13 @@
 	<?php if( count( $producto['Material'] ) > 0 ) { ?>
 		<table>
 			<tbody>
-				<th>#Material</th>
+				<th>C&oacute;digo</th>
 				<th>Nombre</th>
-				<th>Publicado</th>
 				<th>Acciones</th>
 				<?php foreach( $producto['Material'] as $material ) : ?>
 				<tr>
-					<td><?php echo h($material['id_material'] ); ?></td>
+					<td><?php echo h($material['codigo_g'] ); ?></td>
 					<td><?php echo h($material['nombre'] ); ?></td>
-					<td><?php echo h($material['publicado'] ); ?></td>
 					<td><?php echo $this->Html->link( 'Sacar vinculo', array( 'action' => 'desvincular', 'material' => $material['id_material'], 'producto' => $producto['Producto']['id_producto'] ), array( 'class' => 'action' ) ); ?></td>
 				</tr>
 				<?php endforeach; ?>

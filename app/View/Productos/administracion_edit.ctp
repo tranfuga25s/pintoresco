@@ -7,7 +7,7 @@
 </div>
 <br />
 <div class="productos form">
-<?php echo $this->Form->create('Producto'); ?>
+<?php echo $this->Form->create('Producto', array( 'type' => 'file' ) ); ?>
 	<fieldset>
 		<legend><h2>Editar Producto</h2></legend>
 	<?php
@@ -22,6 +22,14 @@
 		echo $this->Form->input( 'presentacion', array( 'type' => 'text', 'after' => 'Ej: 1, 4, 10 lts' ) );
 		echo $this->Form->input( 'rendimiento', array( 'type' => 'text', 'after' => 'Ej: 10 mts2/lts/mano' ) );
 		echo $this->Form->input( 'colores', array( 'type' => 'text', 'after' => 'Ingrese una lista de colores separados por coma' ) );
+		echo $this->Form->input( 'imagen', array( 'type' => 'hidden' ) );
+		echo $this->Html->tag( 'label', 'Imagen:' );
+		if( is_null( $this->data['Producto']['imagen'] ) || $this->data['Producto']['imagen'] == '' ) {
+			echo $this->Html->image( Configure::read('Configuracion.imagen_producto_predeterminada' ) );
+		} else {
+			echo $this->Html->image( $this->data['Producto']['imagen'], array( 'width' => 100 ) );
+		}
+		//echo $this->Form->input( 'nueva_imagen', array( 'type' => 'file', 'label' => 'Cambiar imagen:' ) );
 		echo $this->Form->input( 'Material', array( 'options' => $materiales, 'multiple' => true, 'label' => 'Material/Superficie de aplicacion:', 'after' => 'Para seleccionar varios elementos utilice la tecla Ctrl y haga click sobre los elementos a elegir' ) );
 	?>
 	</fieldset>

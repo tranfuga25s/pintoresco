@@ -1,34 +1,14 @@
 <?php 
-$this->set( 'title_for_layout', "Nuestras Promociones Disponibles" ); 
+$this->pageTitle = "Nuestras Promociones Disponibles"; 
 ?>
 <style>
 .promociones .promocion {
-	margin-top: 2px;
 	margin-left: 4px;
-	border-bottom: 1px dotted gray;
-	text-align: center;
+	text-align: left;
+	margin-top: 30px;
+	margin-bottom: 20px;
 }
 
-.promociones .promocion:nth-child {
-	background-color: #66666;
-}
-
-.promociones .promocion .titulo {
-	text-align: center;
-	text-shadow: 1px 1px 1px #fff;
-	font-size: 15px;
-	color: black;
-}
-
-.promociones .promocion .contenido {
-	margin-left: 3px;
-}
-
-.promociones .promocion .fechas {
-	font-size: 12px;
-	color: white;
-
-}
 
 .promociones .promocion .cont-imagen {
 	float: left;
@@ -38,11 +18,11 @@ $this->set( 'title_for_layout', "Nuestras Promociones Disponibles" );
 }
 </style>
 <div class="promociones index">
-	<h1>¡Promociones!</h1>
+	<span class="titulos">¡Promociones!</span>
 	<?php
 	foreach ($promociones as $promocion): ?>
 	<div class="promocion">
-		<h2 class="titulo"><?php echo h($promocion['Promocion']['titulo']); ?>&nbsp;</h2>
+		<h2 class="sub_titulos"><?php echo h($promocion['Promocion']['titulo']); ?>&nbsp;</h2>
 		<div class="cont-imagen">
 			<?php
 			if( $promocion['Promocion']['imagen'] != null ) { 
@@ -51,11 +31,10 @@ $this->set( 'title_for_layout', "Nuestras Promociones Disponibles" );
 				echo $this->Html->image( 'imagen_ejemplo.png', array( 'class' => 'imagen' ) );
 			} ?>
 		</div>
-		<div class="contenido"><?php echo h($promocion['Promocion']['descripcion']); ?>&nbsp;</div>
-		<div class="fechas">V&aacute;lido desde <?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_desde'] ) ); ?>
+		<div class="txt_general"><?php echo h($promocion['Promocion']['descripcion']); ?>&nbsp;</div>
+		<div class="txt_general">V&aacute;lido desde <?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_desde'] ) ); ?>
 							hasta <?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_hasta'] ) ); ?>
 		</div>
-		<br />
 	</div>
 <?php endforeach; ?>
 	<div class="paging">

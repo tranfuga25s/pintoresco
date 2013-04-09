@@ -23,6 +23,12 @@
 				                .'<span>Marcas</span>',
 				                array( 'controller' => 'marcas', 'action' => 'index', 'plugin' => false ),
 				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de marcas declaradas' ) ); ?></li>
+   				   <li><?php echo $this->Html->link(
+				                $this->Html->image( 'assets/marca-icono.jpg' ) 
+				                .'<span>Tipos</span>',
+				                array( 'controller' => 'tipos', 'action' => 'index', 'plugin' => false ),
+				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de tipos de productos' ) ); ?></li>
+
 				   <li><?php echo $this->Html->link(
 				                $this->Html->image( 'assets/marca-icono.jpg' ) 
 				                .'<span>Materiales<br />Superficies</span>',

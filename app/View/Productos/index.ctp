@@ -49,7 +49,7 @@
   	<?php //debug( $producto ); ?>
   <tr>
       <td width="125" rowspan="2" valign="top">
-      	<?php if( ! is_null( $producto['Producto']['imagen'] ) ) {
+      	<?php if( !is_null( $producto['Producto']['imagen'] ) ) {
       			echo $this->Html->image( $producto['Producto']['imagen'], array( 'width' => 125, 'height' => 133 ) );
 			  } else {
 			  	echo $this->Html->image( Configure::read( 'Configuracion.imagen_producto_predeterminada' ), array( 'width' => 125, 'height' => 133 ) );

@@ -7,10 +7,10 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css( 'estilos' );
 		echo $this->Html->css( 'demo' );
 		echo $this->Html->css( 'style_common' );
 		echo $this->Html->css( 'style1' );
+		echo $this->Html->css( 'estilos' );
 		
 		echo $this->Html->script( 'jquery-1.7.2.min' );
 
@@ -44,13 +44,6 @@
 	}
 	//-->
 	</script>
-	<style type="text/css">
-	<!--
-	body {
-		background-color: #ea7e2d;
-	}
-	-->
-</style>
 </head>
 <body onload="MM_preloadImages('/pintoresco/img/bt_barra_hover.jpg')">
 	<div id="container">
@@ -113,6 +106,19 @@
 			</table>
 		</div>
 	</div>
+	<div class="publicidad">
+			<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-1880233918301202";
+			/* Desarrollo */
+			google_ad_slot = "0058508055";
+			google_ad_width = 468;
+			google_ad_height = 60;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		</div>
 	<?php //echo $this->element( 'sql_dump' ); ?>
 </body>
 </html>

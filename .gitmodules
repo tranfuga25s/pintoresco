@@ -7,3 +7,6 @@
 [submodule "app/Plugin/Recapcha"]
 	path = app/Plugin/Recapcha
 	url = git://github.com/lamanabie/cakephp-recaptcha.git
+[submodule "app/Plugin/Upload"]
+	path = app/Plugin/Upload
+	url = git://github.com/josegonzalez/upload.git

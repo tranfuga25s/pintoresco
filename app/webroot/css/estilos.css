@@ -1,21 +1,64 @@
 @charset "utf-8";
 /* CSS Document */
-/* Configuración general */
+/* ConfiguraciÃ³n general */
 * {
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: #ea7e2d;
 }
 
 .borde_tabla {
 	background: url('/pintoresco/img/borde_tabla.png') center repeat-x;
 } 
 
-/* Paginacion - Se aplica a todas las paginas */
-.orden {
-	font-size: 12px;
-	color: #000066;
-	margin-left: 105px;
+.fondo_tabla { background-color:#FFFFFF;}
+
+/* elementos con las mismas caracteristicas en todo el sitio */
+
+/* titulos*/
+
+.titulos {
+	font-size:15px;
+	font-weight:bold;
+	color:#201584;
+	margin-top:25px;
+}
+ 
+/* sub-titulos generales en naranja por ejemplo para el nombre del pintor en con quien pinto */
+.sub_titulos 	{
+	font-size:13px;
+	color: #FF6600;
+	font-weight:bold;
 }
 
+/* estilo para el orden del filtro con quien pinto y demas, Se aplica a todas las paginas que utilizen el "ordenar por"*/
+.ordenar {
+	font-size: 12px;
+	color: #030378;
+	margin-left: 10px;
+	margin-top:20px;
+}
+
+/* estilo para el listado. cuando por ejmplo se listan caracteristicas, cualidades o productos*/
+.listado {
+	font-size:13px;
+	color:#727272;
+	font-weight:bold;
+}
+
+.listado a {
+	color: #727272;
+}
+
+.txt_general {
+	font-size:13px;
+	color:#727272;
+}
+
+
+/* estilo utilizado para el paginador*/
 .paging {
 	font-size: 12px;
 	color: #201584;
@@ -23,7 +66,6 @@
 	vertical-align: middle;
 	text-align: center;
 	margin-bottom: 10px;
-	text-decoration: none;
 }
 
 .paging:hover {
@@ -32,52 +74,12 @@
 	text-decoration: underline;
 }
 
-/* Seccion de pintores */	
-.pintor {
-	border: 1px solid dotted;
-	padding-left: 15px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.pintores_index {
-	background-color: white;
-}
-
-.pintores_index_content  {
-	margin-left: 15px;
-}
-
-.pintores {
-	font-size: 12px;
-	color: #FF3300;
-	font-weight: bold;
-}
-
-.txt_pintores {
+.txt_general {
 	font-size:13px;
 	color:#727272;
-	font-weight:bold;
 }
 
-.destacado_pintores {
-	font-size: 14px;
-	color: #FF6600;
-	font-weight: bold;
-	background-color: #000066;
-	text-align: center;
-}
-
-/* Servicios */
-.tit_servicios {
-	font-size:11px;
-	color:#FFFFFF;
-	font-weight:bold;
-	background-color:#000066;
-	padding-left:10px;
-}
-
-/* Convenios */
+/* Convenios */ 
 .tit_convenios {
 	color: #FFFFFF;
 	font-weight: bold;
@@ -88,22 +90,23 @@
 }
 
 .convnios {
-	color: #FFFFFF;
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 14px;
-	vertical-align: middle;
-	padding-left: 15px;
+	color:#FFFFFF;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:14px;
+	vertical-align:middle;
+	padding-left:15px;
 }
 
 .descuento {
 	color: #000066;
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 12px;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:12px;
 }
 
-/* Promociones */
+
+/* Promociones  */
 .tit_promociones {
 	color: #FFFFFF;
 	font-weight: bold;
@@ -117,19 +120,8 @@
 	padding-left:10px;
 }
 
-/** IDEAS SIPP */
-.tit_ideas {
-	font-size:15px;
-	font-weight:bold;
-	color:#201584;
-}
 
-.txt_ideas {
-	font-size:13px;
-	color:#727272;
-}
-
-/** PIE DE PAGINA **/
+/** PIE DE PAGINA **/  
 .pie .pie_seguinos {
 	font-size: 10px;
 	color: #FFFFFF;
@@ -137,19 +129,8 @@
 	padding-top: 10px;
 }
 
-/** Materiales */
-.materiales {
-	padding-left: 15px;
-	background-color: white;
-}	
-	
-.materiales .material {
-	
-}
 
 /** Menu CSS */
-
-
 #cssmenu ul li {
 	float: left;
 	margin: 0;
@@ -183,13 +164,6 @@
 	padding-right: 20px;
 	background: transparent url('/pintoresco/img/bg-bubplastic-button.gif') top right no-repeat;
 	cursor: pointer;
-	font-family: 'Oswald';
-}
-
-#cssmenu ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
 }
 
 
@@ -198,36 +172,10 @@
 	height: 32px;
 	margin: 0;
 	padding: 0;
-	background: #000000 url('/pintoresco/img/bg-bubplastic.gif') top left repeat-x;	
+	background: #000000 url('/pintoresco/img/bg-bubplastic.gif') top left repeat-x;
 }
-
-
-/** Uso Multiple **/
-.tit_generales {
-	font-size: 15px;
-	font-weight: bold;
-	color: #201584;
-	margin-left: 15px;
-	margin-top: 13px;
-}
-
-.sub_tit_producto {
-	font-size: 12px;
-	font-weight: bold;
-	color: #201584;
-}
-
-.sub_tit_producto_light {
-	font-size: 12px;
-	color: #201584;
-}
-
-.tit_form {
-	font-size: 12px;
-	font-weight: bold;
-	color: #201584;
-}
-
-.inicio {
-	background-color: #ea7e2d;
+#cssmenu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }

@@ -1,4 +1,6 @@
-<?php $this->set( 'title_for_layout', "Fotos para una obra" ); ?>
+<?php 
+$this->page_title = "Fotos para una obra"; 
+?>
 <div id="acciones">
 	<?php echo $this->Html->link( 'Lista de Obras', array( 'controller' => 'obras', 'action' => 'index' ) );  ?>
 </div>
@@ -46,6 +48,7 @@ $(function() {
 		echo $this->Form->input('titulo');
 		echo $this->Form->input('descripcion');
 		echo $this->Form->input('path', array( 'type' => 'file', 'label' => 'Subir archivo:' ) );
+		echo $this->Form->input('dir', array( 'type' => 'hidden' ) );
 		echo $this->Form->end( 'Subir' );
 	?>
 	</fieldset>

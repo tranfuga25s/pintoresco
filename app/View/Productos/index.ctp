@@ -46,18 +46,17 @@
   </tr>
   <tr><td height="38" colspan="7" valign="top">&nbsp;</td></tr>
   <?php foreach( $productos as $producto ) : ?>
-  	<?php //debug( $producto ); ?>
   <tr>
       <td width="125" rowspan="2" valign="top">
       	<?php if( !is_null( $producto['Producto']['imagen'] ) ) {
-      			echo $this->Html->image( $producto['Producto']['imagen'], array( 'width' => 125, 'height' => 133 ) );
+      			echo $this->Html->image( 'productos'.DS.$producto['Producto']['dir'].$producto['Producto']['imagen'], array( 'width' => 125, 'height' => 133 ) );
 			  } else {
 			  	echo $this->Html->image( Configure::read( 'Configuracion.imagen_producto_predeterminada' ), array( 'width' => 125, 'height' => 133 ) );
 			  }  
       	?>
       </td>
       <td width="12" rowspan="2" valign="top">&nbsp;</td>
-      <td height="83" colspan="4" valign="top" class="txt_ideas">
+      <td height="83" colspan="4" valign="top" class="sub_titulos">
       	<span class="tit_ideas"><?php echo h( $producto['Producto']['nombre'] ); ?></span><br />
       	<?php echo $producto['Producto']['descripcion']; ?>
       </td>

@@ -16,10 +16,11 @@
 		echo $this->Form->input('simulador', array( 'type' => 'text', 'after' => 'Por favor, ingrese la dirección de la pagina donde se encuentra el simulador de la marca' ) );
 		echo $this->Form->input('publicado');
 		if( !is_null( $this->data['Marca']['logo'] ) ) {
-			echo $this->Form->input('logo', array( 'type' => 'file', 'before' => $this->Html->image( $this->data['Marca']['logo'], array( 'width' => 150 ) ) ) );
+			echo $this->Form->input('logo', array( 'type' => 'file', 'before' => $this->Html->image( 'logos'.DS.$this->data['Marca']['dir'].DS.$this->data['Marca']['logo'], array( 'width' => 150 ) ) ) );
 		} else {
 			echo $this->Form->input('logo', array( 'type' => 'file' ) );
 		}
+	    echo $this->Form->input('dir', array( 'type' => 'hidden' ) );
 	?>
 	</fieldset>
 <?php echo $this->Form->end( 'Guardar' ); ?>

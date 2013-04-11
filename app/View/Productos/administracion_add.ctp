@@ -23,6 +23,8 @@
 		echo $this->Form->input( 'rendimiento', array( 'type' => 'text', 'after' => 'Ej: 10 mts2/lts/mano' ) );
 		echo $this->Form->input( 'colores', array( 'type' => 'text', 'after' => 'Ingrese una lista de colores separados por coma' ) );
 		echo $this->Form->input( 'Material', array( 'options' => $materiales, 'multiple' => true, 'label' => 'Material/Superficie de aplicacion:', 'after' => 'Para seleccionar varios elementos utilice la tecla Ctrl y haga click sobre los elementos a elegir' ) );
+		echo $this->Form->input( 'imagen', array( 'type' => 'file' ) );
+		echo $this->Form->input( 'dir', array( 'type' => 'hidden' ) );
 	?>
 	</fieldset>
 	<?php echo $this->Form->end( 'Agregar' ); ?>

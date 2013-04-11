@@ -13,16 +13,15 @@ $this->pageTitle = "Nuestras Promociones Disponibles";
 .promociones .promocion .cont-imagen {
 	float: left;
 	position: inline;
-	width: 150px;
+	width: 70px;
 	margin-right: 3px;
 }
 </style>
 <div class="promociones index">
-	<span class="titulos">¡Promociones!</span>
+	<div class="titulos">¡Promociones!</div>
 	<?php
 	foreach ($promociones as $promocion): ?>
 	<div class="promocion">
-		<h2 class="sub_titulos"><?php echo h($promocion['Promocion']['titulo']); ?>&nbsp;</h2>
 		<div class="cont-imagen">
 			<?php
 			if( $promocion['Promocion']['imagen'] != null ) { 
@@ -31,6 +30,7 @@ $this->pageTitle = "Nuestras Promociones Disponibles";
 				echo $this->Html->image( 'imagen_ejemplo.png', array( 'class' => 'imagen' ) );
 			} ?>
 		</div>
+		<h2 class="sub_titulos"><?php echo h($promocion['Promocion']['titulo']); ?>&nbsp;</h2>
 		<div class="txt_general"><?php echo h($promocion['Promocion']['descripcion']); ?>&nbsp;</div>
 		<div class="txt_general">V&aacute;lido desde <?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_desde'] ) ); ?>
 							hasta <?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_hasta'] ) ); ?>

@@ -21,7 +21,7 @@ foreach ($marcas as $marca): ?>
 	<td>
 	<?php
 		if( !is_null( $marca['Marca']['logo'] ) ) {
-			echo $this->Html->image( $marca['Marca']['logo'], array( 'width' => 50 ) ) . "&nbsp;";
+			echo $this->Html->image( 'logos'.DS.$marca['Marca']['dir'].DS.$marca['Marca']['logo'], array( 'width' => 50 ) ) . "&nbsp;";
 		} else {
 			echo "&nbsp;";
 		}

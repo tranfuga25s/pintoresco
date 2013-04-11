@@ -1,4 +1,4 @@
-<span class="titulos">Ideas SIPP</span>
+<div class="titulos2">Ideas SIPP</div>
 <?php foreach ($ideas as $idea): ?>
 	<div class="idea">
 		<span class="subtitulos"><?php echo h($idea['Idea']['titulo']); ?>&nbsp;</span>

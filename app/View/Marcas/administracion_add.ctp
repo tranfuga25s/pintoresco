@@ -13,6 +13,7 @@
 		echo $this->Form->input('simulador', array( 'type' => 'text', 'label' => 'Simulador', 'after' => 'Ingrese la dirección de el simulador para esta marca' ) );
 		echo $this->Form->input('publicado');
 		echo $this->Form->input('logo', array( 'type' => 'file' ) );
+		echo $this->Form->input('dir', array( 'type' => 'hidden' ) );
 	?>
 	</fieldset>
 <?php echo $this->Form->end( 'Agregar' ); ?>

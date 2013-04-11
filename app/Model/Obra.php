@@ -83,4 +83,5 @@ class Obra extends AppModel {
 	 		'classname' => 'FotosObra'
 		) 
 	 );
+	 
 }

@@ -116,11 +116,11 @@ class MarcasController extends AppController {
 	 * @return void
 	 */
 	public function administracion_add() {
-		if ($this->request->is('post')) {
+		if ( $this->request->is( 'post' ) ) {
 			$this->Marca->create();
-			if ($this->Marca->save( $this->request->data, true ) ) {
+			if( $this->Marca->save( $this->request->data, true ) ) {
 				$this->Session->setFlash( 'La marca ha sido agregada correctamente', 'default', array( 'class' => 'success' ) );
-				$this->redirect(array('action' => 'index'));
+				$this->redirect( array( 'action' => 'index' ) );
 			} else {
 				$this->Session->setFlash( 'La marca no pudo ser guardad.', 'default', array( 'class' => 'error' ) );
 			}

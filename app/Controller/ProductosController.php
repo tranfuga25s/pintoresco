@@ -60,6 +60,7 @@ class ProductosController extends AppController {
 		$this->Producto->recursive = 0;
 		if( $this->request->isGet() && isset( $this->request->query['nombre'] ) ) {
 			$cond = array();
+			$cond['`Producto`.`publicado`'] = true;
 			if( $this->request->query['nombre'] != '' ) {
 				$cond["OR"] = array(
 					"`Producto`.`nombre` LIKE '%".$this->request->query['nombre']."%'",
@@ -83,7 +84,7 @@ class ProductosController extends AppController {
 			$this->set( 'tipo_id', $this->request->query['tipo_id'] );
 			$this->set( 'superficie_id', $this->request->query['superficie_id'] );
 		} else {
-			$this->set( 'productos', $this->paginate() );
+			$this->set( 'productos', $this->paginate( array( '`Producto`.`publicado`' => true )) );
 			$this->set( 'nombre', '' );
 			$this->set( 'marca_id', '' );
 			$this->set( 'tipo_id', '' );
@@ -170,9 +171,6 @@ class ProductosController extends AppController {
 			throw new NotFoundException( 'Producto especificado invalido' );
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if( is_array( $this->request->data['Producto']['nueva_imagen']  ) ) {
-				throw new NotFoundException( 'No se implementó la subida de imagenes' );
-			}
 			if ($this->Producto->saveAssociated( $this->request->data ) ) {
 				$this->Session->setFlash( 'El producto ha sido guardado correctamente', 'default', array( 'class' => 'success' ) );
 				$this->redirect(array('action' => 'index'));

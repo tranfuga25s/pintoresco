@@ -35,7 +35,7 @@ class ContactoController extends AppController {
 							 'Motivo: '.$this->data['contacto']['motivo'].
 							 $this->data['contacto']['texto'] );
 				$this->Session->setFlash( "Su mensaje ha sido enviado correctamente. Gracias por contactarse con nosotros!", 'default', array( 'class' => 'success') );
-				$this->redirect( '/' );
+				$this->redirect( array( 'controller' => 'pages', 'action' => 'display', 'gracias' ) );
 			}
 		} else {
 			throw new NotFoundException( "Metodo de envío no encontrado" );

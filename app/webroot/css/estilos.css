@@ -25,13 +25,23 @@ body {
 	color:#201584;
 	margin-top:25px;
 }
+
+.titulos2 {
+	font-size:15px;
+	font-weight:bold;
+	color:#201584;
+	margin-top:20px;
+	margin-left:25px;
+	margin-bottom:25px;
+	
+}
  
 /* sub-titulos generales en naranja por ejemplo para el nombre del pintor en con quien pinto */
 .sub_titulos 	{
 	font-size:13px;
 	color: #FF6600;
 	font-weight:bold;
-}
+	}
 
 /* estilo para el orden del filtro con quien pinto y demas, Se aplica a todas las paginas que utilizen el "ordenar por"*/
 .ordenar {
@@ -57,8 +67,19 @@ body {
 	color:#727272;
 }
 
+.sub_tit_producto {
+	font-size:13px;
+	color:#201584;
+	font-weight:bold;
+	}
 
-/* estilo utilizado para el paginador*/
+.tit_form {
+	font-size:11px;
+	color:#201584;
+	font-weight:bold;
+	}
+
+/* estilo utilizado para el paginador */
 .paging {
 	font-size: 12px;
 	color: #201584;
@@ -66,6 +87,11 @@ body {
 	vertical-align: middle;
 	text-align: center;
 	margin-bottom: 10px;
+	margin-left: 5px;
+}
+
+.paging .prev.disabled {
+	 margin-right: 3px;
 }
 
 .paging:hover {
@@ -74,10 +100,65 @@ body {
 	text-decoration: underline;
 }
 
+.paging span a {
+	color: #201584;
+}
+
 .txt_general {
 	font-size:13px;
 	color:#727272;
 }
+
+.materiales {
+margin-left:25px;
+margin-top:25px;}
+
+.material { 
+	margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    min-height: 30px;
+    min-width: 200px;
+    float: left;
+	/*border: 1px solid black;*/
+}
+
+.pintor {
+margin-left:10px;
+margin-top:25px;}
+
+.pintores_index { 
+margin-top:10px;
+margin-bottom:10px;
+margin-left:20px;
+}
+
+.destacado_pintores {
+background: -moz-linear-gradient(top,  rgba(60,54,130,1) 0%, rgba(71,67,127,0.79) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,54,130,1)), color-stop(100%,rgba(71,67,127,0.79))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(60,54,130,1) 0%,rgba(71,67,127,0.79) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(60,54,130,1) 0%,rgba(71,67,127,0.79) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(60,54,130,1) 0%,rgba(71,67,127,0.79) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(60,54,130,1) 0%,rgba(71,67,127,0.79) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3682', endColorstr='#c947437f',GradientType=0 ); /* IE6-9 */
+color:#FFFFFF; 
+font-size:12px;
+font-weight:bold;
+vertical-align: middle;
+text-align: center;
+}
+	
+.idea	{
+margin-left:20px;
+margin-top:25px;
+margin-right:30px;}
+
+.subtitulos {
+	font-size:13px;
+	color:#ea7e2d;
+	line-height:50px;
+	font-weight:bold;
+	}
 
 /* Convenios */ 
 .tit_convenios {
@@ -113,6 +194,13 @@ body {
 	font-size: 12px;
 }
 
+.tit_servicios {
+background:#47437F;
+font-size:12px;
+color:#FFFFFF;
+padding-left:10px;
+}
+
 .promociones {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #FFFFFF;
@@ -120,6 +208,30 @@ body {
 	padding-left:10px;
 }
 
+.promociones index {
+margin-left:10px;
+margin-top:25px;}
+
+.contacto {
+margin-left:20px;
+color:#000066;
+margin-bottom:20px;
+font-weight:bold;
+}
+
+.form_contact {
+border: #666666 solid 1px !important;
+color:#FFFFFF;
+height:20px;
+margin-left:60px;
+margin-top:20px;
+text-align: right;
+width:250px;}
+
+.input .text .label {
+ width: 25%;
+ float: left;}
+   
 
 /** PIE DE PAGINA **/  
 .pie .pie_seguinos {

@@ -56,4 +56,14 @@ class Producto extends AppModel {
                 'associationForeignKey'  => 'material_id'
             )
 		);
+		
+	// Subidor de archivos
+	public $actsAs = array(
+        'Upload.Upload' => array(
+            'imagen' => array(
+            	'path' => '{ROOT}webroot{DS}img{DS}productos{DS}',
+            	'extensions' => array( 'jpg', 'bmp', 'jpeg', 'png', 'gif' )
+			)
+        )
+    );
 }

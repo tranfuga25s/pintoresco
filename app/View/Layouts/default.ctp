@@ -51,7 +51,7 @@
 			<table width="955" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tbody>
 				  <tr>
-    				<td width="850" rowspan="2" valign="top"><?php echo $this->Html->image( "encabezado1.jpg", array( 'width' => 850, 'height' => 98 ) ); ?></td>
+    				<td width="850" rowspan="2" valign="top"><?php echo $this->Html->link( $this->Html->image( "encabezado1.jpg", array( 'width' => 850, 'height' => 98 ) ), '/', array( 'escape' => false ) ); ?></td>
     				<td width="105" height="51" valign="top"><?php echo $this->Html->image( "encabezado2.jpg", array( 'width' => 105, 'height' => 51 ) ); ?></td>
   				</tr>
   				<tr>

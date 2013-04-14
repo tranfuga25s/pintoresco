@@ -15,7 +15,7 @@
 	        	<?php echo h( $convenio['Convenio']['titulo'] ); ?>
 	          	<br />
 	          	<span class="descuento">
-	          	<?php echo h( $convenio['Convenio']['descuento'].'% desc en '.$convenio['Convenio']['destino'] ); ?>
+	          	<?php echo h( $convenio['Convenio']['descuento'].'% desc. en '.$convenio['Convenio']['destino'] ); ?>
 	          	</span>
 	        </td>
 	      </tr>
@@ -25,10 +25,8 @@
 		    <td height="17" align="right" valign="middle">
 		      	<?php echo $this->Html->link( $this->Html->image( "ver_mas.png", array( "name" => "Image7", "width" => 65, "height" => 17, "border" => 0, "id" => "Image7" ) ),
 		  	     						array( 'controller' => 'convenios', 'action' => 'index' ),
-		        						array( "onmouseout" => "MM_swapImgRestore()", "onmouseover" => "MM_swapImage( 'Image7', '', '/img/ver_mas_hover.png',1)", 'escape' => false ) ); ?>
+		        						array( "onmouseout" => "MM_swapImgRestore()", "onmouseover" => "MM_swapImage( 'Image7', '', ".Router::url( '/img/ver_mas_hover.png' ).",1)", 'escape' => false ) ); ?>
 		    </td>
 	  </tr>
-      <!--<tr>
-        <td height="12" valign="top"><img src="img/nada_blanco.png" width="211" height="12" alt="" /></td>
-      </tr> -->
+
 </table>

@@ -6,10 +6,10 @@
     </td>
   	<td colspan="2" align="left" valign="top" bgcolor="#201584" class="convnios">promociones</td>
   	<td colspan="3" align="center" valign="top" bgcolor="#201584" class="convnios">envios a domicilio</td>
-    <td colspan="3" valign="top" bgcolor="#201584" class="convnios">tarjetas 6 cuotas sin interes</td>
+    <td colspan="4" valign="top" bgcolor="#201584" class="convnios">tarjetas 6 cuotas sin interes</td>
   </tr>
   <tr>
-    <td height="12" colspan="9" valign="top" bgcolor="#201584">
+    <td height="12" colspan="10" valign="top" bgcolor="#201584">
     <?php echo $this->Html->image( "linea.png", array( "width" => 955, "height" => 4 ) ); ?>
     </td>
   </tr>
@@ -39,10 +39,13 @@
 			<?php echo $promocion['Promocion']['descripcion']; ?>
 			<br />
 		</td>
-	<?php } } ?>	
+	<?php } } ?>
+		<td bgcolor="#201584">
+			<?php echo $this->Html->link( $this->Html->image( "ver_mas_invertido.png" ), array( 'controller' => 'promociones', 'action' => 'view' ), array( 'escape' => false ) ); ?>
+		</td>
   </tr>
   <tr>
-    <td height="5" colspan="9" valign="top" bgcolor="#FFFFFF">
+    <td height="5" colspan="10" valign="top" bgcolor="#FFFFFF">
     	<?php echo $this->Html->image( "nada.png", array(  "width" => 14, "height" => 5 ) ); ?>
     </td>
   </tr>

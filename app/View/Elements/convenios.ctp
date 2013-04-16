@@ -12,7 +12,7 @@
 			foreach( $data as $convenio ) { ?>
 	      <tr>
 	        <td height="31" valign="top" class="convnios">
-	        	<?php echo h( $convenio['Convenio']['titulo'] ); ?>
+	        	<?php echo $this->Html->link( h( $convenio['Convenio']['titulo'] ), array( 'controller' => 'convenios', 'action' => 'index' ) ); ?>
 	          	<br />
 	          	<span class="descuento">
 	          	<?php echo h( $convenio['Convenio']['descuento'].'% desc. en '.$convenio['Convenio']['destino'] ); ?>

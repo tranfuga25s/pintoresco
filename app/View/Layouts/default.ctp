@@ -86,6 +86,7 @@
 				  <tr><td colspan="2"><?php echo $this->element( 'promociones' ); ?></td></tr>
 				  <tr>
 			        <td width="581" rowspan="2" valign="top" class="pie">
+			        	<br />
 						<?php echo $this->Html->link( '<span>Empresa</span>', array( 'controller' => 'pages', 'empresa' ), array( 'escape' => false ) ); ?> &nbsp; | &nbsp;
 						<?php echo $this->Html->link( '<span>Productos</span>', array( 'controller' => 'productos', 'action' => 'index' ), array( 'escape' => false )  );  ?> &nbsp; | &nbsp;
 				    	<?php echo $this->Html->link( '<span>¿Con qué pinto?</span>', array( 'controller' => 'materiales', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
@@ -93,9 +94,9 @@
 				    	<?php echo $this->Html->link( '<span>Servicios</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
 				    	<?php echo $this->Html->link( '<span>Ideas SIPP</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
 				    	<?php echo $this->Html->link( '<span>Promociones</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-				    	<?php echo $this->Html->link( '<span>Contacto</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?>  &nbsp; | &nbsp;
+				    	<?php echo $this->Html->link( '<span>Contacto</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?>  &nbsp;
 			          <br />
-			          
+			          <br />
 			          Sucursal Salta 2974 - Tel.: (0341) 436 1389  |  Sucursal Buenos Aires esq San Luis - Tel.: (0341) 426 5068 / 426 6573<br />
 			          Sucursal Catamarca esq Santiago - Tel.: (0341) 156 753164<br />
 			          <strong>email:</strong><?php echo $this->Html->link( Configure::read( 'Configuracion.email_contacto' ), "mailto:".Configure::read( 'Configuracion.email_contacto' ) ); ?></td>

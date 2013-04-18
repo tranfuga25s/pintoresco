@@ -41,7 +41,9 @@
 		</td>
 	<?php } } ?>
 		<td bgcolor="#201584">
-			<?php echo $this->Html->link( $this->Html->image( "ver_mas_invertido.png" ), array( 'controller' => 'promociones', 'action' => 'view' ), array( 'escape' => false ) ); ?>
+			<?php echo $this->Html->link( $this->Html->image( "ver_mas_blue.png", array( 'id' => 'ImagenPromo', 'name' => 'imagenPromo' ) ), 
+										  array( 'controller' => 'promociones', 'action' => 'view' ), 
+										  array( 'escape' => false ) ); ?>
 		</td>
   </tr>
   <tr>

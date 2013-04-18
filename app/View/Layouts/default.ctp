@@ -45,7 +45,7 @@
 	//-->
 	</script>
 </head>
-<body onload="MM_preloadImages('/pintoresco/img/bt_barra_hover.jpg')">
+<body onload="MM_preloadImages('<?php echo Router::url( 'img/bt_barra_hover.jpg' ); ?>'">
 	<div id="container">
 		<div id="header">
 			<table width="955" border="0" cellpadding="0" cellspacing="0" align="center">

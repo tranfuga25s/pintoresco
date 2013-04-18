@@ -70,8 +70,14 @@ body {
 .sub_tit_producto {
 	font-size:13px;
 	color:#201584;
+		}
+		
+.sub_tit_producto_light {
+	font-size:13px;
+	color:#201584;
 	font-weight:bold;
-	}
+	text-transform:capitalize;
+		}
 
 .tit_form {
 	font-size:11px;
@@ -159,6 +165,15 @@ margin-right:30px;}
 	line-height:50px;
 	font-weight:bold;
 	}
+
+.tit_ideas {
+color:#000099;
+font-size:15px;
+font-weight:bold;
+text-transform:capitalize;
+}
+
+
 
 /* Convenios */ 
 .tit_convenios {

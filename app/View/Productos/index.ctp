@@ -56,8 +56,8 @@
       	?>
       </td>
       <td width="12" rowspan="2" valign="top">&nbsp;</td>
-      <td height="83" colspan="4" valign="top" class="sub_titulos">
-      	<span class="tit_ideas"><?php echo h( $producto['Producto']['nombre'] ); ?></span><br />
+      <td height="83" colspan="4" valign="top" class="txt_general">
+      	<span class="tit_ideas"><?php echo strtolower( h( $producto['Producto']['nombre'] ) ); ?></span><br />
       	<?php echo $producto['Producto']['descripcion']; ?>
       </td>
   </tr>

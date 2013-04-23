@@ -30,7 +30,7 @@ $this->pageTitle = "Nuestras Promociones Disponibles";
 		<div class="cont-imagen">
 			<?php
 			if( $promocion['Promocion']['imagen'] != null && $promocion['Promocion']['imagen'] != '' ) { 
-				echo $this->Html->image( $promocion['Promocion']['imagen'], array( 'class' => 'imagen') );
+				echo $this->Html->image( 'promociones'.DS.$promocion['Promocion']['dir'].DS.$promocion['Promocion']['imagen'], array( 'class' => 'imagen', 'width' => 49, 'heigth' => 49 ) );
 			} else {
 				echo $this->Html->image( 'imagen_ejemplo.png', array( 'class' => 'imagen' ) );
 			} ?>

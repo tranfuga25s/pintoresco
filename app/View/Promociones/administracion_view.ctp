@@ -29,7 +29,7 @@
 			if( $promocion['Promocion']['imagen'] == null ) {
 				$promocion['Promocion']['imagen'] = 'imagen_ejemplo.png';
 			}  
-			echo $this->Html->image( $promocion['Promocion']['imagen'], array( 'width' => 49, 'heigth' => 49 ) ); ?>
+			echo $this->Html->image( 'promociones'.DS.$promocion['Promocion']['dir'].DS.$promocion['Promocion']['imagen'], array( 'width' => 49, 'heigth' => 49 ) ); ?>
 			&nbsp;
 		</dd>
 		<dt>Creada:</dt>

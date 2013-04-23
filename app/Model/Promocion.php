@@ -44,8 +44,41 @@ class Promocion extends AppModel {
 				'rule' => array('notempty'),
 				'message' => 'La descripción no puede estar vacía'
 			)
+		),
+		'imagen' => array(
+			'tamano' => array( 
+				'rule' => 'isUnderPhpSizeLimit',
+				'message' => 'El archivo excede el tamaño permitido'
+			),
+			'error' => array(
+				'rule' => 'isCompletedUpload',
+				'message' => 'El archivo no se pudo subir correctamente'
+			),
+			'escritura' => array(
+				'rule' => 'isSuccessfulWrite',
+				'message' => 'El archivo no se pudo escribir en el servidor'
+			),
+			'destino' => array(
+				'rule' => array('isWritable'),
+				'message' => 'El directorio de destino no es escribible'
+			),
+			'destino-noexiste' => array(
+				'rule' => array('isValidDir'),
+				'message' => 'El directorio de destino no existe'
+			)
 		)
 	);
+	
+	// Subidor de archivos
+	public $actsAs = array(
+        'Upload.Upload' => array(
+            'imagen' => array(
+            	'path' => '{ROOT}webroot{DS}img{DS}promociones{DS}',
+            	'extensions' => array( 'jpg', 'bmp', 'jpeg', 'png', 'gif' )
+			)
+        )
+    );
+	
 	
    /**
     * Función que busca las promociones disponibles con el limite para que se vean en la pagina inicial

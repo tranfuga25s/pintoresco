@@ -26,7 +26,9 @@
 			// Introduce la imagen predeterminada
 			if( $promocion['Promocion']['imagen'] == null ) {
 				$promocion['Promocion']['imagen'] = 'imagen_ejemplo.png';
-			} 
+			} else {
+				$promocion['Promocion']['imagen'] = 'promociones'.DS.$promocion['Promocion']['dir'].DS.$promocion['Promocion']['imagen'];
+			}
 		?>
 		<td width="49" valign="top" >
 			<?php echo $this->Html->image( $promocion['Promocion']['imagen'], array( "width" => 49, "height" => 49 ) ); ?>

@@ -91,6 +91,6 @@ class Promocion extends AppModel {
 																 'valido_desde <= NOW()' ),
 										  'limit' => 4,
 										  'recursive' => -1,
-										  'fields' => array( 'titulo', 'descripcion', 'imagen' ) ) );
+										  'fields' => array( 'titulo', 'descripcion', 'imagen', 'dir' ) ) );
 	}
 }

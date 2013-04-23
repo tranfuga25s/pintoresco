@@ -45,53 +45,10 @@
     </td>
   </tr>
   <tr><td height="38" colspan="7" valign="top">&nbsp;</td></tr>
-  <?php foreach( $productos as $producto ) : ?>
-  <tr>
-      <td width="125" rowspan="2" valign="top">
-      	<?php if( !is_null( $producto['Producto']['imagen'] ) ) {
-      			echo $this->Html->image( 'productos'.DS.$producto['Producto']['dir'].$producto['Producto']['imagen'], array( 'width' => 125, 'height' => 133 ) );
-			  } else {
-			  	echo $this->Html->image( Configure::read( 'Configuracion.imagen_producto_predeterminada' ), array( 'width' => 125, 'height' => 133 ) );
-			  }  
-      	?>
-      </td>
-      <td width="12" rowspan="2" valign="top">&nbsp;</td>
-      <td height="83" colspan="4" valign="top" class="txt_general">
-      	<span class="tit_ideas"><?php echo strtolower( h( $producto['Producto']['nombre'] ) ); ?></span><br />
-      	<?php echo $producto['Producto']['descripcion']; ?>
-      </td>
-  </tr>
-  <tr>
-    <td width="216" height="50" valign="top">
-    	<span class="sub_tit_producto">Marca:</span>
-    		<span class="sub_tit_producto_light"><?php echo $producto['Marca']['nombre']; ?></span><br />
-		<span class="sub_tit_producto">Colores:</span>
-			<span class="sub_tit_producto_light"><?php echo $producto['Producto']['colores']; ?></span>
-	</td>
-    <td width="207" valign="top">
-    	<span class="sub_tit_producto">Envase:</span>
-    		<span class="sub_tit_producto_light"><?php echo $producto['Producto']['presentacion']; ?></span><br />
-    	<span class="sub_tit_producto">Tipo de producto:</span>
-    		<span class="sub_tit_producto_light"><?php echo $producto['Tipo']['nombre']; ?></span>
-    </td>
-    <td width="191" valign="top">
-    	<span class="sub_tit_producto">Rendimiento:</span>
-    		<span class="sub_tit_producto_light"><?php echo $producto['Producto']['rendimiento']; ?></span><br />
-    	<span class="sub_tit_producto">Superficie:</span>
-    		<span class="sub_tit_producto_light">Maderas</span>
-    </td>
-    <td width="169" valign="top">
-    	<span class="sub_tit_producto">C&oacute;digo:</span>
-    		<span class="sub_tit_producto_light"><?php echo $producto['Producto']['codigo']; ?></span>
-    </td>
-  </tr>
-  <tr>
-  	<td height="14" colspan="6" align="right" valign="middle">
-  		<?php echo $this->Html->image( "linea_ideas.png", array( 'width' => 939, 'height' => 4 ) ); ?>
-  	</td>
-  </tr>  	
+  <?php foreach( $productos as $producto ) {
+  		echo $this->element( 'producto', array( 'producto' => $producto ) );
   	
-  <?php endforeach; ?>	
+   } ?>	
   <tr><td colspan="8" align="center">	
 	<?php echo $this->Paginator->counter(array('format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total, desde {:start} al {:end}') ); ?>	</p>
 	<div class="paging">

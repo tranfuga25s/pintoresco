@@ -4,9 +4,13 @@ $this->pageTitle = "Nuestras Promociones Disponibles";
 <style>
 .promociones .promocion {
 	margin-left: 4px;
+	margin-right: 21px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 47%; 
+	min-height: 75px;
+	float: left;
 	text-align: left;
-	margin-top: 30px;
-	margin-bottom: 20px;
 }
 
 
@@ -22,19 +26,22 @@ $this->pageTitle = "Nuestras Promociones Disponibles";
 	<?php
 	foreach ($promociones as $promocion): ?>
 	<div class="promocion">
+		<span class="sub_titulos"><?php echo h($promocion['Promocion']['titulo']); ?>&nbsp;</span><br />
 		<div class="cont-imagen">
 			<?php
-			if( $promocion['Promocion']['imagen'] != null ) { 
+			if( $promocion['Promocion']['imagen'] != null && $promocion['Promocion']['imagen'] != '' ) { 
 				echo $this->Html->image( $promocion['Promocion']['imagen'], array( 'class' => 'imagen') );
 			} else {
 				echo $this->Html->image( 'imagen_ejemplo.png', array( 'class' => 'imagen' ) );
 			} ?>
 		</div>
-		<h2 class="sub_titulos"><?php echo h($promocion['Promocion']['titulo']); ?>&nbsp;</h2>
-		<div class="txt_general"><?php echo h($promocion['Promocion']['descripcion']); ?>&nbsp;</div>
 		<div class="txt_general">V&aacute;lido desde <?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_desde'] ) ); ?>
-							hasta <?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_hasta'] ) ); ?>
-		</div>
+							hasta <?php echo date( 'd/m/Y', strtotime( $promocion['Promocion']['valido_hasta'] ) ); ?></div>
+		<br />
+		<div class="txt_general"><?php echo h($promocion['Promocion']['descripcion']); ?>&nbsp;</div>
+		
+		
+
 	</div>
 <?php endforeach; ?>
 	<div class="paging">

@@ -4,9 +4,9 @@
     <td width="14" height="32" valign="top" bgcolor="201584">
     	<?php echo $this->Html->image( "nada.png", array( "width" => 14, "height" => 27 ) ); ?>
     </td>
-  	<td colspan="2" align="left" valign="top" bgcolor="#201584" class="convnios">promociones</td>
-  	<td colspan="3" align="center" valign="top" bgcolor="#201584" class="convnios">envios a domicilio</td>
-    <td colspan="4" valign="top" bgcolor="#201584" class="convnios">tarjetas 6 cuotas sin interes</td>
+  	<td colspan="2" align="left" valign="top" bgcolor="#201584" class="convnios txt1">promociones</td>
+  	<td colspan="4" align="center" valign="top" bgcolor="#201584" class="convnios txt2">envios a domicilio sin cargo</td>
+    <td colspan="3" valign="top" bgcolor="#201584" class="convnios txt3">tarjetas 6 cuotas sin interes</td>
   </tr>
   <tr>
     <td height="12" colspan="10" valign="top" bgcolor="#201584">

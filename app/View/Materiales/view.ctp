@@ -1,14 +1,34 @@
-<div class="materiales view">
-	<h1><?php echo $material['Material']['nombre']; ?></h2>
-	<div class="introduccion">
+<?php
+$this->set( 'title_for_layout', "Pintar ".$material['Material']['nombre'] );
+?>
+<div class="materiales">
+	<span class="titulos">¿Con qué pinto?</span>
+	<br />
+	<br />
+	<span class="titulos"><?php echo h( $material['Material']['nombre'] ); ?></span>
+	<br />
+	<?php 
+		if( $material['Material']['imagen'] == null ) : $material['Material']['imagen'] = 'material_generico.png'; endif; 
+		echo  $this->Html->image( $material['Material']['imagen'], array( 'class' => 'imagen-material', 'alt' => $material['Material']['nombre'] ) );
+	?>
+	<span class="txt-general">
 		<?php echo $material['Material']['introduccion']; ?>
-	</div>
+	</span>
+	<br />
 	<?php if( count( $material['Producto'] ) > 0 ) : ?>
 	<div class="productos">
 		<h2>Productos disponibles para este material:</h2>
 		<?php foreach( $material['Producto'] as $producto ) : ?>
-			<div class="producto"><?php echo $this->Html->link( h( $producto['nombre'] ), array( 'controller' => 'prodcuto', 'action' => 'view', $producto['id_producto'] ) ); ?></div>
+		<table>
+			<tbody>
+				<?php echo $this->element( 'producto', array( 'producto' => $producto ) ); ?>
+			</tbody>
+		</table>			
 		<?php endforeach; ?>
 	</div>
+	<?php else : ?>
+	<div class="">No existen productos asociados a este material todavía.</div>
 	<?php endif; ?>
-</div>
+	<br />
+
+</div>	

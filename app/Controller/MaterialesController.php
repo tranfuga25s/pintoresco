@@ -75,7 +75,8 @@ class MaterialesController extends AppController {
 		if (!$this->Material->exists()) {
 			throw new NotFoundException( 'Material invalida' );
 		}
-		$this->set('material', $this->Material->read(null, $id));
+		$this->Material->recursive = 2;
+		$this->set( 'material', $this->Material->read( null, $id ) );
 	}
 
 	/**

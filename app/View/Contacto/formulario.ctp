@@ -51,4 +51,14 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 			<td colspan="3"><?php echo $this->Form->end( 'Enviar' ); ?></td>
 		</tr>
 	</tbody>
-</table>			
+</table>	
+<table border="1" width="100%">
+	<tbody>
+		<tr>
+			<td><?php echo $this->Html->image( 'contacto1.jpg' ); ?></td>
+			<td><?php echo $this->Html->image( 'contacto2.jpg' ); ?></td>
+			<td><?php echo $this->Html->image( 'contacto3.jpg' ); ?></td>
+		</tr>
+	</tbody>
+</table>
+		

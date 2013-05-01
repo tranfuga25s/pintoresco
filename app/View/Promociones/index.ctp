@@ -21,6 +21,7 @@ $this->pageTitle = "Nuestras Promociones Disponibles";
 	margin-right: 3px;
 }
 </style>
+<?php echo $this->Html->image( 'panoramica_promociones.jpg' ); ?>
 <div class="promociones index">
 	<div class="titulos">¡Promociones!</div>
 	<?php

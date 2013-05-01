@@ -56,6 +56,22 @@ class EspecialidadesController extends AppController {
 	}
 	
 	/**
+	 * administracion_view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function administracion_view($id = null) {
+		$this->Especialidad->id = $id;
+		if (!$this->Especialidad->exists()) {
+			throw new NotFoundException( 'Especialidad no encontrada' );
+		}
+		$this->Especialidad->recursive = 2;
+		$this->set('especialidad', $this->Especialidad->read(null, $id));
+	}
+	
+	/**
 	 * administracion_add method
 	 *
 	 * @return void

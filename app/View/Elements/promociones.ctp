@@ -44,7 +44,7 @@
 	<?php } } ?>
 		<td bgcolor="#201584">
 			<?php echo $this->Html->link( $this->Html->image( "ver_mas_blue.png", array( 'id' => 'ImagenPromo', 'name' => 'imagenPromo' ) ), 
-										  array( 'controller' => 'promociones', 'action' => 'view' ), 
+										  array( 'controller' => 'promociones', 'action' => 'index' ), 
 										  array( 'escape' => false ) ); ?>
 		</td>
   </tr>

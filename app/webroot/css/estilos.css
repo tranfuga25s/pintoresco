@@ -337,7 +337,7 @@ font-size: 10px;
 	padding-right: 20px;
 	background: transparent url('/pintoresco/img/bg-bubplastic-button.gif') top right no-repeat;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 11px;
 }
 
 
@@ -352,4 +352,23 @@ font-size: 10px;
 	list-style: none;
 	margin: 0;
 	padding: 0;
+}
+
+.promociones .promocion {
+	margin-left: 4px;
+	margin-right: 21px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 47%; 
+	min-height: 75px;
+	float: left;
+	text-align: left;
+}
+
+
+.promociones .promocion .cont-imagen {
+	float: left;
+	position: inline;
+	width: 70px;
+	margin-right: 3px;
 }

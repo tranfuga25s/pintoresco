@@ -16,7 +16,7 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		</tr>
 		<tr>
 			<td>Email*:</td>
-			<td colspan="2"><?php echo $this->Form->input( 'email', array( 'label' => false, 'class' => 'form_contacto' ) ); ?></td>
+			<td colspan="2"><?php echo $this->Form->input( 'email', array( 'label' => false, 'class' => 'form_contacto', 'type' => 'text' ) ); ?></td>
 		</tr>
 		<tr>
 			<td>Telefono:</td>
@@ -48,10 +48,13 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 			<td><?php echo $this->Recaptcha->display(); ?></td>
 		</tr>
 		<tr>
-			<td colspan="3"><?php echo $this->Form->end( 'Enviar' ); ?></td>
+			<td colspan="3">
+				<?php echo $this->Form->submit( 'Enviar' ); ?>
+			</td>
 		</tr>
 	</tbody>
 </table>	
+<?php echo $this->Form->end(); ?>
 <table border="0" width="100%">
 	<tbody>
 		<tr>

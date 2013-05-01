@@ -45,12 +45,15 @@
     </td>
   </tr>
   <tr><td height="38" colspan="7" valign="top">&nbsp;</td></tr>
-  <?php foreach( $productos as $producto ) {
+  <tr><td>
+  	<table><tbody>
+  	<?php foreach( $productos as $producto ) {
   		echo $this->element( 'producto', array( 'producto' => $producto ) );
-  	
-   } ?>	
+   	} ?>	
+  	</tbody></table>
+  </td></tr>
   <tr><td colspan="8" align="center">	
-	<?php echo $this->Paginator->counter(array('format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total, desde {:start} al {:end}') ); ?>	</p>
+	<?php echo $this->Paginator->counter(array('format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total, desde {:start} al {:end}') ); ?>	
 	<div class="paging">
 	<?php
 	    echo $this->Paginator->first( '<< Primero' );
@@ -58,7 +61,7 @@
 		echo $this->Paginator->numbers(array('separator' => ' '));
 		echo $this->Paginator->next( 'Siguiente >', array(), null, array('class' => 'next disabled'));
 		echo $this->Paginator->last( 'Ultimo >>' );
-	?>
+	?></div>
 	</td></tr>
  </tbody>
 </table>

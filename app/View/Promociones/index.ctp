@@ -1,26 +1,6 @@
 <?php 
 $this->pageTitle = "Nuestras Promociones Disponibles"; 
 ?>
-<style>
-.promociones .promocion {
-	margin-left: 4px;
-	margin-right: 21px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	width: 47%; 
-	min-height: 75px;
-	float: left;
-	text-align: left;
-}
-
-
-.promociones .promocion .cont-imagen {
-	float: left;
-	position: inline;
-	width: 70px;
-	margin-right: 3px;
-}
-</style>
 <?php echo $this->Html->image( 'panoramica_promociones.jpg' ); ?>
 <div class="promociones index">
 	<div class="titulos">¡Promociones!</div>
@@ -31,7 +11,7 @@ $this->pageTitle = "Nuestras Promociones Disponibles";
 		<div class="cont-imagen">
 			<?php
 			if( $promocion['Promocion']['imagen'] != null && $promocion['Promocion']['imagen'] != '' ) { 
-				echo $this->Html->image( 'promociones'.DS.$promocion['Promocion']['dir'].DS.$promocion['Promocion']['imagen'], array( 'class' => 'imagen', 'width' => 49, 'heigth' => 49 ) );
+				echo $this->Html->image( 'promociones'.DS.$promocion['Promocion']['dir'].DS.$promocion['Promocion']['imagen'], array( 'class' => 'imagen', 'width' => 49, 'height' => 49 ) );
 			} else {
 				echo $this->Html->image( 'imagen_ejemplo.png', array( 'class' => 'imagen' ) );
 			} ?>

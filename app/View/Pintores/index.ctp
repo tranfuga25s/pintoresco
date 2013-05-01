@@ -19,13 +19,12 @@
 		<?php endforeach; ?>
 		
 		<div class="paging">
-		<?php
-			echo $this->Paginator->prev('< Anterior', array(), null, array('class' => 'prev disabled'));
-			echo $this->Paginator->numbers(array('separator' => ''));
-			echo $this->Paginator->next( 'Siguiente >', array(), null, array('class' => 'next disabled'));
-		?>
-	</div>
-	</div>
+			<?php
+				echo $this->Paginator->prev('< Anterior', array(), null, array('class' => 'prev disabled'));
+				echo $this->Paginator->numbers(array('separator' => ''));
+				echo $this->Paginator->next( 'Siguiente >', array(), null, array('class' => 'next disabled'));
+			?>
+		</div>
 		<div class="destacado_pintores">
 			<br />
 			<span class="destacado_pintores">Ya estoy inscripto. ¿Como cambio mis datos?</span>

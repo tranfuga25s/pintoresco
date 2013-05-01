@@ -155,7 +155,7 @@ class OrganismosController extends AppController {
 			$this->Session->setFlash( 'Se ha eliminado correctamente el organismo' , 'default', array( 'class' => 'success' ) );
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash( 'El organismo no pudo ser eliminado', 'default', array( 'class' => 'error' ) );
-		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash( 'El organismo no pudo ser eliminado. Verifique que no tenga convenios asociados.', 'default', array( 'class' => 'error' ) );
+		$this->redirect( array( 'action' => 'view', $id ) );
 	}
 }

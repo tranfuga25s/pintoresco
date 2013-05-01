@@ -52,7 +52,7 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		</tr>
 	</tbody>
 </table>	
-<table border="1" width="100%">
+<table border="0" width="100%">
 	<tbody>
 		<tr>
 			<td><?php echo $this->Html->image( 'contacto1.jpg' ); ?></td>

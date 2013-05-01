@@ -36,5 +36,13 @@ class Material extends AppModel {
 			'associationForeignKey' => 'producto_id'
 		)
 	);
+	
+	public function beforeDelete() {
+		$count = $this->query( 'SELECT COUNT(*) FROM productos_materiales WHERE material_id = '.$this->id );
+		if( intval( $count[0][0]['COUNT(*)'] ) > 0 ) {
+			return false;
+		}
+		return true;
+	}
 
 }

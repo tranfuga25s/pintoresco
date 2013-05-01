@@ -41,13 +41,11 @@ class Tipo extends AppModel {
 		)
 	);
 
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-/**
- * hasMany associations
- *
- * @var array
- */
+	/**
+	 * hasMany associations
+	 *
+	 * @var array
+	 */
 	public $hasMany = array(
 		'Producto' => array(
 			'className' => 'Producto',
@@ -63,5 +61,13 @@ class Tipo extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+	public function beforeDelete() {
+		$count = $this->Producto->find( 'count', array( 'condition' => array( 'tipo_id' => $this->id ) ) );
+		if( $count > 0 ) {
+			return false;
+		} 
+		return true;
+	}
 
 }

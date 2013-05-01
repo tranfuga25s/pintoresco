@@ -64,7 +64,7 @@ class UsuariosController extends AppController {
 			if ( $this->Auth->login() ) {
 				return $this->redirect( array( 'controller' => 'pages', 'action' => 'display', 'home' ) );
 			} else {
-				$this->Session->setFlash( "El email ingresado o la contraseña son incorrectas", 'default', array(), 'auth');
+				$this->Session->setFlash( "El email ingresado o la contraseña son incorrectas", 'default', array( 'class' => 'error' ), 'auth');
 			}
 		}
 	}
@@ -91,7 +91,7 @@ class UsuariosController extends AppController {
 				return $this->redirect( '/administracion/usuarios/cpanel' );
 			} else {
 				//echo AuthComponent::password( $this->data['Usuario']['contra'] );
-				$this->Session->setFlash( 'El email ingresado o la contraseña son incorrectas', 'default', array(), 'auth');
+				$this->Session->setFlash( 'El email ingresado o la contraseña son incorrectas', 'default', array( 'class' => 'error' ), 'auth');
 			}
 		}
 	}
@@ -429,7 +429,7 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash( "Las contraseñas no coinciden." );
 			} else {
 				if( $this->Usuario->save( $this->data, false ) ) {
-					$this->Session->setFlash( "Contraseña cambiada correctamente", 'default', array( 'class' => 'sucess' ) );
+					$this->Session->setFlash( "Contraseña cambiada correctamente", 'default', array( 'class' => 'success' ) );
 					$this->redirect( array( 'action' => 'index' ) );
 				} else {
 					$this->Session->setFlash( "No se pudo cambiar la contraseña", 'default',  array( 'class' => 'error' ) );

@@ -69,10 +69,6 @@ class AppController extends Controller {
 		}
 		// Cargo la configuración
 		Configure::load( '', 'Pinturas' );
-		// Sistema de auditoria
-		if( !empty( $this->data ) && empty( $this->data[$this->Auth->userModel] ) ) {
-          $this->data[$this->Auth->userModel] = $this->currentUser();
-        }
 	}
 
 	protected function currentUser() {

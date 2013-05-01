@@ -161,7 +161,7 @@ class TiposController extends AppController {
 			$this->Session->setFlash( 'El tipo ha sido eliminado correctamente', 'default', array( 'class' => 'success' ) );
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash( 'El tipo NO ha sido eliminado correctamente', 'default', array( 'class' => 'error' ) );
-		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash( 'El tipo NO ha sido eliminado correctamente. Seguramente existen productos asociados a el', 'default', array( 'class' => 'error' ) );
+		$this->redirect( array('action' => 'view', $id ) );
 	}
 }

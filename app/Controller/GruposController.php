@@ -6,6 +6,26 @@ App::uses('AppController', 'Controller');
  */
 class GruposController extends AppController {
 
+	public function isAuthorized( $usuario = null ) {
+		switch( $usuario['grupo_id'] ) {
+			case 1: // SuperAdministradores
+			{
+				return true;
+				break;
+			}
+			case 2: // Administradores
+			case 3: // Publicadores
+			{
+				switch( $this->request->params['action'] ) {
+					case 'index':
+					{ return true; break; }
+				}
+				// no pongo break para que acredite las acciones de menos prioridad
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * administracion_index method
 	 *

@@ -165,8 +165,8 @@ class MaterialesController extends AppController {
 			$this->Session->setFlash( 'El material ha sido eliminado correctamente', 'default', array( 'class' => 'success' ) );
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash( 'La marca no se pudo eliminar', 'default', array( 'class' => 'error' ) );
-		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash( 'La marca no se pudo eliminar. Seguramente está asociado a algun producto.', 'default', array( 'class' => 'error' ) );
+		$this->redirect( array('action' => 'view', $id ) );
 	}
 	
 	/**

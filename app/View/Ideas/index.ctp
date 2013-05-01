@@ -1,4 +1,3 @@
-<?php echo $this->Html->image( 'imagen_empresa.jpg' ); ?>
 <div style="padding-left: 120px;">
 	<div class="titulos2">Ideas SIPP</div>
 	<?php foreach ($ideas as $idea): ?>

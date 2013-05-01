@@ -30,7 +30,7 @@
 				$promocion['Promocion']['imagen'] = 'promociones'.DS.$promocion['Promocion']['dir'].DS.$promocion['Promocion']['imagen'];
 			}
 		?>
-		<td width="49" valign="top" >
+		<td width="49" valign="top"  bgcolor="#201584">
 			<?php echo $this->Html->image( $promocion['Promocion']['imagen'], array( "width" => 49, "height" => 49 ) ); ?>
 		</td>
     	<td width="204" valign="top" bgcolor="#201584" class="promociones">

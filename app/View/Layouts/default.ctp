@@ -85,32 +85,42 @@
 				  </tr>
 				  <tr><td colspan="2"><?php echo $this->element( 'promociones' ); ?></td></tr>
 				  <tr>
-			        <td valign="top" class="pie">
-			        	<br />
-						<?php echo $this->Html->link( '<span>Empresa</span>', array( 'controller' => 'pages', 'empresa' ), array( 'escape' => false ) ); ?> &nbsp; | &nbsp;
-						<?php echo $this->Html->link( '<span>Productos</span>', array( 'controller' => 'productos', 'action' => 'index' ), array( 'escape' => false )  );  ?> &nbsp; | &nbsp;
-				    	<?php echo $this->Html->link( '<span>¿Con qué pinto?</span>', array( 'controller' => 'materiales', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-				    	<?php echo $this->Html->link( '<span>¿Con quién pinto?</span>', array( 'controller' => 'pintores', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-				    	<?php echo $this->Html->link( '<span>Servicios</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-				    	<?php echo $this->Html->link( '<span>Ideas SIPP</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-				    	<?php echo $this->Html->link( '<span>Promociones</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-				    	<?php echo $this->Html->link( '<span>Contacto</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?>  &nbsp;
-					</td>
-		            <td width="100" align="center" valign="middle" class="pie_seguinos">
-			          	Seguinos en <?php echo $this->Html->link( $this->Html->image( "logo_face.png", array( 'width' => 26, 'height' => 26 ) ), 'http://www.facebook.com/sipp.pinturerias', array( 'escape' => false ) ); ?>
-			        </td>
+				  	<td colspan="2">
+					  	<table border="0" width="100%">
+					  		<tbody>
+					  			<tr>
+					  				<td valign="top" class="pie">
+							        	<br />
+										<?php echo $this->Html->link( '<span>Empresa</span>', array( 'controller' => 'pages', 'empresa' ), array( 'escape' => false ) ); ?> &nbsp; | &nbsp;
+										<?php echo $this->Html->link( '<span>Productos</span>', array( 'controller' => 'productos', 'action' => 'index' ), array( 'escape' => false )  );  ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>¿Con qué pinto?</span>', array( 'controller' => 'materiales', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>¿Con quién pinto?</span>', array( 'controller' => 'pintores', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Servicios</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Ideas SIPP</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Promociones</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Contacto</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?>  &nbsp;
+									</td>
+						            <td width="100" align="right" valign="middle" class="pie_seguinos" colspan="2">
+							          	Seguinos en <?php echo $this->Html->link( $this->Html->image( "logo_face.png", array( 'width' => 26, 'height' => 26 ) ), 'http://www.facebook.com/sipp.pinturerias', array( 'escape' => false ) ); ?>
+							        </td>
+							     </tr>
+		        				  <tr>
+								  	<td colspan="5">
+								  	  <br />				  
+							          Sucursal Salta 2974 - Tel.: (0341) 436 1389  |  Sucursal Buenos Aires esq San Luis - Tel.: (0341) 426 5068 / 426 6573<br />
+							          Sucursal Catamarca esq Santiago - Tel.: (0341) 156 753164<br />
+							        </td>
+							      </tr>
+							      <tr>
+							      	<td><strong>email: </strong><?php echo $this->Html->link( Configure::read( 'Configuracion.email_contacto' ), "mailto:".Configure::read( 'Configuracion.email_contacto' ) ); ?></td>
+							      	<td align="right" valign="bottom">CSS y HTML válido | </td>
+							      	<td align="right" width="128" valign="middle"><?php echo $this->Html->link( 'Desarrollado por '.$this->Html->image( 'logo_axon.jpg' ), 'http://www.gestotux.com.ar/', array( 'escape' => false ) ); ?></td>
+							      </tr>
+					  			</tr>
+					  		</tbody>
+					  	</table>
+					 </td>
 			      </tr>				    	
-				  <tr>
-				  	<td>
-				  	  <br />				  
-			          Sucursal Salta 2974 - Tel.: (0341) 436 1389  |  Sucursal Buenos Aires esq San Luis - Tel.: (0341) 426 5068 / 426 6573<br />
-			          Sucursal Catamarca esq Santiago - Tel.: (0341) 156 753164<br />
-			          <strong>email:</strong><?php echo $this->Html->link( Configure::read( 'Configuracion.email_contacto' ), "mailto:".Configure::read( 'Configuracion.email_contacto' ) ); ?>
-			        </td>
-  		            <td>
-			          	<small>CSS y HTML válido | Desarrollado por <?php echo $this->Html->link( 'Axón Experts', 'http://' ); ?></small>
-			        </td>
-			      </tr>
 				</tbody>
 			</table>
 		</div>

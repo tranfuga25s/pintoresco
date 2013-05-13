@@ -95,10 +95,10 @@
 										<?php echo $this->Html->link( '<span>Productos</span>', array( 'controller' => 'productos', 'action' => 'index' ), array( 'escape' => false )  );  ?> &nbsp; | &nbsp;
 								    	<?php echo $this->Html->link( '<span>¿Con qué pinto?</span>', array( 'controller' => 'materiales', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
 								    	<?php echo $this->Html->link( '<span>¿Con quién pinto?</span>', array( 'controller' => 'pintores', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>Servicios</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>Ideas SIPP</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>Promociones</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>Contacto</span>', array( 'controller' => '', 'action' => 'index' ), array( 'escape' => false )  ); ?>  &nbsp;
+								    	<?php echo $this->Html->link( '<span>Servicios</span>', array( 'controller' => 'pages', 'servicios' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Ideas SIPP</span>', array( 'controller' => 'ideas', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Promociones</span>', array( 'controller' => 'promociones', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Contacto</span>', array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'escape' => false )  ); ?>  &nbsp;
 									</td>
 						            <td width="100" align="right" valign="middle" class="pie_seguinos" colspan="2">
 							          	Seguinos en <?php echo $this->Html->link( $this->Html->image( "logo_face.png", array( 'width' => 26, 'height' => 26 ) ), 'http://www.facebook.com/sipp.pinturerias', array( 'escape' => false ) ); ?>

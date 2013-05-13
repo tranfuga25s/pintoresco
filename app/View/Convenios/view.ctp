@@ -12,22 +12,22 @@
 	</dd>
 	<dt>Fecha de Inicio</dt>
 	<dd>
-		<?php echo h($convenio['Convenio']['fecha_inicio']); ?>
+		<?php echo date( "d/m/Y", strtotime( $convenio['Convenio']['fecha_inicio'] ) ); ?>
 		&nbsp;
 	</dd>
 	<dt>Fecha de Finalizacion</dt>
 	<dd>
-		<?php echo h($convenio['Convenio']['fecha_fin']); ?>
+		<?php echo date( "d/m/Y", strtotime( $convenio['Convenio']['fecha_fin'] ) ); ?>
 		&nbsp;
 	</dd>
 	<dt>Documentacion a presentar</dt>
 	<dd>
-		<?php echo h($convenio['Convenio']['documentacion']); ?>
+		<?php echo $convenio['Convenio']['documentacion']; ?>
 		&nbsp;
 	</dd>
 	<dt>Forma de Pago</dt>
 	<dd>
-		<?php echo h($convenio['Convenio']['forma_pago']); ?>
+		<?php echo $convenio['Convenio']['forma_pago']; ?>
 		&nbsp;
 	</dd>
 	<dt>Descuento aplicable</dt>

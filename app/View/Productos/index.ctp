@@ -19,6 +19,9 @@
 		        <td width="30" rowspan="3" valign="top">&nbsp;</td>
 		        <td width="188" valign="middle" class="tit_form">Buscar por superficie</td>
 		        <td width="47" rowspan="3" valign="top">&nbsp;</td>
+		        <td rowspan="2">
+    				<?php echo $this->Html->tag( 'div', '', array( 'class' => 'bt_buscar', 'onclick' => "$('#ProductoIndexForm').submit()" ) ); ?>        			
+        		</td>
 		      </tr>
 		      <tr>
         		<td height="22" valign="top">
@@ -27,15 +30,13 @@
         		<td valign="middle">
         			<?php echo $this->Form->input( 'marca_id', array( 'label' => false, 'div' => false, 'empty' => 'Elija una marca', 'value' => $marca_id ) ); ?>
         		</td>
-        		<td valign="top">
+        		<td valign="middle">
         			<?php echo $this->Form->input( 'tipo_id', array( 'label' => false, 'div' => false, 'empty' => 'Elija un tipo ', 'value' => $tipo_id ) ); ?>
         		</td>
-        		<td valign="top">
+        		<td valign="middle">
         			<?php echo $this->Form->input( 'superficie_id', array( 'label' => false, 'div' => false, 'empty' => 'Elija una superficie', 'value' => $superficie_id ) ); ?>
         		</td>
-        		<td>
-    				<?php echo $this->Form->submit( 'Buscar' ); ?>        			
-        		</td>
+        		
         	</tr>
 		  </tbody>
     	</table>
@@ -52,8 +53,10 @@
    	} ?>	
   	</tbody></table>
   </td></tr>
-  <tr><td colspan="8" align="center">	
-	<?php echo $this->Paginator->counter(array('format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total, desde {:start} al {:end}') ); ?>	
+  <tr><td colspan="8" align="center">
+  	<div class="paginacion">	
+		<?php echo $this->Paginator->counter(array('format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total, desde {:start} al {:end}') ); ?>
+	</div>	
 	<div class="paging">
 	<?php
 	    echo $this->Paginator->first( '<< Primero' );

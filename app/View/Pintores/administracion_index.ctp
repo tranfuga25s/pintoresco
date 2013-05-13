@@ -28,13 +28,12 @@ foreach ($pintores as $pintor ): ?>
 			echo $this->Html->link( $this->Html->image( 'test-fail-icon.png', array( 'alt' => 'Habilitar' ) ),
 									array( 'action' => 'habilitar', $pintor['Pintor']['id_pintor'] ),
 									array( 'escape' => false ) );
-		}
-		?>
+		} ?>
 	</td>
 	<td><?php echo h($pintor['Usuario']['razonsocial']); ?>&nbsp;</td>
 	<td><?php echo $this->Html->link( h($pintor['Usuario']['email']), 'mailto:' . $pintor['Usuario']['email'] ); ?>&nbsp;</td>
 	<td class="actions">
-		<?php echo $this->Html->link( 'Ver en sitio', array( 'administracion' => false, 'action' => 'view', $pintor['Pintor']['id_pintor'] ) ); 
+		<?php echo $this->Html->link( 'Ver en sitio', array( 'administracion' => false, 'action' => 'view', $pintor['Pintor']['id_pintor'] ), array( 'target' => '_blank') ); 
 			  echo $this->Html->link( 'Editar', array('action' => 'edit', $pintor['Pintor']['id_pintor']));
 			  if( $pintor['Pintor']['habilitado'] ) {
 			  	echo $this->Html->link( 'Deshabilitar', array( 'action' => 'deshabilitar', $pintor['Pintor']['id_pintor'] ) );

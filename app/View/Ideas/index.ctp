@@ -6,6 +6,7 @@
 			<div class="txt_general">
 				<?php echo $idea['Idea']['contenido']; ?>			
 			</div>
+			<hr />
 		</div>
 	<?php endforeach; ?>
 	<hr>

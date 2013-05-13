@@ -13,7 +13,7 @@ echo $this->Html->css('style1', null, array( 'inline' => false ) );
                 <div class="mask">
                   <h2>Salta 2974</h2>
                   <p>en esta sucursal usted podra encontrar todo lo necesario para renovar su casa de una pintada</p>
-                  <?php echo $this->Html->link( 'Contacto', 'mailto:sucursal.salta@sipp-pinturerias.com.ar', array( 'class' => "info" ) ); ?>
+                  <?php echo $this->Html->link( 'Contacto', array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'class' => "info" ) ); ?>
                 </div>
             </div>
             <div class="view view-first">
@@ -21,7 +21,7 @@ echo $this->Html->css('style1', null, array( 'inline' => false ) );
               <div class="mask">
                 <h2>Bs. As. esq. San Luis</h2>
                     <p>en esta sucursal usted podra encontrar todo lo necesario para renovar su casa de una pintada</p>
-                    <?php echo $this->Html->link( 'Contacto', 'mailto:sucursal.bsas@sipp-pinturerias.com.ar', array( 'class' => "info" ) ); ?>
+                    <?php echo $this->Html->link( 'Contacto', array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'class' => "info" ) ); ?>
               </div>
             </div>  
             <div class="view view-first">
@@ -29,7 +29,7 @@ echo $this->Html->css('style1', null, array( 'inline' => false ) );
                     <div class="mask">
                       <h2>Catamarca esq. Santiago</h2>
                         <p>en esta sucursal usted podra encontrar todo lo necesario para renovar su casa de una pintada</p>
-                        <?php echo $this->Html->link( 'Contacto', 'mailto:sucursal.catamarca@sipp-pinturerias.com.ar', array( 'class' => "info" ) ); ?>
+                        <?php echo $this->Html->link( 'Contacto', array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'class' => "info" ) ); ?>
                     </div>
                 </div>  
       		</div>    

@@ -25,7 +25,16 @@
 			echo $this->Form->input( 'Pintor.tipo_doc', array( 'options' => array( 'dni' => 'DNI', 'le' => 'LE', 'lc' => 'LC', 'ci' => 'CI' ) ) );
 			echo $this->Form->input( 'Pintor.num_doc', array( 'label' => 'Número de Documento' ) );
 			echo $this->Form->input( 'Pintor.horario', array( 'label' => 'Horario de atención:', 'after' => '<small>Ingrese algo como 12:00 a 15:00 hs</small>' ) );
-			echo $this->Form->input( 'Especialidad', array( 'options' => $especialidades, 'multiple' => true, 'label' => 'Especialidades aplicables:' ) );
+		?>
+		<fieldset>
+			<legend>Especialidades del pintor</legend>
+			<?php echo $this->Form->input( 'Especialidades.Especialidad', array(  'label' => false, 
+																				  'type' => 'select', 
+																				  'multiple' => 'checkbox', 
+																				  'options' => $especialidades,
+																				  'selected' => $this->Form->value('Especialidades.Especialidad') )  ); ?>
+		</fieldset>
+		<?php
 			echo $this->Form->input( 'Pintor.habilitado', array( 'label' => 'Habilitado' ) );
 			echo $this->Form->input( 'Pintor.puntos' );
 			echo $this->Form->input( 'Pintor.referencias', array( 'label' => 'Referencias:', 'class' => 'ckeditor' ) );

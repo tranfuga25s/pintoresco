@@ -57,7 +57,7 @@
   				<tr>
 	    			<td height="47" valign="top">
 	    				<?php echo $this->Html->link( $this->Html->image( "bt_sospintor.jpg", array( 'alt' => "sos pintor", 'name' => "Image13", 'width' => 105, 'height' => 47, 'border' => 0, 'id' => "Image13" ) ),
-	    											  array( 'controller' => 'pintores', 'action' => 'index' ), 
+	    											  array( 'controller' => 'pages', 'proximamente' ), 
 	    											  array( 'escape' => false, "onmouseout" => "MM_swapImgRestore()", "onmouseover" => "MM_swapImage('Image13','','/pintoresco/img/bt_barra_hover.jpg',1)" ) ); ?>
 	    			</td>
   				</tr>

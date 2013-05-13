@@ -38,7 +38,11 @@ class RecaptchaHelper extends AppHelper {
      * @var array
      */
     public $helpers = array('Form', 'Html');
-    public $settings = array('error' => null, 'useActions' => true, 'errorType' => 'simulateError');
+    public $settings = array('error' => null, 
+                             'useActions' => true, 
+                             'errorType' => 'simulateError', 
+                             'height' => 200, 
+                             'width' => 500 );
 
     function __construct(View $View, $settings = array()) {
         parent::__construct($View, $settings);
@@ -83,8 +87,8 @@ class RecaptchaHelper extends AppHelper {
             'div' => array(
                 'class' => 'recaptcha'),
             'recaptchaOptions' => array(
-                'theme' => 'red',
-                'lang' => 'en',
+                'theme' => 'clean',
+                'lang' => 'es',
                 'custom_translations' => array(),
                 'callback' => 'Recaptcha.focus_response_field'));
 
@@ -116,7 +120,7 @@ class RecaptchaHelper extends AppHelper {
             
             $script = '<script type="text/javascript" src="' . $server . '/challenge?k=' . $publicKey . '"></script>
 				<noscript>
-					<iframe src="' . $server . '/noscript?k=' . $publicKey . '" height="300" width="500" frameborder="0"></iframe><br/>
+					<iframe src="' . $server . '/noscript?k=' . $publicKey . '" height="'.$this->settings['height'].'" width="'.$this->settings['width'].'" frameborder="0"></iframe><br/>
 					<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
 					<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
 				</noscript>';
@@ -162,7 +166,7 @@ class RecaptchaHelper extends AppHelper {
 						setTimeout(\'Recaptcha.create("' . $publicKey . '", "' . $id . '", ' . $jsonOptions . ')\', 1000);
 					}
 				</script>';
-    }
+    } 
 
     /**
      * Recaptcha signup URL

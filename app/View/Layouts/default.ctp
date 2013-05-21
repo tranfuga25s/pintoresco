@@ -11,7 +11,7 @@
 		echo $this->Html->css( 'style_common' );
 		echo $this->Html->css( 'style1' );
 		echo $this->Html->css( 'estilos' );
-		
+
 		echo $this->Html->script( 'jquery-1.7.2.min' );
 
 		echo $this->fetch('meta');
@@ -29,7 +29,7 @@
 	    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
 	    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
 	}
-	
+
 	function MM_findObj(n, d) { //v4.01
 	  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
 	    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
@@ -37,7 +37,7 @@
 	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
 	  if(!x && d.getElementById) x=d.getElementById(n); return x;
 	}
-	
+
 	function MM_swapImage() { //v3.0
 	  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
 	   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
@@ -57,7 +57,7 @@
   				<tr>
 	    			<td height="47" valign="top">
 	    				<?php echo $this->Html->link( $this->Html->image( "bt_sospintor.jpg", array( 'alt' => "sos pintor", 'name' => "Image13", 'width' => 105, 'height' => 47, 'border' => 0, 'id' => "Image13" ) ),
-	    											  array( 'controller' => 'pages', 'proximamente' ), 
+	    											  array( 'controller' => 'pages', 'proximamente' ),
 	    											  array( 'escape' => false, "onmouseout" => "MM_swapImgRestore()", "onmouseover" => "MM_swapImage('Image13','','/pintoresco/img/bt_barra_hover.jpg',1)" ) ); ?>
 	    			</td>
   				</tr>
@@ -73,7 +73,7 @@
 				    			<li><?php echo $this->Html->link( '<span>Ideas SIPP</span>'       , array( 'controller' => 'ideas'      , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Promociones</span>'      , array( 'controller' => 'promociones', 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Contacto</span>'         , array( 'controller' => 'contacto'   , 'action' => 'formulario', 'administracion' => false ), array( 'escape' => false )  ); ?></li>
-				    		</ul>		
+				    		</ul>
 				    	</div>
 				    </td>
 				  </tr>
@@ -106,7 +106,7 @@
 							     </tr>
 		        				  <tr>
 								  	<td colspan="5">
-								  	  <br />				  
+								  	  <br />
 							          Sucursal Salta 2974 - Tel.: (0341) 436 1389  |  Sucursal Buenos Aires esq San Luis - Tel.: (0341) 426 5068 / 426 6573<br />
 							          Sucursal Catamarca esq Santiago - Tel.: (0341) 156 753164<br />
 							        </td>
@@ -120,7 +120,7 @@
 					  		</tbody>
 					  	</table>
 					 </td>
-			      </tr>				    	
+			      </tr>
 				</tbody>
 			</table>
 		</div>

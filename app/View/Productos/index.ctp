@@ -3,7 +3,7 @@
   <tr><td height="18" colspan="6" valign="top" bgcolor="#FFFFFF"><?php echo $this->Html->image( "nada.png", array( 'width' => 154, 'height' => 18 ) ); ?></td></tr>
   <tr>
     <td height="80" colspan="6" valign="top">
-    	
+
     	<!-- Tabla de busqueda -->
     	<?php echo $this->Form->create( 'Producto', array( 'type' => 'get' ) ); ?>
     	<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C3C0DE" class="busqueda-productos">
@@ -20,7 +20,7 @@
 		        <td width="188" valign="middle" class="tit_form">Buscar por superficie</td>
 		        <td width="47" rowspan="3" valign="top">&nbsp;</td>
 		        <td rowspan="2">
-    				<?php echo $this->Html->tag( 'div', '', array( 'class' => 'bt_buscar', 'onclick' => "$('#ProductoIndexForm').submit()" ) ); ?>        			
+    				<?php echo $this->Html->tag( 'div', '', array( 'class' => 'bt_buscar', 'onclick' => "$('#ProductoIndexForm').submit()" ) ); ?>
         		</td>
 		      </tr>
 		      <tr>
@@ -36,27 +36,32 @@
         		<td valign="middle">
         			<?php echo $this->Form->input( 'superficie_id', array( 'label' => false, 'div' => false, 'empty' => 'Elija una superficie', 'value' => $superficie_id ) ); ?>
         		</td>
-        		
+
         	</tr>
 		  </tbody>
     	</table>
     	<?php echo $this->Form->end(); ?>
 
-    	
+
     </td>
   </tr>
   <tr><td height="38" colspan="7" valign="top">&nbsp;</td></tr>
+  <?php if( count( $productos ) <= 0 ) { ?>
+    <tr><td colspan="8" align="center">
+        No hay productos que coincidan con los criterios de búsqueda.<br /><br />
+    </td></tr>
+  <?php } else { ?>
   <tr><td>
   	<table><tbody>
   	<?php foreach( $productos as $producto ) {
   		echo $this->element( 'producto', array( 'producto' => $producto ) );
-   	} ?>	
+   	} ?>
   	</tbody></table>
   </td></tr>
   <tr><td colspan="8" align="center">
-  	<div class="paginacion">	
+  	<div class="paginacion">
 		<?php echo $this->Paginator->counter(array('format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total, desde {:start} al {:end}') ); ?>
-	</div>	
+	</div>
 	<div class="paging">
 	<?php
 	    echo $this->Paginator->first( '<< Primero' );
@@ -66,5 +71,6 @@
 		echo $this->Paginator->last( 'Ultimo >>' );
 	?></div>
 	</td></tr>
+ <?php } ?>
  </tbody>
 </table>

@@ -11,7 +11,7 @@
 			echo $this->Html->image( 'productos'.DS.$producto['dir'].$producto['imagen'], array( 'width' => 125, 'height' => 133 ) );
 		  } else {
 		  	echo $this->Html->image( Configure::read( 'Configuracion.imagen_producto_predeterminada' ), array( 'width' => 125, 'height' => 133 ) );
-		  }  
+		  }
 		?>
   	</td>
   	<td width="12" rowspan="2" valign="top">&nbsp;</td>
@@ -39,7 +39,7 @@
 		<span class="sub_tit_producto">Rendimiento:</span>
 		<span class="sub_tit_producto_light"><?php echo $producto['rendimiento']; ?></span><br />
 		<span class="sub_tit_producto">Superficie:</span>
-		<span class="sub_tit_producto_light">Maderas</span>
+		<span class="sub_tit_producto_light"><?php echo ( ( count( $producto['Superficie'] ) > 0 ) ? ( implode( ', ', Set::extract( '{n}.nombre', $producto['Superficie'] ) ) ) : '' ); ?></span>
 	</td>
 	<td width="169" valign="top">
 		<span class="sub_tit_producto">C&oacute;digo:</span>

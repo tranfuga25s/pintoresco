@@ -57,7 +57,7 @@ class ProductosController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$this->Producto->recursive = 2;
+		$this->Producto->recursive = 1;
 		if( $this->request->isGet() && isset( $this->request->query['nombre'] ) ) {
 			$cond = array();
 			$cond['`Producto`.`publicado`'] = true;

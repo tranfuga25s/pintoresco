@@ -3,7 +3,7 @@
 	<?php echo $this->Html->link( 'Nuevo Material', array( 'action' => 'add' ) ); ?>
 </div>
 <br />
-<h2>Materiales/Superficies</h2>
+<h2>Materiales</h2>
 <table cellpadding="0" cellspacing="0">
 <tr>
 		<th><?php echo $this->Paginator->sort('id_material'); ?></th>
@@ -22,7 +22,7 @@ foreach ($materiales as $material): ?>
 	<?php if( $material['Material']['publicado'] ) {
 				echo $this->Html->link( $this->Html->image( 'test-pass-icon.png' ),
 										array( "action" => "despublicar" ),
-										array( "escape" => false ) );	
+										array( "escape" => false ) );
 			} else {
 				echo $this->Html->link( $this->Html->image( 'test-fail-icon.png' ),
 						 				array( "action" => "despublicar" ),

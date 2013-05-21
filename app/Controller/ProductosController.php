@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Producto $Producto
  */
 class ProductosController extends AppController {
-	
+
    /**
     * Authorización de métodos públicos
     */
@@ -57,7 +57,7 @@ class ProductosController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$this->Producto->recursive = 0;
+		$this->Producto->recursive = 2;
 		if( $this->request->isGet() && isset( $this->request->query['nombre'] ) ) {
 			$cond = array();
 			$cond['`Producto`.`publicado`'] = true;
@@ -66,7 +66,7 @@ class ProductosController extends AppController {
 					"`Producto`.`nombre` LIKE '%".$this->request->query['nombre']."%'",
 					"`Producto`.`descripcion` LIKE '%".$this->request->query['nombre']."%'",
 					"`Producto`.`colores` LIKE '%".$this->request->query['nombre']."%'"
-				); 
+				);
 			}
 			if( $this->request->query['marca_id'] != '' ) {
 				$cond['`Producto`.`marca_id`'] = $this->request->query['marca_id'];
@@ -75,9 +75,10 @@ class ProductosController extends AppController {
 				$cond['`Producto`.`tipo_id`'] = $this->request->query['tipo_id'];
 			}
 			if( $this->request->query['superficie_id'] != '' ) {
-//				$cond["`Producto`.`material_id`"] = $this->request->query['superficie_id'];
+				$this->Producto->bindModel( array( 'hasOne' => array( 'ProductosSuperficies' ) ), false );
+                $cond['`ProductosSuperficies`.`superficie_id`'] = $this->request->query['superficie_id'];
 			}
-			$this->pagination = array( 'conditions' => $cond );
+            $this->pagination = array( 'conditions' => $cond, 'recursive' => 1 );
 			$this->set( 'productos', $this->paginate( $cond ) );
 			$this->set( 'nombre', $this->request->query['nombre'] );
 			$this->set( 'marca_id', $this->request->query['marca_id'] );
@@ -88,11 +89,11 @@ class ProductosController extends AppController {
 			$this->set( 'nombre', '' );
 			$this->set( 'marca_id', '' );
 			$this->set( 'tipo_id', '' );
-			$this->set( 'superficie_id', '' );	
-		}		
-		$this->set( 'marcas', $this->Producto->Marca->find('list') ); 
+			$this->set( 'superficie_id', '' );
+		}
+		$this->set( 'marcas', $this->Producto->Marca->find('list') );
 		$this->set( 'tipos', $this->Producto->Tipo->find('list') );
-		$this->set( 'superficies', $this->Producto->Material->find('list') );
+		$this->set( 'superficies', $this->Producto->Superficie->find('list') );
 	}
 
 	/**
@@ -152,10 +153,10 @@ class ProductosController extends AppController {
 		}
 		$marcas = $this->Producto->Marca->find('list');
 		$tipos = $this->Producto->Tipo->find('list');
-		//$superficies = $this->Producto->Superficie->find('list');
+		$superficies = $this->Producto->Superficie->find('list');
 		$materiales = $this->Producto->Material->find( 'list' );
 		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
-		$this->set( compact( 'marcas', 'categorias', 'materiales', 'tipos' ) );
+		$this->set( compact( 'marcas', 'categorias', 'materiales', 'tipos', 'superficies' ) );
 	}
 
 	/**
@@ -182,9 +183,10 @@ class ProductosController extends AppController {
 		}
 		$marcas = $this->Producto->Marca->find( 'list' );
 		$materiales = $this->Producto->Material->find( 'list' );
+        $superficies = $this->Producto->Superficie->find('list');
 		$tipos = $this->Producto->Tipo->find('list');
 		$categorias = $this->Producto->Categoria->generateTreeList( null, null, null, ' > ' );
-		$this->set( compact( 'marcas', 'categorias', 'materiales', 'tipos' ) );
+		$this->set( compact( 'marcas', 'categorias', 'materiales', 'tipos', 'superficies' ) );
 	}
 
 	/**
@@ -210,7 +212,7 @@ class ProductosController extends AppController {
 		$this->Session->setFlash( 'El producto no pudo ser eliminado', 'default', array( 'class' => 'error' ) );
 		$this->redirect( array( 'action' => 'index' ) );
 	}
-	
+
    /**
     * administracion_desvincular
     * Accion llamada para sacar la vinculación entre un producto y un material
@@ -227,7 +229,7 @@ class ProductosController extends AppController {
 		if( !$this->Producto->Material->exists() ) {
 			throw new NotFoundException( 'El material no existe' );
 		}
-		
+
 		$ret = $this->Producto->query( "DELETE FROM `productos_materiales` WHERE `producto_id` =  ".$id_producto." AND `material_id` = ".$id_material.";" );
 		if( count( $ret ) == 0 ) {
 			$this->Session->setFlash( 'La asociación pudo ser eliminada correctamente', 'default', array( 'class' => 'success' ) );
@@ -235,6 +237,6 @@ class ProductosController extends AppController {
 			$this->Session->setFlash( 'No se pudo eliminar la asociación', 'default', array( 'class' => 'error' ) );
 		}
 		$this->redirect( array( 'action' => 'view', $id_producto ) );
-    } 
+    }
 
 }

@@ -40,23 +40,28 @@ class Producto extends AppModel {
 			'foreignKey' => 'tipo_id'
 		)
 	);
-	
+
    /**
     * Asociación entre los productos y los materiales que se pueden pintar con el.
-    * 
+    *
     * @var array
-    */	
-	
+    */
+
 	public $hasAndBelongsToMany = array(
-        'Material' =>
-            array(
-                'className'              => 'Material',
-                'joinTable'              => 'productos_materiales',
-                'foreignKey'             => 'producto_id',
-                'associationForeignKey'  => 'material_id'
-            )
-		);
-		
+        'Material' => array(
+            'className'              => 'Material',
+            'joinTable'              => 'productos_materiales',
+            'foreignKey'             => 'producto_id',
+            'associationForeignKey'  => 'material_id'
+        ),
+        'Superficie' => array(
+            'className'             => 'Superficie',
+            'joinTable'             => 'productos_superficies',
+            'foreignKey'            => 'producto_id',
+            'associationForeignKey' => 'superficie_id'
+        )
+	);
+
 	// Subidor de archivos
 	public $actsAs = array(
         'Upload.Upload' => array(

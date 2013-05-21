@@ -58,7 +58,7 @@
 		</dd>
 		<dt>Imagen:</dt>
 		<dd>
-			<?php 
+			<?php
 			if( $producto['Producto']['imagen'] != null ) {
 				echo $this->Html->image( $producto['Producto']['imagen'], array( 'width' => 100 ) );
 			} else {
@@ -88,7 +88,7 @@
 	</dl>
 </div>
 <br />
-<h3>Materiales/Superficies</h3>
+<h3>Materiales</h3>
 <div>
 	<?php if( count( $producto['Material'] ) > 0 ) { ?>
 		<table>
@@ -106,9 +106,31 @@
 			</tbody>
 		</table>
 	<?php } else {
-		echo "No hay superficies definidas para este producto.";
+		echo "No hay materiales definidas para este producto.";
 	} ?>
+	<?php echo $this->Html->link( 'Agregar Material a este producto', array( 'action' => 'edit', $producto['Producto']['id_producto'] ) ); ?>
+</div>
+<h3>Superficies</h3>
+<div>
+    <?php if( count( $producto['Superficie'] ) > 0 ) { ?>
+        <table>
+            <tbody>
+                <th>C&oacute;digo</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+                <?php foreach( $producto['Superficie'] as $material ) : ?>
+                <tr>
+                    <td><?php echo h($superficie['codigo'] ); ?></td>
+                    <td><?php echo h($superficie['nombre'] ); ?></td>
+                    <td><?php echo $this->Html->link( 'Sacar vinculo', array( 'action' => 'desvincular', 'superficie' => $superficie['id_superficie'], 'producto' => $producto['Producto']['id_producto'] ), array( 'class' => 'action' ) ); ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php } else {
+        echo "No hay superficies definidas para este producto.";
+    } ?>
+    <?php echo $this->Html->link( 'Agregar Superficie a este producto', array( 'action' => 'edit', $producto['Producto']['id_producto'] ) ); ?>
 </div>
 <br />
-<?php echo $this->Html->link( 'Agregar Material/Superficie a este producto', array( 'action' => 'edit', $producto['Producto']['id_producto'] ) ); ?>
 <script> $(function(){$(".action").button();}); </script>

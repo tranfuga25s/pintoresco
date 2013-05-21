@@ -1,27 +1,35 @@
 <table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="txt_ideas" width="955"><!--DWLayoutTable-->
 	<tbody>
 		<tr>
-			<td bgcolor="#FFFFFF" rowspan="4" valign="top" width="15"><img height="5" src="img/nada.png" width="15" /></td>
+			<td bgcolor="#FFFFFF" rowspan="5" valign="top" width="15"><img height="5" src="img/nada.png" width="15" /></td>
 			<td bgcolor="#FFFFFF" height="42" valign="top" width="923"><br />
 			<span class="tit_ideas">Quienes Somos</span></td>
-			<td bgcolor="#FFFFFF" rowspan="4" valign="top" width="17"><img height="5" src="img/nada.png" width="17" /></td>
+			<td bgcolor="#FFFFFF" rowspan="5" valign="top" width="17"><img height="5" src="img/nada.png" width="17" /></td>
 		</tr>
 		<tr>
-			<td bgcolor="#FFFFFF" height="160" valign="top">Lionel Messi estuvo en Rosario por un d&iacute;a. El rosarino arrib&oacute; a la ciudad ayer por la tarde despu&eacute;s de un entrenamiento liviano con la selecci&oacute;n argentina y regresa hoy mismo a Buenos Aires pasa reincorporarse al entrenamiento este domingo.<br />
+			<td bgcolor="#FFFFFF" height="113" valign="top"><strong>SIPP</strong> resulta ser mucho m&aacute;s que un nombre de fantas&iacute;a. No solo son cuatro letras aisladas. <strong>SIPP</strong> son las siglas de un proyecto, de una visi&oacute;n.<br />
 			<br />
-			El entrenador Alejandro Sabella dio un d&iacute;a libre a los futbolistas, tras unos ejercicios regenerativos efectuados ayer en el predio de ezeiza luego del partido que el viernes por la noche ganaron por 3 a 0 a Venezuela, en la und&eacute;cima jornada de las previa al Mundial 2014.<br />
-			<br />
-			Para aprovechar el tiempo libre, el rosarino no dud&oacute; y lleg&oacute; a Rosario para pasar algunas horas con su familia antes de viajar a La Paz, donde el martes frente a Bolivia se disputar&aacute; una nueva fecha de Eliminatorias. Como cada vez que viene, Messi se dedic&oacute; a encontrarse con sus familiares en la intimidad, sin apariciones p&uacute;blicas ni excentricidades, luego del partido en el Monumental en el que marc&oacute; un gol de penal y asisti&oacute; a Gonzalo Higua&iacute;n para sus dos tantos.<br />
+			Cuando en el Mes de Mayo del a&ntilde;o 2010 quisimos poner en marcha este motor, no imaginamos este crecimiento, no imaginamos este desarrollo; lo so&ntilde;amos. Apoyamos cada ladrillo de esta obra, sobre los cimientos m&aacute;s fuertes: el trabajo, la responsabilidad y la confianza. Por eso hoy, a pocos a&ntilde;os de nuestro nacimiento, podemos seguir contando todos juntos nuestra historia y forjar muchos mas lazos para el futuro. Porque es ah&iacute; donde siempre apuntamos, pero es en el presente donde d&iacute;a a d&iacute;a, tratamos de darle a nuestros clientes, lo mejor de cada uno de nosotros.<br />
 			&nbsp;</td>
 		</tr>
 		<tr>
-			<td height="85" valign="top"><img height="192" src="http://trafu.no-ip.org/pintoresco/img/imagen_empresa.jpg" width="923" /></td>
+			<td height="192" valign="top"><img height="192" src="http://trafu.no-ip.org/pintoresco/img/imagen_empresa.jpg" width="923" /></td>
 		</tr>
 		<tr>
-			<td height="123" valign="top"><br />
-			El arribo de Messi se produce adem&aacute;s en medio de su pedido especial para que la selecci&oacute;n juegue una de las dos fechas de local que quedan pendientes en el estadio Marcelo Bielsa, algo que a&uacute;n no fue confirmado pro AFA.<br />
+			<td height="159" valign="top"><br />
+			Para nuestros futuros clientes, estamos a vuestra disposici&oacute;n, con la mejor calidad de materiales de pintura, el mejor servicio de asesoramiento t&eacute;cnico y nuestra flota de veh&iacute;culos.<br />
 			<br />
-			La Pulga quiere que antes de ir a Brasil la selecci&oacute;n juegue en Rosario, su casa, y en el estadio de Newell&#39;s, equipo del cual es hincha. En varias oportunidades Grondona se mostr&oacute; dispuesto a &quot;complacerlo&quot; pero las trabas se suceden y en Buenos Aires no quieren desprenderse de la local&iacute;a tal como ayer lo manifest&oacute; Carlos Salvador Bilardo.</td>
+			Para los que ya vienen con nosotros desde el principio (clientes y proveedores) y para aquellos que se fueron sumando en el camino, no tenemos mejor forma de agradecerles, que seguir por la misma senda que nos llevo a forjar esta relaci&oacute;n.<br />
+			<br />
+			Los invitamos a pasear por este sitio, desarrollado especialmente para brindarles otra herramienta m&aacute;s a ustedes; nuestros clientes, nuestros amigos&hellip;<br />
+			<br />
+			<strong>S.I.P.P (Sistema Integral de Pinturer&iacute;as Personalizado)</strong><br />
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="16" valign="top"><img height="75" src="http://trafu.no-ip.org/pintoresco/img/empresa_marcas.jpg" width="923" /><br />
+			<br />
+			&nbsp;</td>
 		</tr>
 	</tbody>
 </table>

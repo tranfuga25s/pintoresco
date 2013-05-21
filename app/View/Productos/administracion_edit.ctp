@@ -1,6 +1,6 @@
 <?php $this->set( 'title_for_layout', "Editar un producto" ); ?>
 <div id="acciones">
-	<?php echo $this->Form->postLink( 'Eliminar', array( 'action' => 'delete', $this->Form->value('Producto.id_producto')), null, 'Está seguro que desea eliminar este producto?' );	
+	<?php echo $this->Form->postLink( 'Eliminar', array( 'action' => 'delete', $this->Form->value('Producto.id_producto')), null, 'Está seguro que desea eliminar este producto?' );
 		  echo $this->Html->link( 'Lista de Productos', array('action' => 'index' ) );
 		  echo $this->Html->link( 'Lista de Marcas', array( 'controller' => 'marcas', 'action' => 'index' ) );
 		  echo $this->Html->link( 'Lista de Categorias', array( 'controller' => 'categorias', 'action' => 'index' ) ); ?>
@@ -31,7 +31,8 @@
 		}
 		echo $this->Form->input( 'imagen', array( 'type' => 'file', 'before' => $imagen ) );
 		echo $this->Form->input( 'dir', array( 'type' => 'hidden' ) );*/
-		echo $this->Form->input( 'Material', array( 'options' => $materiales, 'multiple' => true, 'label' => 'Material/Superficie de aplicacion:', 'after' => 'Para seleccionar varios elementos utilice la tecla Ctrl y haga click sobre los elementos a elegir' ) );
+		echo $this->Form->input( 'Material', array( 'options' => $materiales, 'multiple' => true, 'label' => 'Materiales:', 'after' => 'Para seleccionar varios elementos utilice la tecla Ctrl y haga click sobre los elementos a elegir' ) );
+        echo $this->Form->input( 'Superficie', array( 'options' => $superficies, 'multiple' => true, 'label' => 'Superficies de aplcacion:', 'after' => 'Para seleccionar varios elementos utilice la tecla Ctrl y haga click sobre los elementos a elegir' ) );
 	?>
 	</fieldset>
 	<?php echo $this->Form->end( 'Guardar' ); ?>

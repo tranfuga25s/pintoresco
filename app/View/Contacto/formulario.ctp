@@ -1,5 +1,5 @@
-<?php 
-$this->set( 'title_for_layout', "Contactese con nosotros" ); 
+<?php
+$this->set( 'title_for_layout', "Contactese con nosotros" );
 ?>
 <?php echo $this->Form->create( 'contacto', array( 'url' => '/contacto/enviar' ) ); ?>
 <table border="0" width="96%" style="margin-left:25px;">
@@ -12,26 +12,27 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Nombre*:</td>
-			<td colspan="2"><?php echo $this->Form->input( 'nombre', array( 'label' => false, 'class' => 'form_contacto' ) ); ?></td>
+			<td><?php echo $this->Form->input( 'nombre', array( 'label' => false, 'class' => 'form_contacto' ) ); ?></td>
+			<td rowspan="5"><?php echo $this->Html->image( 'img_contacto.png', array( 'border' => 0 ) ); ?></td>
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Email*:</td>
-			<td colspan="2"><?php echo $this->Form->input( 'email', array( 'label' => false, 'class' => 'form_contacto', 'type' => 'text' ) ); ?></td>
+			<td><?php echo $this->Form->input( 'email', array( 'label' => false, 'class' => 'form_contacto', 'type' => 'text' ) ); ?></td>
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Telefono:</td>
-			<td colspan="2"><?php echo $this->Form->input( 'telefono', array( 'label' => false, 'class' => 'form_contacto' ) ); ?></td>
+			<td><?php echo $this->Form->input( 'telefono', array( 'label' => false, 'class' => 'form_contacto' ) ); ?></td>
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Motivo*:</td>
-			<td colspan="2"><?php
-							echo $this->Form->input( 'motivo', array( 'label' => false, 
+			<td><?php
+							echo $this->Form->input( 'motivo', array( 'label' => false,
 						'options' => array( 'Consultas' => 'Consultas',
 											'Asesoramiento' => 'Asesoramiento',
 											'Sugerencias' => 'Sugerencias',
 											'Presupuesto' => 'Presupuesto',
 											'Soy Pintor' => 'Soy Pintor' ),
-						'class' => 'form_contacto' 
+						'class' => 'form_contacto'
 			) );
 			?>
 			</td>
@@ -39,15 +40,16 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Consulta:*</td>
 			<td><?php echo $this->Form->input( 'texto', array( 'label' => false, 'type' => 'textarea', 'class' => 'form_contacto'  ) ); ?></td>
-			<td rowspan="2" align="left" valign="top" style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#646464;  line-height:30px; padding-top:80px;">
-				Sucursal Salta 2974 - Tel.: (0341) 436 1389<br />
-				Sucursal Buenos Aires esq. San Luis - Tel.: (0341) 4265068 / 426 6573<br />
-				Sucursal Catamarca esq. Santiago - Tel.: (0341) 156 753164<br />
-			</td>
+
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Codigo de verificación:*</td>
 			<td><?php echo $this->Recaptcha->display(); ?></td>
+			<td rowspan="1" align="left" valign="top" style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#646464;  line-height:30px; padding-top:80px;">
+                Sucursal Salta 2974 - Tel.: (0341) 436 1389<br />
+                Sucursal Buenos Aires esq. San Luis - Tel.: (0341) 4265068 / 426 6573<br />
+                Sucursal Catamarca esq. Santiago - Tel.: (0341) 156 753164<br />
+            </td>
 		</tr>
 		<tr>
 			<td colspan="3" style="padding-left:330px;">
@@ -55,7 +57,7 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 			</td>
 		</tr>
 	</tbody>
-</table>	
+</table>
 <?php echo $this->Form->end(); ?>
 <table border="0" width="100%">
 	<tbody>
@@ -67,4 +69,3 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		</tr>
 	</tbody>
 </table>
-		

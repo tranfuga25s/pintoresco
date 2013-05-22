@@ -57,7 +57,7 @@
   				<tr>
 	    			<td height="47" valign="top">
 	    				<?php echo $this->Html->link( $this->Html->image( "bt_sospintor.jpg", array( 'alt' => "sos pintor", 'name' => "Image13", 'width' => 105, 'height' => 47, 'border' => 0, 'id' => "Image13" ) ),
-	    											  array( 'controller' => 'pages', 'proximamente' ),
+	    											  array( 'controller' => 'pages', 'action' => 'display', 'proximamente' ),
 	    											  array( 'escape' => false, "onmouseout" => "MM_swapImgRestore()", "onmouseover" => "MM_swapImage('Image13','','/pintoresco/img/bt_barra_hover.jpg',1)" ) ); ?>
 	    			</td>
   				</tr>
@@ -65,11 +65,11 @@
 				    <td height="32" colspan="2" valign="top">
 				    	<div id="cssmenu">
 				    		<ul>
-				    			<li><?php echo $this->Html->link( '<span>Empresa</span>'          , array( 'controller' => 'pages'      , 'action' => 'empresa'   , 'administracion' => false ), array( 'escape' => false ) ); ?></li>
+				    			<li><?php echo $this->Html->link( '<span>Empresa</span>'          , array( 'controller' => 'pages'      , 'action' => 'display'   , 'empresa'   , 'administracion' => false ), array( 'escape' => false ) ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Productos</span>'        , array( 'controller' => 'productos'  , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  );  ?></li>
 				    			<li><?php echo $this->Html->link( '<span>¿Con qué pinto?</span>'  , array( 'controller' => 'materiales' , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>¿Con quién pinto?</span>', array( 'controller' => 'pintores'   , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
-				    			<li><?php echo $this->Html->link( '<span>Servicios</span>'        , array( 'controller' => 'pages'      , 'action' => 'servicios' , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
+				    			<li><?php echo $this->Html->link( '<span>Servicios</span>'        , array( 'controller' => 'pages'      , 'action' => 'display'   , 'servicios' , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Ideas SIPP</span>'       , array( 'controller' => 'ideas'      , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Promociones</span>'      , array( 'controller' => 'promociones', 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Contacto</span>'         , array( 'controller' => 'contacto'   , 'action' => 'formulario', 'administracion' => false ), array( 'escape' => false )  ); ?></li>
@@ -91,14 +91,14 @@
 					  			<tr>
 					  				<td valign="top" class="pie">
 							        	<br />
-										<?php echo $this->Html->link( '<span>Empresa</span>', array( 'controller' => 'pages', 'empresa' ), array( 'escape' => false ) ); ?> &nbsp; | &nbsp;
-										<?php echo $this->Html->link( '<span>Productos</span>', array( 'controller' => 'productos', 'action' => 'index' ), array( 'escape' => false )  );  ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>¿Con qué pinto?</span>', array( 'controller' => 'materiales', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+										<?php echo $this->Html->link( '<span>Empresa</span>'          , array( 'controller' => 'pages', 'action' => 'display', 'empresa' ), array( 'escape' => false ) ); ?> &nbsp; | &nbsp;
+										<?php echo $this->Html->link( '<span>Productos</span>'        , array( 'controller' => 'productos', 'action' => 'index' ), array( 'escape' => false )  );  ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>¿Con qué pinto?</span>'  , array( 'controller' => 'materiales', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
 								    	<?php echo $this->Html->link( '<span>¿Con quién pinto?</span>', array( 'controller' => 'pintores', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>Servicios</span>', array( 'controller' => 'pages', 'servicios' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>Ideas SIPP</span>', array( 'controller' => 'ideas', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>Promociones</span>', array( 'controller' => 'promociones', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>Contacto</span>', array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'escape' => false )  ); ?>  &nbsp;
+								    	<?php echo $this->Html->link( '<span>Servicios</span>'        , array( 'controller' => 'pages', 'action' => 'display', 'servicios' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Ideas SIPP</span>'       , array( 'controller' => 'ideas', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Promociones</span>'      , array( 'controller' => 'promociones', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>Contacto</span>'         , array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'escape' => false )  ); ?>  &nbsp;
 									</td>
 						            <td width="100" align="right" valign="middle" class="pie_seguinos" colspan="2">
 							          	Seguinos en <?php echo $this->Html->link( $this->Html->image( "logo_face.png", array( 'width' => 26, 'height' => 26 ) ), 'http://www.facebook.com/sipp.pinturerias', array( 'escape' => false ) ); ?>

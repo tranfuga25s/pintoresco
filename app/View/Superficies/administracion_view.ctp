@@ -1,44 +1,80 @@
+<?php
+$this->set( 'title_for_layout', 'Viendo una superficie' ); ?>
+<div id="acciones">
+    <?php echo $this->Html->link( 'Editar esta Superficie', array( 'action' => 'edit', $superficie['Superficie']['id_superficie'] ) );
+          echo $this->Form->postLink( 'Eliminar Superficie', array( 'action' => 'delete', $superficie['Superficie']['id_superficie'] ), null, 'Está seguro que desea eliminar # %s?', $superficie['Superficie']['id_superficie']);
+          echo $this->Html->link( 'Lista de Superficies', array( 'action' => 'index' ) );
+          echo $this->Html->link( 'Nueva Superficie', array( 'action' => 'add' ) ); ?>
+</div>
+<br />
 <div class="superficies view">
-<h2><?php  echo __('Superficie'); ?></h2>
+<h2>Superficie</h2>
 	<dl>
-		<dt><?php echo __('Id Superficie'); ?></dt>
+		<dt># Superficie</dt>
 		<dd>
 			<?php echo h($superficie['Superficie']['id_superficie']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Codigo'); ?></dt>
+		<dt>#Código</dt>
 		<dd>
 			<?php echo h($superficie['Superficie']['codigo']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Nombre'); ?></dt>
+		<dt>Nombre</dt>
 		<dd>
 			<?php echo h($superficie['Superficie']['nombre']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt>Creado</dt>
 		<dd>
 			<?php echo h($superficie['Superficie']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
+		<dt>Última modificación</dt>
 		<dd>
 			<?php echo h($superficie['Superficie']['modified']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Publicado'); ?></dt>
+		<dt>Publicado</dt>
 		<dd>
-			<?php echo h($superficie['Superficie']['publicado']); ?>
+			<?php if( $superficie['Superficie']['publicado'] ) {
+                echo "Si";
+            } else {
+                echo "No";
+            } ?>
 			&nbsp;
+		</dd>
+		<dt>Imagen:</dt>
+		<dd><?php if( $superficie['Superficie']['imagen'] == null ) {
+		      echo $this->Html->image( 'superficie_generico.png' );
+		} else {
+		      echo $this->Html->image( $superficie['Superficie']['dir_imagen'].$superficie['Superficie']['imagen'] );
+		} ?>
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Superficie'), array('action' => 'edit', $superficie['Superficie']['id_superficie'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Superficie'), array('action' => 'delete', $superficie['Superficie']['id_superficie']), null, __('Are you sure you want to delete # %s?', $superficie['Superficie']['id_superficie'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Superficies'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Superficie'), array('action' => 'add')); ?> </li>
-	</ul>
-</div>
+<br />
+<h2>Productos asociados</h2>
+<?php
+if( count( $material['Producto'] ) > 0 ) : ?>
+<p>Los siguentes productos están asociados a este material</p>
+<table>
+    <tbody>
+        <th>#Codigo</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+        <?php foreach( $material['Producto'] as $producto ) : ?>
+        <tr>
+            <td>#<?php echo $producto['codigo']; ?></td>
+            <td><?php echo $producto['nombre']; ?></td>
+            <td class="acciones"><?php echo $this->Html->link( 'Ver', array( 'controller' => 'productos', 'action' => 'view', $producto['id_producto'] ) ); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">
+    $("a",".acciones").button();
+</script>
+<?php else : ?>
+<p>No existen productos asociados a este material.</p>
+<?php endif; ?>

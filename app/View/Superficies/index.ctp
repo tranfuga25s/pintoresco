@@ -8,11 +8,12 @@
         <?php
         if( $superficie['Superficie']['imagen'] == null ) : $superficie['Superficie']['imagen'] = 'superficie_generico.png'; endif;
         echo $this->Html->link( $this->Html->tag( 'span', h($superficie['Superficie']['nombre'] ), array( 'class' => 'nombre-superficie' ) ).'<br />'.
-                              $this->Html->image( $superficie['Superficie']['imagen'], array( 'class' => 'imagen-superficie', 'alt' => $superficie['superficie']['nombre'] ) ),
+                              $this->Html->image( $superficie['Superficie']['imagen'], array( 'class' => 'imagen-superficie', 'alt' => $superficie['Superficie']['nombre'] ) ),
                         array( 'controller' => 'superficies', 'action' => 'view', $superficie['Superficie']['id_superficie'] ),
                         array( 'class' => 'sub_titulos', 'escape' => false ) ); ?>
     </div>
     <?php endforeach; ?>
+    <br /><br />
     <div class="paging" style="clear:both;">
     <?php
         echo $this->Paginator->prev( '<< Anterior ', array(), null, array('class' => 'prev disabled'));

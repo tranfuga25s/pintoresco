@@ -58,7 +58,7 @@ class SuperficiesController extends AppController {
      */
 	public function index() {
 		$this->Superficie->recursive = 0;
-		$this->set('superficies', $this->paginate());
+		$this->set('superficies', $this->paginate( array( 'publicado' => true ) ) );
 	}
 
     /**
@@ -72,6 +72,10 @@ class SuperficiesController extends AppController {
 		if (!$this->Superficie->exists($id)) {
 			throw new NotFoundException( 'Superficie invalida' );
 		}
+        $this->Superficie->id = $id;
+        if( $this->Superficie->field('publicado') == false ) {
+            throw new NotFoundException( 'Superficie no publicado' );
+        }
 		$options = array( 'conditions' => array( 'Superficie.' . $this->Superficie->primaryKey => $id ) );
 		$this->set( 'superficie', $this->Superficie->find( 'first', $options ) );
 	}

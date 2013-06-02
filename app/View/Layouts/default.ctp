@@ -67,7 +67,7 @@
 				    		<ul>
 				    			<li><?php echo $this->Html->link( '<span>Empresa</span>'          , array( 'controller' => 'pages'      , 'action' => 'display'   , 'empresa'   , 'administracion' => false ), array( 'escape' => false ) ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Productos</span>'        , array( 'controller' => 'productos'  , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  );  ?></li>
-				    			<li><?php echo $this->Html->link( '<span>¿Con qué pinto?</span>'  , array( 'controller' => 'materiales' , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
+				    			<li><?php echo $this->Html->link( '<span>¿Con qué pinto?</span>'  , array( 'controller' => 'superficies' , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>¿Con quién pinto?</span>', array( 'controller' => 'pintores'   , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Servicios</span>'        , array( 'controller' => 'pages'      , 'action' => 'display'   , 'servicios' , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
 				    			<li><?php echo $this->Html->link( '<span>Ideas SIPP</span>'       , array( 'controller' => 'ideas'      , 'action' => 'index'     , 'administracion' => false ), array( 'escape' => false )  ); ?></li>
@@ -93,7 +93,7 @@
 							        	<br />
 										<?php echo $this->Html->link( '<span>Empresa</span>'          , array( 'controller' => 'pages', 'action' => 'display', 'empresa' ), array( 'escape' => false ) ); ?> &nbsp; | &nbsp;
 										<?php echo $this->Html->link( '<span>Productos</span>'        , array( 'controller' => 'productos', 'action' => 'index' ), array( 'escape' => false )  );  ?> &nbsp; | &nbsp;
-								    	<?php echo $this->Html->link( '<span>¿Con qué pinto?</span>'  , array( 'controller' => 'materiales', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
+								    	<?php echo $this->Html->link( '<span>¿Con qué pinto?</span>'  , array( 'controller' => 'superficies', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
 								    	<?php echo $this->Html->link( '<span>¿Con quién pinto?</span>', array( 'controller' => 'pintores', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
 								    	<?php echo $this->Html->link( '<span>Servicios</span>'        , array( 'controller' => 'pages', 'action' => 'display', 'servicios' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;
 								    	<?php echo $this->Html->link( '<span>Ideas SIPP</span>'       , array( 'controller' => 'ideas', 'action' => 'index' ), array( 'escape' => false )  ); ?> &nbsp; | &nbsp;

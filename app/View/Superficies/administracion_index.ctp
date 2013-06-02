@@ -19,11 +19,21 @@
 	<tr>
 		<td><?php echo h($superficie['Superficie']['codigo']); ?>&nbsp;</td>
 		<td><?php echo h($superficie['Superficie']['nombre']); ?>&nbsp;</td>
-		<td><?php echo h($superficie['Superficie']['publicado']); ?>&nbsp;</td>
+		<td><?php if( $superficie['Superficie']['publicado'] ) {
+                echo $this->Html->link( $this->Html->image( 'test-pass-icon.png' ),
+                                        array( "action" => "despublicar" ),
+                                        array( "escape" => false ) );
+            } else {
+                echo $this->Html->link( $this->Html->image( 'test-fail-icon.png' ),
+                                        array( "action" => "despublicar" ),
+                                        array( "escape" => false ) );
+            }
+            ?>&nbsp;
+        </td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $superficie['Superficie']['id_superficie'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $superficie['Superficie']['id_superficie'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $superficie['Superficie']['id_superficie']), null, __('Are you sure you want to delete # %s?', $superficie['Superficie']['id_superficie'])); ?>
+			<?php echo $this->Html->link( 'Ver', array('action' => 'view', $superficie['Superficie']['id_superficie'])); ?>
+			<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $superficie['Superficie']['id_superficie'])); ?>
+			<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $superficie['Superficie']['id_superficie']), null, 'Está seguro que desea eliminar # %s?', $superficie['Superficie']['id_superficie'] ); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

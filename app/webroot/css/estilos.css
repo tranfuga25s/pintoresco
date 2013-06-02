@@ -13,7 +13,7 @@ hr {color: #201584;}
 
 .borde_tabla {
 	background: url('/pintoresco/img/borde_tabla.png') center repeat-x;
-} 
+}
 
 .fondo_tabla { background-color:#FFFFFF;}
 
@@ -35,9 +35,9 @@ hr {color: #201584;}
 	margin-top:20px;
 	margin-left:25px;
 	margin-bottom:25px;
-	
+
 }
- 
+
 /* sub-titulos generales en naranja por ejemplo para el nombre del pintor en con quien pinto */
 .sub_titulos 	{
 	font-size:13px;
@@ -73,7 +73,7 @@ hr {color: #201584;}
 	font-size:13px;
 	color:#201584;
 		}
-		
+
 .sub_tit_producto_light {
 	font-size:13px;
 	color:#201584;
@@ -122,11 +122,11 @@ hr {color: #201584;}
 }
 
 .paginacion {
-font-family:Arial, Helvetica, sans-serif;
-font-size:10px;
-color:#666666;
-line-height:18px;
-margin-bottom:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10px;
+    color:#666666;
+    line-height:18px;
+    margin-bottom:10px;
 }
 
 .txt_general {
@@ -134,11 +134,12 @@ margin-bottom:10px;
 	color:#727272;
 }
 
-.materiales {
-margin-left:25px;
-margin-top:25px;}
+.superficies {
+    margin-left:25px;
+    margin-top:25px;
+}
 
-.material { 
+.superficies {
 	margin-top: 10px;
     margin-bottom: 10px;
     position: relative;
@@ -149,13 +150,14 @@ margin-top:25px;}
 }
 
 .pintor {
-margin-left:10px;
-margin-top:25px;}
+    margin-left:10px;
+    margin-top:25px;
+}
 
-.pintores_index { 
-margin-top:10px;
-margin-bottom:10px;
-margin-left:20px;
+.pintores_index {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .destacado_pintores {
@@ -166,13 +168,13 @@ margin-left:20px;
 	background: -ms-linear-gradient(top,  rgba(60,54,130,1) 0%,rgba(71,67,127,0.79) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(60,54,130,1) 0%,rgba(71,67,127,0.79) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3682', endColorstr='#c947437f',GradientType=0 ); /* IE6-9 */
-	color:#FFFFFF; 
+	color:#FFFFFF;
 	font-size:12px;
 	font-weight:bold;
 	vertical-align: middle;
 	text-align: center;
 }
-	
+
 .idea	{
 	margin-left:20px;
 	margin-top:25px;
@@ -195,7 +197,7 @@ margin-left:20px;
 
 
 
-/* Convenios */ 
+/* Convenios */
 .tit_convenios {
 	color: #FFFFFF;
 	font-weight: bold;
@@ -293,7 +295,7 @@ margin-left:20px;
 	text-align: right;
 	padding-right: 12px;
 	font-size: 13px;
-}   
+}
 
 /** PIE DE PAGINA   **/
 .pie .pie_seguinos {
@@ -367,12 +369,21 @@ font-size: 10px;
 	margin-right: 21px;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	width: 47%; 
+	width: 47%;
 	min-height: 75px;
 	float: left;
 	text-align: left;
 }
-
+.convenios .convenio {
+    margin-left: 4px;
+    margin-right: 21px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 47%;
+    min-height: 150px;
+    float: left;
+    text-align: left;
+}
 
 .promociones .promocion .cont-imagen {
 	float: left;
@@ -382,13 +393,16 @@ font-size: 10px;
 }
 
 .bt_buscar {
-	background: url( '/pintoresco/img/bt_buscar.png' ) top left repeat-x;
-	height: 38px;
-	width: 131px;
+    background: url('/pintoresco/img/bt_buscar.png' );
+    height: 38px;
+    width: 131px;
+    background-repeat: repeat-x;
+    background-position-x: left;
+    background-position-y: 7px;
 }
 
 .bt_buscar:hover {
-	background: url( '/pintoresco/img/bt_buscar_hover.png' ) top left repeat-x;
+	background: url( '/pintoresco/img/bt_buscar_hover.png' );
 }
 
 .bt_enviar {

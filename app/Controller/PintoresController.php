@@ -5,10 +5,10 @@ App::uses('AppController', 'Controller');
  *
  */
 class PintoresController extends AppController {
-	
+
    /**
     * Modelo que se utliliza
-    */	
+    */
 	public $uses = 'Pintor';
 
 	/**
@@ -19,7 +19,7 @@ class PintoresController extends AppController {
 		parent::beforeFilter();
 	}
 
-	
+
 	/**
 	 * Muestra el listado de acciones permitidas
 	 */
@@ -55,36 +55,41 @@ class PintoresController extends AppController {
 		}
 		return false;
 	}
-	
+
     /**
 	 * Muestra la lista de pintores para los visitantes
-	 * 
-	 * @author Esteban Zeller 
+	 *
+	 * @author Esteban Zeller
 	 */
 	 public function index() {
-	 	//$this->Pintor->recursive = -1;
-		$this->set( 'pintores', $this->paginate() );
-	 }	
+	 	$this->set( 'pintores', $this->paginate( array( 'habilitado' => true ) ) );
+	 }
 
     /**
 	 * Muestra el perfil de un pintor
-	 * 
-	 * @author Esteban Zeller 
+	 *
+	 * @author Esteban Zeller
 	 */
 	 public function view( $id_pintor = null ) {
 	 	$this->Pintor->id = $id_pintor;
 		if( !$this->Pintor->exists() ) {
 			throw new NotFoundException( 'El pintor no existe' );
 		}
+
+        $this->Pintor->id = $id_pintor;
+        if( $this->Pintor->field('habilitado') == false ) {
+            throw new NotFoundException( 'El pintor no se encuentra habilitado para ser visto' );
+        }
+
 		$this->Pintor->recursive = 2;
 		$this->set( 'pintor', $this->Pintor->read( null, $id_pintor ) );
 	 }
-	 
+
     /**
 	 * Funcion para cambiar los datos del pintor o agregar obras
-	 * 
+	 *
 	 * @author Esteban Zeller
-	 */	 
+	 */
 	 public function verPintor( $id_pintor = null ) {
 	 	$this->Pintor->id = $id_pintor;
 		if( ! $this->Pintor->exists() ) {
@@ -92,10 +97,10 @@ class PintoresController extends AppController {
 		}
 		$this->set( 'pintor', $this->Pintor->read( null, $id_pintor ) );
 	 }
-	 
+
 	/**
 	 * Funcion por la cual los pintores pueden editar sus datos y cargar obras
-	 */ 
+	 */
 	public function edit( $id_pintor = null ) {
 		$this->Pintor->id = $id_pintor;
 		if( ! $this->Pintor->exists() ) {
@@ -111,19 +116,19 @@ class PintoresController extends AppController {
 		$this->set( 'especialidades', $this->Pintor->Especialidad->find('list') );
 		$this->set( 'pintor', $this->Pintor->read( null, $id_pintor ) );
 	}
-	
+
 	/**
 	 * Listado de pintores registrados en el sistema para la administración
-	 * 
+	 *
 	 * @author Esteban Zeller
 	 */
 	public function administracion_index() {
 		$this->set( 'pintores', $this->paginate() );
 	}
-	
+
 	/**
 	 * Agregar nuevo pintor directamente
-	 * 
+	 *
 	 * @author Esteban Zeller
 	 */
 	 public function administracion_add() {
@@ -137,7 +142,7 @@ class PintoresController extends AppController {
 	 	}
 		$this->set( 'especialidades', $this->Pintor->Especialidad->find('list') );
 	 }
-	 
+
 	 public function administracion_edit( $id_pintor = null ) {
 	 	$this->Pintor->id = $id_pintor;
 		if( !$this->Pintor->exists() ) {
@@ -160,10 +165,10 @@ class PintoresController extends AppController {
 		}
 	 	$this->set( 'especialidades', $this->Pintor->Especialidad->find('list') );
 	 }
-	 
+
 	 /**
 	  * Habilitar un pintor
-	  * 
+	  *
 	  * @author Esteban Zeller
 	  */
 	  public function administracion_habilitar( $id_pintor = null ) {

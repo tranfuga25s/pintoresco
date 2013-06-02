@@ -19,12 +19,11 @@
 		        <td width="30" rowspan="3" valign="top">&nbsp;</td>
 		        <td width="188" valign="middle" class="tit_form">Buscar por superficie</td>
 		        <td width="47" rowspan="3" valign="top">&nbsp;</td>
-		        <td rowspan="2">
-    				<?php echo $this->Html->tag( 'div', '', array( 'class' => 'bt_buscar', 'onclick' => "$('#ProductoIndexForm').submit()" ) ); ?>
-        		</td>
+                <td>&nbsp;</td>
+                <td width="40" valign="top" bgcolor="#c3c0de"></td>
 		      </tr>
 		      <tr>
-        		<td height="22" valign="top">
+        		<td height="22"  valign="middle">
         			<?php echo $this->Form->input( 'nombre', array( 'type' => 'text', 'label' => false, 'div' => false, 'value' => $nombre  ) ); ?>
         		</td>
         		<td valign="middle">
@@ -36,8 +35,15 @@
         		<td valign="middle">
         			<?php echo $this->Form->input( 'superficie_id', array( 'label' => false, 'div' => false, 'empty' => 'Elija una superficie', 'value' => $superficie_id ) ); ?>
         		</td>
-
-        	</tr>
+                <td valign="middle">
+                    <?php echo $this->Html->tag( 'div', '', array( 'class' => 'bt_buscar', 'onclick' => "$('#ProductoIndexForm').submit()" ) ); ?>
+                </td>
+                <td width="40" valign="top" bgcolor="#c3c0de"></td>
+         	  </tr>
+         	  <tr>
+                <td colspan="9" bgcolor="#c3c0de">&nbsp;</td>
+                <td width="40" rowspan="3" valign="top" bgcolor="#c3c0de"></td>
+              </tr>
 		  </tbody>
     	</table>
     	<?php echo $this->Form->end(); ?>

@@ -23,7 +23,7 @@ echo $this->Html->css('style1', null, array( 'inline' => false ) );
                     <p>en esta sucursal usted podra encontrar todo lo necesario para renovar su casa de una pintada</p>
                     <?php echo $this->Html->link( 'Contacto', array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'class' => "info" ) ); ?>
               </div>
-            </div>  
+            </div>
             <div class="view view-first">
                 <?php echo $this->Html->image( "sucu3.png" ); ?>
                     <div class="mask">
@@ -31,8 +31,8 @@ echo $this->Html->css('style1', null, array( 'inline' => false ) );
                         <p>en esta sucursal usted podra encontrar todo lo necesario para renovar su casa de una pintada</p>
                         <?php echo $this->Html->link( 'Contacto', array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'class' => "info" ) ); ?>
                     </div>
-                </div>  
-      		</div>    
+                </div>
+      		</div>
       </td>
     </tr>
 </table>

@@ -1,7 +1,7 @@
 <?php $this->set( 'title_for_layout', "¿Con quien pinto?" ); ?>
 <div class="pintores_index">
 		<span class="titulos">¿Con quien pinto?</span><br /><br />
-		<table width="100%" border="1">
+		<table width="100%" border="0">
 		    <tbody><tr><td>
     		<span class="txt_general">Ordenar por:
     		<?php echo $this->Paginator->sort('razonsocial', 'Razon Social', array( 'class' => 'ordenar' ) ). "&nbsp; |&nbsp; " .

@@ -9,6 +9,8 @@
 	<?php
 		echo $this->Form->input('codigo', array( 'type' => 'text', 'label' => 'Código' ) );
 		echo $this->Form->input('nombre');
+        echo $this->Form->input('descripcion', array( 'label' => 'Introduccion', 'class' => 'ckeditor' ) );
+        echo "<br />";
 		echo $this->Form->input('publicado');
         echo $this->Form->input('imagen', array( 'type' => 'file' ) );
 	?>

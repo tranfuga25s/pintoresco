@@ -38,7 +38,12 @@ class Superficie extends AppModel {
 				'rule' => array('numeric'),
 				'message' => 'El código debe ser numérico',
 				'allowEmpty' => false
-			)
+			),
+		   'unique' => array(
+		        'rule' => 'isUnique',
+		        'required' => 'create',
+		        'message' => 'El código ingresado ya existe en la base de datos'
+		    )
 		),
 		'nombre' => array(
 			'notempty' => array(

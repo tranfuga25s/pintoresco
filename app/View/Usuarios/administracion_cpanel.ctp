@@ -135,7 +135,7 @@
 				   			     array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Acciones realizadas en el sistema' ) ); ?></li>-->
 				   <li><?php echo $this->Html->link(
 				                $this->Html->image( 'assets/configuration-icon.png' )
-				                .'<span>Páginas</span>',
+				                .'<span>Páginas estáticas</span>',
 				                array( 'controller' => 'pages', 'action' => 'index', 'plugin' => false ),
 				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Editar páginas estaticas del sistema' ) ); ?></li>
 				   <li><?php echo $this->Html->link(

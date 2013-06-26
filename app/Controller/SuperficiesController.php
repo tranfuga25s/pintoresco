@@ -76,7 +76,8 @@ class SuperficiesController extends AppController {
         if( $this->Superficie->field('publicado') == false ) {
             throw new NotFoundException( 'Superficie no publicado' );
         }
-		$options = array( 'conditions' => array( 'Superficie.' . $this->Superficie->primaryKey => $id ) );
+		$options = array( 'conditions' => array( 'Superficie.' . $this->Superficie->primaryKey => $id ),
+		                  'recursive' => 2 );
 		$this->set( 'superficie', $this->Superficie->find( 'first', $options ) );
 	}
 
@@ -99,9 +100,9 @@ class SuperficiesController extends AppController {
      */
 	public function administracion_view($id = null) {
 		if (!$this->Superficie->exists($id)) {
-			throw new NotFoundException(__('Invalid superficie'));
+			throw new NotFoundException( 'Superficie inválida' );
 		}
-		$options = array('conditions' => array('Superficie.' . $this->Superficie->primaryKey => $id));
+		$options = array('conditions' => array('Superficie.' . $this->Superficie->primaryKey => $id), 'recursive' => 2 );
 		$this->set('superficie', $this->Superficie->find('first', $options));
 	}
 

@@ -38,8 +38,10 @@
 	<td width="191" valign="top">
 		<span class="sub_tit_producto">Rendimiento:</span>
 		<span class="sub_tit_producto_light"><?php echo $producto['rendimiento']; ?></span><br />
+		<?php if( isset( $producto['Superficie'] ) && count( $producto['Superficie'] > 0 ) ) : ?>
 		<span class="sub_tit_producto">Superficie:</span>
 		<span class="sub_tit_producto_light"><?php echo ( ( count( $producto['Superficie'] ) > 0 ) ? ( implode( ', ', Set::extract( '{n}.nombre', $producto['Superficie'] ) ) ) : '' ); ?></span>
+		<?php endif; ?>
 	</td>
 	<td width="169" valign="top">
 		<span class="sub_tit_producto">C&oacute;digo:</span>

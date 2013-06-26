@@ -35,7 +35,7 @@ echo $this->Html->css('style1', null, array( 'inline' => false ) );
               	  <div class="view view-first">
                     <?php echo $this->Html->image( "sucu4.png" ); ?>
                         <div class="mask">
-                          <h2>Catamarca esq. Santiago</h2>
+                          <h2>Proximamente</h2>
                             <p>en esta sucursal usted podra encontrar todo lo necesario para renovar su casa de una pintada</p>
                             <?php echo $this->Html->link( 'Contacto', array( 'controller' => 'contacto', 'action' => 'formulario' ), array( 'class' => "info" ) ); ?>
                         </div>

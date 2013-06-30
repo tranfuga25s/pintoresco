@@ -61,12 +61,12 @@ class Tipo extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-	
-	public function beforeDelete() {
+
+	public function beforeDelete( $cascade = true ) {
 		$count = $this->Producto->find( 'count', array( 'condition' => array( 'tipo_id' => $this->id ) ) );
 		if( $count > 0 ) {
 			return false;
-		} 
+		}
 		return true;
 	}
 

@@ -26,8 +26,8 @@ class Material extends AppModel {
 	 * @var string
 	 */
 	public $displayField = 'nombre';
-	
-	
+
+
 	public $hasAndBelongsToMany = array(
 		'Producto' => array(
 			'className' => 'Producto',
@@ -36,8 +36,8 @@ class Material extends AppModel {
 			'associationForeignKey' => 'producto_id'
 		)
 	);
-	
-	public function beforeDelete() {
+
+	public function beforeDelete( $cascade = true ) {
 		$count = $this->query( 'SELECT COUNT(*) FROM productos_materiales WHERE material_id = '.$this->id );
 		if( intval( $count[0][0]['COUNT(*)'] ) > 0 ) {
 			return false;

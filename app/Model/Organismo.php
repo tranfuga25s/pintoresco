@@ -62,8 +62,8 @@ class Organismo extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-	
-	public function beforeDelete() {
+
+	public function beforeDelete( $cascade ) {
 		$count = $this->Convenio->find( 'count', array( 'conditions' => array( 'organismo_id' => $this->id ) ) );
 		if( $count > 0 ) {
 			return false;

@@ -26,7 +26,7 @@ class Categoria extends AppModel {
 	 * Act as Tree
 	 */
 	public $actsAs = array('Tree');
-	 
+
 	/**
 	 * Validation rules
 	 *
@@ -136,20 +136,20 @@ class Categoria extends AppModel {
 			'dependent' => true
 		)
 	);
-	
+
    /**
     * Function llamada para evitar que se eliminen categorías que todavía poseen productos asociados
-    */	
-	public function beforeDelete( $cascade ) {
+    */
+	public function beforeDelete( $cascade = true ) {
 		$cant_prod = $this->Productos->find( 'count', array( 'conditions' => array( 'categoria_id' => $this->id ) ) );
 		if( $cant_prod == 0 ) {
 			return parent::beforeDelete( $cascade );
 		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	public function tieneCategorias( $id_categoria = null ) {
 		$cant_prod = $this->find( 'count', array( 'conditions' => array( 'Categoria.parent_id' => $id_categoria ) ) );
 		if( $cant_prod != 0 ) {
@@ -158,7 +158,7 @@ class Categoria extends AppModel {
 			return false;
 		}
 	}
-	
+
 	public function tieneProductos( $id_categoria = null ) {
 		$cant_hijos = $this->Productos->find( 'count', array( 'conditions' => array( 'categoria_id' => $id_categoria ) ) );
 		if( $cant_hijos != 0 ) {

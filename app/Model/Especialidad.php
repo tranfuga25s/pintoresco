@@ -52,7 +52,7 @@ class Especialidad extends AppModel {
 			)
 		)
 	);
-	
+
 	/**
 	 * Vinculacion con los pintores
 	 */
@@ -64,9 +64,9 @@ class Especialidad extends AppModel {
 			'associationForeignKey'  => 'pintor_id'
 		)
 	 );
-	 
-	 
-	 public function beforeDelete() {
+
+
+	 public function beforeDelete( $cascade = true ) {
 	 	$count = $this->query( 'SELECT COUNT(pintor_id) FROM pintor_especialidad WHERE especialidad_id = '.$this->id );
 		if( intval( $count[0][0]['COUNT(pintor_id)'] ) > 0 ) {
 			return false;

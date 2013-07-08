@@ -70,11 +70,11 @@
 	</div>
 	<div class="paging">
 	<?php
-	    echo $this->Paginator->first( '<< Primero' );
-		echo $this->Paginator->prev('< Anterior', array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ' '));
-		echo $this->Paginator->next( 'Siguiente >', array(), null, array('class' => 'next disabled'));
-		echo $this->Paginator->last( 'Ultimo >>' );
+	    echo $this->Paginator->first( '<< Primero ' );
+		echo $this->Paginator->prev(' < Anterior ', array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->numbers(array('separator' => ' | '));
+		echo $this->Paginator->next( ' Siguiente > ', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->last( ' Ultimo >> ' );
 	?></div>
 	</td></tr>
  <?php } ?>

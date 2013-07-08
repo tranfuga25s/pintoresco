@@ -7,6 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class ProductosController extends AppController {
 
+    public $paginate = array( 'paramType' => 'querystring' );
+
    /**
     * Authorización de métodos públicos
     */

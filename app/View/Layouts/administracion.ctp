@@ -32,7 +32,7 @@
 		        <!-- Top -->
                 <div id="top">
                     <!-- Logo -->
-                    <div class="logo"> 
+                    <div class="logo">
                         <?php echo $this->Html->image( 'cabecera.png', array( 'alt' => 'Panel de control', 'style' => 'float: left; position: relative; top: 10px;' ) ); ?>
                         <div id="slogan" style="margin-top: 20px; color: white;">
                             <span style="font-size: 200%; font-weight: bolder;">Panel de control</span><br />
@@ -47,12 +47,12 @@
                             <li><?php echo $this->Html->link( '<span class="ui-icon ui-icon-power"></span>Salir', array( 'controller' => 'usuarios', 'action' => 'salir', 'plugin' => false ), array( 'title' => "Cerrar sesion de administracion", 'class' => 'tooltip', 'escape' => false ) ); ?></li>
                             <li><?php echo $this->Html->link( '<span class="ui-icon ui-icon-wrench"></span>Preferencias', array( 'controller' => 'configuracion', 'action' => 'ver', 'plugin' => false ), array( 'title' => "Cambia las preferencias", 'class' => "tooltip", 'escape' => false ) ); ?></li>
                             <li><?php echo $this->Html->link( '<span class="ui-icon ui-icon-person"></span>Mis datos', array( 'controller' => 'usuarios', 'plugin' => false, 'action' => 'edit', $usuarioactual['id_usuario'] ), array( 'title' => "Ir a los datos de mi usuario", 'class' => 'tooltip', 'escape' => false ) ); ?></li>
-                        </ul>   
+                        </ul>
                     </div>
                     <!-- End of Meta information -->
                 </div>
                 <!-- End of Top-->
-                
+
                 <!-- The navigation bar -->
                 <div id="navbar">
                     <ul class="nav">
@@ -70,7 +70,7 @@
                                 <li><a href="#">Sistema</a>
                                     <ul>
                                         <li><?php echo $this->Html->link( 'Grupos', array( 'controller' => 'grupos', 'action' => 'index', 'plugin' => false ) ); ?></li>
-                                        <!-- <li><a href="#">Permisos</a></li> --> 
+                                        <!-- <li><a href="#">Permisos</a></li> -->
                                         <li><?php echo $this->Html->link( 'Auditoria', array( 'plugin' => 'audit_log', 'controller' => 'audit_log', 'action' => 'index' ) ); ?></li>
                                     </ul>
                                 </li>
@@ -84,11 +84,11 @@
                 <!-- End of navigation bar" -->
 		    </div>
             <!-- End of Header -->
-            
-                        
+
+
             <!-- Background wrapper -->
             <div id="bgwrap" style="margin-left: 15px;">
-        
+
                 <!-- Main Content -->
                 <div id="content">
                     <div id="main">
@@ -96,24 +96,11 @@
                         <?php echo $content_for_layout; ?>
                     <hr />
                 </div>
-                <!-- End Main content -->               
+                <!-- End Main content -->
             </div>
             <!-- End of bgwrap -->
         </div>
         <!-- End of Container -->
-        <div class="publicidad">
-			<script type="text/javascript"><!--
-			google_ad_client = "ca-pub-1880233918301202";
-			/* Desarrollo */
-			google_ad_slot = "0058508055";
-			google_ad_width = 468;
-			google_ad_height = 60;
-			//-->
-			</script>
-			<script type="text/javascript"
-			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
-		</div>
 		<?php echo $this->element('devoluciones'); ?>
         <!-- Footer -->
         <div id="footer">
@@ -131,7 +118,7 @@
                     'http://www.bscomputacion.org/',
                     array( 'target' => '_blank', 'escape' => false )
                 );
-            ?></div>    
+            ?></div>
             </p>
         </div>
         <!-- End of Footer -->

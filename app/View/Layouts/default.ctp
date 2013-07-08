@@ -113,7 +113,7 @@
 							      </tr>
 							      <tr>
 							      	<td><strong>email: </strong><?php echo $this->Html->link( Configure::read( 'Configuracion.email_contacto' ), "mailto:".Configure::read( 'Configuracion.email_contacto' ) ); ?></td>
-							      	<td align="right" valign="bottom">CSS y HTML válido | </td>
+							      	<td align="right" valign="bottom"><?php echo $this->Html->link( 'Admin', '/administracion' ); ?> | CSS y HTML válido | </td>
 							      	<td align="right" width="128" valign="middle"><?php echo $this->Html->link( 'Desarrollado por '.$this->Html->image( 'logo_axon.jpg' ), 'http://www.gestotux.com.ar/', array( 'escape' => false ) ); ?></td>
 							      </tr>
 					  			</tr>

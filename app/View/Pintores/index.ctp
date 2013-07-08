@@ -35,7 +35,7 @@
 		<div class="destacado_pintores">
 			<br />
 			<span class="destacado_pintores">Ya estoy inscripto. ¿Como cambio mis datos?</span>
-			<?php echo $this->Html->link( 'Haga click aquí para cambiar sus datos', array( 'controller' => 'pages', 'proximamente' ), array( 'class' => 'link-pintor' ) ); ?>
+			<?php echo $this->Html->link( 'Haga click aquí para modificar sus datos', array( 'controller' => 'pages', 'proximamente' ), array( 'class' => 'link-pintor' ) ); ?>
 			<br /><br />
 		</div>
 </div>

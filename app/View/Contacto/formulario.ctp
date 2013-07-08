@@ -20,7 +20,7 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 			<td><?php echo $this->Form->input( 'email', array( 'label' => false, 'class' => 'form_contacto', 'type' => 'text' ) ); ?></td>
 		</tr>
 		<tr>
-			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Telefono:</td>
+			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Teléfono:</td>
 			<td><?php echo $this->Form->input( 'telefono', array( 'label' => false, 'class' => 'form_contacto' ) ); ?></td>
 		</tr>
 		<tr>
@@ -32,14 +32,14 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 											'Sugerencias' => 'Sugerencias',
 											'Presupuesto' => 'Presupuesto',
 											'Soy Pintor' => 'Soy Pintor' ),
-						'class' => 'form_contacto'
+						'style' => 'width: 263px;',
 			) );
 			?>
 			</td>
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Consulta:*</td>
-			<td><?php echo $this->Form->input( 'texto', array( 'label' => false, 'type' => 'textarea', 'class' => 'form_contacto'  ) ); ?></td>
+			<td><?php echo $this->Form->input( 'texto', array( 'label' => false, 'type' => 'textarea', 'rows' => 7, 'cols' => 41 ) ); ?></td>
 
 		</tr>
 		<tr>

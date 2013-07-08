@@ -46,9 +46,10 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Codigo de verificación:*</td>
 			<td><?php echo $this->Recaptcha->display(); ?></td>
 			<td rowspan="1" align="left" valign="top" style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#646464;  line-height:30px; padding-top:80px;">
-                Sucursal Salta 2974 - Tel.: (0341) 436 1389<br />
-                Sucursal Buenos Aires esq. San Luis - Tel.: (0341) 4265068 / 426 6573<br />
-                Sucursal Catamarca esq. Santiago - Tel.: (0341) 156 753164<br />
+			    <span class="titulos">Sucursales</span><br />
+                Salta 2974 - Tel.: (0341) 436 1389<br />
+                Buenos Aires esq. San Luis - Tel.: (0341) 4265068 / 426 6573<br />
+                Catamarca esq. Santiago - Tel.: (0341) 156 753164<br />
             </td>
 		</tr>
 		<tr>

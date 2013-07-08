@@ -39,12 +39,23 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Consulta:*</td>
-			<td><?php echo $this->Form->input( 'texto', array( 'label' => false, 'type' => 'textarea', 'rows' => 7, 'cols' => 41 ) ); ?></td>
+			<td><?php echo $this->Form->input( 'texto', array( 'label' => false, 'type' => 'textarea', 'rows' => 7, 'style' => 'width: 263px;' ) ); ?></td>
 
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Codigo de verificación:*</td>
-			<td><?php echo $this->Recaptcha->display(); ?></td>
+			<td valign="top">
+			     <div id="recaptcha_widget">
+                   <div id="recaptcha_image"></div>
+                   <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrecto, intente nuevamente</div>
+                   <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+                   <a href="javascript:Recaptcha.reload()" style="color: black;">
+                       <?php echo $this->Html->image( 'recargar.png', array( 'border' => 0, 'width' => 12, 'height' => 12 ) ); ?>
+                    </a>
+                 </div>
+			    <?php echo $this->Recaptcha->display( array( 'recaptchaOptions' => array( 'theme' => 'custom', 'custom_theme_widget' => 'repatcha_widget', 'lang' => 'es' ) ) ); ?>
+			    <?php echo $this->Html->tag( 'div', '', array( 'class' => 'bt_enviar', 'onclick' => "$('#contactoFormularioForm').submit()", 'style' => 'float: right; margin-right: 14px; margin-top:12px;' ) ); ?>
+			</td>
 			<td rowspan="1" align="left" valign="top" style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#646464;  line-height:30px; padding-top:80px;">
 			    <span class="titulos">Sucursales</span><br />
                 Salta 2974 - Tel.: (0341) 436 1389<br />
@@ -54,7 +65,7 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		</tr>
 		<tr>
 			<td colspan="3" style="padding-left:330px;">
-				<?php echo $this->Html->tag( 'div', '', array( 'class' => 'bt_enviar', 'onclick' => "$('#contactoFormularioForm').submit()" ) ); ?>
+
 			</td>
 		</tr>
 	</tbody>

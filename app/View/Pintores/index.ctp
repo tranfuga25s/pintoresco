@@ -25,9 +25,11 @@
         </table>
 		<div class="paging">
 			<?php
-				echo $this->Paginator->prev('< Anterior', array(), null, array('class' => 'prev disabled'));
-				echo $this->Paginator->numbers(array('separator' => ''));
-				echo $this->Paginator->next( 'Siguiente >', array(), null, array('class' => 'next disabled'));
+			    if( $this->Paginator->hasPrev() )
+				  echo $this->Paginator->prev(' < Anterior ', array(), null, array('class' => 'prev disabled'));
+				echo $this->Paginator->numbers(array('separator' => ' | '));
+                if( $this->Paginator->hasNext() )
+                   echo $this->Paginator->next( ' Siguiente > ', array(), null, array('class' => 'next disabled'));
 			?>
 		</div>
 		<div class="destacado_pintores">

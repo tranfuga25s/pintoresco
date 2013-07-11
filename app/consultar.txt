@@ -1,4 +1,0 @@
-Al terminar de editar un pintor y al colocarle una nueva clave de acceso.
-Enviamos un email al pintor con la nueva clave?
-
-Un producto puede servir para varias superficies/materiales? ( Si implicito? )

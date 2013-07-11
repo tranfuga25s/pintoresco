@@ -399,13 +399,14 @@ font-size: 10px;
     background: url('/pintoresco/img/bt_buscar.png' );
     height: 38px;
     width: 131px;
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
     background-position-x: left;
     background-position-y: 7px;
 }
 
 .bt_buscar:hover {
 	background: url( '/pintoresco/img/bt_buscar_hover.png' );
+	background-repeat: no-repeat;
 }
 
 .bt_enviar {

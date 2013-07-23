@@ -1,7 +1,7 @@
 <?php
 $this->set( 'title_for_layout', "Contactese con nosotros" );
 ?>
-<?php echo $this->Form->create( 'contacto', array( 'url' => '/contacto/enviar' ) ); ?>
+<?php echo $this->Form->create( false, array( 'url' => '/contacto/enviar', 'id' => 'formcontacto' ) ); ?>
 <table border="0" width="96%" style="margin-left:25px;">
 	<tbody>
 		<tr>
@@ -12,16 +12,16 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Nombre*:</td>
-			<td><?php echo $this->Form->input( 'nombre', array( 'label' => false, 'class' => 'form_contacto' ) ); ?></td>
+			<td><?php echo $this->Form->input( 'nombre', array( 'label' => false, 'class' => 'form_contacto', 'value' => isset( $contacto['nombre'] ) ? $contacto['nombre'] : '' ) ); ?></td>
 			<td rowspan="5"><?php echo $this->Html->image( 'img_contacto.png', array( 'border' => 0 ) ); ?></td>
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Email*:</td>
-			<td><?php echo $this->Form->input( 'email', array( 'label' => false, 'class' => 'form_contacto', 'type' => 'text' ) ); ?></td>
+			<td><?php echo $this->Form->input( 'email', array( 'label' => false, 'class' => 'form_contacto', 'type' => 'text' , 'value' => isset( $contacto['email'] ) ? $contacto['email'] : '' ) ); ?></td>
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Teléfono:</td>
-			<td><?php echo $this->Form->input( 'telefono', array( 'label' => false, 'class' => 'form_contacto' ) ); ?></td>
+			<td><?php echo $this->Form->input( 'telefono', array( 'label' => false, 'class' => 'form_contacto', 'value' => isset( $contacto['telefono'] ) ? $contacto['telefono'] : '' ) ); ?></td>
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Motivo*:</td>
@@ -33,28 +33,24 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 											'Presupuesto' => 'Presupuesto',
 											'Soy Pintor' => 'Soy Pintor' ),
 						'style' => 'width: 263px;',
+						'selected' => isset( $contacto['motivo'] ) ? $contacto['motivo'] : ''
 			) );
 			?>
 			</td>
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Consulta:*</td>
-			<td><?php echo $this->Form->input( 'texto', array( 'label' => false, 'type' => 'textarea', 'rows' => 7, 'style' => 'width: 263px;' ) ); ?></td>
+			<td><?php echo $this->Form->input( 'texto', array( 'label' => false, 'type' => 'textarea', 'rows' => 7, 'style' => 'width: 263px;', 'value' => isset( $contacto['texto'] ) ? $contacto['texto'] : '' ) ); ?></td>
 
 		</tr>
 		<tr>
 			<td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#201584; font-weight:bold;">Codigo de verificación:*</td>
 			<td valign="top">
-			     <div id="recaptcha_widget">
-                   <div id="recaptcha_image"></div>
-                   <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrecto, intente nuevamente</div>
-                   <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
-                   <a href="javascript:Recaptcha.reload()" style="color: black;">
-                       <?php echo $this->Html->image( 'recargar.png', array( 'border' => 0, 'width' => 12, 'height' => 12 ) ); ?>
-                    </a>
-                 </div>
-			    <?php echo $this->Recaptcha->display( array( 'recaptchaOptions' => array( 'theme' => 'custom', 'custom_theme_widget' => 'repatcha_widget', 'lang' => 'es' ) ) ); ?>
-			    <?php echo $this->Html->tag( 'div', '', array( 'class' => 'bt_enviar', 'onclick' => "$('#contactoFormularioForm').submit()", 'style' => 'float: right; margin-right: 14px; margin-top:12px;' ) ); ?>
+			    <?php
+			    echo $this->Html->image($this->Html->url(array('action'=>'captcha'), true),array('style'=>'','vspace'=>2));
+                echo '<br />Ingrese el codigo mostrado arriba:';
+                echo $this->Form->input('captcha',array('autocomplete'=>'off','label'=>false,'class'=>''));
+			    echo $this->Html->tag( 'div', '', array( 'class' => 'bt_enviar', 'onclick' => "$('#formcontacto').submit()", 'style' => 'float: right; margin-right: 14px; margin-top:12px;' ) ); ?>
 			</td>
 			<td rowspan="1" align="left" valign="top" style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#646464;  line-height:30px; padding-top:80px;">
 			    <span class="titulos">Sucursales</span><br />

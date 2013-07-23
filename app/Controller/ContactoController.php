@@ -59,7 +59,7 @@ class ContactoController extends AppController {
             $this->set( 'contacto', $this->data );
             $this->render( 'formulario' );
 		} else {
-			throw new NotFoundException( "Metodo de envío no encontrado" );
+			$this->redirect( array( 'action' => 'formulario' ) );
 		}
 	}
 

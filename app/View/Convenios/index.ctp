@@ -1,7 +1,7 @@
 <?php
 $this->pageTitle = "Nuestros convenios";
 ?>
-<?php echo $this->Html->image( 'panoramica_convenios.jpg' ); ?>
+<?php echo $this->Html->image( 'panoramica_promociones.jpg' ); ?>
 <div class="convenios index">
     <div class="titulos">Nuestros convenios</div>
     <?php

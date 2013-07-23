@@ -48,7 +48,7 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 			<td valign="top">
 			    <?php
 			    echo $this->Html->image($this->Html->url(array('action'=>'captcha'), true),array('style'=>'','vspace'=>2));
-                echo '<br />Ingrese el codigo mostrado arriba:';
+                echo '<br />Ingrese el código mostrado arriba:';
                 echo $this->Form->input('captcha',array('autocomplete'=>'off','label'=>false,'class'=>''));
 			    echo $this->Html->tag( 'div', '', array( 'class' => 'bt_enviar', 'onclick' => "$('#formcontacto').submit()", 'style' => 'float: right; margin-right: 50px; margin-top:12px;' ) ); ?>
 			</td>

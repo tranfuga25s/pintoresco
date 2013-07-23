@@ -1,16 +1,17 @@
 <?php
 $this->pageTitle = "Viendo el pintor: ".$pintor['Usuario']['razonsocial'];
 ?>
+<div  style="margin-left:20px;">
 <br />
 <span class="titulos" style="margin-left:20px;">Datos del pintor</span><br />
 <br />
-<div style="float: left; width: 150px; height: 150px; border: 1px solid black; margin-left: 20px; margin-right:20px;">
+<!-- <div style="float: left; width: 150px; height: 150px; border: 1px solid black; margin-left: 20px; margin-right:20px;">
 	Imagen del pintor?
-</div>
+</div> -->
 <div style="float: right; margin-right:20px;">
     <?php echo $this->Html->image( 'img_quien_pinto2.png', array( 'border' => 0 ) ); ?>
 </div>
-<div class="txt_general" style="margin-left:20px;">
+<div class="txt_general">
 	<b>Razón social:</b>&nbsp;<?php echo h($pintor['Usuario']['razonsocial'] ); ?>
 	<h3>Datos de contacto</h3>
 	<b>Teléfonos:</b>&nbsp;<?php echo h( $pintor['Usuario']['telefono'] )."&nbsp;-&nbsp;".h($pintor['Usuario']['celular'] ); ?><br />
@@ -24,10 +25,10 @@ foreach( $pintor['Especialidad'] as $esp ) :
 	echo $esp['nombre'].'<br />';
 endforeach; ?>
 <br />
-<span class="sub_titulos" style="margin-left:20px;">Referencias:</span><br />
+<span class="sub_titulos">Referencias:</span><br />
 <br />
 <?php echo $pintor['Pintor']['referencias']; ?>
-<span class="sub_titulos" style="margin-left:20px;">Obras realizadas</span><br />
+<span class="sub_titulos">Obras realizadas</span><br />
 <?php foreach( $pintor['Obra'] as $obra ) : ?>
 	<div class="obra" style="margin-left:20px;">
 		<b>Fecha de realizacion:</b>&nbsp;<?php echo date( 'F-Y', strtotime($obra['fecha']) ); ?><br />
@@ -47,3 +48,4 @@ endforeach; ?>
 <?php endforeach; ?>
 <br />
 <?php echo $this->Html->link( 'Ver otros pintores', array( 'action' => 'index' ) ); ?>
+</div>

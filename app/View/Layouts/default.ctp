@@ -18,7 +18,7 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+	<!-- <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' /> -->
 	<script type="text/javascript">
 	<!--
 	function MM_swapImgRestore() { //v3.0
@@ -108,7 +108,7 @@
 								  	<td colspan="5">
 								  	  <br />
 							          Sucursal Salta 2974 - Tel.: (0341) 436 1389  |  Sucursal Buenos Aires esq San Luis - Tel.: (0341) 426 5068 / 426 6573<br />
-							          Sucursal Catamarca esq Santiago - Tel.: (0341) 156 753164<br />
+							          Sucursal Catamarca esq Santiago - Tel.: (0341) 156 753164 | Sucursal Eva Perón 5906 (Córdoba Y Solís)<br />
 							        </td>
 							      </tr>
 							      <tr>

@@ -50,13 +50,14 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 			    echo $this->Html->image($this->Html->url(array('action'=>'captcha'), true),array('style'=>'','vspace'=>2));
                 echo '<br />Ingrese el codigo mostrado arriba:';
                 echo $this->Form->input('captcha',array('autocomplete'=>'off','label'=>false,'class'=>''));
-			    echo $this->Html->tag( 'div', '', array( 'class' => 'bt_enviar', 'onclick' => "$('#formcontacto').submit()", 'style' => 'float: right; margin-right: 14px; margin-top:12px;' ) ); ?>
+			    echo $this->Html->tag( 'div', '', array( 'class' => 'bt_enviar', 'onclick' => "$('#formcontacto').submit()", 'style' => 'float: right; margin-right: 50px; margin-top:12px;' ) ); ?>
 			</td>
 			<td rowspan="1" align="left" valign="top" style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#646464;  line-height:30px; padding-top:80px;">
 			    <span class="titulos">Sucursales</span><br />
                 Salta 2974 - Tel.: (0341) 436 1389<br />
                 Buenos Aires esq. San Luis - Tel.: (0341) 4265068 / 426 6573<br />
                 Catamarca esq. Santiago - Tel.: (0341) 156 753164<br />
+                Eva Perón 5906 (Córdoba Y Solís)
             </td>
 		</tr>
 		<tr>

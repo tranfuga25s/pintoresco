@@ -25,18 +25,18 @@
     </script>
 	<div id="container">
         <!-- Logo -->
-        <div class="logo"> 
-            <?php echo $this->Html->image( 'cabecera.png', array( 'alt' => 'Panel de control', 'style' => 'float: left; position: relative; top: -10px;' ) ); ?>
+        <div class="logo">
+            <?php echo $this->Html->image( 'cabecera.png', array( 'alt' => 'Panel de control', 'style' => 'float: left; position: relative; top: -10px; background-color: white;' ) ); ?>
             <div id="slogan" style="color: white; padding-top: 10px;">
-                <span style="font-size: 200%; font-weight: bolder;">Ingreso al panel de control</span>
+                <span style="font-size: 200%; font-weight: bolder;">&nbsp;Ingreso al panel de control</span>
             </div>
-		</div>            
-                    
+		</div>
+
         <!-- Background wrapper -->
         <div id="box">
 	        <?php echo $this->Session->flash(); ?><?php echo $this->Session->flash( 'auth' ); ?>
             <?php echo $content_for_layout; ?>
         <!-- End of bgwrap -->
-        </div>      
+        </div>
   </body>
 </html>

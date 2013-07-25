@@ -378,10 +378,7 @@ font-size: 10px;
 	text-align: left;
 }
 .convenios .convenio {
-    margin-left: 4px;
-    margin-right: 21px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 15px 21px 15px 24px;
     width: 47%;
     min-height: 150px;
     float: left;

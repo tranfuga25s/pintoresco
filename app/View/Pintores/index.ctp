@@ -3,12 +3,12 @@
 		<span class="titulos">¿Con quien pinto?</span><br /><br />
 		<table width="100%" border="0">
 		    <tbody><tr><td>
-    		<span class="txt_general">Ordenar por:
+<!--    		<span class="txt_general">Ordenar por:
     		<?php echo $this->Paginator->sort('razonsocial', 'Razon Social', array( 'class' => 'ordenar' ) ). "&nbsp; |&nbsp; " .
     		 	  	   $this->Paginator->sort('email', 'Email', array( 'class' => 'ordenar' ) ). "&nbsp; |&nbsp; " .
     			       $this->Paginator->sort('disponibilidad', 'Disponibilidad', array( 'class' => 'ordenar' ) ). "&nbsp; |&nbsp; " .
     				   $this->Paginator->sort('puntos', 'Puntaje', array( 'class' => 'ordenar' ) ); ?>
-    		</span>
+                </span> -->
     		<?php foreach ($pintores as $pintor ): ?>
     			<div class="pintor">
     				<?php echo $this->Html->link( '&#8226; '.h( $pintor['Usuario']['razonsocial'] ), array( 'action' => 'view', $pintor['Pintor']['id_pintor'] ), array( 'class' => 'sub_titulos', 'escape' => false ) ); ?>&nbsp;<br />
@@ -34,7 +34,7 @@
 		</div>
 		<div class="destacado_pintores">
 			<br />
-			<span class="destacado_pintores">Ya estoy inscripto. ¿Como cambio mis datos?</span>
+			<span>Ya estoy inscripto. ¿Como cambio mis datos?</span>
 			<?php echo $this->Html->link( 'Haga click aquí para modificar sus datos', array( 'controller' => 'pages', 'action' => 'proximamente' ), array( 'class' => 'link-pintor' ) ); ?>
 			<br /><br />
 		</div>

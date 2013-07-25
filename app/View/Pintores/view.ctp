@@ -3,7 +3,7 @@ $this->pageTitle = "Viendo el pintor: ".$pintor['Usuario']['razonsocial'];
 ?>
 <div  style="margin-left:20px;">
 <br />
-<span class="titulos" style="margin-left:20px;">Datos del pintor</span><br />
+<span class="titulos">Datos del pintor</span><br />
 <br />
 <!-- <div style="float: left; width: 150px; height: 150px; border: 1px solid black; margin-left: 20px; margin-right:20px;">
 	Imagen del pintor?

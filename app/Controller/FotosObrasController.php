@@ -55,7 +55,7 @@ class FotosObrasController extends AppController {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * index method
 	 *
@@ -81,75 +81,6 @@ class FotosObrasController extends AppController {
 		$this->set('fotosObra', $this->FotosObra->read(null, $id));
 	}
 
-	/**
-	 * add method
-	 *
-	 * @return void
-	 */
-/*	public function add() {
-		if ($this->request->is('post')) {
-			$this->FotosObra->create();
-			if ($this->FotosObra->save($this->request->data)) {
-				$this->Session->setFlash(__('The fotos obra has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The fotos obra could not be saved. Please, try again.'));
-			}
-		}
-		$obras = $this->FotosObra->Obra->find('list');
-		$this->set(compact('obras'));
-	} */
-
-	/**
-	 * edit method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	/*public function edit($id = null) {
-		$this->FotosObra->id = $id;
-		if (!$this->FotosObra->exists()) {
-			throw new NotFoundException(__('Invalid fotos obra'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->FotosObra->save($this->request->data)) {
-				$this->Session->setFlash(__('The fotos obra has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The fotos obra could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->FotosObra->read(null, $id);
-		}
-		$obras = $this->FotosObra->Obra->find('list');
-		$this->set(compact('obras'));
-	} */
-
-	/**
-	 * delete method
-	 *
-	 * @throws MethodNotAllowedException
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	/*public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->FotosObra->id = $id;
-		if (!$this->FotosObra->exists()) {
-			throw new NotFoundException(__('Invalid fotos obra'));
-		}
-		if ($this->FotosObra->delete()) {
-			$this->Session->setFlash(__('Fotos obra deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Fotos obra was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}*/
-	
 	/**
 	 * administracion_index method
 	 *
@@ -192,7 +123,7 @@ class FotosObrasController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function administracion_edit($id = null) {
+	public function administracion_edit( $id = null ) {
 		$this->FotosObra->id = $id;
 		if (!$this->FotosObra->exists()) {
 			throw new NotFoundException( 'Foto de obra invalida' );
@@ -208,7 +139,7 @@ class FotosObrasController extends AppController {
 			$this->request->data = $this->FotosObra->read(null, $id);
 		}
 		$obras = $this->FotosObra->Obra->find('list');
-		$this->set(compact('obras'));
+		$this->set( compact( 'obras' ) ) ;
 	}
 
 	/**

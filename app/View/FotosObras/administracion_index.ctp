@@ -1,11 +1,11 @@
-<?php 
-$this->page_title = "Fotos para una obra"; 
+<?php
+$this->page_title = "Fotos para una obra";
 ?>
 <div id="acciones">
 	<?php echo $this->Html->link( 'Lista de Obras', array( 'controller' => 'obras', 'action' => 'index' ) );  ?>
 </div>
 <script>
-$(function() { 
+$(function() {
 	$( "a", "#acciones2" ).button();
 	$( "a", ".contenedor" ).button();
 } );
@@ -25,7 +25,7 @@ $(function() {
 	<?php //debug( $fotosObras ); ?>
 	<?php foreach( $fotosObras as $foto ) { ?>
 		<div class="contenedor">
-			<?php echo $this->Html->image( $foto['FotosObra']['path'], array( 'width' => 300 ) ); ?>
+			<?php echo $this->Html->image( 'obras'.DS.$foto['FotosObra']['dir'].DS.$foto['FotosObra']['path'], array( 'width' => 300 ) ); ?>
 			<br />
 			<?php echo h( $foto['FotosObra']['titulo'] ); ?><br />
 			<?php echo h( $foto['FotosObra']['descripcion'] ); ?><br />
@@ -52,5 +52,5 @@ $(function() {
 		echo $this->Form->end( 'Subir' );
 	?>
 	</fieldset>
-	
+
 </div>

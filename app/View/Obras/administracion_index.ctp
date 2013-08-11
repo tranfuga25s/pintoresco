@@ -4,7 +4,12 @@
 		  echo $this->Html->link( 'Lista de Pintores', array( 'controller' => 'pintores', 'action' => 'index' ) );
 		  echo $this->Html->link( 'Nuevo Pintor', array( 'controller' => 'pintores', 'action' => 'add' ) ); ?>
 </div>
+<br />
+<?if ( isset( $pintor ) ) : ?>
+<h2>Obras para el pintor <?php echo $pintor['Usuario']['razonsocial']; ?></h2>
+<?php else : ?>
 <h2>Obras</h2>
+<?php endif; ?>
 <table cellpadding="0" cellspacing="0">
 <tr>
 		<th><?php echo $this->Paginator->sort('id_obra', '#'); ?></th>

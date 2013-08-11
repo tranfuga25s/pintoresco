@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  */
 class ObrasController extends AppController {
 
-	public $paginate = array();	
+	public $paginate = array();
 	/**
 	 * Muestra el listado de acciones permitidas
 	 */
@@ -46,11 +46,15 @@ class ObrasController extends AppController {
 	/**
 	 * Listado de pintores registrados en el sistema para la administración
 	 */
-	public function administracion_index() {
+	public function administracion_index( $id_pintor = null ) {
 		$this->paginate['recursive'] = 2;
+        if( !is_null( $id_pintor ) ) {
+            $this->paginate['conditions'] = array( 'pintor_id' => $id_pintor );
+            $this->set( 'pintor', $this->Obra->Pintor->read( null, $id_pintor ) );
+        }
 		$this->set( 'obras', $this->paginate() );
 	}
-	
+
 	/**
 	 * Agregar una nueva obra a un pintor
 	 */
@@ -61,9 +65,21 @@ class ObrasController extends AppController {
 	 			$this->Session->setFlash( 'La obra fue agregada correctamente', null, 'default', array( 'class' => 'success' ) );
 				$this->redirect( array( 'action' => 'index' ) );
 	 		} else {
-	 			$this->Session->setFlash( 'La obra no se pudo guardar', null, 'defualt', array( 'class' => 'error' ) );
+	 			$this->Session->setFlash( 'La obra no se pudo guardar', null, 'default', array( 'class' => 'error' ) );
 	 		}
 	 	}
 		$this->set( 'pintors', $this->Obra->Pintor->lista() );
 	 }
+
+     public function administracion_edit( $id_obra = null ) {
+         if( $this->request->isPost() ) {
+
+         }
+         $this->Obra->id = $id_obra;
+         if( !$this->Obra->exists() ) {
+            throw new NotFoundException( "La obra solicitada no existe" );
+         }
+         $this->request->data = $this->Obra->read();
+         $this->set( 'pintors', $this->Obra->Pintor->lista() );
+     }
 }

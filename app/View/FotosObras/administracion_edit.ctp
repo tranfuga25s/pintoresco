@@ -7,8 +7,9 @@ $this->set( 'title_for_layout', "Editar imagen de una obra" );
 </div>
 <br />
 <div class="form">
-    <?php echo $this->Form->create( 'FotosObra' );
+    <?php echo $this->Form->create( 'FotosObra', array( 'action' => 'edit' ) );
           echo $this->Form->hidden( 'id_foto_obra' );
+          echo $this->Form->hidden( 'obra_id' );
     ?>
     <fieldset>
         <legend><h2>Editar informacion de una imagen</h2></legend>

@@ -124,20 +124,20 @@ class FotosObrasController extends AppController {
 	 * @return void
 	 */
 	public function administracion_edit( $id = null ) {
-		$this->FotosObra->id = $id;
-		if (!$this->FotosObra->exists()) {
-			throw new NotFoundException( 'Foto de obra invalida' );
-		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->FotosObra->save($this->request->data)) {
-				$this->Session->setFlash('La imagen ha sido agregada correctamente', 'default', null, array( 'class' => 'sucess' ) );
-				$this->redirect(array('action' => 'index'));
+		    $id_obra = $this->request->data['FotosObra']['obra_id'];
+			if( $this->FotosObra->save( $this->request->data ) ) {
+				$this->Session->setFlash( 'La imagen ha sido agregada correctamente', 'default', null, array( 'class' => 'sucess' ) );
+				$this->redirect( array( 'action' => 'index', $this->request->data['FotosObra']['obra_id'] ) );
 			} else {
 				$this->Session->setFlash('La imagen no pudo ser enviada correctamente. Intente nuevamente.', 'default', null, array( 'class' => 'error' ) );
 			}
-		} else {
-			$this->request->data = $this->FotosObra->read(null, $id);
 		}
+        $this->FotosObra->id = $id;
+        if( !$this->FotosObra->exists() ) {
+            throw new NotFoundException( 'Foto de obra invalida' );
+        }
+		$this->request->data = $this->FotosObra->read( null, $id );
 		$obras = $this->FotosObra->Obra->find('list');
 		$this->set( compact( 'obras' ) ) ;
 	}

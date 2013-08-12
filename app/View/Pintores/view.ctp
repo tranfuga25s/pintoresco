@@ -28,9 +28,10 @@ endforeach; ?>
 <span class="sub_titulos">Referencias:</span><br />
 <br />
 <?php echo $pintor['Pintor']['referencias']; ?>
+<br />
 <span class="sub_titulos">Obras realizadas</span><br />
 <?php foreach( $pintor['Obra'] as $obra ) : ?>
-	<div class="obra" style="margin-left:20px;">
+	<div class="obra">
 		<b>Fecha de realizacion:</b>&nbsp;<?php echo date( 'F-Y', strtotime($obra['fecha']) ); ?><br />
 		<?php echo h( $obra['descripcion'] ); ?>
 		<?php
@@ -38,7 +39,7 @@ endforeach; ?>
 			$contador = 0;
 			while( $contador < 3 && $contador < count( $obra['FotosObra'] ) ) {
 				echo "<div class=\"foto\">";
-				echo $this->Html->image( $obra['FotosObra'][$contador]['path'], array( 'border' => 1, 'width' => 150, 'alt' => $obra['FotosObra'][$contador]['path'] ) );
+				echo $this->Html->image( 'obras'.DS.$obra['FotosObra'][$contador]['dir'].DS.$obra['FotosObra'][$contador]['path'], array( 'border' => 0, 'width' => 150, 'alt' => $obra['FotosObra'][$contador]['titulo'] ) );
 				echo "</div>";
 				$contador = $contador+1;
 			}

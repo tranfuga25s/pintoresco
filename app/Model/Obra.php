@@ -66,22 +66,27 @@ class Obra extends AppModel {
 	public $belongsTo = array(
 		'Pintor' => array(
 			'className' => 'Pintor',
-			'foreignKey' => 'pintor_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+			'foreignKey' => 'pintor_id'
 		)
 	);
-	
+
 	/**
 	 * hasMany association
-	 * 
+	 *
 	 * @var array hasMany
 	 */
 	 public $hasMany = array(
 	 	'FotosObra' => array(
 	 		'classname' => 'FotosObra'
-		) 
+		)
 	 );
-	 
+
+     public function beforeDelete( $cascade = true ) {
+        $cantidad = $this->FotosObra->find( 'count', array( 'conditions' => array( 'obra_id' => $this->id ) ) );
+        if( $cantidad > 0 ) {
+            return false;
+        }
+        return true;
+     }
+
 }

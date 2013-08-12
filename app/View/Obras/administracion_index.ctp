@@ -13,6 +13,7 @@
 <table cellpadding="0" cellspacing="0">
 <tr>
 		<th><?php echo $this->Paginator->sort('id_obra', '#'); ?></th>
+		<th><?php echo $this->Paginator->sort('publicado'); ?></th>
 		<th><?php echo $this->Paginator->sort('fecha'); ?></th>
 		<th><?php echo $this->Paginator->sort('pintor_id'); ?></th>
 		<th class="actions">Acciones</th>
@@ -21,15 +22,34 @@
 foreach ($obras as $obra): ?>
 <tr>
 	<td><?php echo h($obra['Obra']['id_obra']); ?>&nbsp;</td>
+	<td><?php
+        if( $obra['Obra']['publicado'] ) {
+            echo $this->Html->link( $this->Html->image( 'test-pass-icon.png', array( 'alt' => 'Deshabilitar' ) ),
+                                    array( 'action' => 'despublicar', $obra['Obra']['id_obra'] ),
+                                    array( 'escape' => false ) );
+        } else {
+            echo $this->Html->link( $this->Html->image( 'test-fail-icon.png', array( 'alt' => 'Habilitar' ) ),
+                                    array( 'action' => 'publicar', $obra['Obra']['id_obra'] ),
+                                    array( 'escape' => false ) );
+        }
+        ?>
+	</td>
 	<td><?php echo date( 'F Y', strtotime( $obra['Obra']['fecha'] ) ); ?>&nbsp;</td>
 	<td>
 		<?php echo $this->Html->link($obra['Pintor']['Usuario']['razonsocial'], array('controller' => 'pintores', 'action' => 'view', $obra['Pintor']['id_pintor'])); ?>
 	</td>
 	<td class="actions">
-		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $obra['Obra']['id_obra'])); ?>
-		<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $obra['Obra']['id_obra'])); ?>
+		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $obra['Obra']['id_obra'], $obra['Obra']['pintor_id'] ) ); ?>
+		<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $obra['Obra']['id_obra'], $obra['Obra']['pintor_id'] ) ); ?>
 		<?php echo $this->Html->link( 'Fotos', array( 'controller' => 'fotos_obras', 'action' => 'index', $obra['Obra']['id_obra'] ) ); ?>
-		<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $obra['Obra']['id_obra']), null, 'Esta seguro que deseo eliminar la obra?'); ?>
+		<?php
+		if( $obra['Obra']['publicado'] ) {
+            echo $this->Html->link( 'Despublicar', array('action' => 'despublicar', $obra['Obra']['id_obra'], $obra['Obra']['pintor_id'] ) );
+		} else {
+            echo $this->Html->link( 'Publicar', array('action' => 'publicar', $obra['Obra']['id_obra'], $obra['Obra']['pintor_id'] ) );
+		}
+		?>
+		<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $obra['Obra']['id_obra'], $obra['Obra']['pintor_id'] ), null, 'Esta seguro que deseo eliminar la obra?'); ?>
 	</td>
 </tr>
 <?php endforeach; ?>

@@ -1,5 +1,5 @@
 <div class="obras index">
-	<h2><?php echo __('Obras'); ?></h2>
+	<h2>Obras</h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id_obra'); ?></th>
@@ -8,7 +8,7 @@
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th><?php echo $this->Paginator->sort('pintor_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions">Acciones</th>
 	</tr>
 	<?php
 	foreach ($obras as $obra): ?>

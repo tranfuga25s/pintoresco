@@ -1,15 +1,14 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * Usuarios Controller
  *
  */
 class UsuariosController extends AppController {
 
-	public $scaffold;
-
 	public function beforeFilter() {
-		$this->Auth->allow( array( 	'ingresar', 
+		$this->Auth->allow( array( 	'ingresar',
 						'administracion_ingresar',
 						'administracion_salir',
 						'salir',
@@ -73,12 +72,12 @@ class UsuariosController extends AppController {
 	 *  Metodo de logout de usuario
 	 *
 	 * @return void
-	 */	
+	 */
 	public function salir() {
 		$this->redirect( $this->Auth->logout() );
 	}
-	
-	
+
+
 	/*!
 	 *  Metodo de login de usuario para la administracion
 	 *
@@ -116,10 +115,10 @@ class UsuariosController extends AppController {
 				if( !$this->Usuario->verificarSiExiste( $this->data['Recuperar']['email'] ) ) {
 					$this->Session->setFlash( 'La casilla de email ingresada no existe en nuestro sistema. Por favor, registrese en nuestro sitio.', 'default', array( 'class' => 'error' ) );
 				} else {
-					$nueva_contra = $this->Usuario->generarNuevaContraseña( $this->data['Recuperar']['email'] );
+					$nueva_contra = $this->Usuario->generarNuevaContraseñarray( $this->data['Recuperar']['email'] );
 					if( $nueva_contra != false ) {
 						// Envio el email explicandolo
-						$de = Configure::read( 'Turnera.email' );
+                        $de = Configure::read( 'Configuracion.email_contacto' );
 						if( is_array( $de ) ) { $de = $de[0]; }
 						$email = new CakeEmail();
 						$email->template( 'recuperaContra', 'usuario' );
@@ -131,7 +130,7 @@ class UsuariosController extends AppController {
 						$email->send();
 						if( $this->Auth->loggedIn() ) {
 							$this->Session->setFlash( 'Se envió una nueva contraseña de ingreso al usuario', 'default', array( 'class' => 'sucess' )  );
-							$this->redirect( array( 'action' => 'index' ) );	
+							$this->redirect( array( 'action' => 'index' ) );
 						} else {
 							$this->Session->setFlash( 'Se ha enviado un mensaje con su nueva contraseña.<br />Por favor, revise su casilla de correo para obtener los datos y así poder ingresar al sistema.', 'default', array( 'class' => 'sucess' ) );
 							$this->redirect( array( 'action' => 'ingresar' ) );
@@ -144,7 +143,7 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash( 'Por favor, ingrese una dirección de correo electronico para solicitar su nueva contraseña.', 'default', array( 'class' => 'error' ) );
 			}
 		}
-		$this->set( 'dominio', $_SERVER['SERVER_NAME'] ); 
+		$this->set( 'dominio', $_SERVER['SERVER_NAME'] );
 	}
 
 	/**
@@ -222,7 +221,7 @@ class UsuariosController extends AppController {
 					}
 				}
 			}
-		} 		
+		}
 	}
 
 

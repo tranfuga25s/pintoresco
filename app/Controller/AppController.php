@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	
+
 		public $components = array(
 		'Auth' => array(
 			'authenticate' => array(
@@ -68,7 +68,7 @@ class AppController extends Controller {
 			$this->set( 'usuarioactual', $this->Auth->user() );
 		}
 		// Cargo la configuración
-		Configure::load( '', 'Pinturas' );
+		Configure::load( '', 'Pintureria' );
 	}
 
 	protected function currentUser() {

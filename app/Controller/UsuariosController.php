@@ -130,7 +130,7 @@ class UsuariosController extends AppController {
 						$email->send();
 						if( $this->Auth->loggedIn() ) {
 							$this->Session->setFlash( 'Se envió una nueva contraseña de ingreso al usuario', 'default', array( 'class' => 'sucess' )  );
-							$this->redirect( array( 'action' => 'index' ) );
+							$this->redirect( array( 'action' => 'index', 'administracion' => true ) );
 						} else {
 							$this->Session->setFlash( 'Se ha enviado un mensaje con su nueva contraseña.<br />Por favor, revise su casilla de correo para obtener los datos y así poder ingresar al sistema.', 'default', array( 'class' => 'sucess' ) );
 							$this->redirect( array( 'action' => 'ingresar' ) );

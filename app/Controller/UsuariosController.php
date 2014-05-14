@@ -397,22 +397,6 @@ class UsuariosController extends AppController {
 		if (!$this->Usuario->exists()) {
 			throw new NotFoundException( 'El usuario no es valido' );
 		}
-		throw new NotFoundException( 'La verificación de relaciónes entre usuarios y pintor todavía no ha sido programada. Despublique el pintor' );
-		/*$this->loadModel( 'Turno' );
-		if( $this->Turno->find( 'count', array( 'conditions' => array( 'paciente_id' => $id ) ) ) > 0 ) {
-			$this->Session->setFlash( "No se pudo eliminar el usuario solicitado. \n <b>Razon:</b> El usuario tiene turnos asociados todavía." );
-			$this->redirect( array( 'action' => 'index'  ) );
-		}
-		$this->loadModel( 'Medico' );
-		if( $this->Medico->find( 'count', array( 'conditions' => array( 'usuario_id' => $id ) ) ) > 0 ) {
-			$this->Session->setFlash( "No se pudo eliminar el usuario solicitado. \n <b>Razon:</b> El usuario tiene un medico asociado" );
-			$this->redirect( array( 'action' => 'index' ) );
-		}
-		$this->loadModel( 'Secretaria' );
-		if( $this->Secretaria->find( 'count', array( 'conditions' => array( 'usuario_id' => $id ) ) ) > 0 ) {
-			$this->Session->setFlash( "No se pudo eliminar el usuario solicitado. \n <b>Razon:</b> El usuario tiene una secretaria asociada" );
-			$this->redirect( array( 'action' => 'index' ) );
-		}*/
 		if( $this->Usuario->delete() ) {
 			$this->Session->setFlash( 'El Usuario ha sido eliminado correctamente', 'default',  array( 'class' => 'sucess' ) );
 			$this->redirect( array( 'action'=>'index' ) );

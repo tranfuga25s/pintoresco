@@ -20,4 +20,7 @@ Este sistema está basado en el framework [CakePHP](http://cakephp.org/).
 
 Fue desarrollado inicialmente para la cadena de pinturerías SIPP de Rosario, Argentina.
 
-Sistema desarrollado por Esteban Zeller.
+Sistema desarrollado por Esteban Zeller en TR Sistemas Informáticos.
+
+[![Build Status](https://travis-ci.org/tranfuga25s/pintoresco.svg?branch=master)](https://travis-ci.org/tranfuga25s/pintoresco)
+[![Coverage Status](https://coveralls.io/repos/tranfuga25s/pintoresco/badge.png)](https://coveralls.io/r/tranfuga25s/pintoresco)

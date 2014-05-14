@@ -6,7 +6,7 @@ php:
   - 5.4
 
 before_script:
-  - sh -c "mysql -e 'CREATE DATABASE pintoresco;'"
+  - sh -c "mysql -e 'CREATE DATABASE pintureria;'"
   - mkdir app/tmp
   - mkdir app/tmp/cache
   - mkdir app/tmp/cache/models
@@ -19,7 +19,7 @@ before_script:
     class DATABASE_CONFIG {
     public \$default = array(
       'datasource' => 'Database/Mysql',
-      'database' => 'pintoresco',
+      'database' => 'pintureria',
       'host' => '0.0.0.0',
       'login' => 'travis',
       'prefix' => '',
@@ -27,7 +27,7 @@ before_script:
     );
     public \$test = array(
       'datasource' => 'Database/Mysql',
-      'database' => 'pintoresco',
+      'database' => 'pintureria',
       'host' => '0.0.0.0',
       'login' => 'travis',
       'persistent' => false,

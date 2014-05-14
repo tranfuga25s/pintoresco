@@ -136,13 +136,14 @@ class CakeTestSuiteDispatcher {
  * @return boolean true if found, false otherwise
  */
 	public function loadTestFramework() {
+		ini_set('include_path', 'vendor/phpunit/phpunit' . PATH_SEPARATOR . ini_get('include_path'));
 		foreach (App::path('vendors') as $vendor) {
 			if (is_dir($vendor . 'PHPUnit')) {
 				ini_set('include_path', $vendor . PATH_SEPARATOR . ini_get('include_path'));
 				break;
 			}
 		}
-                ini_set('include_path', 'vendor/phpunit/phpunit' . PATH_SEPARATOR . ini_get('include_path'));
+                
 		return include 'PHPUnit' . DS . 'Autoload.php';
 	}
 

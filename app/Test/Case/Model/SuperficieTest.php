@@ -25,6 +25,7 @@ class SuperficieTest extends CakeTestCase {
     public function setUp() {
         parent::setUp();
         $this->Superficie = ClassRegistry::init('Superficie');
+        $this->Superficie->Behaviors->unload( 'Upload.Upload' );
     }
 
     /**

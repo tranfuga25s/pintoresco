@@ -1,4 +1,5 @@
 <?php
+
 App::uses('Tipo', 'Model');
 
 /**
@@ -7,39 +8,40 @@ App::uses('Tipo', 'Model');
  */
 class TipoTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.tipo',
-		'app.producto',
-		'app.marca',
-		'app.categoria',
-		'app.material',
-		'app.productos_materiale'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.tipo',
+        'app.producto',
+        'app.marca',
+        'app.categoria',
+        'app.material',
+        'app.productos_material'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Tipo = ClassRegistry::init('Tipo');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Tipo = ClassRegistry::init('Tipo');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Tipo);
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Tipo);
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
 
+    public function testA() { $this->assertEqual( true, true ); }    
 }

@@ -1,4 +1,5 @@
 <?php
+
 App::uses('Pintor', 'Model');
 
 /**
@@ -7,37 +8,38 @@ App::uses('Pintor', 'Model');
  */
 class PintorTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.pintor',
-		'app.usuario',
-		'app.grupo',
-		'app.obra'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.pintor',
+        'app.usuario',
+        'app.grupo',
+        'app.obra'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Pintor = ClassRegistry::init('Pintor');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Pintor = ClassRegistry::init('Pintor');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Pintor);
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Pintor);
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
 
+    public function testA() { $this->assertEqual( true, true ); }    
 }

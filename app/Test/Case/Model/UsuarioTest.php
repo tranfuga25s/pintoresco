@@ -1,4 +1,5 @@
 <?php
+
 App::uses('Usuario', 'Model');
 
 /**
@@ -7,34 +8,38 @@ App::uses('Usuario', 'Model');
  */
 class UsuarioTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.usuario'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.usuario'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Usuario = ClassRegistry::init('Usuario');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Usuario = ClassRegistry::init('Usuario');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Usuario);
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Usuario);
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
+
+    public function testA() {
+        $this->assertEqual(true, true);
+    }
 
 }

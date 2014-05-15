@@ -13,7 +13,7 @@ class EspecialidadesControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.especialidade'
+		'app.especialidad'
 	);
 
 }

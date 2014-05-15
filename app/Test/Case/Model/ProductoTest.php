@@ -1,4 +1,5 @@
 <?php
+
 App::uses('Producto', 'Model');
 
 /**
@@ -7,35 +8,37 @@ App::uses('Producto', 'Model');
  */
 class ProductoTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.producto',
-		'app.marca'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.producto',
+        'app.marca'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Producto = ClassRegistry::init('Producto');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Producto = ClassRegistry::init('Producto');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Producto);
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Producto);
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
+    
+    public function testA() { $this->assertEqual( true, true ); }    
 
 }

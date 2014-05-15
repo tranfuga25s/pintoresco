@@ -1,4 +1,5 @@
 <?php
+
 App::uses('TiposController', 'Controller');
 
 /**
@@ -7,98 +8,108 @@ App::uses('TiposController', 'Controller');
  */
 class TiposControllerTest extends ControllerTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.tipo',
-		'app.producto',
-		'app.marca',
-		'app.categoria',
-		'app.material',
-		'app.productos_materiale'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.tipo',
+        'app.producto',
+        'app.marca',
+        'app.categoria',
+        'app.material',
+        'app.productos_material'
+    );
 
-/**
- * testIndex method
- *
- * @return void
- */
-	public function testIndex() {
-	}
+    /**
+     * testIndex method
+     *
+     * @return void
+     */
+    public function testIndex() {
+        
+    }
 
-/**
- * testView method
- *
- * @return void
- */
-	public function testView() {
-	}
+    /**
+     * testView method
+     *
+     * @return void
+     */
+    public function testView() {
+        
+    }
 
-/**
- * testAdd method
- *
- * @return void
- */
-	public function testAdd() {
-	}
+    /**
+     * testAdd method
+     *
+     * @return void
+     */
+    public function testAdd() {
+        
+    }
 
-/**
- * testEdit method
- *
- * @return void
- */
-	public function testEdit() {
-	}
+    /**
+     * testEdit method
+     *
+     * @return void
+     */
+    public function testEdit() {
+        
+    }
 
-/**
- * testDelete method
- *
- * @return void
- */
-	public function testDelete() {
-	}
+    /**
+     * testDelete method
+     *
+     * @return void
+     */
+    public function testDelete() {
+        
+    }
 
-/**
- * testAdministracionIndex method
- *
- * @return void
- */
-	public function testAdministracionIndex() {
-	}
+    /**
+     * testAdministracionIndex method
+     *
+     * @return void
+     */
+    public function testAdministracionIndex() {
+        
+    }
 
-/**
- * testAdministracionView method
- *
- * @return void
- */
-	public function testAdministracionView() {
-	}
+    /**
+     * testAdministracionView method
+     *
+     * @return void
+     */
+    public function testAdministracionView() {
+        
+    }
 
-/**
- * testAdministracionAdd method
- *
- * @return void
- */
-	public function testAdministracionAdd() {
-	}
+    /**
+     * testAdministracionAdd method
+     *
+     * @return void
+     */
+    public function testAdministracionAdd() {
+        
+    }
 
-/**
- * testAdministracionEdit method
- *
- * @return void
- */
-	public function testAdministracionEdit() {
-	}
+    /**
+     * testAdministracionEdit method
+     *
+     * @return void
+     */
+    public function testAdministracionEdit() {
+        
+    }
 
-/**
- * testAdministracionDelete method
- *
- * @return void
- */
-	public function testAdministracionDelete() {
-	}
+    /**
+     * testAdministracionDelete method
+     *
+     * @return void
+     */
+    public function testAdministracionDelete() {
+        
+    }
 
 }

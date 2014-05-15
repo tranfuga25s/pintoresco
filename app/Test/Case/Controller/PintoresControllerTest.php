@@ -13,7 +13,7 @@ class PintoresControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.pintore'
+		'app.pintor'
 	);
 
 }

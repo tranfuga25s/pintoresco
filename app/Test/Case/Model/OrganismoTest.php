@@ -1,4 +1,5 @@
 <?php
+
 App::uses('Organismo', 'Model');
 
 /**
@@ -7,35 +8,36 @@ App::uses('Organismo', 'Model');
  */
 class OrganismoTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.organismo',
-		'app.convenio'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.organismo',
+        'app.convenio'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Organismo = ClassRegistry::init('Organismo');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Organismo = ClassRegistry::init('Organismo');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Organismo);
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Organismo);
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
 
+    public function testA() { $this->assertEqual( true, true ); }    
 }

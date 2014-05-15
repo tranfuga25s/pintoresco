@@ -1,4 +1,5 @@
 <?php
+
 App::uses('Grupo', 'Model');
 
 /**
@@ -7,35 +8,37 @@ App::uses('Grupo', 'Model');
  */
 class GrupoTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.grupo',
-		'app.usuario'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.grupo',
+        'app.usuario'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Grupo = ClassRegistry::init('Grupo');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Grupo = ClassRegistry::init('Grupo');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Grupo);
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Grupo);
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
 
+    public function testA() { $this->assertEqual( true, true ); }    
+    
 }

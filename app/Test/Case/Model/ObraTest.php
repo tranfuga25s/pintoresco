@@ -1,4 +1,5 @@
 <?php
+
 App::uses('Obra', 'Model');
 
 /**
@@ -7,37 +8,38 @@ App::uses('Obra', 'Model');
  */
 class ObraTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.obra',
-		'app.pintor',
-		'app.usuario',
-		'app.grupo'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.obra',
+        'app.pintor',
+        'app.usuario',
+        'app.grupo'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Obra = ClassRegistry::init('Obra');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Obra = ClassRegistry::init('Obra');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Obra);
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Obra);
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
 
+    public function testA() { $this->assertEqual( true, true ); }    
 }

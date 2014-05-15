@@ -1,4 +1,5 @@
 <?php
+
 App::uses('Material', 'Model');
 
 /**
@@ -7,34 +8,36 @@ App::uses('Material', 'Model');
  */
 class MaterialTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.material'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.material'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Material = ClassRegistry::init('Material');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Material = ClassRegistry::init('Material');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Material);
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Material);
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
+    
+    public function testA() { $this->assertEqual( true, true ); }    
 
 }

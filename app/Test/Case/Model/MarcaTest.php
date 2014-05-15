@@ -24,7 +24,7 @@ class MarcaTest extends CakeTestCase {
      */
     public function setUp() {
         parent::setUp();
-        $this->Marca = ClassRegistry::init('Marca');
+        //$this->Marca = ClassRegistry::init('Marca');
     }
 
     /**
@@ -33,7 +33,7 @@ class MarcaTest extends CakeTestCase {
      * @return void
      */
     public function tearDown() {
-        unset($this->Marca);
+        //unset($this->Marca);
 
         parent::tearDown();
     }

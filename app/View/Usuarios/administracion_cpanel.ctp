@@ -82,7 +82,7 @@
 				<h2>Promociones</h2>
 				<ul class="dash">
 				    <li><?php echo $this->Html->link(
-				                $this->Html->image( 'assets/promocion-icono.jpg' )
+				                $this->Html->image( 'assets/icons/20_48x48.png' )
 				                .'<span>Promociones</span>',
 				                array( 'controller' => 'promociones', 'action' => 'index', 'plugin' => false ),
 				                array( 'escape' => false, 'class' => 'tooltip', 'title' => 'Listado de promociones' ) ); ?></li>

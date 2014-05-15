@@ -1,5 +1,4 @@
 <?php
-
 App::uses('Idea', 'Model');
 
 /**
@@ -24,7 +23,7 @@ class IdeaTest extends CakeTestCase {
      */
     public function setUp() {
         parent::setUp();
-        $this->Idea = ClassRegistry::init('Idea');
+        //$this->Idea = ClassRegistry::init('Idea');
     }
 
     /**
@@ -33,7 +32,7 @@ class IdeaTest extends CakeTestCase {
      * @return void
      */
     public function tearDown() {
-        unset($this->Idea);
+        //unset($this->Idea);
 
         parent::tearDown();
     }

@@ -1,4 +1,5 @@
 <?php
+
 App::uses('PintoresController', 'Controller');
 
 /**
@@ -7,13 +8,17 @@ App::uses('PintoresController', 'Controller');
  */
 class PintoresControllerTest extends ControllerTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.pintor'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.pintor'
+    );
+
+    public function testA() {
+        $this->assertEqual(true, true);
+    }
 
 }

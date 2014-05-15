@@ -1,4 +1,5 @@
 <?php
+
 App::uses('GruposController', 'Controller');
 
 /**
@@ -7,14 +8,18 @@ App::uses('GruposController', 'Controller');
  */
 class GruposControllerTest extends ControllerTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.grupo',
-		'app.usuario'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.grupo',
+        'app.usuario'
+    );
+
+    public function testA() {
+        $this->assertEqual(true, true);
+    }
 
 }

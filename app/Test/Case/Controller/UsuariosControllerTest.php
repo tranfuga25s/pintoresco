@@ -1,4 +1,5 @@
 <?php
+
 App::uses('UsuariosController', 'Controller');
 
 /**
@@ -7,13 +8,17 @@ App::uses('UsuariosController', 'Controller');
  */
 class UsuariosControllerTest extends ControllerTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.usuario'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.usuario'
+    );
+
+    public function testA() {
+        $this->assertEqual(true, true);
+    }
 
 }

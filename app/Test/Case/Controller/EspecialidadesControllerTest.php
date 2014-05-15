@@ -1,4 +1,5 @@
 <?php
+
 App::uses('EspecialidadesController', 'Controller');
 
 /**
@@ -7,13 +8,14 @@ App::uses('EspecialidadesController', 'Controller');
  */
 class EspecialidadesControllerTest extends ControllerTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.especialidad'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.especialidad'
+    );
 
+    public function testA() { $this->assertEqual( true, true ); }
 }

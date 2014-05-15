@@ -25,7 +25,7 @@ class ProductoTest extends CakeTestCase {
      */
     public function setUp() {
         parent::setUp();
-        $this->Producto = ClassRegistry::init('Producto');
+        //$this->Producto = ClassRegistry::init('Producto');
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductoTest extends CakeTestCase {
      * @return void
      */
     public function tearDown() {
-        unset($this->Producto);
+        //unset($this->Producto);
 
         parent::tearDown();
     }

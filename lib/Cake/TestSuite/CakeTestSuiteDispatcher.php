@@ -143,6 +143,7 @@ class CakeTestSuiteDispatcher {
 				break;
 			}
 		}
+                ini_set('include_path', 'vendor/phpunit/phpunit' . PATH_SEPARATOR . ini_get('include_path'));
 		include 'PHPUnit' . DS . 'Autoload.php';
 		return class_exists('PHPUnit_Framework_TestCase');
 	}

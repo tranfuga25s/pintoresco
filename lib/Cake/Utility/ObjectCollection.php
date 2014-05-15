@@ -1,14 +1,15 @@
 <?php
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
@@ -17,8 +18,8 @@
  * to implement its own load() functionality.
  *
  * All core subclasses of ObjectCollection by convention loaded objects are stored
- * in `$this->_loaded`. Enabled objects are stored in `$this->_enabled`. In addition
- * the all support an `enabled` option that controls the enabled/disabled state of the object
+ * in `$this->_loaded`. Enabled objects are stored in `$this->_enabled`. In addition,
+ * they all support an `enabled` option that controls the enabled/disabled state of the object
  * when loaded.
  *
  * @package       Cake.Utility
@@ -43,7 +44,7 @@ abstract class ObjectCollection {
 /**
  * Default object priority. A non zero integer.
  *
- * @var int
+ * @var integer
  */
 	public $defaultPriority = 10;
 
@@ -112,14 +113,11 @@ abstract class ObjectCollection {
 			$parts = explode('.', $event->name());
 			$callback = array_pop($parts);
 		}
-		$options = array_merge(
-			array(
-				'break' => false,
-				'breakOn' => false,
-				'collectReturn' => false,
-				'modParams' => false
-			),
-			$options
+		$options += array(
+			'break' => false,
+			'breakOn' => false,
+			'collectReturn' => false,
+			'modParams' => false
 		);
 		$collected = array();
 		$list = array_keys($this->_enabled);
@@ -224,7 +222,7 @@ abstract class ObjectCollection {
 		}
 		foreach ($name as $object => $objectPriority) {
 			if (isset($this->_loaded[$object])) {
-				if (is_null($objectPriority)) {
+				if ($objectPriority === null) {
 					$objectPriority = $this->defaultPriority;
 				}
 				$this->_loaded[$object]->settings['priority'] = $objectPriority;
@@ -271,7 +269,7 @@ abstract class ObjectCollection {
  *   returns an array of currently-attached objects
  * @return mixed If $name is specified, returns the boolean status of the corresponding object.
  *    Otherwise, returns an array of all attached objects.
- * @deprecated Use loaded instead.
+ * @deprecated Will be removed in 3.0. Use loaded instead.
  */
 	public function attached($name = null) {
 		return $this->loaded($name);

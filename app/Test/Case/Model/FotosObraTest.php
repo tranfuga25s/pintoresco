@@ -30,7 +30,7 @@ class FotosObraTest extends CakeTestCase {
      */
     public function setUp() {
         parent::setUp();
-        $this->FotosObra = ClassRegistry::init('FotosObra');
+        //$this->FotosObra = ClassRegistry::init('FotosObra');
     }
 
     /**
@@ -39,7 +39,7 @@ class FotosObraTest extends CakeTestCase {
      * @return void
      */
     public function tearDown() {
-        unset($this->FotosObra);
+        //unset($this->FotosObra);
 
         parent::tearDown();
     }

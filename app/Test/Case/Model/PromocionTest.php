@@ -24,7 +24,7 @@ class PromocionTest extends CakeTestCase {
      */
     public function setUp() {
         parent::setUp();
-        $this->Promocion = ClassRegistry::init('Promocion');
+        //$this->Promocion = ClassRegistry::init('Promocion');
     }
 
     /**
@@ -33,7 +33,7 @@ class PromocionTest extends CakeTestCase {
      * @return void
      */
     public function tearDown() {
-        unset($this->Promocion);
+        //unset($this->Promocion);
 
         parent::tearDown();
     }

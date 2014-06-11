@@ -2,7 +2,7 @@
 
 DROP TABLE IF EXISTS `pintureria`.`usuarios`;
 DROP TABLE IF EXISTS `pintureria`.`grupos`;
-DROP TABLE IF EXISTS `pintureria`.`convenio`;
+DROP TABLE IF EXISTS `pintureria`.`convenios`;
 
 
 CREATE TABLE `pintureria`.`usuarios` (
@@ -24,7 +24,7 @@ CREATE TABLE `pintureria`.`grupos` (
         PRIMARY KEY  (`id_grupo`)
 ) DEFAULT CHARSET=utf8, COLLATE=utf8_spanish2_ci, ENGINE=InnoDB;
 
-CREATE TABLE `pintureria`.`convenio` (
+CREATE TABLE `pintureria`.`convenios` (
 	`id_convenio` int(11) NOT NULL AUTO_INCREMENT,
 	`fecha_inicio` datetime NOT NULL,
         `fecha_fin` datetime NOT NULL,

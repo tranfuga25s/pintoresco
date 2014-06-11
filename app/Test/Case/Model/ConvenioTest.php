@@ -34,7 +34,6 @@ class ConvenioTest extends CakeTestCase {
      */
     public function tearDown() {
         unset($this->Convenio);
-
         parent::tearDown();
     }
 

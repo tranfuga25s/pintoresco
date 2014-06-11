@@ -57,8 +57,8 @@ class Organismo extends AppModel {
         )
     );
 
-    public function beforeDelete($cascade = true) {
-        $count = $this->Convenio->find('count', array('conditions' => array('organismo_id' => $this->id)));
+    public function beforeDelete( $cascade = true ) {
+        $count = $this->Convenio->find( 'count', array('conditions' => array( 'organismo_id' => $this->id ) ) );
         if ($count > 0) {
             return false;
         }

@@ -10,13 +10,6 @@ App::uses('AppModel', 'Model');
 class Convenio extends AppModel {
 
     /**
-     * Use table
-     *
-     * @var mixed False or table name
-     */
-    public $useTable = 'convenio';
-
-    /**
      * Primary key field
      *
      * @var string

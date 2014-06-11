@@ -41,5 +41,6 @@ class OrganismoTest extends CakeTestCase {
 
     public function testDelete() { 
         $this->assertEqual( $this->Organismo->delete( 1 ), false );
+        $this->assertEqual( $this->Organismo->delete( 2 ), true  );
     }    
 }

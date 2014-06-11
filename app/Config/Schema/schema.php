@@ -32,4 +32,18 @@ class AppSchema extends CakeSchema {
 		),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_spanish2_ci', 'engine' => 'InnoDB')
 	);
+        
+        public $convenios = array(
+            'id_convenio' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
+            'fecha_inicio' => array('type' => 'datetime', 'null' => false, 'default' => null),
+            'fecha_fin' => array('type' => 'datetime', 'null' => false, 'default' => null),
+            'documentacion' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'charset' => 'utf8'),
+            'forma_pago' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'charset' => 'utf8'),
+            'descuento' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'charset' => 'utf8'),
+            'organismo_id' => array('type'=>'biginteger', 'null' => false, 'default' => null ),
+            'indexes' => array(
+                'PRIMARY' => array('column' => 'id_convenio', 'unique' => 1)
+            ),
+            'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_spanish2_ci', 'engine' => 'InnoDB')
+        );
 }

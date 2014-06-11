@@ -39,5 +39,7 @@ class OrganismoTest extends CakeTestCase {
         parent::tearDown();
     }
 
-    public function testA() { $this->assertEqual( true, true ); }    
+    public function testDelete() { 
+        $this->assertEqual( $this->Organismo->delete( 1 ), false );
+    }    
 }

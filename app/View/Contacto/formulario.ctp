@@ -54,11 +54,13 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 			</td>
 			<td rowspan="1" align="left" valign="top" style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#646464;  line-height:30px; padding-top:80px;">
 			    <span class="titulos">Sucursales</span><br />
-                Salta 2974 - Tel.: (0341) 436 1389<br />
-                Buenos Aires esq. San Luis - Tel.: (0341) 4265068 / 426 6573<br />
-                Catamarca esq. Santiago - Tel.: (0341) 156 753164<br />
-                Eva Perón 5906 (Córdoba Y Solís)
-            </td>
+                            Bsas: San Luis 698  - Teléfono: 4265068 /4266573 <br />
+                            Salta: Salta 2974  - Teléfono: 43613 <br />
+                            Catamarca: Catamarca 2406  - Teléfono: 4361501  <br />
+                            Cordoba: Av.Eva Perón 5906  - Teléfono: 4567935 <br />
+                            Sarmiento: Sarmiento 2303  - Teléfono: 4448992 <br />
+                            Villa Constitución: 14 de Febrero 799 - Teléfono: 03400-471101 / 471331 <br />
+                        </td>
 		</tr>
 		<tr>
 			<td colspan="3" style="padding-left:330px;">

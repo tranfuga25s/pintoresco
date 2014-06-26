@@ -8,6 +8,8 @@ App::uses('AppModel', 'Model');
  * @property Organismo $Organismo
  */
 class Convenio extends AppModel {
+    
+    public $useTable = 'convenio';
 
     /**
      * Primary key field

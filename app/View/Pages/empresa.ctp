@@ -1,10 +1,10 @@
 <table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="txt_ideas" width="955"><!--DWLayoutTable-->
 	<tbody>
 		<tr>
-			<td bgcolor="#FFFFFF" rowspan="5" valign="top" width="15"><img height="5" src="img/nada.png" width="15" /></td>
+			<td bgcolor="#FFFFFF" rowspan="5" valign="top" width="15"><img height="5" src="/prueba/img/nada.png" width="15" /></td>
 			<td bgcolor="#FFFFFF" height="42" valign="top" width="923"><br />
 			<span class="tit_ideas">Quienes Somos</span></td>
-			<td bgcolor="#FFFFFF" rowspan="5" valign="top" width="17"><img height="5" src="img/nada.png" width="17" /></td>
+			<td bgcolor="#FFFFFF" rowspan="5" valign="top" width="17"><img height="5" src="/prueba/img/nada.png" width="17" /></td>
 		</tr>
 		<tr>
 			<td bgcolor="#FFFFFF" height="113" valign="top"><strong>SIPP</strong> resulta ser mucho m&aacute;s que un nombre de fantas&iacute;a. No solo son cuatro letras aisladas. <strong>SIPP</strong> son las siglas de un proyecto, de una visi&oacute;n.<br />
@@ -13,7 +13,7 @@
 			&nbsp;</td>
 		</tr>
 		<tr>
-			<td height="192" valign="top"><img height="192" src="http://trafu.no-ip.org/pintoresco/img/imagen_empresa.jpg" width="923" /></td>
+			<td height="192" valign="top"><img height="192" src="/prueba/img/imagen_empresa.jpg" width="923" /></td>
 		</tr>
 		<tr>
 			<td height="159" valign="top"><br />
@@ -27,7 +27,7 @@
 			&nbsp;</td>
 		</tr>
 		<tr>
-			<td height="16" valign="top"><img height="75" src="http://trafu.no-ip.org/pintoresco/img/empresa_marcas.jpg" width="923" /><br />
+			<td height="16" valign="top"><img height="75" src="/prueba/img/empresa_marcas.jpg" width="923" /><br />
 			<br />
 			&nbsp;</td>
 		</tr>

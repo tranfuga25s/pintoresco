@@ -72,8 +72,8 @@ class AppController extends Controller {
 	}
 
 	protected function currentUser() {
-       $user = $this->Auth->user();
-	   $user['id'] = $user['id_usuario']; // Transformación para que la auditoría funcione
-       return $user; # Return the complete user array
-    }
+            $user = $this->Auth->user();
+	    $user['id'] = $user['id_usuario']; // Transformación para que la auditoría funcione
+            return $user; # Return the complete user array
+        }
 }

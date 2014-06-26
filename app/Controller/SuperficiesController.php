@@ -94,7 +94,7 @@ class SuperficiesController extends AppController {
             'conditions' => array(
                 'Superficie.' . $this->Superficie->primaryKey => $id
             ),
-            'recursive' => 1);
+            'recursive' => 1 );
         $this->set('superficie', $this->Superficie->find('first', $options));
     }
 

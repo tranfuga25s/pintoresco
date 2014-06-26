@@ -177,7 +177,7 @@ class ConsoleInputOption {
 /**
  * Check that a value is a valid choice for this option.
  *
- * @param string $value The choice to validate.
+ * @param string $value
  * @return boolean
  * @throws ConsoleException
  */

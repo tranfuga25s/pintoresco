@@ -254,7 +254,7 @@ class Shell extends Object {
 /**
  * Lazy loads models using the loadModel() method if declared in $uses
  *
- * @param string $name The name of the model to look for.
+ * @param string $name
  * @return void
  */
 	public function __isset($name) {
@@ -446,7 +446,7 @@ class Shell extends Object {
 /**
  * Display the help in the correct format
  *
- * @param string $command The command to get help for.
+ * @param string $command
  * @return void
  */
 	protected function _displayHelp($command) {
@@ -477,7 +477,7 @@ class Shell extends Object {
 /**
  * Overload get for lazy building of tasks
  *
- * @param string $name The property name to access.
+ * @param string $name
  * @return Shell Object of Task
  */
 	public function __get($name) {
@@ -819,7 +819,7 @@ class Shell extends Object {
 /**
  * creates the singular name for use in views.
  *
- * @param string $name The plural underscored value.
+ * @param string $name
  * @return string $name
  */
 	protected function _singularName($name) {

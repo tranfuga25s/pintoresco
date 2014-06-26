@@ -202,7 +202,7 @@ class File {
  * all other platforms will use "\n"
  *
  * @param string $data Data to prepare for writing.
- * @param boolean $forceWindows If true forces usage Windows newline string.
+ * @param boolean $forceWindows
  * @return string The with converted line endings.
  * @link http://book.cakephp.org/2.0/en/core-utility-libraries/file-folder.html#File::prepare
  */

@@ -102,7 +102,7 @@ class TestTask extends BakeTask {
 /**
  * Handles interactive baking
  *
- * @param string $type The type of object to bake a test for.
+ * @param string $type
  * @return string|boolean
  */
 	protected function _interactive($type = null) {

@@ -1063,7 +1063,7 @@ class Model extends Object implements CakeEventListener {
  * Build an array-based association from string.
  *
  * @param string $type 'belongsTo', 'hasOne', 'hasMany', 'hasAndBelongsToMany'
- * @param string $assocKey Association key.
+ * @param string $assocKey
  * @return void
  */
 	protected function _generateAssociation($type, $assocKey) {
@@ -1214,7 +1214,7 @@ class Model extends Object implements CakeEventListener {
 /**
  * Move values to alias
  *
- * @param array $data Data.
+ * @param array $data
  * @return array
  */
 	protected function _setAliasData($data) {
@@ -1892,7 +1892,7 @@ class Model extends Object implements CakeEventListener {
  *
  * @param array $joined Data to save
  * @param integer|string $id ID of record in this model
- * @param DataSource $db Datasource instance.
+ * @param DataSource $db
  * @return void
  */
 	protected function _saveMulti($joined, $id, $db) {
@@ -2285,7 +2285,7 @@ class Model extends Object implements CakeEventListener {
  * If you do not want this to happen, make a copy of `$data` before passing it
  * to this method
  *
- * @param array &$data Record data to validate. This should be a numerically-indexed array
+ * @param array $data Record data to validate. This should be a numerically-indexed array
  * @param array $options Options to use when validating record data (see above), See also $options of validates().
  * @return boolean|array If atomic: True on success, or false on failure.
  *    Otherwise: array similar to the $data array passed, but values are set to true/false
@@ -2485,7 +2485,7 @@ class Model extends Object implements CakeEventListener {
  * Helper method for saveAll() and friends, to add foreign key to fieldlist
  *
  * @param string $key fieldname to be added to list
- * @param array $options Options list
+ * @param array $options
  * @return array $options
  */
 	protected function _addToWhiteList($key, $options) {
@@ -2520,7 +2520,7 @@ class Model extends Object implements CakeEventListener {
  * If you do not want this to happen, make a copy of `$data` before passing it
  * to this method
  *
- * @param array &$data Record data to validate. This should be an array indexed by association name.
+ * @param array $data Record data to validate. This should be an array indexed by association name.
  * @param array $options Options to use when validating record data (see above), See also $options of validates().
  * @return array|boolean If atomic: True on success, or false on failure.
  *    Otherwise: array similar to the $data array passed, but values are set to true/false
@@ -2744,7 +2744,7 @@ class Model extends Object implements CakeEventListener {
 /**
  * Collects foreign keys from associations.
  *
- * @param string $type Association type.
+ * @param string $type
  * @return array
  */
 	protected function _collectForeignKeys($type = 'belongsTo') {
@@ -2970,8 +2970,8 @@ class Model extends Object implements CakeEventListener {
  * Handles the before/after filter logic for find('all') operations. Only called by Model::find().
  *
  * @param string $state Either "before" or "after"
- * @param array $query Query.
- * @param array $results Results.
+ * @param array $query
+ * @param array $results
  * @return array
  * @see Model::find()
  */
@@ -2987,8 +2987,8 @@ class Model extends Object implements CakeEventListener {
  * Handles the before/after filter logic for find('first') operations. Only called by Model::find().
  *
  * @param string $state Either "before" or "after"
- * @param array $query Query.
- * @param array $results Results.
+ * @param array $query
+ * @param array $results
  * @return array
  * @see Model::find()
  */
@@ -3009,8 +3009,8 @@ class Model extends Object implements CakeEventListener {
  * Handles the before/after filter logic for find('count') operations. Only called by Model::find().
  *
  * @param string $state Either "before" or "after"
- * @param array $query Query.
- * @param array $results Results.
+ * @param array $query
+ * @param array $results
  * @return integer The number of records found, or false
  * @see Model::find()
  */
@@ -3061,8 +3061,8 @@ class Model extends Object implements CakeEventListener {
  * Handles the before/after filter logic for find('list') operations. Only called by Model::find().
  *
  * @param string $state Either "before" or "after"
- * @param array $query Query.
- * @param array $results Results.
+ * @param array $query
+ * @param array $results
  * @return array Key/value pairs of primary keys/display field values of all records found
  * @see Model::find()
  */
@@ -3122,8 +3122,8 @@ class Model extends Object implements CakeEventListener {
  * rows and return them.
  *
  * @param string $state Either "before" or "after"
- * @param array $query Query.
- * @param array $results Results.
+ * @param array $query
+ * @param array $results
  * @return array
  */
 	protected function _findNeighbors($state, $query, $results = array()) {
@@ -3183,9 +3183,9 @@ class Model extends Object implements CakeEventListener {
  * In the event of ambiguous results returned (multiple top level results, with different parent_ids)
  * top level results with different parent_ids to the first result will be dropped
  *
- * @param string $state Either "before" or "after".
- * @param array $query Query.
- * @param array $results Results.
+ * @param string $state
+ * @param mixed $query
+ * @param array $results
  * @return array Threaded results
  */
 	protected function _findThreaded($state, $query, $results = array()) {
@@ -3295,14 +3295,11 @@ class Model extends Object implements CakeEventListener {
 /**
  * Returns a resultset for a given SQL statement. Custom SQL queries should be performed with this method.
  *
- * The method can options 2nd and 3rd parameters.
- *
- * - 2nd param: Either a boolean to control query caching or an array of parameters
- *    for use with prepared statement placeholders.
- * - 3rd param: If 2nd argument is provided, a boolean flag for enabling/disabled
- *   query caching.
- *
  * @param string $sql SQL statement
+ * @param boolean|array $params Either a boolean to control query caching or an array of parameters
+ *    for use with prepared statement placeholders.
+ * @param boolean $cache If $params is provided, a boolean flag for enabling/disabled
+ *    query caching.
  * @return mixed Resultset array or boolean indicating success / failure depending on the query executed
  * @link http://book.cakephp.org/2.0/en/models/retrieving-your-data.html#model-query
  */
@@ -3726,7 +3723,7 @@ class Model extends Object implements CakeEventListener {
 /**
  * Returns an instance of a model validator for this class
  *
- * @param ModelValidator $instance Model validator instance.
+ * @param ModelValidator Model validator instance.
  *  If null a new ModelValidator instance will be made using current model object
  * @return ModelValidator
  */

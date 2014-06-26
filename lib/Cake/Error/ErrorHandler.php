@@ -102,7 +102,7 @@ class ErrorHandler {
  * This will either use custom exception renderer class if configured,
  * or use the default ExceptionRenderer.
  *
- * @param Exception $exception The exception to render.
+ * @param Exception $exception
  * @return void
  * @see http://php.net/manual/en/function.set-exception-handler.php
  */
@@ -132,7 +132,6 @@ class ErrorHandler {
 
 /**
  * Generates a formatted error message
- *
  * @param Exception $exception Exception instance
  * @return string Formatted message
  */
@@ -160,8 +159,8 @@ class ErrorHandler {
 /**
  * Handles exception logging
  *
- * @param Exception $exception The exception to render.
- * @param array $config An array of configuration for logging.
+ * @param Exception $exception
+ * @param array $config
  * @return boolean
  */
 	protected static function _log(Exception $exception, $config) {

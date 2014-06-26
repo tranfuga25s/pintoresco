@@ -185,7 +185,7 @@ class CookieComponent extends Component {
 /**
  * Start CookieComponent for use in the controller
  *
- * @param Controller $controller Controller instance.
+ * @param Controller $controller
  * @return void
  */
 	public function startup(Controller $controller) {
@@ -293,7 +293,7 @@ class CookieComponent extends Component {
 /**
  * Returns true if given variable is set in cookie.
  *
- * @param string $key Variable name to check for
+ * @param string $var Variable name to check for
  * @return boolean True if variable is there
  */
 	public function check($key = null) {

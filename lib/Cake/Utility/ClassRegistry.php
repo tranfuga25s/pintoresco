@@ -86,7 +86,6 @@ class ClassRegistry {
  *		array('class' => 'ClassName', 'alias' => 'AliasNameStoredInTheRegistry')
  * );
  * }}}
- *
  * @param string|array $class as a string or a single key => value array instance will be created,
  *  stored in the registry and returned.
  * @param boolean $strict if set to true it will return false if the class was not found instead
@@ -304,8 +303,8 @@ class ClassRegistry {
 /**
  * Checks to see if $alias is a duplicate $class Object
  *
- * @param string $alias Alias to check.
- * @param string $class Class name.
+ * @param string $alias
+ * @param string $class
  * @return boolean
  */
 	protected function &_duplicate($alias, $class) {

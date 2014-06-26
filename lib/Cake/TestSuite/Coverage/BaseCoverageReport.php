@@ -134,8 +134,8 @@ abstract class BaseCoverageReport {
  * 3.5 uses -1 for uncovered, and -2 for dead.
  * 3.6 uses array() for uncovered and null for dead.
  *
- * @param array $fileLines The lines in the file.
- * @param array $coverageData The raw coverage data.
+ * @param array $fileLines
+ * @param array $coverageData
  * @return array Array of covered, total lines.
  */
 	protected function _calculateCoveredLines($fileLines, $coverageData) {

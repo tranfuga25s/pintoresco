@@ -277,12 +277,7 @@ class Security {
 			$salt = vsprintf('$2a$%02d$%s', array(self::$hashCost, $salt));
 		}
 
-		$invalidCipher = (
-			strpos($salt, '$2y$') !== 0 &&
-			strpos($salt, '$2x$') !== 0 &&
-			strpos($salt, '$2a$') !== 0
-		);
-		if ($salt === true || $invalidCipher || strlen($salt) < 29) {
+		if ($salt === true || strpos($salt, '$2a$') !== 0 || strlen($salt) < 29) {
 			trigger_error(__d(
 				'cake_dev',
 				'Invalid salt: %s for %s Please visit http://www.php.net/crypt and read the appropriate section for building %s salts.',
@@ -329,7 +324,7 @@ class Security {
 /**
  * Check the encryption key for proper length.
  *
- * @param string $key Key to check.
+ * @param string $key
  * @param string $method The method the key is being checked for.
  * @return void
  * @throws CakeException When key length is not 256 bit/32 bytes

@@ -158,7 +158,7 @@ class Postgres extends DboSource {
 /**
  * Returns an array of tables in the database. If there are no tables, an error is raised and the application exits.
  *
- * @param mixed $data The sources to list.
+ * @param mixed $data
  * @return array Array of table names in the database
  */
 	public function listSources($data = null) {
@@ -361,7 +361,7 @@ class Postgres extends DboSource {
 /**
  * Prepares field names to be quoted by parent
  *
- * @param string $data The name to format.
+ * @param string $data
  * @return string SQL field
  */
 	public function name($data) {
@@ -374,10 +374,10 @@ class Postgres extends DboSource {
 /**
  * Generates the fields list of an SQL query.
  *
- * @param Model $model The model to get fields for.
- * @param string $alias Alias table name.
- * @param mixed $fields The list of fields to get.
- * @param boolean $quote Whether or not to quote identifiers.
+ * @param Model $model
+ * @param string $alias Alias table name
+ * @param mixed $fields
+ * @param boolean $quote
  * @return array
  */
 	public function fields(Model $model, $alias = null, $fields = array(), $quote = true) {
@@ -731,7 +731,7 @@ class Postgres extends DboSource {
 /**
  * resultSet method
  *
- * @param array &$results The results
+ * @param array $results
  * @return void
  */
 	public function resultSet(&$results) {
@@ -886,8 +886,8 @@ class Postgres extends DboSource {
 /**
  * Format indexes for create table
  *
- * @param array $indexes The index to build
- * @param string $table The table name.
+ * @param array $indexes
+ * @param string $table
  * @return string
  */
 	public function buildIndex($indexes, $table = null) {
@@ -918,8 +918,8 @@ class Postgres extends DboSource {
 /**
  * Overrides DboSource::renderStatement to handle schema generation with Postgres-style indexes
  *
- * @param string $type The query type.
- * @param array $data The array of data to render.
+ * @param string $type
+ * @param array $data
  * @return string
  */
 	public function renderStatement($type, $data) {

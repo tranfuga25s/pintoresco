@@ -554,7 +554,6 @@ class UpgradeShell extends AppShell {
 /**
  * Replace cakeError with built-in exceptions.
  * NOTE: this ignores calls where you've passed your own secondary parameters to cakeError().
- *
  * @return void
  */
 	public function exceptions() {
@@ -662,7 +661,7 @@ class UpgradeShell extends AppShell {
  * Find all php files in the folder (honoring recursive) and determine where CakePHP expects the file to be
  * If the file is not exactly where CakePHP expects it - move it.
  *
- * @param string $path The path to move files in.
+ * @param string $path
  * @param array $options array(recursive, checkFolder)
  * @return void
  */
@@ -764,7 +763,7 @@ class UpgradeShell extends AppShell {
 /**
  * Searches the paths and finds files based on extension.
  *
- * @param string $extensions The extensions to include. Defaults to none.
+ * @param string $extensions
  * @return void
  */
 	protected function _findFiles($extensions = '') {
@@ -840,9 +839,8 @@ class UpgradeShell extends AppShell {
 		);
 
 		$parser->description(
-			__d('cake_console', "A tool to help automate upgrading an application or plugin " .
-			"from CakePHP 1.3 to 2.0. Be sure to have a backup of your application before " .
-			"running these commands."
+			__d('cake_console', "A shell to help automate upgrading from CakePHP 1.3 to 2.0. \n" .
+			"Be sure to have a backup of your application before running these commands."
 		))->addSubcommand('all', array(
 			'help' => __d('cake_console', 'Run all upgrade commands.'),
 			'parser' => $subcommandParser

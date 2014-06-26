@@ -1140,7 +1140,6 @@ class DboSource extends DataSource {
 						$stack['_joined'] = $joined;
 
 						$db->queryAssociation($Model, $LinkModel, $type, $assoc, $assocData, $array, true, $resultSet, $Model->recursive - 1, $stack);
-						unset($db);
 
 						if ($type === 'hasMany' || $type === 'hasAndBelongsToMany') {
 							$filtered[] = $assoc;

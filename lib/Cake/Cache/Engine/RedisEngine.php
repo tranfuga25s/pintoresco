@@ -175,8 +175,7 @@ class RedisEngine extends CacheEngine {
 /**
  * Delete all keys from the cache
  *
- * @param boolean $check Whether or not expiration keys should be checked. If
- *   true, no keys will be removed as cache will rely on redis TTL's.
+ * @param boolean $check
  * @return boolean True if the cache was successfully cleared, false otherwise
  */
 	public function clear($check) {
@@ -213,7 +212,6 @@ class RedisEngine extends CacheEngine {
  * Increments the group value to simulate deletion of all keys under a group
  * old values will remain in storage until they expire.
  *
- * @param string $group The group name to clear.
  * @return boolean success
  */
 	public function clearGroup($group) {

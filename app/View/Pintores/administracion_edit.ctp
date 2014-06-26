@@ -28,11 +28,10 @@
 		?>
 		<fieldset>
 			<legend>Especialidades del pintor</legend>
-			<?php echo $this->Form->input( 'Especialidades.Especialidad', array(  'label' => false, 
-																				  'type' => 'select', 
-																				  'multiple' => 'checkbox', 
-																				  'options' => $especialidades,
-																				  'selected' => $this->Form->value('Especialidades.Especialidad') )  ); ?>
+			<?php echo $this->Form->input( 'Especialidad', array('label' => false,  
+                                                                                            'multiple' => 'checkbox', 
+                                                                                            'options' => $especialidades,
+                                                                                            'selected' => $this->Form->value('Especialidades.Especialidad') )  ); ?>
 		</fieldset>
 		<?php
 			echo $this->Form->input( 'Pintor.habilitado', array( 'label' => 'Habilitado' ) );

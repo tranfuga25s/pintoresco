@@ -118,7 +118,7 @@ class UsuariosController extends AppController {
 					$nueva_contra = $this->Usuario->generarNuevaContraseñarray( $this->data['Recuperar']['email'] );
 					if( $nueva_contra != false ) {
 						// Envio el email explicandolo
-                        $de = Configure::read( 'Configuracion.email_contacto' );
+                                                $de = Configure::read( 'Configuracion.email_contacto' );
 						if( is_array( $de ) ) { $de = $de[0]; }
 						$email = new CakeEmail();
 						$email->template( 'recuperaContra', 'usuario' );

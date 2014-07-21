@@ -20,8 +20,7 @@
   	</td>
 <?php
 	$datos = $this->requestAction( array( 'administracion' => false, 'controller' => 'promociones', 'action' => 'home' ) );
-
-	if( count( $datos ) != 0 ) {
+	if( count( $datos ) > 0 ) {
 		foreach( $datos as $promocion ) {
 			// Introduce la imagen predeterminada
 			if( $promocion['Promocion']['imagen'] == null ) {
@@ -41,12 +40,15 @@
 			<?php echo $promocion['Promocion']['descripcion']; ?>
 			<br />
 		</td>
-	<?php } } ?>
+	<?php } ?>
 		<td bgcolor="#201584">
 			<?php echo $this->Html->link( $this->Html->image( "ver_mas_blue.png", array( 'id' => 'ImagenPromo', 'name' => 'imagenPromo' ) ), 
 										  array( 'controller' => 'promociones', 'action' => 'index' ), 
 										  array( 'escape' => false ) ); ?>
 		</td>
+        <?php } else { ?>
+                <td colspan="7" bgcolor="#201584">&nbsp;</td>
+        <?php } ?>
   </tr>
   <tr>
     <td height="5" colspan="10" valign="top" bgcolor="#FFFFFF">

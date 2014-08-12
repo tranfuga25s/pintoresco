@@ -1,10 +1,6 @@
-
-
 DROP TABLE IF EXISTS `pintureria`.`usuarios`;
 DROP TABLE IF EXISTS `pintureria`.`grupos`;
 DROP TABLE IF EXISTS `pintureria`.`convenios`;
-
-
 CREATE TABLE `pintureria`.`usuarios` (
 	`id_usuario` int(20) NOT NULL AUTO_INCREMENT,
 	`email` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
@@ -17,14 +13,13 @@ CREATE TABLE `pintureria`.`usuarios` (
 	`facebook_id` int(20) NOT NULL,	PRIMARY KEY  (`id_usuario`)) 	DEFAULT CHARSET=utf8,
 	COLLATE=utf8_spanish_ci,
 	ENGINE=InnoDB;
-
 CREATE TABLE `pintureria`.`grupos` (
 	`id_grupo` int(11) NOT NULL AUTO_INCREMENT,
 	`nombre` text CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,	
         PRIMARY KEY  (`id_grupo`)
 ) DEFAULT CHARSET=utf8, COLLATE=utf8_spanish2_ci, ENGINE=InnoDB;
 
-CREATE TABLE `pintureria`.`convenios` (
+CREATE TABLE `pintureria`.`convenio` (
 	`id_convenio` int(11) NOT NULL AUTO_INCREMENT,
 	`fecha_inicio` datetime NOT NULL,
         `fecha_fin` datetime NOT NULL,

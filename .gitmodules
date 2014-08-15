@@ -1,9 +1,9 @@
 [submodule "app/Plugin/Facebook"]
 	path = app/Plugin/Facebook
 	url = git://github.com/webtechnick/CakePHP-Facebook-Plugin.git
-[submodule "app/Plugin/Recapcha"]
-	path = app/Plugin/Recapcha
-	url = git://github.com/lamanabie/cakephp-recaptcha.git
 [submodule "app/Plugin/Upload"]
 	path = app/Plugin/Upload
 	url = git://github.com/josegonzalez/upload.git
+[submodule "app/Plugin/Recaptcha"]
+	path = app/Plugin/Recaptcha
+	url = git://github.com/CakeDC/recaptcha.git

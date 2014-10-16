@@ -10,7 +10,8 @@
 		<?php if( !is_null( $producto['imagen'] ) && $producto['imagen'] != '' ) {
 			echo $this->Html->image( 'productos'.DS.$producto['dir'].$producto['imagen'], array( 'width' => 125, 'height' => 133 ) );
 		  } else {
-		  	echo $this->Html->image( Configure::read( 'Configuracion.imagen_producto_predeterminada' ), array( 'width' => 125, 'height' => 133 ) );
+		  	//echo $this->Html->image( Configure::read( 'Configuracion.imagen_producto_predeterminada' ), array( 'width' => 125, 'height' => 133 ) );
+                        echo "&nbsp;";
 		  }
 		?>
   	</td>

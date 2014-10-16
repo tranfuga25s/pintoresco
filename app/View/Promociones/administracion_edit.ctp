@@ -11,7 +11,11 @@
 	echo $this->Form->input('id_promocion');
 	echo $this->Form->input('titulo');
 	echo $this->Form->input('descripcion');
-	echo $this->Form->input('imagen', array( 'type' => 'file' ) );
+        echo $this->Html->image( 'promociones'.DS.$this->request->data['Promocion']['dir'].DS.$this->request->data['Promocion']['imagen'] );
+	echo $this->Form->input('imagen', array( 'type' => 'file', 
+                                                 'after' => 'Imagen actual: '.$this->request->data['Promocion']['imagen'],
+                                                 'before' => 'Cambia imagen:',
+                                                 'label' => false ) );
 	echo $this->Form->input('dir', array( 'type' => 'hidden' ) );
 	echo $this->Form->input('publicado');
 	echo $this->Form->input('valido_desde');

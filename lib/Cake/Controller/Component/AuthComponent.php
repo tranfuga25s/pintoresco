@@ -309,7 +309,9 @@ class AuthComponent extends Component {
 			$this->isAuthorized($this->user())
 		) {
 			return true;
-		}
+		} else {
+                    throw new MethodNotAllowedException('No tiene permisos suficientes para ingrsar en la acción: '.$action.'. Si cree que es un error, comuniquesé con el administrador');
+                }
 
 		return $this->_unauthorized($controller);
 	}

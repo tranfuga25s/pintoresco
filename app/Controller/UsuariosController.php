@@ -9,6 +9,9 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class UsuariosController extends AppController {
 
+    /**
+     * 
+     */
     public function beforeFilter() {
         $this->Auth->allow(array('ingresar',
             'administracion_ingresar',
@@ -21,6 +24,11 @@ class UsuariosController extends AppController {
         parent::beforeFilter();
     }
 
+    /**
+     * 
+     * @param array $usuario
+     * @return boolean
+     */
     public function isAuthorized($usuario = null) {
         switch ($usuario['grupo_id']) {
             case 1: // SuperAdministradores
@@ -34,10 +42,15 @@ class UsuariosController extends AppController {
                     switch ($this->request->params['action']) {
                         case 'index':
                         case 'add':
-                        case 'delete': {
-                                return true;
-                                break;
-                            }
+                        case 'delete': 
+                        case 'administracion_cpanel':
+                        case 'administracion_index':
+                        case 'administracion_edit':
+                        case 'administracion_add':
+                        {
+                            return true;
+                            break;
+                        }
                     }
                     // no pongo break para que acredite las acciones de menos prioridad
                 }
@@ -213,7 +226,6 @@ class UsuariosController extends AppController {
     /* !
      * Funcion llamada cuando un usuario desea dar de baja su cuenta.
      */
-
     public function eliminarUsuario() {
         if ($this->request->isPost()) {
             if (empty($this->data['Usuario']['email'])) {
@@ -237,7 +249,7 @@ class UsuariosController extends AppController {
     }
 
     /**
-     * Meotodo para que el usuario pueda ver sus datos
+     * Metodo para que el usuario pueda ver sus datos
      *
      * @param string $id
      * @return void
@@ -293,25 +305,6 @@ class UsuariosController extends AppController {
             throw new NotFoundException('El usuario no es valido');
         }
         throw new NotFoundException('La eliminación de usuarios todavía no está terminada');
-        /*
-          // Veo si si es un medico
-          $this->loadModel( 'Medico' );
-          if( $this->Medico->find( 'count', array( 'conditions' => array( 'usuario_id' => $id ) ) ) > 0 ) {
-          $this->Session->setFlash( "No se pudo eliminar el usuario solicitado. \n <b>Razon:</b> El usuario tiene un medico asociado" );
-          $this->redirect( array( 'action' => 'index' ) );
-          }
-          // Veo si es una secretaria
-          $this->loadModel( 'Secretaria' );
-          if( $this->Secretaria->find( 'count', array( 'conditions' => array( 'usuario_id' => $id ) ) ) > 0 ) {
-          $this->Session->setFlash( "No se pudo eliminar el usuario solicitado. <br /><b>Razon:</b> El usuario tiene una secretaria asociada" );
-          $this->redirect( array( 'action' => 'index' ) );
-          }
-          // Verifico si tiene alguna relación con Turnos.
-          $this->loadModel( 'Turno' );
-          if( $this->Turno->find( 'count', array( 'conditions' => array( 'paciente_id' => $id ) ) ) > 0 ) {
-          $this->Session->setFlash( "No se pudo eliminar el usuario solicitado. <br /><b>Razon:</b> El usuario tiene turnos asociados todavía." );
-          $this->redirect( array( 'action' => 'index'  ) );
-          } */
         if ($this->Usuario->delete()) {
             $this->borrarCacheUsuarios();
             $this->Session->setFlash('El Usuario ha sido eliminado correctamente', 'default', array('class' => 'sucess'));
@@ -325,9 +318,7 @@ class UsuariosController extends AppController {
      * Metodo para mostrar el panel de control de la administración
      * @return void
      */
-    public function administracion_cpanel() {
-        
-    }
+    public function administracion_cpanel() {}
 
     /**
      * Listado de usuarios de la administración.
@@ -336,6 +327,12 @@ class UsuariosController extends AppController {
      */
     public function administracion_index() {
         $this->Usuario->recursive = 0;
+        if( $this->Auth->user('grupo_id') > 1) {
+            $conditions = array(
+                'Usuario.grupo_id >=' => $this->Auth->user('grupo_id')
+            );
+            $this->Paginator->settings['conditions'] = $conditions;
+        }
         $this->set('usuarios', $this->paginate());
     }
 
@@ -368,7 +365,14 @@ class UsuariosController extends AppController {
                 $this->Session->setFlash('Los datos del usuario no se pudieron guardar. Por favor, intentelo nuevamente.', 'default', null, array('class' => 'error'));
             }
         }
-        $this->set('grupos', $this->Usuario->Grupo->find('list'));
+        if( $this->Auth->user('grupo_id') > 1) {
+            $conditions = array(
+                $this->Usuario->Grupo->name.'.'.$this->Usuario->Grupo->primaryKey.' >=' => $this->Auth->user('grupo_id')
+            );
+            $this->set('grupos', $this->Usuario->Grupo->find('list', array('conditions' => $conditions)));
+        } else {
+            $this->set('grupos', $this->Usuario->Grupo->find('list'));
+        }
     }
 
     /**
@@ -391,6 +395,13 @@ class UsuariosController extends AppController {
             }
         } else {
             $this->request->data = $this->Usuario->read(null, $id);
+        }
+        if( $this->Auth->user('grupo_id') > 1) {
+            $conditions = array(
+                $this->Usuario->Grupo->name.'.'.$this->Usuario->Grupo->primaryKey.' >=' => $this->Auth->user('grupo_id')
+            );
+            $this->set('grupos', $this->Usuario->Grupo->find('list', array('conditions' => $conditions)));
+        } else {
             $this->set('grupos', $this->Usuario->Grupo->find('list'));
         }
     }
@@ -417,6 +428,11 @@ class UsuariosController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
+    /**
+     * 
+     * @param integer $id_usuario
+     * @throws NotFoundException
+     */
     public function administracion_cambiarContra($id_usuario = null) {
         if ($this->request->is('post')) {
             if ($this->data['Usuario']['contra'] != $this->data['Usuario']['recontra']) {

@@ -69,7 +69,7 @@ class PintoresController extends AppController {
      * @author Esteban Zeller
      */
     public function index() {
-        $this->set('pintores', $this->paginate( array( 'habilitado' => true ) ) );
+        $this->set('pintores', $this->paginate(array('habilitado' => true)));
     }
 
     /**
@@ -156,7 +156,7 @@ class PintoresController extends AppController {
             throw new NotFoundException('No se encontró el pintor');
         }
         if ($this->request->is('post') || $this->request->is('put')) {
-            if ($this->Pintor->saveAssociated( $this->request->data ) ) {
+            if ($this->Pintor->saveAssociated($this->request->data)) {
                 $this->Session->setFlash('El pintor ha sido guardado correctamente.', 'default', array('class' => 'success'));
                 $this->redirect(array('action' => 'index'));
             } else {

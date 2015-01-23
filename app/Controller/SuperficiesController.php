@@ -13,8 +13,8 @@ class SuperficiesController extends AppController {
      * Modelos relacionados
      * @var array  
      */
-    public $uses = array( 'Superficie' );
-    
+    public $uses = array('Superficie');
+
     /**
      * Authorización de métodos públicos
      */
@@ -94,7 +94,7 @@ class SuperficiesController extends AppController {
             'conditions' => array(
                 'Superficie.' . $this->Superficie->primaryKey => $id
             ),
-            'recursive' => 1 );
+            'recursive' => 1);
         $this->set('superficie', $this->Superficie->find('first', $options));
     }
 

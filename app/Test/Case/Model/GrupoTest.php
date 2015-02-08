@@ -35,10 +35,21 @@ class GrupoTest extends CakeTestCase {
      */
     public function tearDown() {
         unset($this->Grupo);
-
         parent::tearDown();
     }
 
-    public function testA() { $this->assertEqual( true, true ); }    
+    public function testEliminacionGrupo() { 
+        $group = $this->Grupo->Usuario->find('first', array(
+            'fields' => array( 'grupo_id' ),
+        ));
+        $id_grupo = intval(current(current($group)));
+        $this->assertGreaterThan(0, $id_grupo);
+        $this->assertFalse( $this->Grupo->delete($id_grupo));        
+    }    
+    
+    public function testEliminarGrupoAdmin() {
+        $this->Grupo->Usuario->deleteAll( array("1=1"));
+        $this->assertFalse( $this->Grupo->delete(1));
+    }
     
 }
